@@ -11,10 +11,10 @@ k^2c_{\mathrm{in}}c_{\mathrm{out}}+c_{\mathrm{out}}.
   <a href="../../assets/deep-learning/shape-examples.png" target="_blank" rel="noreferrer"><img src="../../assets/deep-learning/shape-examples.png" width="989" height="273" alt="Synthetic examples showing a circle, an upright triangle, a rotated triangle and another circle."></a>
   <figcaption>The generated classification inputs. <a href="../../assets/deep-learning/shape-examples.png" target="_blank" rel="noreferrer">Open full-size examples</a></figcaption>
 </figure>
-<p>This Keras classifier uses convolutional layers with \(16\), \(32\) and \(64\) filters, pooling, a dense hidden layer and one sigmoid output. Adam minimizes binary cross-entropy. Both upright- and rotated-triangle runs reach validation accuracy \(1.0\) on these clean synthetic shapes. The repeated high accuracy reflects the clear separation between the two shape classes in this dataset.</p>
+<p>This Keras classifier uses convolutional layers with \(16\), \(32\) and \(64\) filters, pooling, a dense hidden layer and one sigmoid output. Adam minimizes binary cross-entropy. Both upright- and rotated-triangle runs reach validation accuracy \(1.0\) on these clean synthetic shapes.</p>
 <figure>
   <a href="../../assets/deep-learning/rotated-filters.png" target="_blank" rel="noreferrer"><img src="../../assets/deep-learning/rotated-filters.png" width="1189" height="377" alt="Sixteen grayscale first-layer convolution filters from the model trained with rotated triangles."></a>
   <figcaption>First-layer filters after training with rotated triangles. <a href="../../assets/deep-learning/rotated-filters.png" target="_blank" rel="noreferrer">Open full-size filters</a></figcaption>
 </figure>
-<p>The small learned masks show local contrast patterns. Comparing their orientations links the image transformations in the dataset to the features available to later layers.</p>
-<p class="source-links"><a href="../../assets/deep-learning/shape-cnn.py" download>Shape-classifier architecture</a><a href="../../assets/deep-learning/recorded-results.json">Recorded results</a></p>
+<p>The small learned masks show local contrast patterns.</p>
+<p class="source-links"><a href="../../assets/deep-learning/shape-cnn.py" download>Shape-classifier architecture</a><a href="../../assets/deep-learning/recorded-results.json">Model results</a></p>

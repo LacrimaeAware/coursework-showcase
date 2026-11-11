@@ -5,7 +5,7 @@ double total_sell = calcStockCost(num_shares, a_sell);
 double total_gained = total_sell - total_paid;
 double shares_to_buy = sharesStock(total_sell, b_price);</code></pre>
 <p>For \(100\) shares bought at \(10\) dollars and sold at \(12\) dollars, the program reports \(200\) dollars gained. Sale proceeds of \(1200\) dollars buy \(60.0\) shares at \(20\) dollars each. A second input, \(10\) shares bought at \(12\) dollars and sold at \(8\), follows the loss branch and reports \(40\) dollars lost.</p>
-<p>The saved program parses numeric input directly; these examples use valid numbers and a positive second-stock price. Its two methods make the calculation reusable while the loop controls whether to process another input set.</p>
+<p>The program parses numeric input directly; these examples use valid numbers and a positive second-stock price. Its two methods make the calculation reusable while the loop controls whether to process another input set.</p>
 <details class="technical"><summary>Complete Java source</summary><div class="technical-content"><h3>StockCalculation.java</h3><pre><code>/*
  * Programming Assignment 5
  * Calculating Stocks Program
@@ -79,7 +79,7 @@ if (casesSold[i] &gt; highestSold) {
     topSeller = sodaFlavors[i];
 }</code></pre>
 <table><caption>Example sales input</caption><thead><tr><th>Flavor</th><th>Cases</th></tr></thead><tbody><tr><td>Cola</td><td>10</td></tr><tr><td>Lime</td><td>4</td></tr><tr><td>Orange</td><td>7</td></tr><tr><td>Grape</td><td>2</td></tr><tr><td>Cherry</td><td>8</td></tr><tr><td>Root Beer</td><td>1</td></tr></tbody></table>
-<p>These inputs produce \(32\) total cases and Cola as the top seller. The comparison uses <code>&gt;</code>, so a later equal count leaves the first selected flavor in place. With all six counts equal to zero, the saved initialization leaves the top-seller name empty. The zero case exposes how the initial value and comparison rule work together.</p>
+<p>These inputs produce \(32\) total cases and Cola as the top seller. The comparison uses <code>&gt;</code>, so a later equal count leaves the first selected flavor in place. With all six counts equal to zero, the initialization leaves the top-seller name empty.</p>
 <details class="technical"><summary>Complete Java source</summary><div class="technical-content"><h3>SodaSales.java</h3><pre><code>/*
  * Programming Assignment 6
  * Soda Sales Program

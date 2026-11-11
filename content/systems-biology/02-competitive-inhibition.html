@@ -10,7 +10,7 @@
   </figure>
   <div>
     <h3>Product forms more slowly</h3>
-    <p>At \(t=10\), the numerical summary gives \(P\approx7.11\) for \(I_0=0\) and \(P\approx2.94\) for \(I_0=10\). Reaching \(P=5\) takes approximately \(6.65\) and \(19.30\) time units, respectively. Increasing inhibitor delays conversion while the initial enzyme, substrate, and reaction constants stay fixed.</p>
+    <p>At \(t=10\), \(P\approx7.11\) for \(I_0=0\) and \(P\approx2.94\) for \(I_0=10\). Reaching \(P=5\) takes approximately \(6.65\) and \(19.30\) time units, respectively. Increasing inhibitor delays conversion while the initial enzyme, substrate, and reaction constants stay fixed.</p>
     <p>The constants in this example are illustrative: substrate binding, complex separation, product formation, inhibitor binding, and inhibitor release all use rate-constant value \(1\).</p>
   </div>
 </div>
@@ -22,7 +22,7 @@
     <figcaption>Enzyme partition for \(I_0=2\). <a href="../../assets/systems-biology/competitive_inhibitor_enzyme_partition.png" target="_blank" rel="noreferrer">Open full-size figure</a>.</figcaption>
   </figure>
   <div>
-    <p>The partition plot connects the slower product curve to enzyme occupancy. As substrate is consumed, less enzyme remains in \(\mathrm{ES}\); more becomes free or inhibitor-bound. Their sum stays constant:</p>
+    <p>As substrate is consumed, less enzyme remains in \(\mathrm{ES}\); more becomes free or inhibitor-bound. Their sum stays constant:</p>
     \[E+\mathrm{ES}+\mathrm{EI}=E_0=1.\]
     <p>After the bound complexes adjust, their formation and loss can approximately balance. Applying this approximation to both \(\mathrm{ES}\) and \(\mathrm{EI}\) gives the competitive-inhibition rate law. Here \(I\) is free inhibitor concentration and \(K_i=k_{i,\mathrm{off}}/k_{i,\mathrm{on}}\) is the ratio of inhibitor release to binding constants. The rate is</p>
     \[v=\frac{V_{\max}S}{K_m(1+I/K_i)+S}.\]

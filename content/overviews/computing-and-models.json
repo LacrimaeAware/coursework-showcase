@@ -25,7 +25,7 @@
       },
       {
         "title": "Convolution and image features",
-        "description": "Convolutional filters reuse a small set of weights across an image. Shape-classification exercises connect filters, model size and the effect of rotating the input images.",
+        "description": "Convolutional filters reuse a small set of weights across an image. Shape-classification exercises count model parameters and compare upright and rotated triangles.",
         "examples": [
           {
             "slug": "03-convolution",
@@ -35,7 +35,7 @@
       },
       {
         "title": "Image regression",
-        "description": "Clock reading and triangle counting require numerical outputs rather than class labels. The target representation and error measure need to match what the number means, including clock time wrapping around.",
+        "description": "Clock reading and triangle counting predict numerical quantities. The target encoding and error measure account for units and for clock time wrapping around.",
         "examples": [
           {
             "slug": "04-image-regression",
@@ -95,7 +95,7 @@
       },
       {
         "title": "Linear regression",
-        "description": "A fitted line relates a numerical response to a predictor. Slopes, intercepts, fitted values and residuals connect the model equation with the observed data.",
+        "description": "A fitted line relates a numerical response to a predictor. Slopes and intercepts describe the line; fitted values and residuals compare its predictions with observations.",
         "examples": [
           {
             "slug": "03-regression-and-intervals",
@@ -109,7 +109,7 @@
       },
       {
         "title": "Multiple regression and the group final",
-        "description": "Adding predictors changes each coefficient into a comparison adjusted for the others. The happiness final combines descriptive comparisons with linear and logistic models using the General Social Survey.",
+        "description": "Adding predictors changes each coefficient into a comparison adjusted for the others. The GSS group final analyzes reported happiness using linear and logistic models.",
         "examples": [
           {
             "slug": "04-multiple-regression",
@@ -129,7 +129,7 @@
     "topics": [
       {
         "title": "Reaction balances and enzyme kinetics",
-        "description": "Reaction rates determine how species amounts change while conservation relationships connect the variables. Enzyme models lead to the Michaelis–Menten saturation relationship.",
+        "description": "Reaction rates determine how species amounts change. Conservation relationships identify totals that remain fixed, as in the enzyme balance; enzyme models lead to the Michaelis–Menten saturation relationship.",
         "examples": [
           {
             "slug": "01-enzyme-kinetics",
@@ -139,7 +139,7 @@
       },
       {
         "title": "Competitive inhibition",
-        "description": "An inhibitor competes for enzyme binding and changes product formation. Comparing inhibited and uninhibited trajectories connects the reaction mechanism with the observed curve.",
+        "description": "An inhibitor competes for enzyme binding and changes product formation. Simulations compare product accumulation at different initial inhibitor levels.",
         "examples": [
           {
             "slug": "02-competitive-inhibition",
@@ -149,7 +149,7 @@
       },
       {
         "title": "Gene feedback and stable states",
-        "description": "The lac model connects transport and gene expression through feedback. An equilibrium is a state where the modeled rates balance; stability asks how nearby trajectories behave.",
+        "description": "In the lac model, transport increases internal inducer, which promotes production of the transport protein. An equilibrium is a state where the modeled rates balance; stability asks how nearby trajectories behave.",
         "examples": [
           {
             "slug": "03-lac-feedback",
@@ -169,7 +169,7 @@
       },
       {
         "title": "Individual reaction events",
-        "description": "A stochastic model chooses individual reaction events and waiting times rather than evolving only a smooth average. Repeated runs reveal differences that one deterministic trajectory cannot display.",
+        "description": "A stochastic model samples individual reaction events and waiting times. Repeated simulations estimate the distribution of outcomes at a chosen observation time.",
         "examples": [
           {
             "slug": "05-stochastic-reactions",
@@ -179,7 +179,7 @@
       },
       {
         "title": "Variability and observation time",
-        "description": "Product distributions and relative spread summarize repeated simulations. The observation time or chosen time window matters because it determines which product values are being compared.",
+        "description": "Product distributions and relative spread summarize repeated simulations. Changing the observation time or time window changes which product values enter the comparison.",
         "examples": [
           {
             "slug": "06-product-variability",
@@ -196,7 +196,7 @@
     "topics": [
       {
         "title": "Input, arithmetic and decisions",
-        "description": "Programs convert typed input into values, calculate results and choose a branch according to a condition. Clear input and output connect a small program to the task it performs."
+        "description": "Programs convert keyboard input into values, calculate results and choose a branch according to a condition."
       },
       {
         "title": "Loops and functions",
@@ -230,7 +230,7 @@
       },
       {
         "title": "SQLite queries",
-        "description": "A file-based database stores structured records that SQL can sort, filter and summarize. The city exercise uses ordered queries and population aggregates to connect Python with a database."
+        "description": "A file-based database stores structured records that SQL can sort, filter and summarize. The city exercise sorts populations and computes totals, means, minima and maxima through SQL queries."
       }
     ],
     "sourceNote": "Summer 2025 original Python chapter assignments, Chapters 2–14, and course index."

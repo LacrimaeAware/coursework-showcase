@@ -15,7 +15,7 @@
       "courseId": "dealing-with-data",
       "title": "Happiness in the 2024 General Social Survey",
       "context": "Dealing with Data II · Group final project · Spring 2026",
-      "summary": "Use linear and logistic regression to examine how reported happiness relates to health, satisfaction and social circumstances."
+      "summary": "Regression models examine how health, satisfaction and social circumstances relate to reported happiness."
     },
     {
       "section": "projects",
@@ -24,7 +24,7 @@
       "kind": "mini-project",
       "title": "Bitcoin forecasting",
       "context": "Deep Learning · Mini-project · Spring 2026",
-      "summary": "Predict seven-day Bitcoin returns with sequence models and compare them with a zero-return baseline.",
+      "summary": "Seven-day Bitcoin-return forecasts from LSTM, TCN and tree models, compared with a zero-return baseline.",
       "readLabel": "Read mini-project"
     },
     {
@@ -33,7 +33,7 @@
       "courseId": "math-seminar",
       "title": "Koch snowflake: finite area and infinite perimeter",
       "context": "Math Seminar · Spring 2026",
-      "summary": "A seminar presentation connecting repeated geometric construction with series, perimeter, area and fractal dimension."
+      "summary": "A seminar talk deriving perimeter, area and fractal dimension from geometric series."
     },
     {
       "section": "essays",
@@ -51,7 +51,7 @@
       "kind": "speech",
       "title": "A Fool’s Guide to Tightrope Walking",
       "context": "Fundamentals of Speech and Communication · Persuasive speech · Fall 2023",
-      "summary": "A speech about holism and balance, organized around a physical tightrope metaphor and an invitation to consider life’s interdependent parts.",
+      "summary": "Holism, balance and the relationships between physical, mental and social needs.",
       "readLabel": "Read speech"
     }
   ]

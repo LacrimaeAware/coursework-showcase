@@ -71,7 +71,7 @@ if __name__ == '__main__':
 <p><code>ORDER BY</code> sorts the city records. <code>SUM</code>, <code>AVG</code>, <code>MAX</code> and <code>MIN</code> summarize the population column. The highest- and lowest-population queries then use <code>?</code> to bind the chosen value to a second query and retrieve the city name.</p>
 <p>The supplied practice file contains twenty city records. Its menu returns these summaries:</p>
 <table><caption>SQLite population summaries from the supplied practice data</caption><thead><tr><th>Query</th><th>Result</th></tr></thead><tbody><tr><th scope="row">Total population</th><td>371,724,963</td></tr><tr><th scope="row">Rounded average</th><td>18,586,248</td></tr><tr><th scope="row">Highest population</th><td>Tokyo<br>38,001,000</td></tr><tr><th scope="row">Lowest population</th><td>Guangzhou<br>12,458,130</td></tr></tbody></table>
-<p>The displayed average is rounded to a whole number by the format <code>:,.0f</code>. The original query result is <code>18586248.15</code>. The sample run transcript also contains all three sort orders and invalid-menu input handling.</p>
+<p>The displayed average is rounded to a whole number by the format <code>:,.0f</code>. The unrounded query result is <code>18586248.15</code>. The menu also supports three sort orders and rejects invalid choices.</p>
 <details class="technical"><summary>Read the complete Python program: city-queries.py</summary><div class="technical-content"><pre><code class="language-python"># 07/20/2025
 # COP2510 - Programming Concepts
 # Chapter 14 Assignment 1
@@ -178,5 +178,5 @@ if __name__ == '__main__':
     main()</code></pre></div></details>
 <p class="source-links"><a href="../../assets/programming-concepts/city-queries.py" download>Download city-queries.py</a></p>
 <h2>Python files</h2>
-<p>The program bundle keeps the scripts in a <code>programs/</code> folder with <code>cities.db</code> beside that folder. Run a script from <code>programs/</code> with Python 3. The golf program creates <code>golf.txt</code> in the parent folder.</p>
+<p>Run the scripts from the bundle's <code>programs/</code> folder with Python 3. The city queries read <code>cities.db</code> from the parent folder.</p>
 <p class="source-links"><a href="../../assets/programming-concepts/programming-concepts.zip" download>Complete program bundle</a><a href="../../assets/programming-concepts/sample-runs.json">Inputs and run transcripts</a></p>

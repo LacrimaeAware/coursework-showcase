@@ -1,6 +1,6 @@
 <h2>A circular target for clock time</h2>
 <p>Assignment 6 predicts quantities from images. Its first task reads synthetic clock faces. There are \(720\) possible minute labels in a twelve-hour cycle, represented by \(96\times96\) grayscale images.</p>
-<p>Clock time wraps around: \(11{:}59\) and \(12{:}00\) are one minute apart. The model therefore predicts a point on a circle rather than a single position on a line. For minute label \(m\), the two target coordinates are</p>
+<p>Clock time wraps around: \(11{:}59\) and \(12{:}00\) are one minute apart. The model therefore predicts two coordinates on a circle. For minute label \(m\), the two target coordinates are</p>
 \[
 \left(\sin\frac{2\pi m}{720},\;
 \cos\frac{2\pi m}{720}\right).
@@ -10,12 +10,12 @@
   <a href="../../assets/deep-learning/clock-predictions.png" target="_blank" rel="noreferrer"><img src="../../assets/deep-learning/clock-predictions.png" width="1139" height="922" alt="Twelve clock examples comparing black true hands and red predicted hands, with individual circular errors from zero to thirteen minutes."></a>
   <figcaption>Clock predictions across a range of test errors. <a href="../../assets/deep-learning/clock-predictions.png" target="_blank" rel="noreferrer">Open full-size predictions</a></figcaption>
 </figure>
-<p>Evaluation measures the shorter distance around the clock. If \(d\) is the absolute difference between true and predicted minutes, the error is \(\min(d,720-d)\). Across the \(108\) test images, the recorded mean error is \(4.5\) minutes and the median is \(3.7\) minutes. The circular target and circular error express the same underlying geometry.</p>
+<p>Evaluation measures the shorter distance around the clock. If \(d\) is the absolute difference between true and predicted minutes, the error is \(\min(d,720-d)\). Across the \(108\) test images, the mean error is \(4.5\) minutes and the median is \(3.7\) minutes. The circular target and circular error express the same underlying geometry.</p>
 <h2>A scalar target for triangle count</h2>
 <p>The second task predicts how many triangles appear in a synthetic line drawing. It uses \(840\) images with counts from \(0\) to \(20\). A separate three-block CNN predicts a single normalized count, which is converted back to triangle units for evaluation.</p>
 <figure>
   <a href="../../assets/deep-learning/triangle-predictions.png" target="_blank" rel="noreferrer"><img src="../../assets/deep-learning/triangle-predictions.png" width="590" height="590" alt="Predicted triangle count against true count, with points near the diagonal and larger deviations in some high-count images."></a>
   <figcaption>Triangle-count predictions on the test set. <a href="../../assets/deep-learning/triangle-predictions.png" target="_blank" rel="noreferrer">Open full-size comparison</a></figcaption>
 </figure>
-<p>The mean test error is \(0.93\) triangles and the median is \(0.84\). Overlapping outlines make some examples harder to count. The two tasks show why output representation and evaluation units should follow the quantity being predicted.</p>
-<p class="source-links"><a href="../../assets/deep-learning/clock-model-and-metric.py" download>Clock model and circular-error functions</a><a href="../../assets/deep-learning/recorded-results.json">Recorded results</a></p>
+<p>The mean test error is \(0.93\) triangles and the median is \(0.84\). Overlapping outlines make some examples harder to count.</p>
+<p class="source-links"><a href="../../assets/deep-learning/clock-model-and-metric.py" download>Clock model and circular-error functions</a><a href="../../assets/deep-learning/recorded-results.json">Model results</a></p>

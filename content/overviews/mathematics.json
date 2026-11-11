@@ -21,7 +21,7 @@
       },
       {
         "title": "Hypothesis tests",
-        "description": "Tests of means, proportions, and differences between groups compare observed data with a stated population claim. The course connects test statistics and probability values with conclusions in context."
+        "description": "Tests of means, proportions, and differences between groups compare observed data with a stated population claim. Test statistics and probability values support conclusions about that claim."
       },
       {
         "title": "Correlation and regression",
@@ -52,7 +52,7 @@
       },
       {
         "title": "Parametric and polar curves",
-        "description": "Parametric equations describe coordinates through a shared parameter. Polar coordinates use distance and angle, producing a different view of familiar and unfamiliar curves."
+        "description": "Parametric equations describe coordinates through a shared parameter. Polar coordinates use distance and angle."
       },
       {
         "title": "Complex numbers and vectors",
@@ -139,7 +139,7 @@
       },
       {
         "title": "12.4 · Cross products and area",
-        "description": "A cross product produces a vector perpendicular to two given vectors. Its magnitude gives parallelogram area, connecting algebra with spatial geometry."
+        "description": "A cross product produces a vector perpendicular to two given vectors. Its magnitude gives parallelogram area."
       },
       {
         "title": "12.5 · Lines and planes",
@@ -171,7 +171,7 @@
       },
       {
         "title": "14.3 · Partial derivatives and rates",
-        "description": "A partial derivative changes one input while holding the others fixed. Rates, units and implicit differentiation interpret that change in a multivariable relationship.",
+        "description": "A partial derivative measures change in one input while holding the others fixed. Rates, units and implicit differentiation describe change in multivariable relationships.",
         "examples": [
           {
             "slug": "04-partial-derivatives",
@@ -181,7 +181,7 @@
       },
       {
         "title": "14.3 · Higher and mixed partial derivatives",
-        "description": "Repeated differentiation gives second and higher partial derivatives. Mixed partials, Clairaut’s theorem and partial differential equations connect the possible orders of differentiation."
+        "description": "Repeated differentiation gives second and higher partial derivatives. Clairaut’s theorem gives conditions for interchanging mixed derivatives; substitution checks whether a function satisfies a partial differential equation."
       }
     ],
     "sourceNote": "Historical Chapter 12 and 13 review problems and Chapter 14.3 notes. Original syllabus and later module scope are not retained; the empty 14.6 file and generated readiness questions do not establish later historical coverage."
@@ -208,7 +208,7 @@
       },
       {
         "title": "Numbers and representations",
-        "description": "Discrete descriptions of numbers connect notation with arithmetic structure, including how a number's representation encodes its value."
+        "description": "Different number representations encode the same value in different forms."
       }
     ],
     "sourceNote": "Saved historical Canvas syllabus: Rosen, Discrete Mathematics and Its Applications, 2025 release, with Chapters 1, 5, 6 and 7 listed as the main coverage."
@@ -311,7 +311,7 @@
       },
       {
         "title": "Presenting a mathematical argument",
-        "description": "Talk drafts and slides organize the construction, formulas, and limiting argument for an audience. Preparation also addresses indexing choices and questions about the apparent perimeter–area paradox."
+        "description": "The presentation organizes the construction, formulas and limiting argument for an audience. Indexing choices clarify how each stage changes the perimeter and area."
       }
     ],
     "sourceNote": "Saved Koch-snowflake talk drafts, slides and preparation notes; this reflects the preserved presentation rather than a full seminar syllabus."
@@ -373,7 +373,7 @@
       },
       {
         "title": "Bernoulli and binomial models",
-        "description": "Bernoulli variables encode a single success or failure; binomial variables count successes in independent repeated trials. Recognizing those assumptions is part of choosing the model."
+        "description": "Bernoulli variables encode a single success or failure; binomial variables count successes in independent repeated trials."
       }
     ],
     "sourceNote": "Saved Ross, A First Course in Probability, tenth-edition assignments and confirmed cumulative scope through Section 4.6; a separate later reading introduces Poisson variables."

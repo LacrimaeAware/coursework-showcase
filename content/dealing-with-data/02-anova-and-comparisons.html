@@ -8,9 +8,9 @@
 F&=74.6/11.6\approx6.431.
 \end{aligned}
 \]
-<p>The recorded \(p\)-value is \(0.0126\), evidence against equal population means under the model assumptions. It does not establish that every pair differs. In the constructed Homework 4 example, all three sample means equal \(5\); its between-group sum of squares is \(0\), giving \(F=0\) and \(p=1\).</p>
+<p>The \(p\)-value is \(0.0126\), evidence against equal population means under the model assumptions. It does not establish that every pair differs. In the constructed Homework 4 example, all three sample means equal \(5\); its between-group sum of squares is \(0\), giving \(F=0\) and \(p=1\).</p>
 <h2>Home-price differences and simultaneous intervals</h2>
-<p>The home-price example contains \(120\) observations, \(30\) from each of four states. Its ANOVA gives \(F=7.355\) with \(3\) and \(116\) degrees of freedom, and \(p=0.000148\). The next question is which mean differences the data support.</p>
+<p>The home-price example contains \(120\) observations, \(30\) from each of four states. Its ANOVA gives \(F=7.355\) with \(3\) and \(116\) degrees of freedom, and \(p=0.000148\).</p>
 <pre><code class="language-r">homework3 &lt;- read.csv("homework3.csv")
 homework3$State &lt;- as.factor(homework3$State)
 model_price &lt;- aov(Price ~ State, data = homework3)
@@ -18,7 +18,7 @@ summary(model_price)
 TukeyHSD(model_price)</code></pre>
 <p><code>as.factor()</code> treats state as a group label. The formula <code>Price ~ State</code> puts price on the response side and state on the explanatory side. <code>TukeyHSD()</code> compares the \(\binom{4}{2}=6\) pairs with intervals designed to cover the family of mean differences together at the stated confidence level.</p>
 <table>
-  <caption>Comparisons with California from the final Homework 4 review; price differences use the source data's units</caption>
+  <caption>Homework 4 mean price differences from California, in the dataset's price units</caption>
   <thead><tr><th scope="col">Difference</th><th scope="col">Familywise \(95\%\) interval</th><th scope="col">Adjusted \(p\)</th></tr></thead>
   <tbody>
     <tr><th scope="row">\(\mathrm{NJ}-\mathrm{CA}\)</th><td>\((-363.67,-49.99)\)</td><td>\(0.00448\)</td></tr>
@@ -29,7 +29,7 @@ TukeyHSD(model_price)</code></pre>
 <p>These three intervals are below zero, indicating lower mean prices than California in this supplied sample. The other three intervals include zero. The adjustment matters because inspecting several comparisons creates several opportunities for an incorrect rejection.</p>
 <figure style="max-width:700px">
   <a href="../../assets/dealing-with-data/home-price-normal-qq.png" target="_blank" rel="noreferrer"><img src="../../assets/dealing-with-data/home-price-normal-qq.png" width="1344" height="960" alt="Normal quantile plot of home-price model residuals. The upper tail bends above the reference line, with several large positive residuals."></a>
-  <figcaption>Saved Homework 3 residual quantile plot. <a href="../../assets/dealing-with-data/home-price-normal-qq.png" target="_blank" rel="noreferrer">Open full-size plot</a></figcaption>
+  <figcaption>Homework 3 residual quantile plot. <a href="../../assets/dealing-with-data/home-price-normal-qq.png" target="_blank" rel="noreferrer">Open full-size plot</a></figcaption>
 </figure>
-<p>A residual is an observed price minus its fitted state mean. This plot compares standardized residuals with normal-distribution quantiles; its upper-tail departures deserve attention. ANOVA's reference calculation assumes independent observations, approximately normal errors and a common within-group variance. A small \(p\)-value does not verify those assumptions, and this observational comparison does not establish a causal effect of living in a state.</p>
+<p>A residual is an observed price minus its fitted state mean. This plot compares standardized residuals with normal-distribution quantiles; its upper tail bends above the reference line. ANOVA's reference calculation assumes independent observations, approximately normal errors and a common within-group variance. A small \(p\)-value does not verify those assumptions, and this observational comparison does not establish a causal effect of living in a state.</p>
 <p class="source-links"><a href="../../assets/dealing-with-data/anova-comparisons.R" download>R models</a><a href="../../assets/dealing-with-data/homework3.csv" download>Home-price data</a></p>

@@ -5,7 +5,7 @@
     "topics": [
       {
         "title": "Introductions and questions",
-        "description": "Names, origins, nationality, age and birthdays provide the language for a short introduction. Question words turn those details into exchanges rather than isolated statements."
+        "description": "Greetings, introductions and question words cover names, origins, nationality, age and birthdays."
       },
       {
         "title": "Agreement, numbers and time",
@@ -32,7 +32,7 @@
     "topics": [
       {
         "title": "Pronunciation and word stress",
-        "description": "Distinct vowel sounds, syllable stress and accent marks support clear pronunciation. Spoken practice connects the written form of a word with how it sounds."
+        "description": "Distinct vowel sounds, syllable stress and accent marks support clear pronunciation."
       },
       {
         "title": "Short spoken exchanges",
@@ -40,7 +40,7 @@
       },
       {
         "title": "Describing people and places",
-        "description": "Spoken descriptions use adjectives for people and hay or estar for a room and its objects. Agreement and location expressions connect grammar with something the listener can picture."
+        "description": "Spoken descriptions use adjectives for people and hay or estar for a room and its objects. Agreement matches adjectives to their nouns, while location expressions specify where objects are."
       },
       {
         "title": "Conversation about daily interests",
@@ -51,7 +51,7 @@
   },
   {
     "id": "spanish-2",
-    "summary": "Further Spanish through travel, shopping, daily routines and food, building on introductory grammar with past actions and more compact sentence forms.",
+    "summary": "Further Spanish through travel, shopping, daily routines and food, building on introductory grammar with past actions and object pronouns.",
     "topics": [
       {
         "title": "Travel and shopping",
@@ -105,7 +105,7 @@
     "topics": [
       {
         "title": "Biological anthropology and evolution",
-        "description": "Genetics, evolutionary processes, living primates and human evolution connect inherited variation with environmental and historical change. The module also considers race and racism rather than treating familiar social categories as simple biological divisions."
+        "description": "Genetics, evolutionary processes, living primates and human evolution connect inherited variation with environmental and historical change. Race and racism raise questions about how social categories relate to biological variation."
       },
       {
         "title": "Archaeology and social complexity",
@@ -128,11 +128,11 @@
     "topics": [
       {
         "title": "Premises, conclusions and objections",
-        "description": "Arguments are reconstructed as premises leading to a conclusion. Their evaluation separates valid reasoning from the truth of the premises and identifies what a serious objection would need to challenge."
+        "description": "Arguments are reconstructed as premises leading to a conclusion. Their evaluation separates valid reasoning from the truth of the premises and identifies what an objection would need to challenge."
       },
       {
         "title": "Evidence and religious belief",
-        "description": "Design arguments, Clifford and James on belief, and debates over religious diversity raise different questions about evidence and commitment. The discussion distinguishes a reason to accept a claim from the practical consequences of believing it."
+        "description": "Design arguments, Clifford and James on belief, and debates over religious diversity raise different questions about evidence and commitment. Reasons to accept a claim can differ from the practical consequences of believing it."
       },
       {
         "title": "Suffering and responses to evil",
@@ -140,7 +140,7 @@
       },
       {
         "title": "Authority, rights and consent",
-        "description": "Socrates, Hobbes and Locke offer different arguments about law, political authority and obligations to a government. Natural rights, consent, security and resistance help locate where those arguments disagree."
+        "description": "Socrates, Hobbes and Locke offer different arguments about law, political authority and obligations to a government. Key questions concern natural rights, consent, security and resistance."
       },
       {
         "title": "Morality, class and social criticism",
@@ -155,7 +155,7 @@
     "topics": [
       {
         "title": "Self and ultimate reality",
-        "description": "Upanishadic accounts of Atman and Brahman and Advaita Vedanta introduce questions about self and nonduality. Comparisons attend to what each tradition means by its terms rather than assuming that a shared metaphor establishes the same doctrine."
+        "description": "Upanishadic accounts of Atman and Brahman and Advaita Vedanta introduce questions about self and nonduality. Each tradition gives these terms its own meaning."
       },
       {
         "title": "Knowledge, nonviolence and action",
@@ -198,7 +198,7 @@
       },
       {
         "title": "Listening, critique and rehearsal",
-        "description": "Speech analysis considers organization, evidence, audience adaptation and delivery together. Rehearsal and concrete feedback help identify changes in presentation rather than relying only on a general impression."
+        "description": "Speech analysis considers organization, evidence, audience adaptation and delivery together. Rehearsal and specific feedback guide revisions."
       }
     ],
     "sourceNote": "Saved Fall 2023 syllabus summary, module list and persuasive-speech rubric; Speech Craft, second edition."

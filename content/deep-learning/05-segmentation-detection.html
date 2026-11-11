@@ -1,5 +1,5 @@
 <h2>Prompted masks with SAM</h2>
-<p>Assignment 7 applies Segment Anything Model (SAM) to five selected images. A segmentation mask marks the pixels assigned to a target object. The comparison supplies either a foreground point or a bounding box, then examines how the prompt changes the selected region.</p>
+<p>Assignment 7 applies Segment Anything Model (SAM) to five images. A segmentation mask marks the pixels assigned to a target object. The comparison supplies either a foreground point or a bounding box, then examines how the prompt changes the selected region.</p>
 <figure>
   <a href="../../assets/deep-learning/mask-and-box.svg" target="_blank" rel="noreferrer"><img src="../../assets/deep-learning/mask-and-box.svg" width="900" height="360" alt="Task schematic: a point selects a filled pixel-region mask around a shape; an object detector places a labeled rectangular box around the same shape."></a>
   <figcaption>Task schematic: a pixel mask and a labeled bounding box. <a href="../../assets/deep-learning/mask-and-box.svg" target="_blank" rel="noreferrer">Open full-size diagram</a></figcaption>
@@ -8,11 +8,10 @@
 <p>The code requests multiple mask candidates and chooses the candidate with the highest model score. That score ranks the model's candidates; the visual comparison still determines whether the chosen region matches the intended target.</p>
 <h2>Labeled boxes with RetinaNet</h2>
 <p>Assignment 8 uses Torchvision's pretrained RetinaNet detector with a ResNet-50 feature backbone. The model returns bounding boxes, class labels and confidence scores. The script retains detections with score at least \(0.50\), then draws their boxes and labels over the image.</p>
-<p>The report's clearest human figure receives one clean person box. In crowded scenes, additional boxes appear around background people. A pile of snakes receives a bench label, providing a concrete example of a visually unfamiliar object being assigned to one of the detector's available categories.</p>
+<p>The detector places one person box around the human figure. In crowded scenes, additional boxes appear around background people. A pile of snakes receives a bench label, providing a concrete example of a visually unfamiliar object being assigned to one of the detector's available categories.</p>
 <table>
   <caption>Outputs examined in the two assignments</caption>
   <thead><tr><th scope="col">Model</th><th scope="col">Input supplied</th><th scope="col">Output examined</th></tr></thead>
   <tbody><tr><th scope="row">SAM</th><td>Image plus point or box prompt</td><td>Selected object pixels</td></tr><tr><th scope="row">RetinaNet</th><td>Image</td><td>Boxes, labels and scores</td></tr></tbody>
 </table>
-<p>These examples connect the model's output format to the question being asked. Selecting a region, locating objects and assigning object classes require different judgments when inspecting a result.</p>
 <p class="source-links"><a href="../../assets/deep-learning/sam-prediction-calls.txt">SAM prediction calls</a><a href="../../assets/deep-learning/retinanet-filtering.txt">RetinaNet filtering excerpt</a><a href="../../assets/deep-learning/recorded-results.json">Report observations</a></p>

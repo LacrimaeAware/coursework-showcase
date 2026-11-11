@@ -3,7 +3,7 @@
 <p>Structural variables include age, education, income and marital status. Behavioral variables include attendance, television hours and other activities. Perception variables include self-rated health, job satisfaction and financial satisfaction.</p>
 
 <h2>Happiness responses and complete cases</h2>
-<p>The supplied data contain \(3{,}986\) respondents, of whom \(3{,}954\) have a valid happiness response. The response is reversed to a scale from \(1\), “not too happy,” to \(3\), “very happy.” The binary response groups “pretty happy” and “very happy” together.</p>
+<p>The 2024 GSS data contain \(3{,}986\) respondents, of whom \(3{,}954\) have a valid happiness response. The response is reversed to a scale from \(1\), “not too happy,” to \(3\), “very happy.” The binary response groups “pretty happy” and “very happy” together.</p>
 <figure>
   <a href="../../assets/gss-happiness/happiness-distribution.png" target="_blank" rel="noreferrer" aria-label="Open the full-size happiness distribution"><img src="../../assets/gss-happiness/happiness-distribution.png" width="1536" height="672" alt="Happiness responses: 854 not too happy, 2303 pretty happy, and 797 very happy. Pretty happy is the largest group."></a>
   <figcaption>Valid happiness responses in the supplied 2024 GSS file. <a href="../../assets/gss-happiness/happiness-distribution.png" target="_blank" rel="noreferrer">Open full-size distribution</a></figcaption>
@@ -32,7 +32,7 @@
 </figure>
 
 <h2>Ranking probabilities and choosing a threshold</h2>
-<p>The saved logistic ROC curve has area \(0.741\), measuring how fitted probabilities rank the two response groups. At a probability threshold of \(0.5\), accuracy is \(81.47\%\); assigning every respondent to the majority group gives \(80.91\%\). These quantities are calculated on the same \(723\) respondents used to fit the model. The threshold comparison separates probability ranking from the number of labels changed at one cutoff.</p>
+<p>The logistic ROC curve has area \(0.741\), measuring how fitted probabilities rank the two response groups. At a probability threshold of \(0.5\), accuracy is \(81.47\%\); assigning every respondent to the majority group gives \(80.91\%\). These quantities are calculated on the same \(723\) respondents used to fit the model.</p>
 
 <details class="technical">
   <summary>Confidence intervals and sample handling</summary>

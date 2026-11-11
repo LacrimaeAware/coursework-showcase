@@ -8,8 +8,8 @@ int tuition = calcTuition(countEntered(courses), campus, senior);</code></pre>
 <table><caption>Rates encoded in the assignment program</caption><thead><tr><th>Campus</th><th>Per-course amount</th></tr></thead><tbody><tr><td>City</td><td>525</td></tr><tr><td>North</td><td>510</td></tr><tr><td>South</td><td>500</td></tr><tr><td>Seaside</td><td>550</td></tr></tbody></table>
 <p>The senior-practicum choice adds \(100\) to the course total. A synthetic example with one Seaside course and the practicum therefore produces tuition of \(650\). These are assignment values.</p>
 <pre><code>123456,Demo,Student,Seaside,COP 2250, , , ,Y,650,Spring</code></pre>
-<p>The example first supplies invalid student-number, menu and practicum responses, then corrects them. Each validation loop returns to its prompt, and the final file contains the corrected record shown above. Choosing <code>N</code> at the opening prompt exits before creating a file.</p>
-<p>After an affirmative start, <code>new FileWriter(FILE_NAME, false)</code> replaces the working directory's <code>cop2250_proj1.txt</code>. The writer then adds one comma-separated line per student. The saved format joins fields directly, so embedded commas in a name are not escaped.</p>
+<p>The example first supplies invalid student-number, menu and practicum responses, then corrects them. Each validation loop returns to its prompt, and the file contains the accepted values. Choosing <code>N</code> at the opening prompt exits before creating a file.</p>
+<p>After an affirmative start, <code>new FileWriter(FILE_NAME, false)</code> replaces the working directory's <code>cop2250_proj1.txt</code>. The writer then adds one comma-separated line per student. The format joins fields directly, so embedded commas in a name are not escaped.</p>
 <details class="technical"><summary>Complete Java source</summary><div class="technical-content"><h3>Project1.java</h3><pre><code>/*
  * Project 1
  * School Registration Project

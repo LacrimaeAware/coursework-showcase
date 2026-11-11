@@ -7,7 +7,7 @@
   </figure>
   <div>
     <p>The search fixes the normal vector's length and varies its direction through \(\mathbf{k}=(\cos\theta,\sin\theta)\). It evaluates \(120\) angles and \(80\) offsets, measuring the fraction of incorrectly classified points at each pair.</p>
-    <p>The selected boundary has training error \(0.01\), or \(2\) errors among the \(200\) points. This small problem makes exhaustive search visible: each location on the loss surface corresponds to a particular line. As the number of parameters grows, the combinations multiply.</p>
+    <p>The selected boundary has training error \(0.01\), or \(2\) errors among the \(200\) points. Each location on the loss surface corresponds to a particular line. Adding parameters increases the number of combinations the grid search must evaluate.</p>
   </div>
 </div>
 <h2>Learning the boundary with gradients</h2>
@@ -16,6 +16,6 @@
   <a href="../../assets/deep-learning/gradient-boundaries.png" target="_blank" rel="noreferrer"><img src="../../assets/deep-learning/gradient-boundaries.png" width="546" height="548" alt="Starting, intermediate and final logistic-regression boundaries over the two synthetic point clouds."></a>
   <figcaption>Boundary movement during gradient descent. <a href="../../assets/deep-learning/gradient-boundaries.png" target="_blank" rel="noreferrer">Open full-size figure</a></figcaption>
 </figure>
-<p>After \(200\) updates with learning rate \(0.5\), the recorded training accuracy is \(0.970\), with cross-entropy about \(0.05449\). The boundary changes continuously because the sigmoid loss supplies gradients even when a small movement leaves the class predictions unchanged.</p>
-<p>The assignment also represents the pixels of a letter as coordinate points and applies translation, rotation and scaling matrices. Both tasks connect an algebraic representation to a visible geometric change.</p>
-<p class="source-links"><a href="../../assets/deep-learning/linear-classifier.py" download>Grid-search Python source</a><a href="../../assets/deep-learning/recorded-results.json">Recorded results</a></p>
+<p>After \(200\) updates with learning rate \(0.5\), the training accuracy is \(0.970\), with cross-entropy about \(0.05449\). The boundary changes continuously because the sigmoid loss supplies gradients even when a small movement leaves the class predictions unchanged.</p>
+<p>The assignment also represents the pixels of a letter as coordinate points and applies translation, rotation and scaling matrices.</p>
+<p class="source-links"><a href="../../assets/deep-learning/linear-classifier.py" download>Grid-search Python source</a><a href="../../assets/deep-learning/recorded-results.json">Model results</a></p>

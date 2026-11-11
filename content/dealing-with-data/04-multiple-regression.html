@@ -11,10 +11,10 @@ summary(model_multiple)$coefficients</code></pre>
 <p>The first newspaper coefficient summarizes a relationship across observations with different newspaper budgets. The second compares newspaper budgets while holding radio spending fixed in the fitted model. These answer different questions: radio and newspaper spending vary together, so the newspaper-only relationship includes variation shared with radio.</p>
 <figure style="max-width:700px">
   <a href="../../assets/dealing-with-data/newspaper-sales.png" target="_blank" rel="noreferrer"><img src="../../assets/dealing-with-data/newspaper-sales.png" width="1344" height="960" alt="Sales plotted against newspaper advertising spending, with a weak upward fitted line and wide scatter."></a>
-  <figcaption>Saved newspaper-only fit from the checked Homework 6 version. <a href="../../assets/dealing-with-data/newspaper-sales.png" target="_blank" rel="noreferrer">Open full-size plot</a></figcaption>
+  <figcaption>Newspaper-only regression fit. <a href="../../assets/dealing-with-data/newspaper-sales.png" target="_blank" rel="noreferrer">Open full-size plot</a></figcaption>
 </figure>
 <table>
-  <caption>Newspaper coefficients in the saved Homework 6 output</caption>
+  <caption>Newspaper coefficients before and after adjustment for radio spending</caption>
   <thead><tr><th scope="col">Predictors</th><th scope="col">Newspaper slope</th><th scope="col">Slope-test \(p\)</th></tr></thead>
   <tbody>
     <tr><th scope="row">Newspaper</th><td>\(0.05469\)</td><td>\(0.00115\)</td></tr>
@@ -44,5 +44,5 @@ SSR_nr &lt;- sum((yhat_nr - ybar)^2)
 SSE_nr &lt;- sum(resid_nr^2)</code></pre>
 <p>Here <code>model_nr</code> is the newspaper-and-radio fit. <code>fitted()</code> supplies its predictions and <code>residuals()</code> supplies observed minus predicted sales. The fraction \(\mathrm{SSR}/\mathrm{SST}\) reproduces the model's \(R^2\). The remaining fraction is variation not explained by those predictors.</p>
 <p>The added television model uses <code>sales ~ TV + radio + newspaper</code>. Its overall \(F\) test asks whether the predictor slopes are jointly zero, while an individual coefficient test asks about one slope conditional on the others. Including more predictors changes the comparison; it does not automatically remove all omitted-variable problems or establish causation.</p>
-<p>The <a href="../../projects/gss-happiness/index.html">GSS happiness group final project</a> brings these course methods together with a new response: reported happiness, examined through linear and logistic models.</p>
+<p>The <a href="../../projects/gss-happiness/index.html">GSS happiness group final project</a> analyzes reported happiness with linear and logistic models.</p>
 <p class="source-links"><a href="../../assets/dealing-with-data/multiple-regression.R" download>R model comparison</a><a href="../../assets/dealing-with-data/Advertising.csv" download>Advertising data</a></p>

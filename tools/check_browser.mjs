@@ -457,11 +457,8 @@ async function checkSpeech() {
   assert.equal(await script.locator('p[data-source-paragraph]:not(.essay-references)').count(), 6, 'Six delivered speech paragraphs');
   assert.equal(await script.locator('p.essay-references').count(), 5, 'Five complete references');
   assert.equal(await page.locator('a[href*="selected-passages-and-outline"]').count(), 0, 'Retired selected-passages download');
-  const read = page.getByRole('link', { name: 'Read the full speech', exact: true });
-  assert.equal(await read.count(), 1);
-  assert.equal(await read.getAttribute('href'), '#speech-script');
-  await read.click();
-  await page.waitForURL(itemURL({ section: 'essays', slug: 'holism-speech' }) + '#speech-script');
+  assert.equal(await page.locator('.work-prose > :first-child').getAttribute('id'), 'speech-script', 'The speech itself comes first');
+  assert.equal(await page.getByRole('link', { name: 'Read the full speech', exact: true }).count(), 0, 'No redundant jump link above the speech');
 }
 
 async function checkDisclosures(record, width) {
@@ -621,7 +618,7 @@ try {
   report.checks.push('All selected works: exact title/context, local source/download responses, return to coursework, default and expanded-disclosure overflow');
   if (overviewWidths.length) report.checks.push('Every course has source-matched Contents, visible topic headings and descriptions, and summary at ' + overviewWidths.join('/') + 'px, without horizontal overflow or retired source/archive UI');
   report.checks.push('Complete All courses index: source-matched rows, terms and course codes, every title linking its own Contents, individual work HTTP responses, every year anchor and return navigation at ' + report.viewports.join('/') + 'px');
-  report.checks.push('Full Speech: six delivered paragraphs, five references, readable on-page script and working Read the full speech anchor; no selected-passages download');
+  report.checks.push('Full Speech: six delivered paragraphs, five references, readable on-page script before the optional outline; no selected-passages download');
 
   const biology = courses.find(course => course.id === 'systems-biology');
   assert.ok(biology, 'Legacy biology redirect requires its catalog course');

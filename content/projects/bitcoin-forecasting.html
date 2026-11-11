@@ -1,5 +1,5 @@
 <h2>Seven-day Bitcoin log returns</h2>
-<p>This mini-project tests whether models can predict Bitcoin price changes more accurately than assuming the price stays where it is. Daily BTC-USD prices and market features are used to predict the change over the next \(7\) days.</p>
+<p>Daily BTC-USD prices and market features are used to predict the change over the next \(7\) days. Sequence models are compared with a zero-return forecast.</p>
 <p>The target is a log return, \(r_t=\log(C_{t+7}/C_t)\), where \(C_t\) is the closing price on day \(t\). A prediction of \(r_t=0\) means the future closing price equals the current one. This persistence forecast is a useful reference because a curve can follow Bitcoin's broad price level while adding little information about its next change.</p>
 
 <h2>Price history and chronological evaluation</h2>
@@ -22,6 +22,5 @@
     <tr><th scope="row">LSTM</th><td>\(0.047908\)</td></tr>
   </tbody>
 </table>
-<p>Mean absolute error (MAE) averages the absolute differences between predicted and actual log returns. The zero-return baseline has the smallest error. The TCN is the strongest learned model in this comparison, while the selected LSTM also has directional accuracy of \(47.71\%\): fewer than half its predicted return signs match the actual signs.</p>
-<p>For this target and test period, the learned models do not improve on persistence by return MAE. The comparison distinguishes following a price level from predicting a price change: a plausible-looking forecast curve can conceal a larger error than the simplest reference model.</p>
+<p>Mean absolute error (MAE) averages the absolute differences between predicted and actual log returns. The zero-return baseline has lower MAE than every learned model in this test comparison. The TCN has the lowest MAE among the learned models, while the selected LSTM has directional accuracy of \(47.71\%\): fewer than half its predicted return signs match the actual signs.</p>
 <p class="source-links"><a href="../../assets/deep-learning/btc-model-comparison.csv" download>Model comparison (CSV)</a><a href="../../assets/deep-learning/recorded-results.json">Numerical results</a></p>

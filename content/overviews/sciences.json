@@ -17,7 +17,7 @@
       },
       {
         "title": "Muscle structure and contraction",
-        "description": "Skeletal muscle links a nerve signal with calcium release and interactions between actin and myosin. The topic connects muscle organization with contraction and the role of ATP."
+        "description": "Skeletal muscle links a nerve signal with calcium release and interactions between actin and myosin. ATP supports the contraction cycle."
       },
       {
         "title": "Neurons and reflexes",
@@ -36,7 +36,7 @@
     "topics": [
       {
         "title": "Orientation, microscopy and cells",
-        "description": "Body cavities, directional language and anatomical planes establish orientation. Microscope use and cell identification connect visible structures with their names and functions."
+        "description": "Body cavities, directional language and anatomical planes establish orientation. Microscopy identifies cell structures and relates them to their functions."
       },
       {
         "title": "Tissues and membranes",
@@ -48,11 +48,11 @@
       },
       {
         "title": "Joints and movements",
-        "description": "Joint types are connected with movements such as flexion, extension, abduction and adduction. The material relates the structure of a joint to the movements it permits."
+        "description": "Joint types permit different movements, including flexion, extension, abduction and adduction."
       },
       {
         "title": "Gross muscles",
-        "description": "Locating major muscles and connecting them with the movements they produce. Opposing muscle actions help organize the identification work."
+        "description": "Major muscles are identified by their locations and the movements they produce. Muscles with opposing actions produce opposite movements at a joint."
       },
       {
         "title": "Nervous-system structures",
@@ -98,7 +98,7 @@
     "topics": [
       {
         "title": "Measurements, instruments and density",
-        "description": "Unit conversions, significant figures and instrument readings support reliable measurements. Mass and displaced volume are combined to calculate density."
+        "description": "Unit conversions, significant figures and instrument readings determine how measurements are recorded. Mass and displaced volume are combined to calculate density."
       },
       {
         "title": "Spectra, elements and electrons",
@@ -133,11 +133,11 @@
       },
       {
         "title": "Prenatal development and infancy",
-        "description": "Prenatal periods, birth and early physical development introduce the beginning of the lifespan. Infant cognition and attachment connect early abilities with caregiving relationships."
+        "description": "Prenatal development, birth and early physical growth lead into infant cognition and attachment. Attachment describes early relationships with caregivers."
       },
       {
         "title": "Childhood cognition and relationships",
-        "description": "Language, thinking and learning develop within family, school and cultural settings. Parenting, temperament and social support help organize the course's treatment of childhood."
+        "description": "Language, thinking and learning develop within family, school and cultural settings. Parenting, temperament and social support influence childhood development."
       },
       {
         "title": "Adolescence and identity",
@@ -145,11 +145,11 @@
       },
       {
         "title": "Adult roles and midlife",
-        "description": "Adult development includes work, partnerships, parenting and changing social roles. Midlife topics connect personal development with contributions to other people and future generations."
+        "description": "Work, partnerships, parenting and other social roles change across adulthood. Midlife also includes contributions to other people and future generations."
       },
       {
         "title": "Aging, death and bereavement",
-        "description": "Later-life material covers physical aging, cognition and social development. Death, grief and mourning are considered within their personal and cultural contexts."
+        "description": "Later-life topics include physical aging, cognition and social relationships. Death, grief and mourning are considered within their personal and cultural contexts."
       }
     ],
     "sourceNote": "Saved Fall 2022 syllabus and visible module topics, covering lifespan-textbook chapters 1–15. Readiness questions are retrospective study material, not original exam questions."

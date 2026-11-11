@@ -1,8 +1,8 @@
 <h2>Reaction rates and molecule balances</h2>
-<p>The starting model follows an enzyme \(E\), substrate \(S\), bound complex \(\mathrm{ES}\), and product \(P\). Binding joins enzyme and substrate. The complex can separate again or release product, leaving the enzyme available for another reaction.</p>
+<p>The model follows an enzyme \(E\), substrate \(S\), bound complex \(\mathrm{ES}\), and product \(P\). Binding joins enzyme and substrate. The complex can separate again or release product, leaving the enzyme available for another reaction.</p>
 <div class="reaction-equation">\[E+S\;\underset{k_2}{\overset{k_1}{\rightleftharpoons}}\;\mathrm{ES}\;\xrightarrow{k_3}\;E+P\]</div>
 <p>The reaction rates are \(v_1=k_1 E\,S\) for binding, \(v_2=k_2\mathrm{ES}\) for separation, and \(v_3=k_3\mathrm{ES}\) for product formation. In the first expression, \(E\,S\) multiplies the free enzyme and substrate concentrations. The name \(\mathrm{ES}\) denotes the bound complex.</p>
-<p>The MATLAB baseline starts with \(E_0=1\), \(S_0=100\), and \(\mathrm{ES}(0)=P(0)=0\), with \(k_1=k_2=k_3=1\). It integrates the four changing concentrations over \(0\leq t\leq140\). Adding their gains and losses gives two conserved totals: \(E+\mathrm{ES}=1\) and \(S+\mathrm{ES}+P=100\). These balances describe where the original enzyme and substrate material go as product accumulates.</p>
+<p>The MATLAB baseline starts with \(E_0=1\), \(S_0=100\), and \(\mathrm{ES}(0)=P(0)=0\), with \(k_1=k_2=k_3=1\). It integrates the four changing concentrations over \(0\leq t\leq140\). Adding their gains and losses gives two conserved totals: \(E+\mathrm{ES}=1\) and \(S+\mathrm{ES}+P=100\).</p>
 <p>The function <code>ode15s</code> calculates the concentration trajectories from their derivatives. At each solver evaluation, the model computes the reaction rates from the current concentrations, then adds each species' gains and losses.</p>
 
 <div class="map-layout">

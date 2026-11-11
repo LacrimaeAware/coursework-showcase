@@ -1,6 +1,6 @@
 <h2>Refining the boundary</h2>
 <p>Start with an equilateral triangle of side length \(s\). Divide each boundary segment into thirds and replace its middle third with the other two sides of an outward equilateral triangle. Repeating that rule produces the Koch snowflake.</p>
-<p>The seminar presentation connects the visible construction to three calculations: the growing perimeter, the converging enclosed area, and the dimension of the limiting boundary. Every refinement replaces one segment with \(4\) segments, each \(1/3\) as long. Those two changes determine the formulas below.</p>
+<p>Every refinement replaces one segment with \(4\) segments, each \(1/3\) as long.</p>
 <figure>
   <a href="../../assets/koch-snowflake/koch-stages.svg" target="_blank" rel="noreferrer" aria-label="Open the full-size Koch construction diagram"><img src="../../assets/koch-snowflake/koch-stages.svg" width="840" height="650" alt="The initial equilateral triangle and the first three outward Koch refinements, with finer triangular bumps added at every stage."></a>
   <figcaption>Stages \(0\) through \(3\) of the construction. <a href="../../assets/koch-snowflake/koch-stages.svg" target="_blank" rel="noreferrer">Open full-size diagram</a></figcaption>
@@ -25,7 +25,7 @@ A_\infty&=A_0+\frac{A_0}{3}\sum_{n=0}^{\infty}\left(\frac49\right)^n\\
 &=\frac85A_0=\frac{2\sqrt3}{5}s^2.
 \end{aligned}
 \]
-<p>The boundary-length sequence diverges, while the enclosed-area sequence approaches this finite value. Tracking the two sequences separately explains how both properties arise from the same refinement.</p>
+<p>The boundary-length sequence diverges, while the enclosed-area sequence approaches this finite value.</p>
 
 <h2>Dimension of the boundary</h2>
 <p>Each Koch edge consists of \(4\) scaled copies of itself, with scale factor \(1/3\). The similarity dimension \(d\), a scaling exponent for the boundary, satisfies</p>
