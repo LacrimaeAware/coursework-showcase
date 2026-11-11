@@ -1,6 +1,6 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { loadOverviews, renderOverview, renderRelatedWork, relatedWork, topicAnchor, escape } from './build_overviews.mjs';
+import { loadOverviews, renderOverview, renderRelatedWork, relatedWork, topicAnchor, renderSectionNav, escape } from './build_overviews.mjs';
 
 const safeId = value => {
   if (!/^[a-z0-9-]+$/.test(value)) throw new Error('Invalid content identifier');
@@ -36,7 +36,7 @@ export async function buildCourse(root, output) {
     const context = course.shortTitle + ' · ' + course.term;
     const attached = new Set(overview.topics.flatMap(topic => topic.projects || []));
     const remaining = relatedWork(catalog, id).filter(item => !attached.has(item.slug));
-    await writeFile(path.join(destination, 'index.html'), head(course.title, false) + '<body class="course-contents-page"><a class="skip-link" href="#content">Skip to course contents</a><header class="site-header collection-header"><a class="wordmark" href="../../index.html">Coursework</a><a href="../../history/index.html">All courses</a></header><main id="content" class="course-contents"><h1>' + escape(course.title) + '</h1><p class="study-context">' + escape(course.term) + '</p><p class="course-intro">' + escape(overview.summary) + '</p>' + renderOverview(overview, catalog) + renderRelatedWork(remaining) + '</main>' + footer(context));
+    await writeFile(path.join(destination, 'index.html'), head(course.title, false) + '<body class="course-contents-page"><a class="skip-link" href="#content">Skip to course contents</a><header class="site-header collection-header">' + renderSectionNav('../../', 'courses') + '</header><main id="content" class="course-contents"><h1>' + escape(course.title) + '</h1><p class="study-context">' + escape(course.term) + '</p><p class="course-intro">' + escape(overview.summary) + '</p>' + renderOverview(overview, catalog) + renderRelatedWork(remaining) + '</main>' + footer(context));
     count++;
     for (const [index, chapter] of course.chapters.entries()) {
       const body = await readFile(path.join(content, safeId(chapter.slug) + '.html'), 'utf8');
@@ -56,7 +56,7 @@ export async function buildCourse(root, output) {
     const destination = path.join(output, section, slug);
     await mkdir(destination, { recursive: true });
     const label = item.kind === 'speech' ? 'Speech' : section === 'essays' ? 'Essay' : 'Project';
-    const html = head(item.title, body.includes('\\(') || body.includes('\\[')) + '<body class="work-page"><a class="skip-link" href="#content">Skip to ' + label.toLowerCase() + '</a><header class="site-header collection-header"><a class="wordmark" href="../../index.html">Coursework</a><a href="../../index.html#' + section + '">' + (section === 'essays' ? 'Writing' : 'Projects') + '</a></header><main id="content" class="work-main"><header class="work-title"><h1>' + escape(item.title) + '</h1><p class="study-context">' + escape(item.context) + '</p></header><article class="chapter-body work-prose">' + body + '</article></main>' + footer(item.context);
+    const html = head(item.title, body.includes('\\(') || body.includes('\\[')) + '<body class="work-page"><a class="skip-link" href="#content">Skip to ' + label.toLowerCase() + '</a><header class="site-header collection-header">' + renderSectionNav('../../', section) + '</header><main id="content" class="work-main"><header class="work-title"><h1>' + escape(item.title) + '</h1><p class="study-context">' + escape(item.context) + '</p></header><article class="chapter-body work-prose">' + body + '</article></main>' + footer(item.context);
     await writeFile(path.join(destination, 'index.html'), html);
     count++;
   }
@@ -68,9 +68,9 @@ export async function buildCourse(root, output) {
   ];
   const records = new Map(history.courses.map(course => [course.id, course]));
   const directory = [];
-  for (const [filename, title] of groups) {
+  for (const [groupIndex, [filename, title]] of groups.entries()) {
     const entries = JSON.parse(await readFile(path.join(root, 'content/overviews', filename), 'utf8'));
-    directory.push('<section class="course-group"><h3>' + escape(title) + '</h3><ul class="course-group-list">' + entries.map(entry => {
+    directory.push('<section class="course-group" id="subject-' + groupIndex + '" role="tabpanel" aria-labelledby="subject-tab-' + groupIndex + '"' + (groupIndex ? ' hidden' : '') + '><h3 class="sr-only">' + escape(title) + '</h3><ul class="course-group-list">' + entries.map(entry => {
       const course = records.get(entry.id);
       return '<li><article class="course-entry"><h4><a class="course-name" href="courses/' + course.id + '/index.html">' + escape(course.title) + '</a></h4><p class="entry-context">' + escape(course.term + ' ' + course.year) + '</p></article></li>';
     }).join('') + '</ul></section>');

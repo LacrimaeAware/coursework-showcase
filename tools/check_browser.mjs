@@ -24,6 +24,8 @@ const requestedWidths = process.env.SHOWCASE_WIDTHS === undefined ? null : proce
 assert.ok(requestedWidths === null || (requestedWidths.length > 0 && requestedWidths.every(width => allViewports.some(viewport => viewport.width === width))), 'SHOWCASE_WIDTHS must be a nonempty selection of 1440,768,390,320');
 const viewports = allViewports.filter(viewport => requestedWidths === null || requestedWidths.includes(viewport.width));
 const overviewWidths = viewports.filter(viewport => viewport.width === 1440 || viewport.width === 390).map(viewport => viewport.width);
+const homeOnly = process.env.SHOWCASE_HOME_ONLY === '1';
+const mainPanels = ['courses', 'projects', 'essays'];
 
 function sourceCounts(html) {
   const source = html.replace(/<!--[\s\S]*?-->/g, '')
@@ -75,6 +77,7 @@ for (const id of captureItems) assert.ok(id === '*' || items.some(item => item.s
 const errors = [], externalRequests = [], checkedAssets = new Set(), checkedHistoryLinks = new Set();
 const report = {
   courses, items, overviews,
+  mode: homeOnly ? 'home-only' : 'full', home: { viewports: [], subjects: {}, checkedWorkLinks: [] },
   history: { rows: history.courses.length, years: [...new Set(history.courses.map(course => course.year))].sort((a, b) => a - b), viewports: [], checkedWorkLinks: [] },
   capture: { courses: [...captureCourses], items: [...captureItems] },
   viewports: viewports.map(viewport => viewport.width), checks: [], screenshots: [], checkedAssets: []
@@ -114,28 +117,177 @@ async function screenshot(filename) {
 
 async function checkHome(width) {
   await finishRendering(0);
-  assert.equal(await page.getByRole('heading', { name: 'Coursework', exact: true }).count(), 1);
-  assert.equal(await page.getByRole('heading', { name: 'Courses', exact: true }).count(), 1);
+  assert.equal(await page.locator('h1.sr-only').textContent(), 'Course collection');
+  assert.equal(await page.locator('.section-tabs a[role="tab"]').count(), mainPanels.length);
+  assert.equal(await page.locator('button.subject-tab[role="tab"]').count(), 4);
   assert.equal(await page.locator('.course-entry').count(), history.courses.length);
   for (const course of history.courses) {
     const entry = page.locator('.course-entry').filter({ has: page.locator('a.course-name[href="courses/' + course.id + '/index.html"]') });
     assert.equal(await entry.count(), 1, 'Home needs one entry for every course: ' + course.id);
     const name = entry.locator('a.course-name');
     assert.equal(await name.count(), 1);
-    assert.equal(await name.innerText(), course.title);
-    assert.equal(await entry.locator('.entry-context').innerText(), course.term + ' ' + course.year);
+    assert.equal((await name.textContent()).trim(), course.title);
+    assert.equal((await entry.locator('.entry-context').textContent()).trim(), course.term + ' ' + course.year);
     assert.equal(new URL(await name.getAttribute('href'), page.url()).href, courseURL(course));
   }
-  const workLinks = page.locator('.work-list-link');
-  assert.equal(await workLinks.count(), items.length);
+  const workLinks = await page.locator('.work-list-link').evaluateAll(links => links.map(link => ({ title: link.querySelector('h3')?.textContent.trim(), href: link.href })));
+  assert.equal(workLinks.length, items.length);
   for (const item of items) {
-    const link = workLinks.filter({ has: page.getByRole('heading', { name: item.title, exact: true }) });
-    assert.equal(await link.count(), 1);
-    assert.equal(new URL(await link.getAttribute('href'), page.url()).href, itemURL(item));
+    assert.equal(workLinks.filter(link => link.title === item.title && link.href === itemURL(item)).length, 1, 'Home needs one work link: ' + item.slug);
   }
-  const historyLink = page.locator('.collection-nav').getByRole('link', { name: 'Coursework', exact: true });
-  assert.equal(await historyLink.count(), 1, 'Collection needs Coursework navigation');
+  const current = new URL(page.url()).hash.slice(1);
+  const selected = await page.locator('.section-tabs [aria-selected="true"]').getAttribute('aria-controls');
+  if (mainPanels.includes(current)) assert.equal(selected, current);
+  await checkMainPanel(selected, width);
   await noOverflow('home at ' + width + 'px');
+}
+
+async function checkMainPanel(active, width) {
+  for (const id of mainPanels) {
+    const tab = page.locator('#tab-' + id), panel = page.locator('#' + id);
+    assert.equal(await tab.getAttribute('role'), 'tab');
+    assert.equal(await tab.getAttribute('href'), '#' + id);
+    assert.equal(await tab.getAttribute('aria-controls'), id);
+    assert.equal(await tab.getAttribute('aria-selected'), String(id === active));
+    assert.equal(await tab.getAttribute('tabindex'), id === active ? '0' : '-1');
+    assert.equal(await panel.getAttribute('role'), 'tabpanel');
+    assert.equal(await panel.getAttribute('aria-labelledby'), 'tab-' + id);
+    assert.equal(await panel.evaluate(element => element.hidden), id !== active);
+    assert.equal(await panel.isVisible(), id === active);
+  }
+  for (const heading of await page.locator('h1,h2').all()) {
+    const label = (await heading.textContent()).trim();
+    if (['Coursework', 'Courses', 'Projects', 'Writing'].includes(label) && !((await heading.getAttribute('class')) || '').split(/\s+/).includes('sr-only')) assert.equal(await heading.isVisible(), false, 'Repeated visible tab heading: ' + label);
+  }
+  assert.ok(await page.evaluate(() => document.documentElement.scrollHeight <= innerHeight + 1), 'Home must scroll its active panel, not the document: ' + width);
+  await noOverflow('home ' + active + ' panel at ' + width + 'px');
+}
+
+async function checkSubject(active, width) {
+  const tabs = page.locator('button.subject-tab[role="tab"]');
+  assert.equal(await tabs.count(), 4);
+  assert.equal(await page.locator('.course-group').count(), 4);
+  for (let index = 0; index < 4; index++) {
+    const tab = tabs.nth(index), group = page.locator('#subject-' + index);
+    assert.equal(await tab.getAttribute('data-subject-index'), String(index));
+    assert.equal(await tab.getAttribute('aria-controls'), 'subject-' + index);
+    assert.equal(await tab.getAttribute('aria-selected'), String(index === active));
+    assert.equal(await tab.getAttribute('tabindex'), index === active ? '0' : '-1');
+    assert.equal(await group.evaluate(element => element.hidden), index !== active);
+    assert.equal(await group.isVisible(), index === active);
+  }
+  await checkMainPanel('courses', width);
+}
+
+async function activateMain(id, width) {
+  await page.locator('#tab-' + id).click();
+  await page.waitForFunction(expected => location.hash === '#' + expected, id);
+  await checkMainPanel(id, width);
+  assert.equal(await page.locator('#' + id).evaluate(element => element.scrollTop), 0, 'Switching main panels must reset their scroll');
+}
+
+async function checkHomeTabs(width) {
+  await checkHome(width);
+  await checkSubject(0, width);
+  const seenCourses = new Set();
+  const subjects = page.locator('button.subject-tab[role="tab"]');
+  const subjectCounts = [];
+  for (let index = 0; index < 4; index++) {
+    await subjects.nth(index).click();
+    await checkSubject(index, width);
+    assert.equal(await page.locator('#courses').evaluate(element => element.scrollTop), 0, 'Switching subjects must reset the Courses panel scroll');
+    const links = await page.locator('#subject-' + index + ' .course-name').evaluateAll(anchors => anchors.map(anchor => anchor.href));
+    assert.ok(links.length > 0, 'Every subject needs courses');
+    assert.equal(await page.locator('.course-entry:visible').count(), links.length);
+    for (const href of links) {
+      assert.ok(!seenCourses.has(href), 'Course repeated across subject panels: ' + href);
+      seenCourses.add(href);
+    }
+    subjectCounts.push(links.length);
+    if (shouldCapture(width)) await screenshot('home-subject-' + index + '-' + screenName(width) + '.png');
+    await page.locator('#courses').evaluate(element => { element.scrollTop = Math.min(120, element.scrollHeight - element.clientHeight); });
+  }
+  assert.deepEqual([...seenCourses].sort(), history.courses.map(courseURL).sort(), 'Switching subjects must expose every course');
+  report.home.subjects[width] = subjectCounts;
+
+  await subjects.first().focus();
+  await page.keyboard.press('Home');
+  await checkSubject(0, width);
+  for (const [key, expected] of [['ArrowRight', 1], ['ArrowLeft', 0], ['End', 3], ['ArrowRight', 0], ['ArrowLeft', 3], ['Home', 0]]) {
+    await page.keyboard.press(key);
+    await checkSubject(expected, width);
+    assert.equal(await page.evaluate(() => document.activeElement?.getAttribute('data-subject-index')), String(expected));
+  }
+  await subjects.nth(1).click();
+  await page.reload({ waitUntil: 'networkidle' });
+  await checkSubject(1, width);
+  assert.equal(await page.evaluate(() => sessionStorage.getItem('coursework-subject')), '1', 'Subject choice must survive a reload');
+  await subjects.first().click();
+
+  await page.locator('#tab-courses').focus();
+  for (const [key, expected] of [['ArrowRight', 'projects'], ['ArrowRight', 'essays'], ['ArrowRight', 'courses'], ['ArrowLeft', 'essays'], ['Home', 'courses'], ['End', 'essays']]) {
+    await page.keyboard.press(key);
+    await checkMainPanel(expected, width);
+    assert.equal(await page.evaluate(() => document.activeElement?.id), 'tab-' + expected);
+  }
+  await page.locator('#tab-projects').focus();
+  await page.keyboard.press('Space');
+  await checkMainPanel('projects', width);
+
+  for (const id of ['projects', 'essays']) {
+    await activateMain(id, width);
+    const sectionItems = items.filter(item => item.section === id);
+    const links = page.locator('#' + id + ' .work-list-link');
+    assert.equal(await links.count(), sectionItems.length);
+    for (const [index, item] of sectionItems.entries()) {
+      const link = links.nth(index);
+      assert.ok(await link.isVisible(), 'Work must be visible in its active panel: ' + item.slug);
+      assert.equal(new URL(await link.getAttribute('href'), page.url()).href, itemURL(item));
+      if (!report.home.checkedWorkLinks.includes(itemURL(item))) {
+        const response = await page.request.get(itemURL(item));
+        assert.equal(response.status(), 200, 'Work response: ' + item.slug);
+        assert.ok((await response.body()).length > 0);
+        report.home.checkedWorkLinks.push(itemURL(item));
+      }
+    }
+    const skip = page.getByRole('link', { name: 'Skip to collection', exact: true });
+    await skip.focus();
+    await page.keyboard.press('Enter');
+    await page.waitForFunction(() => location.hash === '#content');
+    await checkMainPanel(id, width);
+    assert.equal(await page.locator('#content').getAttribute('tabindex'), '-1');
+    assert.equal(await page.evaluate(() => document.activeElement?.id), 'content', 'Skip link must focus the active collection without changing its section');
+    await activateMain(id, width);
+    if (shouldCapture(width)) await screenshot('home-' + id + '-' + screenName(width) + '.png');
+    await links.first().click();
+    await page.waitForURL(itemURL(sectionItems[0]));
+    await page.goBack({ waitUntil: 'networkidle' });
+    await checkMainPanel(id, width);
+  }
+
+  for (const id of ['projects', 'essays']) {
+    await page.goto(base + '/index.html#' + id, { waitUntil: 'networkidle' });
+    await checkMainPanel(id, width);
+    await page.reload({ waitUntil: 'networkidle' });
+    await checkMainPanel(id, width);
+  }
+  await page.goto(base + '/index.html#courses', { waitUntil: 'networkidle' });
+  await activateMain('projects', width);
+  await activateMain('essays', width);
+  await page.goBack();
+  await page.waitForFunction(() => location.hash === '#projects');
+  await checkMainPanel('projects', width);
+  await page.goBack();
+  await page.waitForFunction(() => location.hash === '#courses');
+  await checkMainPanel('courses', width);
+  await activateMain('projects', width);
+  const firstProject = items.find(item => item.section === 'projects');
+  await page.locator('#projects .work-list-link').first().click();
+  await page.waitForURL(itemURL(firstProject));
+  await page.locator('.site-header').getByRole('link', { name: 'Courses', exact: true }).click();
+  await checkMainPanel('courses', width);
+  await checkSubject(0, width);
+  report.home.viewports.push(width);
 }
 
 async function checkHistory(width) {
@@ -383,6 +535,23 @@ async function checkMobileMenu(course, width) {
 }
 
 try {
+  if (homeOnly) {
+    for (const viewport of viewports) {
+      await page.setViewportSize(viewport);
+      await page.goto(base + '/index.html', { waitUntil: 'networkidle' });
+      await page.evaluate(() => sessionStorage.removeItem('coursework-subject'));
+      await page.reload({ waitUntil: 'networkidle' });
+      await checkHomeTabs(viewport.width);
+    }
+    assert.deepEqual(errors, [], 'Browser errors');
+    assert.deepEqual(externalRequests, [], 'External runtime requests');
+    report.browserErrors = errors;
+    report.externalRequests = externalRequests;
+    report.checks.push('All three main tabs and all four subject tabs: visibility, aria controls and selection, roving tabindex, keyboard arrows/Home/End/Space, subject persistence and panel-only scrolling');
+    report.checks.push('All course links exposed by subject switching; project/writing links and HTTP responses, hash deep links and reloads, browser Back, and return through a child-page Courses header');
+    await writeFile(path.join(output, 'home-tabs-report.json'), JSON.stringify(report, null, 2) + '\n');
+    console.log('PASS: home tabs at ' + report.home.viewports.join('/') + 'px; ' + history.courses.length + ' courses across four subjects, ' + items.length + ' project/writing links; keyboard, hashes, reloads, Back, child header returns, panel scrolling; ' + report.screenshots.length + ' screenshots; zero browser errors or external requests.');
+  } else {
   for (const viewport of viewports) {
     const width = viewport.width;
     await page.setViewportSize(viewport);
@@ -405,7 +574,10 @@ try {
     for (const course of courses) {
       if (width === 1440) {
         await page.goto(base + '/', { waitUntil: 'networkidle' });
-        await page.locator('.course-entry a.course-name[href="courses/' + course.id + '/index.html"]').click();
+        const link = page.locator('.course-entry a.course-name[href="courses/' + course.id + '/index.html"]');
+        const group = await link.evaluate(anchor => anchor.closest('.course-group').id);
+        await page.locator('.subject-tab[aria-controls="' + group + '"]').click();
+        await link.click();
         await page.waitForURL(courseURL(course));
       } else await page.goto(courseURL(course), { waitUntil: 'networkidle' });
       await checkContents(course, width);
@@ -470,4 +642,5 @@ try {
   const chapters = courses.flatMap(course => course.chapters);
   const mathTotal = [...chapters, ...items].reduce((sum, record) => sum + record.mathExpressions, 0);
   console.log('PASS: ' + (overviewWidths.length ? overviews.length + ' course Contents at ' + overviewWidths.join('/') + 'px, ' : '') + courses.length + ' deeper course readers, ' + chapters.length + ' chapters, ' + items.length + ' selected works, ' + history.courses.length + ' history rows, ' + mathTotal + ' source-derived math expressions; ' + report.viewports.join('/') + 'px; navigation, applicable figures/downloads, full speech, all-course links, expanded disclosures and legacy redirects; ' + report.screenshots.length + ' screenshots; zero browser errors or external requests.');
+  }
 } finally { await browser.close(); }

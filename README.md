@@ -1,8 +1,9 @@
 # Coursework
 
-A browser collection of 33 courses, with projects and writing in separate sections.
-The home page groups every course by subject. Each course opens to one contents
-list of topics and short explanations; examples appear beneath the relevant topic.
+A browser collection of 33 courses, with Courses, Projects and Writing tabs.
+The Courses view switches between four subjects. One view is visible at a time,
+and the main tabs stay in reach. Each course opens to one contents list of topics
+and short explanations; examples appear beneath the relevant topic.
 Example readers use the whole course contents for navigation.
 
 ## Examples, projects and writing
@@ -78,7 +79,8 @@ Browser screenshots and the report go in ignored `tmp/browser-expanded/`.
 | `tools/build*.mjs`, `tools/check.mjs` | Static build, course overviews, selected readers, directory and file checks |
 
 All site URLs are relative, so `dist/` can be served under a GitHub Pages
-repository path. The source pages live in this repository; the simulation
+repository path. CSS and navigation scripts use content versions in their URLs
+so new pages load the matching assets. The source pages live in this repository; the simulation
 project maintains the numerical implementations.
 
 The simulation Python scripts use NumPy, SciPy, and Matplotlib. Keep

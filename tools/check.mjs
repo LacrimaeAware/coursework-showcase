@@ -202,10 +202,37 @@ function targetHash(href, from) {
   try { return new URL(decodeEntities(href), 'https://coursework.invalid/' + from).hash; }
   catch { return ''; }
 }
+function attributeValue(attributes, name) {
+  return attributes.match(new RegExp('\\b' + name + '\\s*=\\s*(?:"([^"]*)"|\'([^\']*)\')', 'i'))?.slice(1).find(value => value !== undefined);
+}
+function defaultTabIndex(attributes, active) {
+  const value = attributeValue(attributes, 'tabindex');
+  return active ? value === undefined || value === '0' : value === '-1';
+}
 
 const homeHTML = texts.get(path.join(directory, 'index.html')) || '';
 const rootLinks = anchorTags(homeHTML);
-if (![...homeHTML.matchAll(/<h2\b[^>]*>([\s\S]*?)<\/h2>/gi)].some(match => plainText(match[1]) === 'Courses')) failures.push('Home needs the Courses heading.');
+const mainTabs = [['courses', 'Courses'], ['projects', 'Projects'], ['essays', 'Writing']];
+const tabLinks = rootLinks.filter(link => attributeValue(link.attributes, 'role') === 'tab');
+if (tabLinks.length !== mainTabs.length) failures.push('Home needs three main navigation tabs.');
+const homeSections = [...homeHTML.matchAll(/<section\b([^>]*)>/gi)];
+for (const [index, [id, label]] of mainTabs.entries()) {
+  const link = tabLinks.find(link => attributeValue(link.attributes, 'id') === 'tab-' + id);
+  if (!link || link.text !== label || link.href !== '#' + id || attributeValue(link.attributes, 'aria-controls') !== id || attributeValue(link.attributes, 'aria-selected') !== String(index === 0) || !defaultTabIndex(link.attributes, index === 0)) failures.push('Wrong main tab contract: ' + id);
+  const panel = homeSections.find(match => attributeValue(match[1], 'id') === id)?.[1] || '';
+  if (attributeValue(panel, 'role') !== 'tabpanel' || attributeValue(panel, 'aria-labelledby') !== 'tab-' + id || /(?:^|\s)hidden(?:\s|=|$)/.test(panel) !== (index !== 0)) failures.push('Wrong default main panel state: ' + id);
+}
+const subjectTabs = [...homeHTML.matchAll(/<button\b([^>]*)>([\s\S]*?)<\/button>/gi)].filter(match => (attributeValue(match[1], 'class') || '').split(/\s+/).includes('subject-tab'));
+if (subjectTabs.length !== 4) failures.push('Home needs four subject tabs.');
+for (const [index, tab] of subjectTabs.entries()) {
+  if (attributeValue(tab[1], 'role') !== 'tab' || attributeValue(tab[1], 'data-subject-index') !== String(index) || attributeValue(tab[1], 'aria-controls') !== 'subject-' + index || attributeValue(tab[1], 'aria-selected') !== String(index === 0) || !defaultTabIndex(tab[1], index === 0)) failures.push('Wrong subject tab contract: ' + index);
+  const group = homeSections.find(match => attributeValue(match[1], 'id') === 'subject-' + index)?.[1] || '';
+  if (!group || /(?:^|\s)hidden(?:\s|=|$)/.test(group) !== (index !== 0)) failures.push('Wrong default subject panel state: ' + index);
+}
+const homeHeadings = [...homeHTML.matchAll(/<h([12])\b([^>]*)>([\s\S]*?)<\/h\1>/gi)];
+const homeTitle = homeHeadings.filter(match => match[1] === '1');
+if (homeTitle.length !== 1 || plainText(homeTitle[0][3]) !== 'Course collection' || !(attributeValue(homeTitle[0][2], 'class') || '').split(/\s+/).includes('sr-only')) failures.push('Home needs one screen-reader course collection title.');
+for (const heading of homeHeadings) if (['Coursework', 'Courses', 'Projects', 'Writing'].includes(plainText(heading[3])) && !(attributeValue(heading[2], 'class') || '').split(/\s+/).includes('sr-only')) failures.push('Home repeats a tab label as a visible heading: ' + plainText(heading[3]));
 const homeCourses = classBlocks(homeHTML, 'course-entry');
 if (homeCourses.length !== history.courses.length) failures.push('Home course count differs from history.');
 for (const course of history.courses) {

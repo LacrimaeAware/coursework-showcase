@@ -22,6 +22,7 @@ export async function loadOverviews(root) {
 }
 
 export const topicAnchor = index => 'topic-' + (index + 1);
+export const renderSectionNav = (base, active) => '<nav class="section-tabs" aria-label="Sections">' + [['courses', 'Courses'], ['projects', 'Projects'], ['essays', 'Writing']].map(([id, label]) => '<a class="section-tab tab-' + id + '" href="' + base + 'index.html#' + id + '"' + (id === active ? ' aria-current="page"' : '') + '>' + label + '</a>').join('') + '</nav>';
 export const renderOverview = (overview, catalog) => '<section class="course-overview" aria-labelledby="overview-title"><h2 id="overview-title">Contents</h2><ol class="course-topics">' + overview.topics.map((topic, index) => {
   const examples = (topic.examples || []).map(example => '<a data-example href="' + escape(example.slug) + '.html">' + escape(example.label) + '</a>');
   const projects = (topic.projects || []).map(slug => {
@@ -47,7 +48,7 @@ export async function buildOverviews(root, output) {
     const overview = overviews.get(course.id);
     const destination = path.join(output, 'courses', course.id);
     await mkdir(destination, { recursive: true });
-    const html = '<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>' + escape(course.title) + ' | Coursework</title><link rel="stylesheet" href="../../styles.css"></head><body class="course-contents-page"><a class="skip-link" href="#content">Skip to course contents</a><header class="site-header collection-header"><a class="wordmark" href="../../index.html">Coursework</a><a href="../../history/index.html">All courses</a></header><main id="content" class="course-contents"><h1>' + escape(course.title) + '</h1><p class="study-context">' + escape(course.term + ' ' + course.year + ' · ' + course.code + ' · ' + course.school) + '</p><p class="course-intro">' + escape(overview.summary) + '</p>' + renderOverview(overview, catalog) + renderRelatedWork(relatedWork(catalog, course.id)) + '</main><footer class="site-footer"><a href="../../index.html">All coursework</a><a href="../../history/index.html">All courses</a></footer></body></html>';
+    const html = '<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>' + escape(course.title) + ' | Coursework</title><link rel="stylesheet" href="../../styles.css"></head><body class="course-contents-page"><a class="skip-link" href="#content">Skip to course contents</a><header class="site-header collection-header">' + renderSectionNav('../../', 'courses') + '</header><main id="content" class="course-contents"><h1>' + escape(course.title) + '</h1><p class="study-context">' + escape(course.term + ' ' + course.year + ' · ' + course.code + ' · ' + course.school) + '</p><p class="course-intro">' + escape(overview.summary) + '</p>' + renderOverview(overview, catalog) + renderRelatedWork(relatedWork(catalog, course.id)) + '</main><footer class="site-footer"><a href="../../index.html">All coursework</a><a href="../../history/index.html">All courses</a></footer></body></html>';
     await writeFile(path.join(destination, 'index.html'), html);
     count++;
   }

@@ -1,6 +1,6 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { loadOverviews } from './build_overviews.mjs';
+import { loadOverviews, renderSectionNav } from './build_overviews.mjs';
 
 const escape = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 
@@ -27,7 +27,7 @@ export async function buildHistory(root, output) {
     return '<section id="year-' + year + '"><h2>' + year + '</h2><table class="history-table"><thead><tr><th>Term</th><th>Course and topics</th></tr></thead><tbody>' + rows + '</tbody></table></section>';
   }).join('\n');
   const jumpLinks = years.map(year => '<a href="#year-' + year + '">' + year + '</a>').join('');
-  const html = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>All courses | Coursework</title><link rel="stylesheet" href="../styles.css"></head><body><a class="skip-link" href="#content">Skip to all courses</a><header class="site-header collection-header"><a class="wordmark" href="../index.html">Coursework</a><a href="../index.html">Coursework</a></header><main id="content" class="history-main"><h1>All courses</h1><p>33 courses from 2022 through 2026. Each course opens to a topic overview, with selected examples, projects or writing where available.</p><nav class="history-years" aria-label="Years">' + jumpLinks + '</nav>' + sections + '</main><footer class="site-footer"><a href="../index.html">All coursework</a></footer></body></html>';
+  const html = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>All courses | Coursework</title><link rel="stylesheet" href="../styles.css"></head><body><a class="skip-link" href="#content">Skip to all courses</a><header class="site-header collection-header">' + renderSectionNav('../', 'courses') + '</header><main id="content" class="history-main"><h1>All courses</h1><p>33 courses from 2022 through 2026. Each course opens to a topic overview, with selected examples, projects or writing where available.</p><nav class="history-years" aria-label="Years">' + jumpLinks + '</nav>' + sections + '</main><footer class="site-footer"><a href="../index.html">All coursework</a></footer></body></html>';
   const destination = path.join(output, 'history');
   await mkdir(destination, { recursive: true });
   await writeFile(path.join(destination, 'index.html'), html);

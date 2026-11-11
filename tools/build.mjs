@@ -1,4 +1,5 @@
-import { cp, lstat, readdir, realpath, rm, writeFile } from 'node:fs/promises';
+import { cp, lstat, readFile, readdir, realpath, rm, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildCourse } from './build_course.mjs';
@@ -35,5 +36,20 @@ if (!count) throw new Error('The site folder is empty.');
 await rm(output, { recursive: true, force: true });
 await cp(source, output, { recursive: true, force: false, errorOnExist: true });
 const contentPages = await buildCourse(root, output) + await buildOverviews(root, output) + await buildHistory(root, output);
+const versions = new Map();
+for (const asset of ['styles.css', 'collection-nav.js', 'course-reader.js', 'legacy-enzyme.js']) {
+  versions.set(asset, createHash('sha256').update(await readFile(path.join(output, asset))).digest('hex').slice(0, 12));
+}
+async function versionReferences(folder) {
+  for (const entry of await readdir(folder, { withFileTypes: true })) {
+    const filename = path.join(folder, entry.name);
+    if (entry.isDirectory()) await versionReferences(filename);
+    else if (entry.name.endsWith('.html')) {
+      const html = await readFile(filename, 'utf8');
+      await writeFile(filename, html.replace(/\b(href|src)="([^"?]+\/(?:styles\.css|collection-nav\.js|course-reader\.js|legacy-enzyme\.js)|styles\.css|collection-nav\.js|course-reader\.js|legacy-enzyme\.js)"/g, (_, attribute, href) => attribute + '="' + href + '?v=' + versions.get(path.posix.basename(href)) + '"'));
+    }
+  }
+}
+await versionReferences(output);
 await writeFile(path.join(output, '.nojekyll'), '');
 console.log(`Built ${count} site files and ${contentPages} content pages into dist/.`);
