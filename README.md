@@ -23,13 +23,11 @@ Seven courses also have deeper readers with saved examples and results.
 The all-courses directory lists 33 course records from 2022 through 2026. Every
 course links to its own topic overview, including Anatomy and Physiology, its lab,
 chemistry, Spanish, anthropology and philosophy. Overview scope follows retained
-syllabi, module lists and course material. Source notes distinguish incomplete
-records and later syllabus topics from saved assignment work.
+syllabi, module lists and course material. The underlying records retain scope and provenance notes.
 
 The numbered reader pages are selected topic groups. Their counts do not represent
 the number of textbook chapters or full-course coverage. Original assignment
-and section labels identify the included work. Each course contents page and
-directory entry links to the original course archive for other preserved files.
+and section labels identify the included work.
 Figures and recorded model results come from saved coursework outputs. The
 presentation does not rerun the Deep Learning training or the survey models.
 
@@ -95,5 +93,4 @@ their bundle preserves the original relative data-file layout.
 ## GitHub Pages
 
 The workflow in `.github/workflows/pages.yml` builds and checks the source,
-then publishes `dist/` through GitHub Pages when `main` changes. The original
-semester archive retains its existing sign-in requirements.
+then publishes `dist/` through GitHub Pages when `main` changes.

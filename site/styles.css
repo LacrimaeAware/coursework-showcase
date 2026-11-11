@@ -182,7 +182,6 @@ mjx-assistive-mml { position: absolute !important; width: 1px !important; height
 .course-intro { font-size: 18px; max-width: 73ch; margin-bottom: 32px; }
 .course-coverage { max-width: 72ch; color: var(--muted); font-size: 14px; margin-bottom: 14px; }
 .course-entry .course-coverage { font-size: 13px; }
-.course-archive-link { margin-top: 30px; font-size: 14px; }
 .course-jump { margin: -12px 0 33px; font-size: 15px; }
 .course-overview { max-width: 74ch; }
 .course-overview > section { margin: 22px 0; }
@@ -192,8 +191,6 @@ mjx-assistive-mml { position: absolute !important; width: 1px !important; height
 .course-selected-work > p { max-width: 74ch; }
 .course-selected-work .contents-list { margin-top: 24px; }
 .course-related-work li { margin: 12px 0; }
-.overview-source { max-width: 85ch; margin-top: 34px; font-size: 13px; color: var(--muted); }
-.overview-source span { font-weight: 600; }
 .course-contents h2 { font-size: 25px; margin-bottom: 15px; }
 .course-contents .contents-list + h2 { margin-top: 32px; }
 .contents-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
@@ -315,8 +312,6 @@ mjx-assistive-mml { position: absolute !important; width: 1px !important; height
 .history-topics { max-width: 76ch; margin: 9px 0; font-size: 14px; line-height: 1.65; }
 .history-table small { color: var(--muted); }
 .history-work { display: block; width: fit-content; margin-top: 7px; }
-.history-archive { display: block; width: fit-content; margin-top: 7px; font-size: 13px; }
-.history-source { color: var(--muted); font-size: 13px; }
 @media (max-width: 720px) {
   .chapter-body > pre { white-space: pre-wrap; overflow-wrap: anywhere; }
   .history-main { width: calc(100% - 40px); margin-top: 28px; }

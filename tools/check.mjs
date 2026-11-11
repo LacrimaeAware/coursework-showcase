@@ -55,6 +55,9 @@ async function checkReference(from, raw, kind = 'link') {
   const label = `${path.relative(directory, from)} -> ${href}`;
   if (/^(?:https?:)?\/\//i.test(href)) {
     if (kind === 'script') failures.push(`External runtime script: ${label}`);
+    try {
+      if (/(?:^|\.)chatgpt\.site$/i.test(new URL(href.startsWith('//') ? 'https:' + href : href).hostname)) failures.push(`Retired archive URL in public site: ${label}`);
+    } catch { failures.push(`Invalid external URL: ${label}`); }
     return;
   }
   if (/^[a-z][a-z\d+.-]*:/i.test(href)) {
@@ -95,6 +98,12 @@ async function checkReference(from, raw, kind = 'link') {
 for (const [filename, html] of texts) {
   notes.pages++;
   const stripped = html.replace(/<!--[\s\S]*?-->/g, '');
+  const forbiddenClasses = new Set(['overview-source', 'history-source', 'course-archive-link', 'history-archive']);
+  for (const attribute of stripped.matchAll(/\bclass\s*=\s*(?:"([^"]*)"|'([^']*)')/gi)) {
+    for (const className of (attribute[1] ?? attribute[2]).split(/\s+/)) {
+      if (forbiddenClasses.has(className)) failures.push(`Retired public source/archive UI: ${path.relative(directory, filename)} .${className}`);
+    }
+  }
   for (const element of stripped.matchAll(/<([a-z][\w:-]*)\b[^>]*>/gi)) {
     for (const attribute of element[0].matchAll(/\b(href|src|poster)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/gi)) {
       const kind = element[1].toLowerCase() === 'script' && attribute[1].toLowerCase() === 'src' ? 'script' : 'link';
@@ -275,7 +284,6 @@ for (const course of history.courses) {
   if (![...body.matchAll(/<h2\b[^>]*>([\s\S]*?)<\/h2>/gi)].some(match => plainText(match[1]) === 'Course overview')) failures.push('Missing Course overview heading: ' + course.id);
   const pageText = plainText(html), bodyText = plainText(body);
   if (!pageText.includes(plainText(overview.summary))) failures.push('Missing overview summary: ' + course.id);
-  if (!pageText.includes(plainText(overview.sourceNote))) failures.push('Missing overview source note: ' + course.id);
   for (const topic of overview.topics) if (!bodyText.includes(plainText(topic.description))) failures.push('Missing overview topic description: ' + course.id + ' / ' + topic.title);
   const row = [...historyHTML.matchAll(/<tr\b([^>]*)>([\s\S]*?)<\/tr>/gi)].find(match => match[1].includes('data-history-course="' + course.id + '"'))?.[2] || '';
   const title = classBlocks(row, 'history-course-title');

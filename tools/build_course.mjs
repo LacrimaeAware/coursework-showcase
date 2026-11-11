@@ -1,6 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { loadOverviews, renderOverview, renderSource } from './build_overviews.mjs';
+import { loadOverviews, renderOverview } from './build_overviews.mjs';
 const escape = value => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
 const coverageLine = value => value ? '<p class="course-coverage">' + escape(value) + '</p>' : '';
 const safeId = value => {
@@ -12,7 +12,6 @@ const footer = context => '<footer class="site-footer"><a href="../../index.html
 
 export async function buildCourse(root, output) {
   const catalog = JSON.parse(await readFile(path.join(root, "content/catalog.json"), "utf8"));
-  const history = JSON.parse(await readFile(path.join(root, "content/history.json"), "utf8"));
   const overviews = await loadOverviews(root);
   let count = 0;
   const courses = [];
@@ -29,10 +28,9 @@ export async function buildCourse(root, output) {
     const navigation = current => '<nav class="book-chapters" aria-label="Course topics">' + course.chapters.map((chapter, index) => '<a href="' + chapterLink(chapter) + '"' + (current === index ? ' aria-current="page"' : '') + '><span class="chapter-number">' + (index + 1) + '</span><span>' + escape(chapter.shortTitle) + '</span></a>').join("") + '</nav>';
     const context = course.shortTitle + " · " + course.term;
     const overview = overviews.get(id);
-    const archiveLink = '<p class="course-archive-link"><a href="' + escape(history.archive_base + '?course=' + id) + '" target="_blank" rel="noreferrer">Original course archive (sign-in)</a></p>';
     const finalProject = course.finalProject ? '<h2>Final project</h2><p><a href="' + escape(course.finalProject.href) + '">' + escape(course.finalProject.title) + '</a></p>' : '';
     const rows = course.chapters.map((chapter, index) => '<li><a class="contents-row" href="' + chapterLink(chapter) + '"><span class="contents-number">' + (index + 1) + '</span><div><h3>' + escape(chapter.title) + '</h3><p>' + escape(chapter.summary) + '</p><small>' + escape(chapter.record) + '</small></div><svg aria-hidden="true" viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m7 4 6 6-6 6"/></svg></a></li>').join("\n");
-    await writeFile(path.join(destination, "index.html"), head(course.title, false) + '<body class="course-contents-page"><a class="skip-link" href="#content">Skip to course overview</a><header class="site-header collection-header"><a class="wordmark" href="../../index.html">Coursework</a><a href="../../history/index.html">All courses</a></header><main id="content" class="course-contents"><h1>' + escape(course.title) + '</h1><p class="study-context">' + escape(course.term) + '</p><p class="course-intro">' + escape(overview.summary) + '</p><p class="course-jump"><a href="#selected-work">' + chapterCount + ' selected topic groups with worked examples</a></p>' + renderOverview(overview) + '<section id="selected-work" class="course-selected-work"><h2>Selected coursework</h2>' + coverageLine(course.coverage) + '<p>' + escape(course.intro) + '</p><ol class="contents-list">' + rows + '</ol>' + finalProject + '</section>' + renderSource(overview) + archiveLink + '</main>' + footer(context));
+    await writeFile(path.join(destination, "index.html"), head(course.title, false) + '<body class="course-contents-page"><a class="skip-link" href="#content">Skip to course overview</a><header class="site-header collection-header"><a class="wordmark" href="../../index.html">Coursework</a><a href="../../history/index.html">All courses</a></header><main id="content" class="course-contents"><h1>' + escape(course.title) + '</h1><p class="study-context">' + escape(course.term) + '</p><p class="course-intro">' + escape(overview.summary) + '</p><p class="course-jump"><a href="#selected-work">' + chapterCount + ' selected topic groups with worked examples</a></p>' + renderOverview(overview) + '<section id="selected-work" class="course-selected-work"><h2>Selected coursework</h2>' + coverageLine(course.coverage) + '<p>' + escape(course.intro) + '</p><ol class="contents-list">' + rows + '</ol>' + finalProject + '</section>' + '</main>' + footer(context));
     count++;
     for (const [index, chapter] of course.chapters.entries()) {
       const body = await readFile(path.join(content, safeId(chapter.slug) + ".html"), "utf8");

@@ -91,6 +91,7 @@ async function finishRendering(math) {
   assert.equal(await page.locator('mjx-container').count(), math, 'Rendered math count must match content source: ' + page.url());
   assert.equal(await page.locator('mjx-merror,[data-mjx-error]').count(), 0, 'MathJax errors: ' + page.url());
   assert.ok(await page.locator('img').evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0)), 'Broken or unloaded image: ' + page.url());
+  assert.equal(await page.locator('.overview-source,.history-source,.course-archive-link,.history-archive').count(), 0, 'Retired public source/archive UI: ' + page.url());
 }
 
 async function noOverflow(label) {
@@ -165,8 +166,6 @@ async function checkHistory(width) {
     report.history.checkedWorkLinks.push(new URL(url).pathname);
   }
   const years = report.history.years;
-  const archives = await page.locator('.history-archive').evaluateAll(links => links.map(link => link.href));
-  assert.deepEqual(archives, expected.map(course => history.archive_base + '?course=' + course.id));
   const jumps = page.locator('.history-years a');
   assert.equal(await jumps.count(), years.length);
   for (const [index, year] of years.entries()) {
@@ -203,8 +202,6 @@ async function checkOverview(course, width) {
   for (const topic of course.topics) assert.ok(content.includes(normalize(topic.description)), 'Missing topic description: ' + course.id + ' / ' + topic.title);
   const pageText = normalize(await page.locator('main').innerText());
   assert.ok(pageText.includes(normalize(course.summary)), 'Missing course summary: ' + course.id);
-  assert.ok(pageText.includes(normalize(course.sourceNote)), 'Missing source basis: ' + course.id);
-  assert.equal(await page.locator('.course-archive-link a').getAttribute('href'), history.archive_base + '?course=' + course.id);
   if (featured) {
     assert.equal(await page.locator('#selected-work').count(), 1, 'Deeper work needs its own section: ' + course.id);
     assert.equal(await page.locator('#selected-work .contents-list a.contents-row').count(), featured.chapters.length);
@@ -221,7 +218,6 @@ async function checkContents(course, width) {
   if (course.coverage) assert.equal(await page.locator('.course-coverage').innerText(), course.coverage);
   assert.equal(await page.getByRole('heading', {name:'Course overview',exact:true}).count(), 1);
   assert.equal(await page.locator('#selected-work').count(), 1);
-  assert.equal(await page.locator('.course-archive-link a').getAttribute('href'), history.archive_base + '?course=' + course.id);
   const links = page.locator('#selected-work .contents-list a.contents-row');
   assert.equal(await links.count(), course.chapters.length);
   assert.deepEqual(await links.locator('h3').allTextContents(), course.chapters.map(chapter => chapter.title));
@@ -429,7 +425,7 @@ try {
   report.checks.push('Catalog home, ordered contents and every chapter through Next links at all four widths; source-derived math, heading, figure, image and disclosure counts');
   report.checks.push('Every course sidebar, mobile current markers and menus, Previous/Next links, ArrowLeft/ArrowRight and chapter boundaries, direct URLs and reloads');
   report.checks.push('All selected works: exact title/context, local source/download responses, return to coursework, default and expanded-disclosure overflow');
-  report.checks.push('Every archived course has a source-matched overview, visible topic headings and descriptions, summary and source note at 1440px and 390px, without horizontal overflow');
+  report.checks.push('Every course has a source-matched overview, visible topic headings and descriptions, and summary at 1440px and 390px, without horizontal overflow or retired source/archive UI');
   report.checks.push('Complete All courses index: source-matched rows, terms and course codes, every title linking its own overview, selected-work anchors and HTTP responses, every year anchor and return navigation at all four widths');
   report.checks.push('Full Speech: six delivered paragraphs, five references, readable on-page script and working Read the full speech anchor; no selected-passages download');
 
