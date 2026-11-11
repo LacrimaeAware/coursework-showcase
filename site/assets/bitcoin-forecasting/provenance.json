@@ -1,0 +1,20 @@
+{
+  "sources": [
+    {
+      "id": "deep-learning-assignment-9-revised-report",
+      "title": "Assignment 9 Short Report: Time Series Prediction with LSTMs",
+      "sha256": "b72f791f775b246bc227d1416fe9165b74f46d00ec7c00aa9919f818e3ade1e0",
+      "page": 4
+    }
+  ],
+  "files": [
+    {
+      "file": "model-comparison.png",
+      "sha256": "6f5d0d2e0e39944ecdf11216671554ea9d948187f0a2eea8557aa6068ded75e7",
+      "kind": "Original report figure",
+      "source": "deep-learning-assignment-9-revised-report",
+      "page": 4,
+      "figure": 6
+    }
+  ]
+}

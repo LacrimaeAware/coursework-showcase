@@ -3,15 +3,13 @@
   "title": "Calculus with Analytic Geometry III",
   "shortTitle": "Calculus III",
   "term": "Fall 2025",
-  "intro": "Selected saved notes connect three-dimensional coordinates with vector curves, motion and partial derivatives. Each topic contains complete worked examples from the preserved chapter notes.",
-  "coverage": "Selected worked notes from Sections 12.1, 13.3, 13.4 and 14.3.",
   "chapters": [
     {
       "slug": "01-coordinates-vectors",
       "title": "Coordinates, planes and displacement vectors",
       "shortTitle": "Coordinates and vectors",
       "summary": "Measure distance to a coordinate plane and classify a triangle from its displacement vectors.",
-      "record": "Chapter 12.1 · saved Problems 3 and 12",
+      "record": "Section 12.1",
       "format": "proof"
     },
     {
@@ -19,7 +17,7 @@
       "title": "Arc length and curvature",
       "shortTitle": "Arc length and curvature",
       "summary": "Integrate the speed of a space curve and calculate the tangent, normal and curvature of a helix.",
-      "record": "Section 13.3 · saved Exercises 5 and 17",
+      "record": "Section 13.3",
       "format": "proof"
     },
     {
@@ -27,7 +25,7 @@
       "title": "Motion and initial conditions",
       "shortTitle": "Motion and initial conditions",
       "summary": "Differentiate position to obtain motion quantities, then recover position from acceleration and initial data.",
-      "record": "Section 13.4 · saved Exercises 3 and 15",
+      "record": "Section 13.4",
       "format": "proof"
     },
     {
@@ -35,7 +33,7 @@
       "title": "First and second partial derivatives",
       "shortTitle": "Partial derivatives",
       "summary": "Differentiate with one input fixed and compare the two orders of mixed differentiation.",
-      "record": "Section 14.3 · saved Examples 1 and 7",
+      "record": "Section 14.3",
       "format": "proof"
     }
   ]

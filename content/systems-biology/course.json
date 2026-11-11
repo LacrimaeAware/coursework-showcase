@@ -2,50 +2,48 @@
   "title": "Stochastic and deterministic simulations in systems biology",
   "shortTitle": "Systems biology",
   "term": "Fall 2026",
-  "intro": "Enzyme reactions lead into inhibition, gene feedback and stable states. The later chapters follow individual reaction events and measure variation across repeated simulations.",
   "chapters": [
     {
       "slug": "01-enzyme-kinetics",
       "title": "Enzyme reactions and Michaelis–Menten kinetics",
       "shortTitle": "Enzyme kinetics",
       "summary": "Reaction balances, conserved quantities and the saturation curve.",
-      "record": "Early tutorial material · undated source"
+      "record": "Enzyme kinetics tutorial"
     },
     {
       "slug": "02-competitive-inhibition",
       "title": "Competitive inhibition",
       "shortTitle": "Competitive inhibition",
       "summary": "Add inhibitor binding and compare product formation.",
-      "record": "September 14 · student-reported exploration"
+      "record": "September 14 exploration"
     },
     {
       "slug": "03-lac-feedback",
       "title": "Lac feedback and stable states",
       "shortTitle": "Lac feedback",
       "summary": "Connect transport and gene expression through positive feedback.",
-      "record": "October 2 · historical classmate notes"
+      "record": "October 2 lac-model notes"
     },
     {
       "slug": "04-basins-of-attraction",
       "title": "Initial conditions and basins of attraction",
       "shortTitle": "Basins of attraction",
       "summary": "Map starting states to their long-term destinations.",
-      "record": "October 20–25 · historical assignment and saved maps"
+      "record": "October 20–25 initial-condition exercise"
     },
     {
       "slug": "05-stochastic-reactions",
       "title": "Individual reaction events",
       "shortTitle": "Stochastic reactions",
       "summary": "Compare random reaction paths with continuous rate equations.",
-      "record": "Historical sources · October 19 reading, October 30 notes, November 1 comparison"
+      "record": "October 19 reading · October 30 reactions · November 1 comparison"
     },
     {
       "slug": "06-product-variability",
       "title": "Product variability and observation time",
       "shortTitle": "Product variability",
       "summary": "Summarize repeated runs with fixed-time CV maps and inspect time windows.",
-      "record": "November 6–9 · historical notes and saved examples"
+      "record": "November 6–9 variability exercises"
     }
-  ],
-  "coverage": "Enzyme and lac-model work through the stochastic exercises"
+  ]
 }

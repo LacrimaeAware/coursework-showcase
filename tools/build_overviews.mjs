@@ -21,9 +21,21 @@ export async function loadOverviews(root) {
   return overviews;
 }
 
-export const renderOverview = overview => '<section class="course-overview" aria-labelledby="overview-title"><h2 id="overview-title">Course overview</h2>' + overview.topics.map(topic => '<section><h3>' + escape(topic.title) + '</h3><p>' + escape(topic.description) + '</p></section>').join('\n') + '</section>';
+export const topicAnchor = index => 'topic-' + (index + 1);
+export const renderOverview = (overview, catalog) => '<section class="course-overview" aria-labelledby="overview-title"><h2 id="overview-title">Contents</h2><ol class="course-topics">' + overview.topics.map((topic, index) => {
+  const examples = (topic.examples || []).map(example => '<a data-example href="' + escape(example.slug) + '.html">' + escape(example.label) + '</a>');
+  const projects = (topic.projects || []).map(slug => {
+    const item = catalog.items.find(item => item.slug === slug);
+    if (!item) throw new Error('Missing topic project: ' + slug);
+    return '<a data-project href="../../' + item.section + '/' + item.slug + '/index.html">' + (item.kind === 'mini-project' ? 'Mini-project: ' : 'Project: ') + escape(item.title) + '</a>';
+  });
+  return '<li class="topic-row" id="' + topicAnchor(index) + '"><div><h3>' + escape(topic.title) + '</h3><p class="topic-description">' + escape(topic.description) + '</p>' + (examples.length || projects.length ? '<div class="topic-examples">' + examples.concat(projects).join('') + '</div>' : '') + '</div></li>';
+}).join('\n') + '</ol></section>';
 export const relatedWork = (catalog, id) => catalog.items.filter(item => item.courseId === id);
-export const renderRelatedWork = items => items.length ? '<section class="course-related-work"><h2>Projects and writing</h2><ul>' + items.map(item => '<li><a href="../../' + item.section + '/' + item.slug + '/index.html">' + escape(item.title) + '</a></li>').join('') + '</ul></section>' : '';
+export const renderRelatedWork = items => ['projects', 'essays'].map(section => {
+  const group = items.filter(item => item.section === section);
+  return group.length ? '<section class="course-related-work"><h2>' + (section === 'projects' ? 'Projects' : 'Writing') + '</h2><ul>' + group.map(item => '<li><a href="../../' + item.section + '/' + item.slug + '/index.html">' + escape(item.title) + '</a></li>').join('') + '</ul></section>' : '';
+}).join('');
 
 export async function buildOverviews(root, output) {
   const overviews = await loadOverviews(root);
@@ -35,7 +47,7 @@ export async function buildOverviews(root, output) {
     const overview = overviews.get(course.id);
     const destination = path.join(output, 'courses', course.id);
     await mkdir(destination, { recursive: true });
-    const html = '<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>' + escape(course.title) + ' | Coursework</title><link rel="stylesheet" href="../../styles.css"></head><body class="course-contents-page"><a class="skip-link" href="#content">Skip to course overview</a><header class="site-header collection-header"><a class="wordmark" href="../../index.html">Coursework</a><a href="../../history/index.html">All courses</a></header><main id="content" class="course-contents"><h1>' + escape(course.title) + '</h1><p class="study-context">' + escape(course.term + ' ' + course.year + ' · ' + course.code + ' · ' + course.school) + '</p><p class="course-intro">' + escape(overview.summary) + '</p>' + renderOverview(overview) + renderRelatedWork(relatedWork(catalog, course.id)) + '</main><footer class="site-footer"><a href="../../index.html">All coursework</a><a href="../../history/index.html">All courses</a></footer></body></html>';
+    const html = '<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>' + escape(course.title) + ' | Coursework</title><link rel="stylesheet" href="../../styles.css"></head><body class="course-contents-page"><a class="skip-link" href="#content">Skip to course contents</a><header class="site-header collection-header"><a class="wordmark" href="../../index.html">Coursework</a><a href="../../history/index.html">All courses</a></header><main id="content" class="course-contents"><h1>' + escape(course.title) + '</h1><p class="study-context">' + escape(course.term + ' ' + course.year + ' · ' + course.code + ' · ' + course.school) + '</p><p class="course-intro">' + escape(overview.summary) + '</p>' + renderOverview(overview, catalog) + renderRelatedWork(relatedWork(catalog, course.id)) + '</main><footer class="site-footer"><a href="../../index.html">All coursework</a><a href="../../history/index.html">All courses</a></footer></body></html>';
     await writeFile(path.join(destination, 'index.html'), html);
     count++;
   }

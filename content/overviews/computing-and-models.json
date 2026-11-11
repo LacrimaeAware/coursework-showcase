@@ -3,75 +3,312 @@
     "id": "deep-learning",
     "summary": "Learning how neural networks turn data into predictions, from a single decision boundary to image models and sequence forecasts.",
     "topics": [
-      {"title":"Linear classifiers and gradient descent","description":"A decision boundary separates classes using a score calculated from input features. Gradient descent updates its parameters to reduce a measured prediction loss."},
-      {"title":"Backpropagation and dense networks","description":"The chain rule carries derivatives backward through a network so its weights can be updated. Dense networks combine several learned layers to classify handwritten digits."},
-      {"title":"Convolution and image features","description":"Convolutional filters reuse a small set of weights across an image. Shape-classification exercises connect filters, model size and the effect of rotating the input images."},
-      {"title":"Image regression","description":"Clock reading and triangle counting require numerical outputs rather than class labels. The target representation and error measure need to match what the number means, including clock time wrapping around."},
-      {"title":"Segmentation and object detection","description":"Segmentation assigns image regions or pixels to a mask, while detection locates objects with labeled boxes. Saved assignments compare prompted masks and a pretrained detector on selected images."},
-      {"title":"Sequence forecasting and baselines","description":"Sequence models use earlier observations to predict later ones. Airline and Bitcoin exercises compare learned forecasts with simple reference predictions using chronological test periods."}
+      {
+        "title": "Linear classifiers and gradient descent",
+        "description": "A decision boundary separates classes using a score calculated from input features. Gradient descent updates its parameters to reduce a measured prediction loss.",
+        "examples": [
+          {
+            "slug": "01-linear-classifiers",
+            "label": "Classifier example"
+          }
+        ]
+      },
+      {
+        "title": "Backpropagation and dense networks",
+        "description": "The chain rule carries derivatives backward through a network so its weights can be updated. Dense networks combine several learned layers to classify handwritten digits.",
+        "examples": [
+          {
+            "slug": "02-backpropagation",
+            "label": "Backpropagation example"
+          }
+        ]
+      },
+      {
+        "title": "Convolution and image features",
+        "description": "Convolutional filters reuse a small set of weights across an image. Shape-classification exercises connect filters, model size and the effect of rotating the input images.",
+        "examples": [
+          {
+            "slug": "03-convolution",
+            "label": "Image classification example"
+          }
+        ]
+      },
+      {
+        "title": "Image regression",
+        "description": "Clock reading and triangle counting require numerical outputs rather than class labels. The target representation and error measure need to match what the number means, including clock time wrapping around.",
+        "examples": [
+          {
+            "slug": "04-image-regression",
+            "label": "Image regression examples"
+          }
+        ]
+      },
+      {
+        "title": "Segmentation and object detection",
+        "description": "Segmentation assigns image regions or pixels to a mask, while detection locates objects with labeled boxes. Image experiments compare prompted masks with a pretrained detector.",
+        "examples": [
+          {
+            "slug": "05-segmentation-detection",
+            "label": "Segmentation and detection examples"
+          }
+        ]
+      },
+      {
+        "title": "Sequence forecasting and baselines",
+        "description": "Sequence models use earlier observations to predict later ones. Airline and Bitcoin exercises compare learned forecasts with simple reference predictions using chronological test periods.",
+        "examples": [
+          {
+            "slug": "06-sequence-forecasting",
+            "label": "Airline forecasting example"
+          }
+        ],
+        "projects": [
+          "bitcoin-forecasting"
+        ]
+      }
     ],
-    "sourceNote":"Spring 2026 saved Assignments 1–9, notebooks, reports and course index."
+    "sourceNote": "Spring 2026 saved Assignments 1–9, notebooks, reports and course index."
   },
   {
-    "id":"dealing-with-data",
-    "summary":"Working with data in R, comparing groups and fitting statistical models, with attention to uncertainty, assumptions and interpretation.",
-    "topics":[
-      {"title":"R, data selection and summaries","description":"Rows and columns are selected by position or condition, and loops repeat calculations across variables. Means, sample spread and group summaries describe the observations before modeling."},
-      {"title":"ANOVA and group comparisons","description":"Analysis of variance compares group means by separating within-group and between-group variation. Pairwise comparisons then ask which differences are supported while accounting for several comparisons."},
-      {"title":"Linear regression","description":"A fitted line relates a numerical response to a predictor. Slopes, intercepts, fitted values and residuals connect the model equation with the observed data."},
-      {"title":"Intervals, tests and diagnostics","description":"Confidence intervals and hypothesis tests quantify uncertainty under a model. Residual plots help examine whether the assumptions behind those calculations are plausible."},
-      {"title":"Multiple regression and the group final","description":"Adding predictors changes each coefficient into a comparison adjusted for the others. The happiness final combines descriptive comparisons with linear and logistic models using the General Social Survey."}
+    "id": "dealing-with-data",
+    "summary": "Working with data in R, comparing groups and fitting statistical models, with attention to uncertainty, assumptions and interpretation.",
+    "topics": [
+      {
+        "title": "R, data selection and summaries",
+        "description": "Rows and columns are selected by position or condition, and loops repeat calculations across variables. Means, sample spread and group summaries describe the observations before modeling.",
+        "examples": [
+          {
+            "slug": "01-data-and-summaries",
+            "label": "R examples"
+          }
+        ]
+      },
+      {
+        "title": "ANOVA and group comparisons",
+        "description": "Analysis of variance compares group means by separating within-group and between-group variation. Pairwise comparisons then ask which differences are supported while accounting for several comparisons.",
+        "examples": [
+          {
+            "slug": "02-anova-and-comparisons",
+            "label": "ANOVA examples"
+          }
+        ]
+      },
+      {
+        "title": "Linear regression",
+        "description": "A fitted line relates a numerical response to a predictor. Slopes, intercepts, fitted values and residuals connect the model equation with the observed data.",
+        "examples": [
+          {
+            "slug": "03-regression-and-intervals",
+            "label": "Regression examples"
+          }
+        ]
+      },
+      {
+        "title": "Intervals, tests and diagnostics",
+        "description": "Confidence intervals and hypothesis tests quantify uncertainty under a model. Residual plots help examine whether the assumptions behind those calculations are plausible."
+      },
+      {
+        "title": "Multiple regression and the group final",
+        "description": "Adding predictors changes each coefficient into a comparison adjusted for the others. The happiness final combines descriptive comparisons with linear and logistic models using the General Social Survey.",
+        "examples": [
+          {
+            "slug": "04-multiple-regression",
+            "label": "Multiple regression example"
+          }
+        ],
+        "projects": [
+          "gss-happiness"
+        ]
+      }
     ],
-    "sourceNote":"Spring 2026 saved Homework 1–7, lecture outline and GSS group-final materials."
+    "sourceNote": "Spring 2026 saved Homework 1–7, lecture outline and GSS group-final materials."
   },
   {
-    "id":"systems-biology",
-    "summary":"Using deterministic equations and stochastic simulations to study biochemical reactions, feedback and variation between repeated runs.",
-    "topics":[
-      {"title":"Reaction balances and enzyme kinetics","description":"Reaction rates determine how species amounts change while conservation relationships connect the variables. Enzyme models lead to the Michaelis–Menten saturation relationship."},
-      {"title":"Competitive inhibition","description":"An inhibitor competes for enzyme binding and changes product formation. Comparing inhibited and uninhibited trajectories connects the reaction mechanism with the observed curve."},
-      {"title":"Gene feedback and stable states","description":"The lac model connects transport and gene expression through feedback. An equilibrium is a state where the modeled rates balance; stability asks how nearby trajectories behave."},
-      {"title":"Initial conditions and basins of attraction","description":"Different starting states can approach different long-term outcomes. A basin map organizes starting conditions according to the stable state they approach."},
-      {"title":"Individual reaction events","description":"A stochastic model chooses individual reaction events and waiting times rather than evolving only a smooth average. Repeated runs reveal differences that one deterministic trajectory cannot display."},
-      {"title":"Variability and observation time","description":"Product distributions and relative spread summarize repeated simulations. The observation time or chosen time window matters because it determines which product values are being compared."}
+    "id": "systems-biology",
+    "summary": "Using deterministic equations and stochastic simulations to study biochemical reactions, feedback and variation between repeated runs.",
+    "topics": [
+      {
+        "title": "Reaction balances and enzyme kinetics",
+        "description": "Reaction rates determine how species amounts change while conservation relationships connect the variables. Enzyme models lead to the Michaelis–Menten saturation relationship.",
+        "examples": [
+          {
+            "slug": "01-enzyme-kinetics",
+            "label": "Enzyme simulation"
+          }
+        ]
+      },
+      {
+        "title": "Competitive inhibition",
+        "description": "An inhibitor competes for enzyme binding and changes product formation. Comparing inhibited and uninhibited trajectories connects the reaction mechanism with the observed curve.",
+        "examples": [
+          {
+            "slug": "02-competitive-inhibition",
+            "label": "Inhibition simulation"
+          }
+        ]
+      },
+      {
+        "title": "Gene feedback and stable states",
+        "description": "The lac model connects transport and gene expression through feedback. An equilibrium is a state where the modeled rates balance; stability asks how nearby trajectories behave.",
+        "examples": [
+          {
+            "slug": "03-lac-feedback",
+            "label": "Lac feedback model"
+          }
+        ]
+      },
+      {
+        "title": "Initial conditions and basins of attraction",
+        "description": "Different starting states can approach different long-term outcomes. A basin map organizes starting conditions according to the stable state they approach.",
+        "examples": [
+          {
+            "slug": "04-basins-of-attraction",
+            "label": "Basin map"
+          }
+        ]
+      },
+      {
+        "title": "Individual reaction events",
+        "description": "A stochastic model chooses individual reaction events and waiting times rather than evolving only a smooth average. Repeated runs reveal differences that one deterministic trajectory cannot display.",
+        "examples": [
+          {
+            "slug": "05-stochastic-reactions",
+            "label": "Reaction simulation"
+          }
+        ]
+      },
+      {
+        "title": "Variability and observation time",
+        "description": "Product distributions and relative spread summarize repeated simulations. The observation time or chosen time window matters because it determines which product values are being compared.",
+        "examples": [
+          {
+            "slug": "06-product-variability",
+            "label": "Variability comparison"
+          }
+        ]
+      }
     ],
-    "sourceNote":"Fall 2026 tutorial notes and preserved enzyme, lac-feedback, basin and stochastic-comparison exercises."
+    "sourceNote": "Fall 2026 tutorial notes and preserved enzyme, lac-feedback, basin and stochastic-comparison exercises."
   },
   {
-    "id":"programming-concepts",
-    "summary":"Building small Python programs from input and arithmetic through control flow, reusable functions, stored data and object-oriented code.",
-    "topics":[
-      {"title":"Input, arithmetic and decisions","description":"Programs convert typed input into values, calculate results and choose a branch according to a condition. Clear input and output connect a small program to the task it performs."},
-      {"title":"Loops and functions","description":"Loops repeat a calculation over a range or until a stopping condition is reached. Functions separate reusable calculations from the code that collects input and displays results."},
-      {"title":"Collections and text files","description":"Lists, strings and dictionaries organize related values and support lookups. Text-file programs store records between runs and read those records back for display or processing."},
-      {"title":"Classes and inheritance","description":"Classes combine an object's data with methods that use or change it. Inheritance shares common fields and behavior while allowing a more specific class to add its own information."},
-      {"title":"SQLite queries","description":"A file-based database stores structured records that SQL can sort, filter and summarize. The city exercise uses ordered queries and population aggregates to connect Python with a database."}
+    "id": "programming-concepts",
+    "summary": "Building small Python programs from input and arithmetic through control flow, reusable functions, stored data and object-oriented code.",
+    "topics": [
+      {
+        "title": "Input, arithmetic and decisions",
+        "description": "Programs convert typed input into values, calculate results and choose a branch according to a condition. Clear input and output connect a small program to the task it performs."
+      },
+      {
+        "title": "Loops and functions",
+        "description": "Loops repeat a calculation over a range or until a stopping condition is reached. Functions separate reusable calculations from the code that collects input and displays results.",
+        "examples": [
+          {
+            "slug": "01-loops-functions",
+            "label": "Loop and function programs"
+          }
+        ]
+      },
+      {
+        "title": "Collections and text files",
+        "description": "Lists, strings and dictionaries organize related values and support lookups. Text-file programs store records between runs and read those records back for display or processing.",
+        "examples": [
+          {
+            "slug": "02-files-dictionaries",
+            "label": "File and dictionary programs"
+          }
+        ]
+      },
+      {
+        "title": "Classes and inheritance",
+        "description": "Classes combine an object's data with methods that use or change it. Inheritance shares common fields and behavior while allowing a more specific class to add its own information.",
+        "examples": [
+          {
+            "slug": "03-classes-sqlite",
+            "label": "Class and database programs"
+          }
+        ]
+      },
+      {
+        "title": "SQLite queries",
+        "description": "A file-based database stores structured records that SQL can sort, filter and summarize. The city exercise uses ordered queries and population aggregates to connect Python with a database."
+      }
     ],
-    "sourceNote":"Summer 2025 original Python chapter assignments, Chapters 2–14, and course index."
+    "sourceNote": "Summer 2025 original Python chapter assignments, Chapters 2–14, and course index."
   },
   {
-    "id":"java",
-    "summary":"Developing Java programs using typed values, control flow, methods, arrays and cooperating classes, then combining them with file input and output.",
-    "topics":[
-      {"title":"Typed input and control flow","description":"Variables have declared types, and input is converted into values before calculation. Conditions, menus and validation loops control which operations a program performs."},
-      {"title":"Methods and arrays","description":"Methods name reusable operations with parameters and return values. Arrays store several values of one type, while loops process their entries to calculate totals or select a result."},
-      {"title":"Objects, constructors and composition","description":"Classes hold state and expose behavior through methods. Constructors initialize objects, and composition builds a larger object from smaller cooperating objects."},
-      {"title":"Inheritance and abstract classes","description":"A subclass extends shared fields or behavior from a parent class. The saved employee and geometry packages include inheritance and abstract geometric-object examples."},
-      {"title":"Files and integrated programs","description":"Programs read sample records, calculate results and write structured output. The registration project combines validation, menus, course arrays, tuition calculations and file writing."}
+    "id": "java",
+    "summary": "Developing Java programs using typed values, control flow, methods, arrays and cooperating classes, then combining them with file input and output.",
+    "topics": [
+      {
+        "title": "Typed input and control flow",
+        "description": "Variables have declared types, and input is converted into values before calculation. Conditions, menus and validation loops control which operations a program performs."
+      },
+      {
+        "title": "Methods and arrays",
+        "description": "Methods name reusable operations with parameters and return values. Arrays store several values of one type, while loops process their entries to calculate totals or select a result.",
+        "examples": [
+          {
+            "slug": "01-methods-arrays",
+            "label": "Methods and arrays programs"
+          }
+        ]
+      },
+      {
+        "title": "Objects, constructors and composition",
+        "description": "Classes hold state and expose behavior through methods. Constructors initialize objects, and composition builds a larger object from smaller cooperating objects.",
+        "examples": [
+          {
+            "slug": "02-objects-composition",
+            "label": "Composition example"
+          }
+        ]
+      },
+      {
+        "title": "Inheritance and abstract classes",
+        "description": "A subclass extends shared fields or behavior from a parent class. Abstract classes define common behavior for more specific employee and geometric-object classes."
+      },
+      {
+        "title": "Files and integrated programs",
+        "description": "Programs read sample records, calculate results and write structured output. The registration project combines validation, menus, course arrays, tuition calculations and file writing.",
+        "examples": [
+          {
+            "slug": "03-registration-files",
+            "label": "Registration program"
+          }
+        ]
+      }
     ],
-    "sourceNote":"Fall 2025 original Java assignments and package folders, including student, employee, geometry and registration programs."
+    "sourceNote": "Fall 2025 original Java assignments and package folders, including student, employee, geometry and registration programs."
   },
   {
-    "id":"data-structures",
-    "summary":"Comparing ways to organize data by the operations they support, their running time and their use of memory.",
-    "topics":[
-      {"title":"Interfaces and running time","description":"An interface specifies what operations a structure supports separately from how they are implemented. Running-time analysis compares how the cost of those operations grows with input size."},
-      {"title":"Array-based lists, stacks and queues","description":"Arrays support compact indexed storage, while resizing changes how space is allocated. Stacks, queues and deques expose different rules for adding and removing entries."},
-      {"title":"Linked structures and space efficiency","description":"Linked lists connect separate nodes rather than requiring one continuous array. The course compares these representations with structures such as rootish arrays and space-efficient lists."},
-      {"title":"Skiplists and hash tables","description":"Skiplists use several linked levels to help search an ordered collection. Hash tables use a computed location to organize lookup, with collision handling when keys share a location."},
-      {"title":"Trees and traversal","description":"Tree traversals visit entries in a defined order, and binary search trees use ordering to guide search. The syllabus continues into randomized and balanced search trees and heaps."},
-      {"title":"Later syllabus topics","description":"The later outline includes sorting, graphs, tries and B-trees. These are course-outline topics rather than a claim that all later assignments or implementations were completed."}
+    "id": "data-structures",
+    "summary": "Comparing ways to organize data by the operations they support, their running time and their use of memory.",
+    "topics": [
+      {
+        "title": "Interfaces and running time",
+        "description": "An interface specifies what operations a structure supports separately from how they are implemented. Running-time analysis compares how the cost of those operations grows with input size."
+      },
+      {
+        "title": "Array-based lists, stacks and queues",
+        "description": "Arrays support compact indexed storage, while resizing changes how space is allocated. Stacks, queues and deques expose different rules for adding and removing entries."
+      },
+      {
+        "title": "Linked structures and space efficiency",
+        "description": "Linked lists connect separate nodes rather than requiring one continuous array. The course compares these representations with structures such as rootish arrays and space-efficient lists."
+      },
+      {
+        "title": "Skiplists and hash tables",
+        "description": "Skiplists use several linked levels to help search an ordered collection. Hash tables use a computed location to organize lookup, with collision handling when keys share a location."
+      },
+      {
+        "title": "Trees and traversal",
+        "description": "Tree traversals visit entries in a defined order, and binary search trees use ordering to guide search. Randomized and balanced trees control tree height, while heaps prioritize the next entry."
+      },
+      {
+        "title": "Sorting, graphs, tries and B-trees",
+        "description": "Sorting reorganizes entries by an order. Graphs represent vertices and edges, tries organize keys by prefixes, and B-trees keep search trees shallow for block storage."
+      }
     ],
-    "sourceNote":"Fall 2026 syllabus topic order and preserved early-course reading and assignment lists; later topics are labeled as syllabus coverage."
+    "sourceNote": "Fall 2026 syllabus topic order and preserved early-course reading and assignment lists; later topics are labeled as syllabus coverage."
   }
 ]

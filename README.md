@@ -1,33 +1,33 @@
 # Coursework
 
-A browser collection of 33 course overviews, with selected coursework, projects
-and writing in separate sections. Each overview provides a brief course summary
-and concrete topic headings, including science labs, languages and requirements.
-Seven courses also have deeper readers with saved examples and results.
+A browser collection of 33 courses, with projects and writing in separate sections.
+The home page groups every course by subject. Each course opens to one contents
+list of topics and short explanations; examples appear beneath the relevant topic.
+Example readers use the whole course contents for navigation.
 
-## Selected work
+## Examples, projects and writing
 
 | Course or work | Contents |
 | --- | --- |
-| Deep Learning · Spring 2026 | Six chapters spanning Assignments 1–9: linear classifiers, backpropagation, convolution, image regression, segmentation and detection, sequence forecasting |
-| Dealing with Data II · Spring 2026 | Four chapters from R summaries and ANOVA through regression and predictor adjustment, plus the GSS happiness final project |
-| Systems biology · Fall 2026 | Six chapters: enzyme kinetics, inhibition, lac feedback, basins, reaction events, and product variability |
-| Introduction to Number Theory · Spring 2026 | Four selected topics with eight complete worked exercises on proof, induction, division, congruences, arithmetic functions and quadratic residues |
-| Calculus III · Fall 2025 | Four selected topics with eight worked examples: vectors, arc length, curvature, motion, initial conditions and partial derivatives |
-| Programming Concepts · Summer 2025 | Three chapters with six complete Python programs: loops, functions, files, dictionaries, inheritance and SQLite |
-| Java Programming I · Fall 2025 | Three chapters with complete programs using methods, arrays, composition, validation and file output |
+| Deep Learning · Spring 2026 | Examples of linear classifiers, backpropagation, convolution, image regression, segmentation, detection and airline forecasting |
+| Dealing with Data II · Spring 2026 | R summaries, ANOVA, regression and predictor adjustment, plus the GSS happiness final project |
+| Systems biology · Fall 2026 | Enzyme kinetics, inhibition, lac feedback, basins, reaction events and product variability |
+| Introduction to Number Theory · Spring 2026 | Eight worked exercises on proof, induction, division, congruences, arithmetic functions and quadratic residues |
+| Calculus III · Fall 2025 | Eight worked examples attached to a ten-topic course contents list |
+| Programming Concepts · Summer 2025 | Six Python programs using loops, functions, files, dictionaries, inheritance and SQLite |
+| Java Programming I · Fall 2025 | Programs using methods, arrays, composition, validation and file output |
+| Bitcoin forecasting · Spring 2026 | Deep Learning mini-project comparing sequence models with a zero-return baseline |
 | Math Seminar · Spring 2026 | Koch snowflake presentation: perimeter, area, geometric series and boundary dimension |
 | Eastern Philosophy · Summer 2023 | Complete original essay body and references from *Limited Terms for Limitless Concepts: Eastern Insight Into Duality* |
 | Fundamentals of Speech and Communication · Fall 2023 | *A Fool’s Guide to Tightrope Walking*: complete speech script and references, with a secondary presentation outline |
 
 The all-courses directory lists 33 course records from 2022 through 2026. Every
-course links to its own topic overview, including Anatomy and Physiology, its lab,
-chemistry, Spanish, anthropology and philosophy. Overview scope follows retained
+course links to its own contents, including Anatomy and Physiology, its lab,
+chemistry, Spanish, anthropology and philosophy. Topic scope follows retained
 syllabi, module lists and course material. The underlying records retain scope and provenance notes.
 
-The numbered reader pages are selected topic groups. Their counts do not represent
-the number of textbook chapters or full-course coverage. Original assignment
-and section labels identify the included work.
+Examples supplement the topic list. Original assignment and section labels
+identify each problem without repeating them in the page header.
 Figures and recorded model results come from saved coursework outputs. The
 presentation does not rerun the Deep Learning training or the survey models.
 
@@ -70,6 +70,7 @@ Browser screenshots and the report go in ignored `tmp/browser-expanded/`.
 | `site/assets/calculus-3/` | Selected worked-note ledger and source provenance |
 | `site/assets/programming-concepts/`, `site/assets/java/` | Complete programs, example runs and provenance |
 | `site/assets/gss-happiness/`, `site/assets/koch-snowflake/` | Project figures, calculation or model excerpts and provenance |
+| `site/assets/bitcoin-forecasting/` | Original Bitcoin model-comparison figure and provenance |
 | `site/assets/eastern-philosophy/` | Complete essay text and provenance |
 | `site/assets/holism-speech/` | Complete speech text and provenance |
 | `site/vendor/mathjax/` | Bundled math renderer and Apache license |

@@ -19,6 +19,16 @@
     },
     {
       "section": "projects",
+      "slug": "bitcoin-forecasting",
+      "courseId": "deep-learning",
+      "kind": "mini-project",
+      "title": "Bitcoin forecasting",
+      "context": "Deep Learning · Mini-project · Spring 2026",
+      "summary": "Predict seven-day Bitcoin returns with sequence models and compare them with a zero-return baseline.",
+      "readLabel": "Read mini-project"
+    },
+    {
+      "section": "projects",
       "slug": "koch-snowflake",
       "courseId": "math-seminar",
       "title": "Koch snowflake: finite area and infinite perimeter",

@@ -1,18 +1,10 @@
 <h2>Seasonal airline-passenger forecasts</h2>
-<p>Assignment 9 predicts later observations from earlier values in a time series. The airline task uses monthly passenger counts from \(1949\) to \(1960\). Training, validation and test periods follow chronological order so model selection uses observations preceding the test period.</p>
+<p>Monthly airline passenger counts from \(1949\) to \(1960\) contain a repeating yearly pattern. Training, validation and test periods follow chronological order so model selection uses observations preceding the test period.</p>
 <p>The selected Keras long short-term memory network (LSTM) receives the preceding \(12\) months and predicts the next month. Its recurrent state carries information through the input sequence. A seasonal baseline predicts from the corresponding month in the previous year.</p>
 <figure>
   <a href="../../assets/deep-learning/airline-test-forecast.png" target="_blank" rel="noreferrer"><img src="../../assets/deep-learning/airline-test-forecast.png" width="2048" height="930" alt="Actual airline passenger counts from 1958 through 1960, compared with one-step LSTM predictions, a seasonal naive baseline and recursive LSTM forecasts."></a>
   <figcaption>Forecast comparison for the airline test period. <a href="../../assets/deep-learning/airline-test-forecast.png" target="_blank" rel="noreferrer">Open full-size forecasts</a></figcaption>
 </figure>
 <p>The reported one-step test mean absolute error (MAE) is \(21.19\) thousand passengers, compared with \(35.92\) for the seasonal baseline. MAE averages the absolute prediction errors in the target's units. Recursive forecasting feeds predictions back into subsequent inputs; its MAE rises to \(29.83\) thousand passengers.</p>
-<h2>Seven-day Bitcoin returns</h2>
-<p>The second task forecasts the \(7\)-day log return of BTC-USD using price-history and market features. The original final run compares an LSTM, a temporal convolutional network (TCN), Extra Trees and simple return baselines on \(459\) test targets.</p>
-<table>
-  <caption>Test MAE for seven-day log returns</caption>
-  <thead><tr><th scope="col">Model</th><th scope="col">Return MAE</th></tr></thead>
-  <tbody><tr><th scope="row">Zero-return baseline</th><td>\(0.041450\)</td></tr><tr><th scope="row">TCN/CNN</th><td>\(0.042562\)</td></tr><tr><th scope="row">Extra Trees</th><td>\(0.044471\)</td></tr><tr><th scope="row">LSTM</th><td>\(0.047908\)</td></tr></tbody>
-</table>
-<p>The zero-return baseline has the smallest error in this comparison. The TCN is the strongest learned model by return MAE. Predicting a future price near the current price can produce a plausible-looking curve, so the return target and baseline comparison help assess the forecast beyond its appearance.</p>
-<p>The two datasets give different outcomes: the airline series has a visible seasonal pattern that the LSTM follows, while the Bitcoin comparison favors persistence. Chronological splits, target definition and a simple reference model make that difference interpretable.</p>
-<p class="source-links"><a href="../../assets/deep-learning/airline-lstm.py" download>Airline forecasting source</a><a href="../../assets/deep-learning/btc-model-comparison.csv" download>Bitcoin comparison (CSV)</a><a href="../../assets/deep-learning/recorded-results.json">Recorded results</a></p>
+<p>The <a href="../../projects/bitcoin-forecasting/index.html">Bitcoin forecasting mini-project</a> applies sequence models to a harder series and compares them with a zero-return baseline.</p>
+<p class="source-links"><a href="../../assets/deep-learning/airline-lstm.py" download>Airline forecasting code</a><a href="../../assets/deep-learning/recorded-results.json">Forecast results</a></p>

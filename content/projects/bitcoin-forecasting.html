@@ -1,0 +1,27 @@
+<h2>Seven-day Bitcoin log returns</h2>
+<p>This mini-project tests whether models can predict Bitcoin price changes more accurately than assuming the price stays where it is. Daily BTC-USD prices and market features are used to predict the change over the next \(7\) days.</p>
+<p>The target is a log return, \(r_t=\log(C_{t+7}/C_t)\), where \(C_t\) is the closing price on day \(t\). A prediction of \(r_t=0\) means the future closing price equals the current one. This persistence forecast is a useful reference because a curve can follow Bitcoin's broad price level while adding little information about its next change.</p>
+
+<h2>Price history and chronological evaluation</h2>
+<p>The inputs include \(136\) features describing past returns, volatility, momentum, calendar cycles and other markets. Rolling summaries use observations available by the prediction day. Training, validation and test periods occur in chronological order; scaling is fitted before the validation period.</p>
+<p>The selected long short-term memory network (LSTM) carries a learned state through the preceding \(60\) days of inputs. A temporal convolutional network (TCN) instead applies learned filters across a sequence. Extra Trees uses randomized decision trees that split observations by feature values, then averages their predictions.</p>
+<p>The final test comparison contains \(459\) targets. Model settings are selected on validation data, then evaluated on the later test period from January 2025 through April 2026.</p>
+
+<h2>Prediction error against persistence</h2>
+<figure>
+  <a href="../../assets/bitcoin-forecasting/model-comparison.png" target="_blank" rel="noreferrer" aria-label="Open the full-size Bitcoin model comparison"><img src="../../assets/bitcoin-forecasting/model-comparison.png" width="2048" height="1117" alt="Test return mean absolute error for nine Bitcoin forecasting models and baselines. Zero-return persistence has the smallest error, followed by the TCN, Extra Trees, and other baselines. The LSTM has higher error than persistence."></a>
+  <figcaption>Mean absolute error for the final test comparison; smaller values indicate more accurate return predictions. <a href="../../assets/bitcoin-forecasting/model-comparison.png" target="_blank" rel="noreferrer">Open full-size comparison</a></figcaption>
+</figure>
+<table>
+  <caption>Persistence and the selected learned models</caption>
+  <thead><tr><th scope="col">Model</th><th scope="col">Return MAE</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Zero-return persistence</th><td>\(0.041450\)</td></tr>
+    <tr><th scope="row">TCN/CNN</th><td>\(0.042562\)</td></tr>
+    <tr><th scope="row">Extra Trees</th><td>\(0.044471\)</td></tr>
+    <tr><th scope="row">LSTM</th><td>\(0.047908\)</td></tr>
+  </tbody>
+</table>
+<p>Mean absolute error (MAE) averages the absolute differences between predicted and actual log returns. The zero-return baseline has the smallest error. The TCN is the strongest learned model in this comparison, while the selected LSTM also has directional accuracy of \(47.71\%\): fewer than half its predicted return signs match the actual signs.</p>
+<p>For this target and test period, the learned models do not improve on persistence by return MAE. The comparison distinguishes following a price level from predicting a price change: a plausible-looking forecast curve can conceal a larger error than the simplest reference model.</p>
+<p class="source-links"><a href="../../assets/deep-learning/btc-model-comparison.csv" download>Model comparison (CSV)</a><a href="../../assets/deep-learning/recorded-results.json">Numerical results</a></p>

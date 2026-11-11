@@ -8,7 +8,7 @@ export async function buildHistory(root, output) {
   const history = JSON.parse(await readFile(path.join(root, 'content/history.json'), 'utf8'));
   const catalog = JSON.parse(await readFile(path.join(root, 'content/catalog.json'), 'utf8'));
   const overviews = await loadOverviews(root);
-  const work = new Map(catalog.courses.map(id => [id, { href: '../courses/' + id + '/index.html#selected-work', label: 'Selected coursework' }]));
+  const work = new Map();
   const individual = {
     'math-seminar': ['projects', 'koch-snowflake', 'Seminar presentation'],
     'eastern-philosophy': ['essays', 'eastern-philosophy', 'Complete essay'],
@@ -27,7 +27,7 @@ export async function buildHistory(root, output) {
     return '<section id="year-' + year + '"><h2>' + year + '</h2><table class="history-table"><thead><tr><th>Term</th><th>Course and topics</th></tr></thead><tbody>' + rows + '</tbody></table></section>';
   }).join('\n');
   const jumpLinks = years.map(year => '<a href="#year-' + year + '">' + year + '</a>').join('');
-  const html = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>All courses | Coursework</title><link rel="stylesheet" href="../styles.css"></head><body><a class="skip-link" href="#content">Skip to all courses</a><header class="site-header collection-header"><a class="wordmark" href="../index.html">Coursework</a><a href="../index.html">Selected work</a></header><main id="content" class="history-main"><h1>All courses</h1><p>33 courses from 2022 through 2026. Each course opens to a topic overview, with selected examples, projects or writing where available.</p><nav class="history-years" aria-label="Years">' + jumpLinks + '</nav>' + sections + '</main><footer class="site-footer"><a href="../index.html">All coursework</a></footer></body></html>';
+  const html = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>All courses | Coursework</title><link rel="stylesheet" href="../styles.css"></head><body><a class="skip-link" href="#content">Skip to all courses</a><header class="site-header collection-header"><a class="wordmark" href="../index.html">Coursework</a><a href="../index.html">Coursework</a></header><main id="content" class="history-main"><h1>All courses</h1><p>33 courses from 2022 through 2026. Each course opens to a topic overview, with selected examples, projects or writing where available.</p><nav class="history-years" aria-label="Years">' + jumpLinks + '</nav>' + sections + '</main><footer class="site-footer"><a href="../index.html">All coursework</a></footer></body></html>';
   const destination = path.join(output, 'history');
   await mkdir(destination, { recursive: true });
   await writeFile(path.join(destination, 'index.html'), html);

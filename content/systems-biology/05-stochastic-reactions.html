@@ -1,5 +1,5 @@
 <h2>Reaction clocks</h2>
-<p>The enzyme mechanism from Chapter 1 can be simulated as a sequence of random events. The current molecule counts set the binding, complex-separation and product-formation event rates.</p>
+<p>The enzyme mechanism can be simulated as a sequence of random events. The current molecule counts set the binding, complex-separation and product-formation event rates.</p>
 <table><caption>Two stochastic sampling methods</caption><thead><tr><th scope="col">Method</th><th scope="col">Clock and outcome</th></tr></thead><tbody><tr><th scope="row">Fixed time step</th><td>Advance by a small interval, then select binding, separation, product formation or no reaction.</td></tr><tr><th scope="row">Exact Gillespie SSA</th><td>Sample the waiting time and next reaction from the current event rates.</td></tr></tbody></table>
 <p>The comparison below uses the exact stochastic simulation algorithm (SSA). Repeated runs show how random product counts relate to the deterministic ordinary differential equation (ODE).</p>
 <h2 id="trajectories-title" tabindex="-1">Continuous rates and reaction events</h2>

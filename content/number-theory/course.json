@@ -3,14 +3,13 @@
   "title": "Introduction to Number Theory",
   "shortTitle": "Number Theory",
   "term": "Spring 2026",
-  "intro": "Proof methods lead into divisibility, greatest common divisors and modular arithmetic. Selected worked homework then connects arithmetic functions, multiplicative orders and quadratic congruences.",
   "chapters": [
     {
       "slug": "01-proofs-and-induction",
       "title": "Direct proofs and induction",
       "shortTitle": "Proofs and induction",
       "summary": "Prove that a sequence of integers is composite and derive the sum of cubes by induction.",
-      "record": "Homework 1–3 · historical coursework",
+      "record": "Homework 1 and 3",
       "format": "proof"
     },
     {
@@ -18,7 +17,7 @@
       "title": "Division and greatest common divisors",
       "shortTitle": "Division and GCD",
       "summary": "Choose a remainder near zero and relate common divisors to a difference.",
-      "record": "Homework 4 · historical coursework",
+      "record": "Homework 4",
       "format": "proof"
     },
     {
@@ -26,7 +25,7 @@
       "title": "Congruences, the Chinese remainder theorem and Fermat’s theorem",
       "shortTitle": "Congruences and Fermat",
       "summary": "Solve three simultaneous remainder conditions, then sum powers modulo a prime.",
-      "record": "Homework 5–7 · historical coursework",
+      "record": "Homework 6–7",
       "format": "proof"
     },
     {
@@ -34,9 +33,8 @@
       "title": "Arithmetic functions, orders and quadratic residues",
       "shortTitle": "Functions and residues",
       "summary": "Count integers through their greatest common divisors and turn a quadratic congruence into a square.",
-      "record": "Homework 8–10 · historical coursework",
+      "record": "Homework 8 and 10",
       "format": "proof"
     }
-  ],
-  "coverage": "Selected worked exercises from Homework 1–10"
+  ]
 }

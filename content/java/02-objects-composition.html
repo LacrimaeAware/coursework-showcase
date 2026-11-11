@@ -1,6 +1,6 @@
 <h2>A carpet contains a rectangle</h2>
 <p>The <code>carpet</code> package divides a small pricing program among three classes. A <code>Rectangle</code> stores dimensions and calculates area. A <code>Carpet</code> stores a rectangle together with a price per square yard. The report program creates carpet objects from keyboard input and prints their prices.</p>
-<table><caption>Responsibilities in the saved program</caption><thead><tr><th>Class</th><th>Stored information and behavior</th></tr></thead><tbody><tr><td><code>Rectangle</code></td><td>Length, width and <code>getArea()</code>.</td></tr><tr><td><code>Carpet</code></td><td>A rectangle, a unit price and <code>getTotalPrice()</code>.</td></tr><tr><td><code class="nowrap">CarpetReport</code></td><td>Input loop, array of carpet objects and printed report.</td></tr></tbody></table>
+<table><caption>Class responsibilities</caption><thead><tr><th>Class</th><th>Stored information and behavior</th></tr></thead><tbody><tr><td><code>Rectangle</code></td><td>Length, width and <code>getArea()</code>.</td></tr><tr><td><code>Carpet</code></td><td>A rectangle, a unit price and <code>getTotalPrice()</code>.</td></tr><tr><td><code class="nowrap">CarpetReport</code></td><td>Input loop, array of carpet objects and printed report.</td></tr></tbody></table>
 <p>This is composition: one object holds another object as a field. <code>Carpet</code> uses the rectangle's behavior instead of duplicating its area calculation.</p>
 <pre><code>public double getTotalPrice() {
     return rectangle.getArea() * pricePerSqYd;

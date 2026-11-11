@@ -9,6 +9,7 @@ const directory = path.resolve(root, process.argv[2] || 'dist');
 const failures = [];
 const notes = { pages: 0, links: 0, sourceFiles: 0, vendorFiles: 0, courseChapters: 0, pythonSources: 0, historyRecords: 0, courseOverviews: 0, overviewTopics: 0 };
 const catalog = JSON.parse(await readFile(path.join(root, 'content/catalog.json'), 'utf8'));
+const history = JSON.parse(await readFile(path.join(root, 'content/history.json'), 'utf8'));
 const overviews = await loadOverviews(root);
 
 async function filesIn(folder) {
@@ -98,12 +99,13 @@ async function checkReference(from, raw, kind = 'link') {
 for (const [filename, html] of texts) {
   notes.pages++;
   const stripped = html.replace(/<!--[\s\S]*?-->/g, '');
-  const forbiddenClasses = new Set(['overview-source', 'history-source', 'course-archive-link', 'history-archive']);
+  const forbiddenClasses = new Set(['overview-source', 'history-source', 'course-archive-link', 'history-archive', 'course-coverage', 'course-jump', 'contents-list', 'course-entry-chapters', 'course-selected-work']);
   for (const attribute of stripped.matchAll(/\bclass\s*=\s*(?:"([^"]*)"|'([^']*)')/gi)) {
     for (const className of (attribute[1] ?? attribute[2]).split(/\s+/)) {
       if (forbiddenClasses.has(className)) failures.push(`Retired public source/archive UI: ${path.relative(directory, filename)} .${className}`);
     }
   }
+  if (anchors.get(filename)?.has('selected-work')) failures.push(`Retired separate selected-work section: ${path.relative(directory, filename)}`);
   for (const element of stripped.matchAll(/<([a-z][\w:-]*)\b[^>]*>/gi)) {
     for (const attribute of element[0].matchAll(/\b(href|src|poster)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/gi)) {
       const kind = element[1].toLowerCase() === 'script' && attribute[1].toLowerCase() === 'src' ? 'script' : 'link';
@@ -186,7 +188,7 @@ function classBlocks(html, className) {
 }
 function anchorTags(html) {
   return [...html.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)].map(match => ({
-    attributes: match[1], text: plainText(match[2]),
+    attributes: match[1], text: plainText(match[2]), html: match[2],
     href: match[1].match(/\bhref\s*=\s*(?:"([^"]*)"|'([^']*)')/i)?.slice(1).find(value => value !== undefined),
   }));
 }
@@ -203,17 +205,29 @@ function targetHash(href, from) {
 
 const homeHTML = texts.get(path.join(directory, 'index.html')) || '';
 const rootLinks = anchorTags(homeHTML);
-if (!rootLinks.some(link => link.text === 'Coursework' && targetPath(link.href, 'index.html') === '/history/index.html')) failures.push('Home Coursework navigation must open all courses.');
-if (![...homeHTML.matchAll(/<h2\b[^>]*>([\s\S]*?)<\/h2>/gi)].some(match => plainText(match[1]) === 'Selected coursework')) failures.push('Home needs the Selected coursework heading.');
-if (elementBlocks(homeHTML, 'article', 'course-entry').length !== catalog.courses.length) failures.push('Home selected-course count differs from catalog.');
+if (![...homeHTML.matchAll(/<h2\b[^>]*>([\s\S]*?)<\/h2>/gi)].some(match => plainText(match[1]) === 'Courses')) failures.push('Home needs the Courses heading.');
+const homeCourses = classBlocks(homeHTML, 'course-entry');
+if (homeCourses.length !== history.courses.length) failures.push('Home course count differs from history.');
+for (const course of history.courses) {
+  const matches = homeCourses.filter(entry => {
+    const heading = entry.match(/<h[34]\b[^>]*>([\s\S]*?)<\/h[34]>/i)?.[1] || '';
+    const links = anchorTags(heading);
+    return links.length === 1 && links[0].text === course.title && targetPath(links[0].href, 'index.html') === '/courses/' + course.id + '/index.html';
+  });
+  if (matches.length !== 1) failures.push('Home needs one course contents link: ' + course.id);
+}
 for (const id of catalog.courses) {
   const course = JSON.parse(await readFile(path.join(root, 'content', id, 'course.json'), 'utf8'));
+  const overview = overviews.get(id);
+  if (!overview) { failures.push('Missing reader course contents: ' + id); continue; }
   const coursePrefix = 'courses/' + id + '/';
   const contentsPath = path.join(directory, coursePrefix, 'index.html');
   const contentsHTML = texts.get(contentsPath) || '';
-  const rows = elementBlocks(contentsHTML, 'ol', 'contents-list');
-  const contentsLinks = rows.length === 1 ? anchorTags(rows[0]) : [];
-  if (contentsLinks.length !== course.chapters.length) failures.push('Incomplete course contents: ' + id);
+  const examples = overview.topics.flatMap(topic => topic.examples || []);
+  const exampleSlugs = new Set(examples.map(example => example.slug));
+  const chapterSlugs = new Set(course.chapters.map(chapter => chapter.slug));
+  if (exampleSlugs.size !== chapterSlugs.size || [...chapterSlugs].some(slug => !exampleSlugs.has(slug))) failures.push('Every reader chapter must be reachable from its course contents: ' + id);
+  for (const example of examples) if (!chapterSlugs.has(example.slug)) failures.push('Course contents link unknown example: ' + id + '/' + example.slug);
   if (!rootLinks.some(link => targetPath(link.href, 'index.html') === '/' + coursePrefix + 'index.html')) failures.push('Collection missing course: ' + id);
   for (const [index, chapter] of course.chapters.entries()) {
     const relative = coursePrefix + chapter.slug + '.html';
@@ -222,9 +236,9 @@ for (const id of catalog.courses) {
     const chapterSource = await readFile(path.join(root, 'content', id, chapter.slug + '.html'), 'utf8');
     if (!html.includes(chapterSource)) failures.push('Changed or missing body fragment: ' + relative);
     const h1 = html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || '';
-    if (plainText(h1).replace(/^\d+\.\s*/, '') !== chapter.title) failures.push('Wrong chapter title: ' + relative);
-    const headings = [...(rows[0] || '').matchAll(/<h3\b[^>]*>([\s\S]*?)<\/h3>/gi)];
-    if (plainText(headings[index]?.[1] || '') !== chapter.title || targetPath(contentsLinks[index]?.href, coursePrefix + 'index.html') !== '/' + relative) failures.push('Wrong contents order: ' + relative);
+    if (plainText(h1) !== chapter.title) failures.push('Wrong unnumbered example title: ' + relative);
+    const titleBlock = classBlocks(html, 'book-title')[0] || '';
+    if (chapter.format === 'proof' && (classBlocks(titleBlock, 'chapter-record').length || classBlocks(titleBlock, 'chapter-summary').length)) failures.push('Proof header repeats per-problem context: ' + relative);
     const bodies = elementBlocks(html, 'article', 'chapter-body'), body = bodies[0] || '';
     if (bodies.length !== 1) failures.push('Chapter needs one body: ' + relative);
     if (!chapter.format && (!/<figure\b/.test(body) || !/<(?:img|svg)\b/.test(body))) failures.push('Chapter needs figure: ' + relative);
@@ -236,10 +250,17 @@ for (const id of catalog.courses) {
     if (navs.length !== 2) failures.push('Missing wide/mobile navigation: ' + relative);
     for (const navigation of navs) {
       const links = anchorTags(navigation);
-      if (links.length !== course.chapters.length) failures.push('Incomplete chapter list: ' + relative);
+      if (links.length !== overview.topics.length) failures.push('Incomplete course-topic navigation: ' + relative);
       for (const [navIndex, link] of links.entries()) {
-        const expected = course.chapters[navIndex];
-        if (!expected || targetPath(link.href, relative) !== '/' + coursePrefix + expected.slug + '.html' || link.text.replace(/^\d+\s*/, '') !== expected.shortTitle) failures.push('Wrong chapter list order: ' + relative);
+        const expected = overview.topics[navIndex];
+        if (!expected) { failures.push('Unexpected course-topic link: ' + relative); continue; }
+        const currentTopic = (expected.examples || []).some(example => example.slug === chapter.slug);
+        const slug = currentTopic ? chapter.slug : expected.examples?.[0]?.slug;
+        const expectedPath = '/' + coursePrefix + (slug ? slug + '.html' : 'index.html');
+        const expectedHash = slug ? '' : '#topic-' + (navIndex + 1);
+        const number = classBlocks(link.html, 'chapter-number');
+        if (number.length !== 1 || plainText(number[0]) !== String(navIndex + 1)) failures.push('Wrong course-topic number: ' + relative);
+        if (targetPath(link.href, relative) !== expectedPath || targetHash(link.href, relative) !== expectedHash || link.text.replace(/^\d+\s*/, '') !== expected.title) failures.push('Wrong course-topic link or order: ' + relative);
       }
       const current = links.filter(link => /\baria-current=["']page["']/.test(link.attributes));
       if (current.length !== 1 || targetPath(current[0]?.href, relative) !== '/' + relative) failures.push('Wrong current marker: ' + relative);
@@ -261,7 +282,6 @@ for (const item of catalog.items) {
   if (item.section === 'projects' && !anchorTags(html).some(link => /\.(?:py|R|json|csv|txt)(?:[?#]|$)/i.test(link.href || ''))) failures.push('Project needs source: ' + relative);
 }
 if (!htmlFiles.length) failures.push('No HTML pages found.');
-const history = JSON.parse(await readFile(path.join(root, 'content/history.json'), 'utf8'));
 const historyHTML = texts.get(path.join(directory, 'history/index.html')) || '';
 if (plainText(historyHTML.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || '') !== 'All courses') failures.push('History title must be All courses.');
 const historyIds = [...historyHTML.matchAll(/data-history-course="([^"]+)"/g)].map(match => match[1]);
@@ -281,18 +301,37 @@ for (const course of history.courses) {
   const body = blocks[0] || '';
   const headings = [...body.matchAll(/<h3\b[^>]*>([\s\S]*?)<\/h3>/gi)].map(match => plainText(match[1]));
   if (JSON.stringify(headings) !== JSON.stringify(overview.topics.map(topic => topic.title))) failures.push('Overview topic headings differ from source: ' + course.id);
-  if (![...body.matchAll(/<h2\b[^>]*>([\s\S]*?)<\/h2>/gi)].some(match => plainText(match[1]) === 'Course overview')) failures.push('Missing Course overview heading: ' + course.id);
-  const pageText = plainText(html), bodyText = plainText(body);
+  if (![...body.matchAll(/<h2\b[^>]*>([\s\S]*?)<\/h2>/gi)].some(match => plainText(match[1]) === 'Contents')) failures.push('Missing Contents heading: ' + course.id);
+  if (elementBlocks(body, 'ol', 'course-topics').length !== 1) failures.push('Course needs one topic contents list: ' + course.id);
+  const topicRows = classBlocks(body, 'topic-row');
+  if (topicRows.length !== overview.topics.length) failures.push('Contents row count differs from topics: ' + course.id);
+  const pageText = plainText(html);
   if (!pageText.includes(plainText(overview.summary))) failures.push('Missing overview summary: ' + course.id);
-  for (const topic of overview.topics) if (!bodyText.includes(plainText(topic.description))) failures.push('Missing overview topic description: ' + course.id + ' / ' + topic.title);
+  for (const [index, topic] of overview.topics.entries()) {
+    const topicRow = topicRows[index] || '';
+    if (!classBlocks(topicRow, 'topic-description').some(block => plainText(block) === plainText(topic.description))) failures.push('Missing topic description: ' + course.id + ' / ' + topic.title);
+    if (!anchors.get(path.join(directory, relative))?.has('topic-' + (index + 1))) failures.push('Missing topic anchor: ' + course.id + ' / ' + topic.title);
+    const exampleLinks = anchorTags(topicRow).filter(link => /\bdata-example(?:\s|=|$)/.test(link.attributes));
+    if (exampleLinks.length !== (topic.examples || []).length) failures.push('Wrong example count under topic: ' + course.id + ' / ' + topic.title);
+    for (const [exampleIndex, example] of (topic.examples || []).entries()) {
+      const link = exampleLinks[exampleIndex];
+      if (!link || link.text !== example.label || targetPath(link.href, relative) !== '/courses/' + course.id + '/' + example.slug + '.html') failures.push('Wrong topic example: ' + course.id + ' / ' + example.slug);
+    }
+    const projectLinks = anchorTags(topicRow).filter(link => /\bdata-project(?:\s|=|$)/.test(link.attributes));
+    if (projectLinks.length !== (topic.projects || []).length) failures.push('Wrong project count under topic: ' + course.id + ' / ' + topic.title);
+    for (const [projectIndex, slug] of (topic.projects || []).entries()) {
+      const project = catalog.items.find(item => item.slug === slug);
+      const link = projectLinks[projectIndex];
+      if (!project || !link || targetPath(link.href, relative) !== '/' + project.section + '/' + slug + '/index.html') failures.push('Wrong topic project: ' + course.id + ' / ' + slug);
+    }
+  }
   const row = [...historyHTML.matchAll(/<tr\b([^>]*)>([\s\S]*?)<\/tr>/gi)].find(match => match[1].includes('data-history-course="' + course.id + '"'))?.[2] || '';
   const title = classBlocks(row, 'history-course-title');
   const links = title.length === 1 ? anchorTags(title[0]) : [];
   if (links.length !== 1 || links[0].text !== course.title || targetPath(links[0].href, 'history/index.html') !== '/' + relative) failures.push('History title must link to its course overview: ' + course.id);
   if (catalog.courses.includes(course.id)) {
-    if (!anchors.get(path.join(directory, relative))?.has('selected-work')) failures.push('Missing selected-work section: ' + course.id);
     const selected = anchorTags(row).filter(link => /\bclass=["'][^"']*\bhistory-work\b/.test(link.attributes));
-    if (selected.length !== 1 || targetPath(selected[0].href, 'history/index.html') !== '/' + relative || targetHash(selected[0].href, 'history/index.html') !== '#selected-work') failures.push('History selected work must link to its deeper section: ' + course.id);
+    if (selected.length) failures.push('History repeats a course contents link as selected work: ' + course.id);
   }
   notes.courseOverviews++;
   notes.overviewTopics += overview.topics.length;

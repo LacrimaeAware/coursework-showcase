@@ -3,14 +3,13 @@
   "title": "Programming Concepts (Python)",
   "shortTitle": "Programming Concepts",
   "term": "Summer 2025",
-  "intro": "Looped calculations lead into reusable functions, text files and dictionary lookups. Later programs model employee records with inheritance and query a small SQLite database.",
   "chapters": [
     {
       "slug": "01-loops-functions",
       "title": "Looped calculations and functions",
       "shortTitle": "Loops and functions",
       "summary": "Print a distance table and separate a reusable cost calculation from user input.",
-      "record": "Chapters 4–5 · historical coursework",
+      "record": "Chapters 4–5",
       "format": "code"
     },
     {
@@ -18,7 +17,7 @@
       "title": "Text files and dictionary lookups",
       "shortTitle": "Files and dictionaries",
       "summary": "Write and read golf scores, then retrieve sample course records by key.",
-      "record": "Chapters 6 and 9 · historical coursework",
+      "record": "Chapters 6 and 9",
       "format": "code"
     },
     {
@@ -26,9 +25,8 @@
       "title": "Inherited classes and SQLite queries",
       "shortTitle": "Classes and SQLite",
       "summary": "Represent production workers with classes and sort or aggregate stored city records.",
-      "record": "Chapters 11 and 14 · historical coursework",
+      "record": "Chapters 11 and 14",
       "format": "code"
     }
-  ],
-  "coverage": "Six programs selected from Chapters 4–14"
+  ]
 }

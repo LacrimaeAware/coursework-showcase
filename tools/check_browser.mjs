@@ -19,7 +19,11 @@ const captureCourses = captureList(process.env.SHOWCASE_CAPTURE_COURSES, 'deep-l
 const captureItems = captureList(process.env.SHOWCASE_CAPTURE_ITEMS, 'holism-speech');
 const captures = (selection, id) => selection.has('*') || selection.has(id);
 const slash = String.fromCharCode(92);
-const viewports = [{ width: 1440, height: 1000 }, { width: 768, height: 1024 }, { width: 390, height: 844 }, { width: 320, height: 720 }];
+const allViewports = [{ width: 1440, height: 1000 }, { width: 768, height: 1024 }, { width: 390, height: 844 }, { width: 320, height: 720 }];
+const requestedWidths = process.env.SHOWCASE_WIDTHS === undefined ? null : process.env.SHOWCASE_WIDTHS.split(',').map(value => Number(value.trim()));
+assert.ok(requestedWidths === null || (requestedWidths.length > 0 && requestedWidths.every(width => allViewports.some(viewport => viewport.width === width))), 'SHOWCASE_WIDTHS must be a nonempty selection of 1440,768,390,320');
+const viewports = allViewports.filter(viewport => requestedWidths === null || requestedWidths.includes(viewport.width));
+const overviewWidths = viewports.filter(viewport => viewport.width === 1440 || viewport.width === 390).map(viewport => viewport.width);
 
 function sourceCounts(html) {
   const source = html.replace(/<!--[\s\S]*?-->/g, '')
@@ -57,6 +61,10 @@ const courseURL = course => base + '/courses/' + course.id + '/index.html';
 const chapterURL = (course, index) => base + '/courses/' + course.id + '/' + course.chapters[index].slug + '.html';
 const itemURL = item => base + '/' + item.section + '/' + item.slug + '/index.html';
 const historyURL = base + '/history/index.html';
+const topicURL = (course, topic, index, currentSlug) => {
+  const slug = (topic.examples || []).some(example => example.slug === currentSlug) ? currentSlug : topic.examples?.[0]?.slug;
+  return slug ? base + '/courses/' + course.id + '/' + slug + '.html' : courseURL(course) + '#topic-' + (index + 1);
+};
 const shouldCapture = width => width === 1440 || width === 390;
 const screenName = width => width === 1440 ? 'desktop' : 'phone';
 
@@ -91,7 +99,7 @@ async function finishRendering(math) {
   assert.equal(await page.locator('mjx-container').count(), math, 'Rendered math count must match content source: ' + page.url());
   assert.equal(await page.locator('mjx-merror,[data-mjx-error]').count(), 0, 'MathJax errors: ' + page.url());
   assert.ok(await page.locator('img').evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0)), 'Broken or unloaded image: ' + page.url());
-  assert.equal(await page.locator('.overview-source,.history-source,.course-archive-link,.history-archive').count(), 0, 'Retired public source/archive UI: ' + page.url());
+  assert.equal(await page.locator('.overview-source,.history-source,.course-archive-link,.history-archive,.course-coverage,.course-jump,.contents-list,.course-entry-chapters,.course-selected-work,#selected-work').count(), 0, 'Retired source/archive or separate example-list UI: ' + page.url());
 }
 
 async function noOverflow(label) {
@@ -107,19 +115,16 @@ async function screenshot(filename) {
 async function checkHome(width) {
   await finishRendering(0);
   assert.equal(await page.getByRole('heading', { name: 'Coursework', exact: true }).count(), 1);
-  assert.equal(await page.getByRole('heading', { name: 'Selected coursework', exact: true }).count(), 1);
-  assert.equal(await page.locator('.course-entry').count(), courses.length);
-  for (const [index, course] of courses.entries()) {
-    const entry = page.locator('.course-entry').nth(index);
-    assert.equal(await entry.locator('h3').innerText(), course.title);
-    assert.ok((await entry.locator('.entry-context').innerText()).includes(course.chapters.length + ' selected topics'));
-    if (course.coverage) assert.equal(await entry.locator('.course-coverage').innerText(), course.coverage);
-    assert.equal(new URL(await entry.locator('h3 a').getAttribute('href'), page.url()).href, courseURL(course));
-    const chapters = entry.locator('.course-entry-chapters a');
-    assert.equal(await chapters.count(), course.chapters.length);
-    for (let chapter = 0; chapter < course.chapters.length; chapter++) {
-      assert.equal(new URL(await chapters.nth(chapter).getAttribute('href'), page.url()).href, chapterURL(course, chapter));
-    }
+  assert.equal(await page.getByRole('heading', { name: 'Courses', exact: true }).count(), 1);
+  assert.equal(await page.locator('.course-entry').count(), history.courses.length);
+  for (const course of history.courses) {
+    const entry = page.locator('.course-entry').filter({ has: page.locator('a.course-name[href="courses/' + course.id + '/index.html"]') });
+    assert.equal(await entry.count(), 1, 'Home needs one entry for every course: ' + course.id);
+    const name = entry.locator('a.course-name');
+    assert.equal(await name.count(), 1);
+    assert.equal(await name.innerText(), course.title);
+    assert.equal(await entry.locator('.entry-context').innerText(), course.term + ' ' + course.year);
+    assert.equal(new URL(await name.getAttribute('href'), page.url()).href, courseURL(course));
   }
   const workLinks = page.locator('.work-list-link');
   assert.equal(await workLinks.count(), items.length);
@@ -129,8 +134,7 @@ async function checkHome(width) {
     assert.equal(new URL(await link.getAttribute('href'), page.url()).href, itemURL(item));
   }
   const historyLink = page.locator('.collection-nav').getByRole('link', { name: 'Coursework', exact: true });
-  assert.equal(await historyLink.count(), 1, 'Coursework navigation must open all courses');
-  assert.equal(new URL(await historyLink.getAttribute('href'), page.url()).href, historyURL);
+  assert.equal(await historyLink.count(), 1, 'Collection needs Coursework navigation');
   await noOverflow('home at ' + width + 'px');
 }
 
@@ -150,9 +154,7 @@ async function checkHistory(width) {
     assert.equal(await row.locator('th').innerText(), course.term);
     assert.equal(await row.locator('small').innerText(), course.code + ' · ' + course.school);
     if (catalog.courses.includes(course.id)) {
-      const link = row.locator('.history-work');
-      assert.equal(await link.count(), 1, 'Featured course missing from history: ' + course.id);
-      assert.equal(new URL(await link.getAttribute('href'), page.url()).href, courseURL(course) + '#selected-work');
+      assert.equal(await row.locator('.history-work').count(), 0, 'Course contents must not be repeated as selected work: ' + course.id);
     }
   }
   const workLinks = await page.locator('.history-work').evaluateAll(links => links.map(link => link.href));
@@ -189,41 +191,45 @@ async function checkOverview(course, width) {
   const overview = page.locator('.course-overview');
   assert.equal(await overview.count(), 1, 'One course overview: ' + course.id);
   assert.ok(await overview.isVisible(), 'Course overview must be visible: ' + course.id);
-  const heading = overview.getByRole('heading', { name: 'Course overview', exact: true });
+  const heading = overview.getByRole('heading', { name: 'Contents', exact: true });
   assert.equal(await heading.count(), 1);
   assert.ok(await heading.isVisible(), 'Course overview heading must be visible: ' + course.id);
-  const topics = overview.locator('h3');
-  assert.deepEqual(await topics.allTextContents(), course.topics.map(topic => topic.title));
-  for (let index = 0; index < course.topics.length; index++) {
-    assert.ok(await topics.nth(index).isVisible(), 'Hidden topic heading: ' + course.id + ' / ' + course.topics[index].title);
-  }
+  assert.equal(await overview.locator('ol.course-topics').count(), 1);
+  const rows = overview.locator('li.topic-row');
+  assert.equal(await rows.count(), course.topics.length);
+  assert.deepEqual(await rows.locator('h3').allTextContents(), course.topics.map(topic => topic.title));
   const normalize = text => text.replace(/\s+/g, ' ').trim();
-  const content = normalize(await overview.innerText());
-  for (const topic of course.topics) assert.ok(content.includes(normalize(topic.description)), 'Missing topic description: ' + course.id + ' / ' + topic.title);
-  const pageText = normalize(await page.locator('main').innerText());
-  assert.ok(pageText.includes(normalize(course.summary)), 'Missing course summary: ' + course.id);
-  if (featured) {
-    assert.equal(await page.locator('#selected-work').count(), 1, 'Deeper work needs its own section: ' + course.id);
-    assert.equal(await page.locator('#selected-work .contents-list a.contents-row').count(), featured.chapters.length);
+  for (const [index, topic] of course.topics.entries()) {
+    const row = rows.nth(index);
+    assert.equal(await row.getAttribute('id'), 'topic-' + (index + 1));
+    assert.ok(await row.locator('h3').isVisible(), 'Hidden topic heading: ' + course.id + ' / ' + topic.title);
+    assert.equal(normalize(await row.locator('.topic-description').innerText()), normalize(topic.description));
+    const examples = row.locator('.topic-examples a[data-example]');
+    assert.equal(await examples.count(), (topic.examples || []).length);
+    for (const [exampleIndex, example] of (topic.examples || []).entries()) {
+      const link = examples.nth(exampleIndex);
+      assert.equal(await link.innerText(), example.label);
+      assert.equal(new URL(await link.getAttribute('href'), page.url()).href, base + '/courses/' + course.id + '/' + example.slug + '.html');
+    }
+    const projects = row.locator('a[data-project]');
+    assert.equal(await projects.count(), (topic.projects || []).length);
+    for (const [projectIndex, slug] of (topic.projects || []).entries()) {
+      const item = items.find(item => item.slug === slug);
+      assert.ok(item, 'Unknown topic project: ' + slug);
+      assert.equal(new URL(await projects.nth(projectIndex).getAttribute('href'), page.url()).href, itemURL(item));
+    }
   }
+  assert.equal(await page.locator('.course-intro').count(), 1);
+  assert.equal(normalize(await page.locator('.course-intro').innerText()), normalize(course.summary));
   if (!course.viewports.includes(width)) course.viewports.push(width);
   await noOverflow(course.id + ' overview at ' + width + 'px');
 }
 
 async function checkContents(course, width) {
-  await finishRendering(0);
-  assert.equal(await page.locator('h1').innerText(), course.title);
-  assert.equal(await page.locator('.study-context').innerText(), course.term);
-  assert.ok((await page.locator('.course-jump a[href="#selected-work"]').innerText()).includes(course.chapters.length + ' selected topic groups'));
-  if (course.coverage) assert.equal(await page.locator('.course-coverage').innerText(), course.coverage);
-  assert.equal(await page.getByRole('heading', {name:'Course overview',exact:true}).count(), 1);
-  assert.equal(await page.locator('#selected-work').count(), 1);
-  const links = page.locator('#selected-work .contents-list a.contents-row');
-  assert.equal(await links.count(), course.chapters.length);
-  assert.deepEqual(await links.locator('h3').allTextContents(), course.chapters.map(chapter => chapter.title));
-  for (let index = 0; index < course.chapters.length; index++) {
-    assert.equal(new URL(await links.nth(index).getAttribute('href'), page.url()).href, chapterURL(course, index));
-  }
+  await checkOverview(overviews.find(overview => overview.id === course.id), width);
+  const links = await page.locator('.topic-examples a[data-example]').evaluateAll(anchors => anchors.map(anchor => anchor.href));
+  const expected = course.chapters.map((chapter, index) => chapterURL(course, index));
+  assert.deepEqual([...new Set(links)].sort(), [...expected].sort(), 'Every example must be reachable from course contents: ' + course.id);
   assert.equal(await page.locator('details[open]').count(), 0);
   await noOverflow(course.id + ' contents at ' + width + 'px');
 }
@@ -264,15 +270,20 @@ async function checkBody(record, width) {
 async function checkChapter(course, index, width) {
   const chapter = course.chapters[index];
   await checkBody(chapter, width);
-  assert.equal((await page.locator('.book-title h1').innerText()).replace(/^\d+\.\s*/, '').trim(), chapter.title);
-  if (!chapter.format || chapter.format === 'default') assert.ok(chapter.figures > 0, 'Missing figure: ' + course.id + '/' + chapter.slug);
-  const sidebar = page.locator('.book-sidebar .book-chapters a');
-  assert.equal(await sidebar.count(), course.chapters.length);
-  for (let navIndex = 0; navIndex < course.chapters.length; navIndex++) {
-    assert.equal(new URL(await sidebar.nth(navIndex).getAttribute('href'), page.url()).href, chapterURL(course, navIndex));
-    assert.equal((await sidebar.nth(navIndex).innerText()).replace(/^\d+\s*/, '').trim(), course.chapters[navIndex].shortTitle);
+  assert.equal(await page.locator('.book-title h1').innerText(), chapter.title);
+  if (chapter.format === 'proof') {
+    assert.equal(await page.locator('.book-title .chapter-record,.book-title .chapter-summary').count(), 0, 'Proof header must not repeat its problem context');
   }
+  if (!chapter.format || chapter.format === 'default') assert.ok(chapter.figures > 0, 'Missing figure: ' + course.id + '/' + chapter.slug);
+  const topics = overviewMap.get(course.id).topics;
   for (const navigation of ['.book-sidebar', '.book-mobile-bar']) {
+    const links = page.locator(navigation + ' .book-chapters a');
+    assert.equal(await links.count(), topics.length);
+    for (const [navIndex, topic] of topics.entries()) {
+      assert.equal(new URL(await links.nth(navIndex).getAttribute('href'), page.url()).href, topicURL(course, topic, navIndex, chapter.slug));
+      assert.equal((await links.nth(navIndex).locator(':scope > span:not(.chapter-number)').textContent()).trim(), topic.title);
+      assert.equal((await links.nth(navIndex).locator('.chapter-number').textContent()).trim(), String(navIndex + 1));
+    }
     const current = page.locator(navigation + ' a[aria-current="page"]');
     assert.equal(await current.count(), 1);
     assert.equal(new URL(await current.getAttribute('href'), page.url()).href, chapterURL(course, index));
@@ -319,17 +330,25 @@ async function checkDisclosures(record, width) {
 
 async function checkKeyboard(course) {
   if (course.chapters.length > 1) {
-    const index = Math.min(2, course.chapters.length - 2);
-    await page.locator('.book-sidebar .book-chapters a').nth(index).click();
+    let index = Math.min(2, course.chapters.length - 2);
+    const topicIndex = overviewMap.get(course.id).topics.findIndex(topic => (topic.examples || []).some(example => example.slug === course.chapters[index].slug));
+    assert.ok(topicIndex >= 0, 'Reader must have a parent topic: ' + course.id);
+    const link = page.locator('.book-sidebar .book-chapters a').nth(topicIndex);
+    const target = new URL(await link.getAttribute('href'), page.url()).href;
+    index = course.chapters.findIndex((chapter, candidate) => chapterURL(course, candidate) === target);
+    assert.ok(index >= 0, 'Topic sidebar must open an associated example: ' + course.id);
+    await link.click();
     await page.waitForURL(chapterURL(course, index));
     await page.evaluate(() => document.activeElement?.blur());
-    await page.keyboard.press('ArrowRight');
-    await page.waitForURL(chapterURL(course, index + 1));
-    await page.keyboard.press('ArrowLeft');
+    const forward = index < course.chapters.length - 1;
+    const adjacent = index + (forward ? 1 : -1);
+    await page.keyboard.press(forward ? 'ArrowRight' : 'ArrowLeft');
+    await page.waitForURL(chapterURL(course, adjacent));
+    await page.keyboard.press(forward ? 'ArrowLeft' : 'ArrowRight');
     await page.waitForURL(chapterURL(course, index));
-    await page.locator('[data-reader-next]').click();
-    await page.waitForURL(chapterURL(course, index + 1));
-    await page.locator('[data-reader-prev]').click();
+    await page.locator(forward ? '[data-reader-next]' : '[data-reader-prev]').click();
+    await page.waitForURL(chapterURL(course, adjacent));
+    await page.locator(forward ? '[data-reader-prev]' : '[data-reader-next]').click();
     await page.waitForURL(chapterURL(course, index));
   }
   await page.goto(chapterURL(course, 0), { waitUntil: 'networkidle' });
@@ -347,13 +366,19 @@ async function checkMobileMenu(course, width) {
   await page.keyboard.press('Enter');
   assert.equal(await menu.getAttribute('open'), '');
   const links = menu.locator('.book-chapters a');
-  assert.equal(await links.count(), course.chapters.length);
-  for (let index = 0; index < course.chapters.length; index++) {
-    assert.equal(new URL(await links.nth(index).getAttribute('href'), page.url()).href, chapterURL(course, index));
+  const topics = overviewMap.get(course.id).topics;
+  const currentSlug = course.chapters.find((chapter, index) => new URL(page.url()).pathname === new URL(chapterURL(course, index)).pathname)?.slug;
+  assert.ok(currentSlug, 'Mobile menu must be checked on a reader page');
+  assert.equal(await links.count(), topics.length);
+  for (const [index, topic] of topics.entries()) {
+    assert.equal(new URL(await links.nth(index).getAttribute('href'), page.url()).href, topicURL(course, topic, index, currentSlug));
   }
   await noOverflow(course.id + ' open chapter menu at ' + width + 'px');
-  await links.first().click();
-  await page.waitForURL(chapterURL(course, 0));
+  const linkedTopic = topics.findIndex(topic => topic.examples?.length);
+  assert.ok(linkedTopic >= 0, 'Reader course needs a linked example');
+  const target = new URL(await links.nth(linkedTopic).getAttribute('href'), page.url()).href;
+  await links.nth(linkedTopic).click();
+  await page.waitForURL(target);
   assert.equal(await page.locator('.book-mobile-bar details').getAttribute('open'), null);
 }
 
@@ -364,10 +389,7 @@ try {
     await page.goto(base + '/', { waitUntil: 'networkidle' });
     await checkHome(width);
     if (shouldCapture(width)) await screenshot('home-' + screenName(width) + '.png');
-    if (width === 1440) {
-      await page.locator('.collection-nav').getByRole('link', { name: 'Coursework', exact: true }).click();
-      await page.waitForURL(historyURL);
-    } else await page.goto(historyURL, { waitUntil: 'networkidle' });
+    await page.goto(historyURL, { waitUntil: 'networkidle' });
     await checkHistory(width);
     if (shouldCapture(width)) await screenshot('history-' + screenName(width) + '.png');
     await page.getByRole('link', { name: 'All coursework', exact: true }).click();
@@ -383,12 +405,12 @@ try {
     for (const course of courses) {
       if (width === 1440) {
         await page.goto(base + '/', { waitUntil: 'networkidle' });
-        await page.locator('.course-entry h3 a').filter({ hasText: course.title }).click();
+        await page.locator('.course-entry a.course-name[href="courses/' + course.id + '/index.html"]').click();
         await page.waitForURL(courseURL(course));
       } else await page.goto(courseURL(course), { waitUntil: 'networkidle' });
       await checkContents(course, width);
       if (captures(captureCourses, course.id) && shouldCapture(width)) await screenshot(course.id + '-contents-' + screenName(width) + '.png');
-      await page.locator('.contents-list a.contents-row').first().click();
+      await page.locator('.topic-examples a[data-example][href="' + course.chapters[0].slug + '.html"]').first().click();
       for (let index = 0; index < course.chapters.length; index++) {
         await page.waitForURL(chapterURL(course, index));
         await checkChapter(course, index, width);
@@ -422,11 +444,11 @@ try {
       }
     }
   }
-  report.checks.push('Catalog home, ordered contents and every chapter through Next links at all four widths; source-derived math, heading, figure, image and disclosure counts');
-  report.checks.push('Every course sidebar, mobile current markers and menus, Previous/Next links, ArrowLeft/ArrowRight and chapter boundaries, direct URLs and reloads');
+  report.checks.push('Home lists every course with its own Contents link; every topic, associated example and project matches course data, and all example pages remain reachable');
+  report.checks.push('Every reader sidebar and mobile menu follows the complete course topic list, including topics without examples; current markers, topic numbers, Previous/Next links, ArrowLeft/ArrowRight, boundaries, direct URLs and reloads');
   report.checks.push('All selected works: exact title/context, local source/download responses, return to coursework, default and expanded-disclosure overflow');
-  report.checks.push('Every course has a source-matched overview, visible topic headings and descriptions, and summary at 1440px and 390px, without horizontal overflow or retired source/archive UI');
-  report.checks.push('Complete All courses index: source-matched rows, terms and course codes, every title linking its own overview, selected-work anchors and HTTP responses, every year anchor and return navigation at all four widths');
+  if (overviewWidths.length) report.checks.push('Every course has source-matched Contents, visible topic headings and descriptions, and summary at ' + overviewWidths.join('/') + 'px, without horizontal overflow or retired source/archive UI');
+  report.checks.push('Complete All courses index: source-matched rows, terms and course codes, every title linking its own Contents, individual work HTTP responses, every year anchor and return navigation at ' + report.viewports.join('/') + 'px');
   report.checks.push('Full Speech: six delivered paragraphs, five references, readable on-page script and working Read the full speech anchor; no selected-passages download');
 
   const biology = courses.find(course => course.id === 'systems-biology');
@@ -436,7 +458,7 @@ try {
     assert.ok(index >= 0, 'Missing legacy redirect chapter: ' + slug);
     await page.goto(base + '/exercises/enzyme-simulations/index.html#' + fragment, { waitUntil: 'networkidle' });
     await page.waitForURL(chapterURL(biology, index) + (fragment === 'model' ? '#model' : ''));
-    await checkChapter(biology, index, 320);
+    await checkChapter(biology, index, viewports.at(-1).width);
   }
   report.checks.push('Legacy enzyme trajectories, model and variability fragments resolve to the appropriate biology chapters');
 
@@ -447,5 +469,5 @@ try {
   await writeFile(path.join(output, 'report.json'), JSON.stringify(report, null, 2) + '\n');
   const chapters = courses.flatMap(course => course.chapters);
   const mathTotal = [...chapters, ...items].reduce((sum, record) => sum + record.mathExpressions, 0);
-  console.log('PASS: ' + overviews.length + ' course overviews at 1440/390px, ' + courses.length + ' deeper course readers, ' + chapters.length + ' chapters, ' + items.length + ' selected works, ' + history.courses.length + ' history rows, ' + mathTotal + ' source-derived math expressions; ' + report.viewports.join('/') + 'px; navigation, applicable figures/downloads, full speech, all-course links, expanded disclosures and legacy redirects; ' + report.screenshots.length + ' screenshots; zero browser errors or external requests.');
+  console.log('PASS: ' + (overviewWidths.length ? overviews.length + ' course Contents at ' + overviewWidths.join('/') + 'px, ' : '') + courses.length + ' deeper course readers, ' + chapters.length + ' chapters, ' + items.length + ' selected works, ' + history.courses.length + ' history rows, ' + mathTotal + ' source-derived math expressions; ' + report.viewports.join('/') + 'px; navigation, applicable figures/downloads, full speech, all-course links, expanded disclosures and legacy redirects; ' + report.screenshots.length + ' screenshots; zero browser errors or external requests.');
 } finally { await browser.close(); }
