@@ -1,0 +1,50 @@
+<h2>Rows, columns and repeated calculations</h2>
+<p>Homework 1 begins with selecting observations from a data frame, a table whose columns can hold different kinds of variables. In R, <code>cystfibr[c(5, 10, 15), ]</code> selects three specified rows; the empty position after the comma retains every column. Logical conditions select observations by their values instead of their row numbers.</p>
+<p>Homework 2 turns these individual selections into a calculation repeated across columns. The supplied <code>ISwR::cystfibr</code> teaching data contain \(25\) observations. The code selects numeric columns, removes missing values in each column, and calculates its mean and sample standard deviation. The latter measures spread about the mean using \(n-1\) in the denominator.</p>
+<pre><code class="language-r">library(ISwR)
+data(cystfibr)
+numeric_data &lt;- cystfibr[
+  , sapply(cystfibr, is.numeric)
+]
+num_vars &lt;- ncol(numeric_data)
+means &lt;- numeric(num_vars)
+sds &lt;- numeric(num_vars)
+
+for (index in 1:num_vars) {
+  values &lt;- numeric_data[, index]
+  values &lt;- values[!is.na(values)]
+  n &lt;- length(values)
+  mean_value &lt;- sum(values) / n
+  sd_value &lt;- sqrt(
+    sum((values - mean_value)^2) / (n - 1)
+  )
+  means[index] &lt;- mean_value
+  sds[index] &lt;- sd_value
+}
+cbind(mean = means, sd = sds)</code></pre>
+<p><code>sapply()</code> tests each column with <code>is.numeric()</code>. Inside the loop, <code>is.na()</code> marks missing entries and <code>!</code> reverses that test, retaining observed values. Each column has its own count \(n\). The loop stores its results, then <code>cbind()</code> places the means and standard deviations side by side.</p>
+<table>
+  <caption>Selected summaries from the saved Homework 2 output</caption>
+  <thead><tr><th scope="col">Variable</th><th scope="col">Mean</th><th scope="col">Sample spread</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Age</th><td>\(14.480\ \mathrm{years}\)</td><td>\(5.059\ \mathrm{years}\)</td></tr>
+    <tr><th scope="row">Height</th><td>\(152.800\ \mathrm{cm}\)</td><td>\(21.500\ \mathrm{cm}\)</td></tr>
+    <tr><th scope="row">Weight</th><td>\(38.404\ \mathrm{kg}\)</td><td>\(17.898\ \mathrm{kg}\)</td></tr>
+  </tbody>
+</table>
+<p>Numeric storage alone does not establish what a variable means. For example, a numeric category code should not automatically be interpreted like a measurement of height. The summary must retain each column's definition and units.</p>
+<h2>Variation within and between groups</h2>
+<p>The second exercise compares three holding-time vectors. Their sample means are \(5.4\), \(2.8\) and \(10.4\). A constructed comparison uses different observations whose three means are all \(5\). This separates a difference in group centers from the spread of observations inside each group.</p>
+<pre><code class="language-r">advertising &lt;- c(5, 1, 11, 2, 8)
+muzak &lt;- c(0, 1, 4, 6, 3)
+classical &lt;- c(13, 9, 8, 15, 7)</code></pre>
+<table>
+  <caption>Exploratory variation calculations in Homework 2</caption>
+  <thead><tr><th scope="col">Data</th><th scope="col">Between groups</th><th scope="col">Within groups</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Assignment vectors</th><td>\(9.946667\)</td><td>\(11.6\)</td></tr>
+    <tr><th scope="row">Constructed comparison</th><td>\(0\)</td><td>\(0.5\)</td></tr>
+  </tbody>
+</table>
+<p>Here, “between” is the average squared distance of the three means from the grand mean, the mean across all \(15\) observations; “within” is the average of the three sample variances. Their ratio is \(0.8574713\) for the assignment vectors and \(0\) for the constructed comparison. This exploratory ratio is not yet the ANOVA \(F\) statistic: ANOVA scales the sums of squares by their degrees of freedom, as the next chapter shows.</p>
+<p class="source-links"><a href="../../assets/dealing-with-data/numeric-summaries.R" download>R calculations</a></p>

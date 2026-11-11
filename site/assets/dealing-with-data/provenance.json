@@ -1,0 +1,184 @@
+{
+  "sources": [
+    {
+      "id": "hw1-rmd",
+      "path": "College-Classes/NCF/Semester 1/DWD2/assignments/DWD II - HW 1.Rmd",
+      "title": "Homework 1 data selection",
+      "sha256": "19908add381f4956cf91cae863d274d2afe86e1ed61c40b5cebdf47e4ebe3391"
+    },
+    {
+      "id": "hw2-rmd",
+      "path": "College-Classes/NCF/Semester 1/DWD2/assignments/hw2.Rmd",
+      "title": "Homework 2 calculations",
+      "sha256": "606a38edc0dddabc0c6ad312b3dc2841951ae136cb9e04ff958a7776ed20d0dd"
+    },
+    {
+      "id": "hw2-html",
+      "path": "College-Classes/NCF/Semester 1/DWD2/assignments/hw2.html",
+      "title": "Saved Homework 2 results",
+      "sha256": "0d40e3e0003cfb2069b9c96969e9d4acd7743071a3338371469b08c015040a26"
+    },
+    {
+      "id": "hw3-rmd",
+      "path": "College-Classes/NCF/Semester 1/DWD2/assignments/LW-HW3-DWD2.Rmd",
+      "title": "Homework 3 calculations",
+      "sha256": "b7f4a7c37a3283599d2494e0bbeb5e0ead7f6cb9c7a7204cef74ebc637245866"
+    },
+    {
+      "id": "hw3-html",
+      "path": "College-Classes/NCF/Semester 1/DWD2/assignments/LW-HW3-DWD2.html",
+      "title": "Saved Homework 3 results and diagnostics",
+      "sha256": "f5a0bd3a1f0b302f40812c1f5c456ee8f40fdce7f414d2b1e5e0c8a1eb13f597"
+    },
+    {
+      "id": "hw4-final-rmd",
+      "path": "College-Classes/NCF/Semester 1/DWD2/assignments/HW4RVW_FINAL_NO_BONFERRONI.Rmd",
+      "title": "Final Homework 4 review source",
+      "sha256": "fa804465ce77d6772c7562d455c93f28347da490a358e8ae45a177dc9df6230d"
+    },
+    {
+      "id": "hw4-final-html",
+      "path": "College-Classes/NCF/Semester 1/DWD2/assignments/HW4RVW_FINAL.html",
+      "title": "Saved final Homework 4 review results",
+      "sha256": "ef2b6c7c3f8e0906148718ea9d52791ca8cdba17608b0ffbfd71ff83c7ea2be1"
+    },
+    {
+      "id": "hw5-rmd",
+      "path": "College-Classes/NCF/Semester 1/DWD2/assignments/HW5.Rmd",
+      "title": "Homework 5 calculations",
+      "sha256": "9e1c7f3a707e3f1704c2ab0f36bade263926e847b5861921fb3b5162155725fa"
+    },
+    {
+      "id": "hw5-html",
+      "path": "College-Classes/NCF/Semester 1/DWD2/assignments/HW5.html",
+      "title": "Saved Homework 5 results and fitted line",
+      "sha256": "c3d1325b804fee66ddccbd605b79963febc2a3254f412a71147be1f8c8189d6c"
+    },
+    {
+      "id": "hw6-checked-rmd",
+      "path": "College-Classes/NCF/Semester 1/DWD2/assignments/ASGN6/HW6_Advertising_Problem2_checked.Rmd",
+      "title": "Checked Homework 6 source",
+      "sha256": "366ddddb2fe75afc4c59e4b242ee6c9f67a918388053431088b5c335832ed867"
+    },
+    {
+      "id": "hw6-html",
+      "path": "College-Classes/NCF/Semester 1/DWD2/assignments/ASGN6/HW6DWD2.html",
+      "title": "Saved Homework 6 results and newspaper fit",
+      "sha256": "c1ad15dd9c4fa04d155c932e95ad05f04f203218cd416fb7df513a1ef585016a"
+    },
+    {
+      "id": "hw7-rmd",
+      "path": "College-Classes/NCF/Semester 1/DWD2/assignments/ASGN7/HW7-1.Rmd",
+      "title": "Homework 7 model calculations",
+      "sha256": "e1ca7421a2e860850c82b699a03bdb2906afee6ae5fc68bb80b60ef16ae8a0c2"
+    },
+    {
+      "id": "advertising-data",
+      "path": "College-Classes/NCF/Semester 1/DWD2/data/Advertising.csv",
+      "title": "Supplied Advertising data",
+      "sha256": "4efa749627f6e438dcd4cdde86010b7a6f450c4960991a69f4623ee21e621870"
+    },
+    {
+      "id": "home-price-data",
+      "path": "College-Classes/NCF/Semester 1/DWD2/assignments/homework3.csv",
+      "title": "Supplied home-price data",
+      "sha256": "b204136256218e004d683fb2ef3d8977adbdfd02d33b2a614bdd9f9512563813"
+    }
+  ],
+  "files": [
+    {
+      "file": "numeric-summaries.R",
+      "sha256": "5234adaf3709c3d53ecdac9ff7df3099f72a3b88b7fd9dc5d0382e8246045173",
+      "source_ids": [
+        "hw1-rmd",
+        "hw2-rmd"
+      ],
+      "selection": "Selected original calculations; local file paths replaced with adjacent data filenames, author headers omitted, and output printing made explicit."
+    },
+    {
+      "file": "anova-comparisons.R",
+      "sha256": "e142757213e012536522bd93fcba13a883324000b45a69a72c29a711eeb58ce7",
+      "source_ids": [
+        "hw3-rmd",
+        "hw4-final-rmd"
+      ],
+      "selection": "Selected original calculations; local file paths replaced with adjacent data filenames, author headers omitted, and output printing made explicit."
+    },
+    {
+      "file": "radio-regression.R",
+      "sha256": "4b18b55476a8be2c6bb9acdef92e342e3c3dbde6dba332dae44feedc5e1fdd4c",
+      "source_ids": [
+        "hw4-final-rmd",
+        "hw5-rmd"
+      ],
+      "selection": "Selected original calculations; local file paths replaced with adjacent data filenames, author headers omitted, and output printing made explicit."
+    },
+    {
+      "file": "multiple-regression.R",
+      "sha256": "210be81c6323ae8387e3692b95e23b8513df334f20b3c1872ffa89c2808dec10",
+      "source_ids": [
+        "hw6-checked-rmd",
+        "hw7-rmd"
+      ],
+      "selection": "Selected original calculations; local file paths replaced with adjacent data filenames, author headers omitted, and output printing made explicit."
+    },
+    {
+      "file": "Advertising.csv",
+      "sha256": "4efa749627f6e438dcd4cdde86010b7a6f450c4960991a69f4623ee21e621870",
+      "source_ids": [
+        "advertising-data"
+      ]
+    },
+    {
+      "file": "homework3.csv",
+      "sha256": "b204136256218e004d683fb2ef3d8977adbdfd02d33b2a614bdd9f9512563813",
+      "source_ids": [
+        "home-price-data"
+      ]
+    },
+    {
+      "file": "home-price-normal-qq.png",
+      "sha256": "097036d143d07b1a294cb49d78b00300b6395feca4ae130a369f22e46aa96cf4",
+      "source_ids": [
+        "hw3-html"
+      ],
+      "extraction": "Original embedded PNG bytes, unchanged",
+      "image_index": 1
+    },
+    {
+      "file": "radio-sales.png",
+      "sha256": "a86d1450f9e2783f398e6ee93cec80d33e2c1734b3879434199818807e2cd36d",
+      "source_ids": [
+        "hw5-html"
+      ],
+      "extraction": "Original embedded PNG bytes, unchanged",
+      "image_index": 0
+    },
+    {
+      "file": "newspaper-sales.png",
+      "sha256": "d9793bbd1e728fa19268f5428984429cb6940fd4cdaeded8fea62d182b9a4d66",
+      "source_ids": [
+        "hw6-html"
+      ],
+      "extraction": "Original embedded PNG bytes, unchanged",
+      "image_index": 0
+    },
+    {
+      "file": "recorded-results.json",
+      "sha256": "ba526f69d75897e90b3847da0a025c881e34e36f53fc15d248118dbb3e079928",
+      "source_ids": [
+        "hw2-html",
+        "hw3-html",
+        "hw4-final-html",
+        "hw5-html",
+        "hw6-html",
+        "hw7-rmd"
+      ]
+    }
+  ],
+  "notes": [
+    "The final HW4 review and checked HW6 version are identified separately from earlier drafts.",
+    "Featured numerical values follow saved console output rather than conflicting prose in unrelated HW3 exercises.",
+    "The ISwR cystfibr package documentation supplies variable units; only aggregate results are exported here."
+  ]
+}

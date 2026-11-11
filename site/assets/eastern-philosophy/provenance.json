@@ -1,0 +1,102 @@
+{
+  "sources": [
+    {
+      "id": "eastern-philosophy-reflection-2023",
+      "sha256": "1ee4f32a52b1b6e0986593ed7b846a4e8911c3a174881a495728c6523df47f84",
+      "title": "Limited Terms for Limitless Concepts: Eastern Insight Into Duality",
+      "selection": "Complete original essay body, section headings and works cited",
+      "title_paragraph": 0,
+      "included_paragraphs": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "heading_paragraphs": [
+        4,
+        10,
+        15,
+        19,
+        28,
+        34,
+        37
+      ],
+      "body_paragraphs": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        29,
+        30,
+        31,
+        32,
+        33,
+        35,
+        36
+      ],
+      "reference_paragraphs": [
+        38,
+        39,
+        40,
+        41
+      ]
+    }
+  ],
+  "files": [
+    {
+      "file": "essay.txt",
+      "sha256": "b1952e1cd9dcbc5b2e158efbf1087bcdf0614fdbc8db056a35fc3f172a77e195",
+      "kind": "Complete original essay text"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+<h2>Parameters shared across an image</h2>
+<p>Assignment 5 begins by counting the trainable weights in a convolutional neural network (CNN). A convolution applies the same small filter at different image positions. Sharing those weights lets the layer respond to a local pattern wherever it appears.</p>
+<p>For a layer with \(c_{\mathrm{in}}\) input channels, \(c_{\mathrm{out}}\) output filters and a \(k\times k\) kernel, the parameter count is</p>
+\[
+k^2c_{\mathrm{in}}c_{\mathrm{out}}+c_{\mathrm{out}}.
+\]
+<p>The final term counts one bias per output filter. In the supplied architecture, the three convolutional layers have \(640\), \(73{,}856\) and \(295{,}168\) parameters. The final dense layer adds \(2{,}570\), giving \(372{,}234\) in total. Global average pooling summarizes each feature map and introduces no trainable coefficients.</p>
+<h2>Circles, triangles and rotation</h2>
+<p>The second part trains a smaller CNN on generated \(200\times200\) grayscale images. Circles have radius \(50\); equilateral triangles have side length \(60\). Their centers vary across the image. A second dataset rotates the triangles through random angles.</p>
+<figure>
+  <a href="../../assets/deep-learning/shape-examples.png" target="_blank" rel="noreferrer"><img src="../../assets/deep-learning/shape-examples.png" width="989" height="273" alt="Synthetic examples showing a circle, an upright triangle, a rotated triangle and another circle."></a>
+  <figcaption>The generated classification inputs. <a href="../../assets/deep-learning/shape-examples.png" target="_blank" rel="noreferrer">Open full-size examples</a></figcaption>
+</figure>
+<p>This Keras classifier uses convolutional layers with \(16\), \(32\) and \(64\) filters, pooling, a dense hidden layer and one sigmoid output. Adam minimizes binary cross-entropy. Both upright- and rotated-triangle runs reach validation accuracy \(1.0\) on these clean synthetic shapes. The repeated high accuracy reflects the clear separation between the two shape classes in this dataset.</p>
+<figure>
+  <a href="../../assets/deep-learning/rotated-filters.png" target="_blank" rel="noreferrer"><img src="../../assets/deep-learning/rotated-filters.png" width="1189" height="377" alt="Sixteen grayscale first-layer convolution filters from the model trained with rotated triangles."></a>
+  <figcaption>First-layer filters after training with rotated triangles. <a href="../../assets/deep-learning/rotated-filters.png" target="_blank" rel="noreferrer">Open full-size filters</a></figcaption>
+</figure>
+<p>The small learned masks show local contrast patterns. Comparing their orientations links the image transformations in the dataset to the features available to later layers.</p>
+<p class="source-links"><a href="../../assets/deep-learning/shape-cnn.py" download>Shape-classifier architecture</a><a href="../../assets/deep-learning/recorded-results.json">Recorded results</a></p>

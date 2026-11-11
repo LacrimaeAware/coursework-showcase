@@ -1,0 +1,42 @@
+{
+  "copied_on": "2026-11-10",
+  "source_owner": "simulations-in-biology-yildirim",
+  "selection": "Enzyme ODE and exact-SSA comparison; independent fixed-time product-CV grid",
+  "files": [
+    {
+      "file": "enzyme_deterministic_stochastic.png",
+      "source": "simulations-in-biology-yildirim/ground-truth/enzyme-comparison-2026-11-01/enzyme_deterministic_stochastic.png",
+      "sha256": "3629389e13a26f0723a33916dc3192e964b974c19d231171b894fe591d6ae955"
+    },
+    {
+      "file": "enzyme_comparison.json",
+      "source": "simulations-in-biology-yildirim/ground-truth/enzyme-comparison-2026-11-01/enzyme_comparison.json",
+      "sha256": "c19212f3745ac3355456bba865b958d973ef1b7e515c62050c4dd2a975e8f7b1"
+    },
+    {
+      "file": "MM_Heatmap.png",
+      "source": "simulations-in-biology-yildirim/Learning Lab/Python/MM_Heatmap.png",
+      "sha256": "ca1470ad5daa8cbac6b1d183044055e086e024beb16794f4737d6032b328260b"
+    },
+    {
+      "file": "compare_enzyme_ode.py",
+      "source": "simulations-in-biology-yildirim/Learning Lab/Python/compare_enzyme_ode.py",
+      "sha256": "d60ba1707b895f1e55924d210875a50f2df39891f4e4ccff2e04b178f7a417a4"
+    },
+    {
+      "file": "gillespie_demo.py",
+      "source": "simulations-in-biology-yildirim/Learning Lab/Python/gillespie_demo.py",
+      "sha256": "abdfc6fe4e66501368ff8aa725115e9d740a907301483efc74ecb34035a9855b"
+    },
+    {
+      "file": "MM_Heatmap.py",
+      "source": "simulations-in-biology-yildirim/Learning Lab/Python/MM_Heatmap.py",
+      "sha256": "b6e796cd247f993204aeec12c9200c617bf3f14ad5da60c90d5a0a88478747ff"
+    },
+    {
+      "file": "MM_Surface.py",
+      "source": "simulations-in-biology-yildirim/Learning Lab/Python/MM_Surface.py",
+      "sha256": "b2f1bfc57097d402e15a11adcd6aff12aa07b2d2a9e3169e3c9cb6f3a9f0671e"
+    }
+  ]
+}

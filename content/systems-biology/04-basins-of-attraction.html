@@ -1,0 +1,31 @@
+<section aria-labelledby="initial-condition-grid">
+  <h2 id="initial-condition-grid">Initial conditions and their destinations</h2>
+  <p>The next exercise holds external TMG fixed at \(T=10\,\mathrm{\mu M}\) and varies the two initial state values. Starting from each point of a grid, integrate the equations and record which stable state the trajectory approaches. A basin of attraction is the collection of starting states that approach the same destination.</p>
+  <figure>
+    <a href="../../assets/systems-biology/lac_basins.svg" target="_blank" rel="noreferrer" aria-label="Open the full-size basin grid and boundary refinement"><img src="../../assets/systems-biology/lac_basins.png" width="1500" height="690" alt="A black and red initial-condition grid at fixed external TMG 10, followed by extra samples along its separating boundary. Black starts approach the low state and red starts approach the high state."></a>
+    <figcaption>The course calculation on a \(51\times51\) grid, followed by denser sampling near the color boundary. <a href="../../assets/systems-biology/lac_basins.svg" target="_blank" rel="noreferrer">Open full-size basin map</a></figcaption>
+  </figure>
+</section>
+<section aria-labelledby="fixed-input-model">
+  <h2 id="fixed-input-model">The fixed-input lac equations</h2>
+  <p>The state variables are normalized internal TMG \(X\) and LacY expression \(Y\). Initial values \(X(0)\) and \(Y(0)\) determine the point plotted on the map. Both evolve according to the classroom model:</p>
+  \[
+  \frac{dX}{dt}=\beta Y-X
+  \]
+  \[
+  \frac{dY}{dt}=\alpha\frac{1+X^2}{\rho+X^2}-Y,
+  \]
+  \[
+  \alpha=100,\quad \rho=167.1.
+  \]
+  \[
+  \beta=0.123T^{0.6},\quad T=10.
+  \]
+  <p>Each grid point supplies a separate initial condition. The solver advances that trajectory, then compares its final position and remaining rate of change with the stable states. Black marks the lower destination and red the upper destination; gray is reserved for runs that remain unresolved within the integration limits.</p>
+  <p>On the saved grid, \(X(0)\) and \(Y(0)\) each range from \(0\) to \(10\). There are \(1040\) low-state destinations and \(1561\) high-state destinations. The finer samples follow the transition between those two groups.</p>
+  <p>The low equilibrium is approximately \((0.324,0.661)\), the intermediate equilibrium \((3.341,6.823)\), and the high equilibrium \((45.303,92.516)\). Initial points in the displayed square can therefore evolve to a stable state beyond its plotted extent. The intermediate equilibrium is a saddle: deviations in one direction grow while deviations along another direction decay.</p>
+</section>
+<section aria-labelledby="basin-code">
+  <h2 id="basin-code">Grid computation and numerical results</h2>
+  <p><a href="../../assets/systems-biology/lac_basins.py" download>Download the Python grid calculation</a> and inspect the <a href="../../assets/systems-biology/lac-simulation-results.json">saved numerical results</a>. The script uses NumPy, SciPy and Matplotlib. It stores destination labels in a matrix and adds boundary samples checked with a second integration method.</p>
+</section>

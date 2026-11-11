@@ -1,0 +1,55 @@
+<p class="study-context">Selected worked exercises: Homework 4, Section 2.2 Problem 7 and Section 2.3 Problem 12.</p>
+
+<section class="problem" id="balanced-remainders" data-study-problem>
+<h2>Balanced remainders</h2>
+<p class="chapter-record">Homework 4 · Exercise 1, Section 2.2 Problem 7 · preserved PDF page 2</p>
+<p>Let \(a,b\in\mathbb Z\), with \(b\ne0\). Prove that there are unique integers \(q,r\) such that</p>
+\[
+a=qb+r,\qquad -\frac{|b|}{2}&lt;r\le\frac{|b|}{2}.
+\]
+<p>The quotient \(q\) counts multiples of \(b\); the remainder \(r\) is what remains after subtracting <span class="nowrap">\(qb\).</span> This interval keeps the remainder close to zero.</p>
+<h3>Existence of the remainder</h3>
+<p>The ordinary division algorithm supplies integers \(q',r'\) with</p>
+\[
+a=q'b+r',\qquad 0\le r'&lt;|b|.
+\]
+<p>If \(r'\le |b|/2\), choose \(q=q'\) and \(r=r'\). These already satisfy the required interval.</p>
+<p>If \(r'&gt;|b|/2\), subtract \(|b|\) from the remainder. Then \(r=r'-|b|\) satisfies</p>
+\[
+-\frac{|b|}{2}&lt;r&lt;0.
+\]
+<p>To keep \(qb+r=a\), increase the quotient by \(1\) when \(b&gt;0\), and decrease it by \(1\) when \(b&lt;0\):</p>
+\[
+q=\begin{cases}q'+1,&amp;b&gt;0,\\q'-1,&amp;b&lt;0.\end{cases}
+\]
+<p>In either case, the change in \(qb\) is \(|b|\), exactly compensating for the change in the remainder.</p>
+<h3>Uniqueness of the remainder</h3>
+<p>Suppose \(a=qb+r=q_1b+r_1\), with both remainders in the stated interval. Subtracting gives</p>
+\[
+(q-q_1)b=r_1-r.
+\]
+<p>The half-open interval has width \(|b|\), so \(|r_1-r|&lt;|b|\). If \(q\ne q_1\), the left side has magnitude at least \(|b|\), a contradiction. Hence \(q=q_1\), and then \(r=r_1\).</p>
+<table>
+<caption>Examples of the balanced representation</caption>
+<thead><tr><th scope="col">\(a\)</th><th scope="col">\(b\)</th><th scope="col">\(q\)</th><th scope="col">\(r\)</th></tr></thead>
+<tbody>
+<tr><td>\(17\)</td><td>\(5\)</td><td>\(3\)</td><td>\(2\)</td></tr>
+<tr><td>\(18\)</td><td>\(5\)</td><td>\(4\)</td><td>\(-2\)</td></tr>
+<tr><td>\(18\)</td><td>\(-5\)</td><td>\(-4\)</td><td>\(-2\)</td></tr>
+<tr><td>\(-18\)</td><td>\(5\)</td><td>\(-4\)</td><td>\(2\)</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="problem" id="gcd-and-differences" data-study-problem>
+<h2>Common divisors and a difference</h2>
+<p class="chapter-record">Homework 4 · Exercise 4, Section 2.3 Problem 12 · preserved PDF page 5</p>
+<p>For every integer \(a\) and positive integer \(n\), prove that \(\gcd(a,a+n)\) divides \(n\). In particular, prove that \(\gcd(a,a+1)=1\).</p>
+<p>The greatest common divisor, written \(\gcd\), is the largest positive integer dividing both inputs, provided they are not both zero.</p>
+<h3>Divisibility of the difference</h3>
+<p>Let \(d=\gcd(a,a+n)\). Because \(d\mid a\) and \(d\mid(a+n)\), it divides their difference \((a+n)-a=n\). Therefore,</p>
+\[
+d\mid n.
+\]
+<p>For \(n=1\), this positive common divisor divides \(1\). It must therefore equal \(1\), giving \(\gcd(a,a+1)=1\).</p>
+</section>

@@ -1,0 +1,48 @@
+<h2>A predictor alone and after adjustment</h2>
+<p>Homework 6 asks why newspaper advertising appears related to sales when considered alone, then contributes little evidence after radio spending is included. Both fits use the same \(200\) observations. Sales are in thousands of units, and each advertising budget is in thousands of dollars.</p>
+<pre><code class="language-r">advertising &lt;- read.csv("Advertising.csv")
+model_simple &lt;- lm(
+  sales ~ newspaper, data = advertising
+)
+model_multiple &lt;- lm(
+  sales ~ newspaper + radio, data = advertising
+)
+summary(model_multiple)$coefficients</code></pre>
+<p>The first newspaper coefficient summarizes a relationship across observations with different newspaper budgets. The second compares newspaper budgets while holding radio spending fixed in the fitted model. These answer different questions: radio and newspaper spending vary together, so the newspaper-only relationship includes variation shared with radio.</p>
+<figure style="max-width:700px">
+  <a href="../../assets/dealing-with-data/newspaper-sales.png" target="_blank" rel="noreferrer"><img src="../../assets/dealing-with-data/newspaper-sales.png" width="1344" height="960" alt="Sales plotted against newspaper advertising spending, with a weak upward fitted line and wide scatter."></a>
+  <figcaption>Saved newspaper-only fit from the checked Homework 6 version. <a href="../../assets/dealing-with-data/newspaper-sales.png" target="_blank" rel="noreferrer">Open full-size plot</a></figcaption>
+</figure>
+<table>
+  <caption>Newspaper coefficients in the saved Homework 6 output</caption>
+  <thead><tr><th scope="col">Predictors</th><th scope="col">Newspaper slope</th><th scope="col">Slope-test \(p\)</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Newspaper</th><td>\(0.05469\)</td><td>\(0.00115\)</td></tr>
+    <tr><th scope="row">Newspaper and radio</th><td>\(0.006644\)</td><td>\(0.65634\)</td></tr>
+  </tbody>
+</table>
+<p>The adjusted newspaper estimate is much smaller, and its test provides little evidence against a zero conditional slope. The radio estimate remains positive at \(0.19904\). The two-predictor model has \(R^2=0.3327\), compared with \(0.05212\) for newspaper alone. A high \(p\)-value does not prove an exactly zero effect; it describes the strength of evidence for this coefficient in this particular model.</p>
+<h2>Fitted values, residuals and explained variation</h2>
+<p>Homework 7 extends the analysis to television spending and reconstructs the model summary from fitted values and residuals. For an ordinary least-squares model containing an intercept, the total variation around the response mean separates into explained and residual parts:</p>
+\[
+\begin{aligned}
+\mathrm{SST}&=\sum_i(y_i-\bar y)^2,\\
+\mathrm{SSR}&=\sum_i(\hat y_i-\bar y)^2,\\
+\mathrm{SSE}&=\sum_i(y_i-\hat y_i)^2,\\
+\mathrm{SST}&=\mathrm{SSR}+\mathrm{SSE}.
+\end{aligned}
+\]
+<pre><code class="language-r">model_nr &lt;- lm(
+  sales ~ newspaper + radio, data = advertising
+)
+y &lt;- advertising$sales
+ybar &lt;- mean(y)
+yhat_nr &lt;- fitted(model_nr)
+resid_nr &lt;- residuals(model_nr)
+SST_nr &lt;- sum((y - ybar)^2)
+SSR_nr &lt;- sum((yhat_nr - ybar)^2)
+SSE_nr &lt;- sum(resid_nr^2)</code></pre>
+<p>Here <code>model_nr</code> is the newspaper-and-radio fit. <code>fitted()</code> supplies its predictions and <code>residuals()</code> supplies observed minus predicted sales. The fraction \(\mathrm{SSR}/\mathrm{SST}\) reproduces the model's \(R^2\). The remaining fraction is variation not explained by those predictors.</p>
+<p>The added television model uses <code>sales ~ TV + radio + newspaper</code>. Its overall \(F\) test asks whether the predictor slopes are jointly zero, while an individual coefficient test asks about one slope conditional on the others. Including more predictors changes the comparison; it does not automatically remove all omitted-variable problems or establish causation.</p>
+<p>The <a href="../../projects/gss-happiness/index.html">GSS happiness group final project</a> brings these course methods together with a new response: reported happiness, examined through linear and logistic models.</p>
+<p class="source-links"><a href="../../assets/dealing-with-data/multiple-regression.R" download>R model comparison</a><a href="../../assets/dealing-with-data/Advertising.csv" download>Advertising data</a></p>

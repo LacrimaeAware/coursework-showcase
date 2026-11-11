@@ -1,0 +1,46 @@
+{
+  "files": [
+    {
+      "file": "competitive_inhibitor_product.png",
+      "source": "College-Classes/NCF/Semester 2/Stochastic Modeling/code/competitive-inhibition/competitive_inhibitor_product.png",
+      "sha256": "4ed6f9b78fb333dbdc8ca2247706632a907dba791616c83c01fe8c1d0ce40627",
+      "kind": "unchanged source copy"
+    },
+    {
+      "file": "competitive_inhibitor_enzyme_partition.png",
+      "source": "College-Classes/NCF/Semester 2/Stochastic Modeling/code/competitive-inhibition/competitive_inhibitor_enzyme_partition.png",
+      "sha256": "bedadbeb335aacfb6f1d21302074fdf904dad53a6f0d80ab082a363a778da89f",
+      "kind": "unchanged source copy"
+    },
+    {
+      "file": "competitive_inhibitor_model.py",
+      "source": "College-Classes/NCF/Semester 2/Stochastic Modeling/code/competitive-inhibition/competitive_inhibitor_model.py",
+      "sha256": "e5bd53463f1f648c74b9d35dab01112818518a36f4ad416d22980c872ab9643e",
+      "kind": "unchanged source copy"
+    },
+    {
+      "file": "competitive_inhibitor_summary.csv",
+      "source": "College-Classes/NCF/Semester 2/Stochastic Modeling/code/competitive-inhibition/competitive_inhibitor_summary.csv",
+      "sha256": "b13cb1c865b5e56c0f469c03209ae12a2674522b6074a0905c2eed2b56dd02ce",
+      "kind": "unchanged source copy"
+    },
+    {
+      "file": "michaelis_menten_baseline.m",
+      "source": "College-Classes/NCF/Semester 2/Stochastic Modeling/code/competitive-inhibition/michaelis_menten_baseline.m",
+      "sha256": "ae2ea97e22838fe839ba688eb5b6167cd48d089afe1722cdc4da4ad498b2a972",
+      "kind": "unchanged source copy"
+    },
+    {
+      "file": "michaelis-menten.svg",
+      "source": "coursework-showcase/content/systems-biology/01-enzyme-kinetics.html",
+      "sha256": "a5750a4195eb53499d8b1f6195d58db377865b2f3f1084b3ecc42a59e356032d",
+      "kind": "formula illustration",
+      "formula": "v=S/(2+S), 0<=S<=20",
+      "parameters": {
+        "Km": 2,
+        "Vmax": 1
+      },
+      "sample_count": 401
+    }
+  ]
+}

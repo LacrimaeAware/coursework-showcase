@@ -1,0 +1,129 @@
+<h2>Methods for rounded calculations</h2>
+<p>The Chapter 6 stock-calculation program separates repeated arithmetic into two methods. <code>calcStockCost</code> multiplies a share count by a price and rounds the result to cents. <code>sharesStock</code> divides sale proceeds by another price and rounds the quotient to one decimal place.</p>
+<pre><code>double total_paid = calcStockCost(num_shares, a_price);
+double total_sell = calcStockCost(num_shares, a_sell);
+double total_gained = total_sell - total_paid;
+double shares_to_buy = sharesStock(total_sell, b_price);</code></pre>
+<p>For \(100\) shares bought at \(10\) dollars and sold at \(12\) dollars, the program reports \(200\) dollars gained. Sale proceeds of \(1200\) dollars buy \(60.0\) shares at \(20\) dollars each. A second input, \(10\) shares bought at \(12\) dollars and sold at \(8\), follows the loss branch and reports \(40\) dollars lost.</p>
+<p>The saved program parses numeric input directly; these examples use valid numbers and a positive second-stock price. Its two methods make the calculation reusable while the loop controls whether to process another input set.</p>
+<details class="technical"><summary>Complete Java source</summary><div class="technical-content"><h3>StockCalculation.java</h3><pre><code>/*
+ * Programming Assignment 5
+ * Calculating Stocks Program
+ */
+
+import java.util.Scanner;
+
+class StockCalculation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String again = &quot;y&quot;;
+
+        while (again.equalsIgnoreCase(&quot;y&quot;)) {
+            System.out.print(&quot;Number of Stock A shares bought? &quot;);
+            double num_shares = Double.parseDouble(scanner.nextLine());
+
+            System.out.print(&quot;Purchase price of Stock A? &quot;);
+            double a_price = Double.parseDouble(scanner.nextLine());
+
+            System.out.print(&quot;Sale price of Stock A? &quot;);
+            double a_sell = Double.parseDouble(scanner.nextLine());
+
+            System.out.print(&quot;Purchase price of Stock B? &quot;);
+            double b_price = Double.parseDouble(scanner.nextLine());
+
+            double total_paid = calcStockCost(num_shares, a_price);
+            double total_sell = calcStockCost(num_shares, a_sell);
+            double total_gained = total_sell - total_paid;
+            double shares_to_buy = sharesStock(total_sell, b_price);
+
+            System.out.println();
+            System.out.println(&quot;Total amount paid for Stock A: $&quot; + String.format(&quot;%.2f&quot;, total_paid));
+            System.out.println(&quot;Total amount received from selling Stock A: $&quot; + String.format(&quot;%.2f&quot;, total_sell));
+
+            if (total_gained &gt;= 0) {
+                System.out.println(&quot;You gained: $&quot; + String.format(&quot;%.2f&quot;, total_gained));
+            } else {
+                System.out.println(&quot;You lost: $&quot; + String.format(&quot;%.2f&quot;, -total_gained));
+            }
+
+            System.out.println(&quot;Number of Stock B shares you can buy: &quot; + String.format(&quot;%.1f&quot;, shares_to_buy));
+
+            System.out.println();
+            System.out.print(&quot;Would you like to enter another set? (y/n): &quot;);
+            again = scanner.nextLine();
+            System.out.println();
+        }
+
+        System.out.println(&quot;Program ended.&quot;);
+        scanner.close();
+    }
+
+    public static double calcStockCost(double numShares, double stockPrice) {
+        double cost = numShares * stockPrice;
+        cost = Math.round(cost * 100.0) / 100.0;
+        return cost;
+    }
+
+    public static double sharesStock(double totalAmount, double stockPrice) {
+        double shares = totalAmount / stockPrice;
+        shares = Math.round(shares * 10.0) / 10.0;
+        return shares;
+    }
+}
+</code></pre></div></details><p class="source-links"><a href="../../assets/java/StockCalculation.java" download>StockCalculation.java</a></p>
+<h2>Parallel arrays and an accumulated total</h2>
+<p>The Chapter 7 program stores six flavor names in one array and their case counts in another. The same index connects a name to its count. A second loop prints each pair, adds the count to a running total, and replaces the current best seller when it finds a larger value.</p>
+<pre><code>totalCases += casesSold[i];
+if (casesSold[i] &gt; highestSold) {
+    highestSold = casesSold[i];
+    topSeller = sodaFlavors[i];
+}</code></pre>
+<table><caption>Example sales input</caption><thead><tr><th>Flavor</th><th>Cases</th></tr></thead><tbody><tr><td>Cola</td><td>10</td></tr><tr><td>Lime</td><td>4</td></tr><tr><td>Orange</td><td>7</td></tr><tr><td>Grape</td><td>2</td></tr><tr><td>Cherry</td><td>8</td></tr><tr><td>Root Beer</td><td>1</td></tr></tbody></table>
+<p>These inputs produce \(32\) total cases and Cola as the top seller. The comparison uses <code>&gt;</code>, so a later equal count leaves the first selected flavor in place. With all six counts equal to zero, the saved initialization leaves the top-seller name empty. The zero case exposes how the initial value and comparison rule work together.</p>
+<details class="technical"><summary>Complete Java source</summary><div class="technical-content"><h3>SodaSales.java</h3><pre><code>/*
+ * Programming Assignment 6
+ * Soda Sales Program
+ */
+
+import java.util.Scanner;
+
+class SodaSales {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        String[] sodaFlavors = new String[6];
+        int[] casesSold = new int[6];
+
+        for (int i = 0; i &lt; 6; i++) {
+            System.out.print(&quot;Enter soda flavor &quot; + (i + 1) + &quot;: &quot;);
+            sodaFlavors[i] = input.nextLine();
+
+            System.out.print(&quot;Enter number of cases sold for &quot; + sodaFlavors[i] + &quot;: &quot;);
+            casesSold[i] = Integer.parseInt(input.nextLine());
+            System.out.println();
+        }
+
+        int totalCases = 0;
+        int highestSold = 0;
+        String topSeller = &quot;&quot;;
+
+        System.out.println(&quot;Soda Sales Report&quot;);
+        System.out.println(&quot;-----------------&quot;);
+
+        for (int i = 0; i &lt; 6; i++) {
+            System.out.println(sodaFlavors[i] + &quot;: &quot; + casesSold[i] + &quot; cases&quot;);
+            totalCases += casesSold[i];
+            if (casesSold[i] &gt; highestSold) {
+                highestSold = casesSold[i];
+                topSeller = sodaFlavors[i];
+            }
+        }
+
+        System.out.println();
+        System.out.println(&quot;Total cases sold: &quot; + totalCases);
+        System.out.println(&quot;Top-selling flavor: &quot; + topSeller);
+
+        input.close();
+    }
+}
+</code></pre></div></details><p class="source-links"><a href="../../assets/java/SodaSales.java" download>SodaSales.java</a></p>

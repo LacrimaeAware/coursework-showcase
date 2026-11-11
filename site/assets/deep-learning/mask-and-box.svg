@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="360" viewBox="0 0 900 360" role="img" aria-labelledby="title description">
+<title id="title">Pixel masks and bounding boxes</title>
+<desc id="description">Schematic of output formats. On the left, a foreground point prompts a mask filling an object's pixels. On the right, a detector locates the object with a rectangular box and supplies a class and confidence score.</desc>
+<rect width="900" height="360" fill="#fafaf7"/>
+<g fill="#182f36" font-family="system-ui, sans-serif">
+<text x="32" y="36" font-size="18">Output formats (schematic)</text>
+<text x="32" y="77" font-size="17" font-weight="600">SAM: prompted pixel mask</text>
+<text x="474" y="77" font-size="17" font-weight="600">RetinaNet: box + class score</text>
+</g>
+<g fill="#eef0eb" stroke="#b8c4c0" stroke-width="1">
+<rect x="32" y="94" width="394" height="218" rx="3"/>
+<rect x="474" y="94" width="394" height="218" rx="3"/>
+</g>
+<g fill="#d8dcd5">
+<circle cx="85" cy="148" r="18"/><circle cx="354" cy="269" r="24"/>
+<circle cx="527" cy="148" r="18"/><circle cx="796" cy="269" r="24"/>
+</g>
+<path d="M159 255 C135 245 128 211 146 184 C151 156 175 141 203 152 C227 133 266 146 272 175 C298 190 303 220 281 242 C265 270 232 279 211 263 C193 276 172 271 159 255Z" fill="#168696" fill-opacity=".6" stroke="#116779" stroke-width="2"/>
+<circle cx="211" cy="213" r="6" fill="#c35029" stroke="white" stroke-width="2"/>
+<path d="M221 208 L292 142" fill="none" stroke="#85482f" stroke-width="1.5"/>
+<text x="293" y="136" fill="#633b2b" font-size="14" font-family="system-ui, sans-serif">point prompt</text>
+<path d="M601 255 C577 245 570 211 588 184 C593 156 617 141 645 152 C669 133 708 146 714 175 C740 190 745 220 723 242 C707 270 674 279 653 263 C635 276 614 271 601 255Z" fill="#a9b4ae" stroke="#778780" stroke-width="1.5"/>
+<rect x="569" y="140" width="176" height="139" fill="none" stroke="#116779" stroke-width="3"/>
+<rect x="568" y="115" width="159" height="25" fill="#116779"/>
+<text x="577" y="133" fill="white" font-size="14" font-family="system-ui, sans-serif">class · confidence</text>
+<g fill="#405963" font-size="14" font-family="system-ui, sans-serif">
+<text x="32" y="338">Mask: which pixels belong to the target?</text>
+<text x="474" y="338">Box: where is the detected object?</text>
+</g>
+</svg>

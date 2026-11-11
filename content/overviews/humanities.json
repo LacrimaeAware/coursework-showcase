@@ -1,0 +1,206 @@
+[
+  {
+    "id": "spanish-1",
+    "summary": "Introductory Spanish for describing people, places, studies and everyday activities through listening, speaking, reading and writing.",
+    "topics": [
+      {
+        "title": "Introductions and questions",
+        "description": "Names, origins, nationality, age and birthdays provide the language for a short introduction. Question words turn those details into exchanges rather than isolated statements."
+      },
+      {
+        "title": "Agreement, numbers and time",
+        "description": "Articles, nouns and adjectives change for gender and number. Numbers, days and clock time describe class schedules and other everyday information."
+      },
+      {
+        "title": "Present-tense verbs",
+        "description": "Regular verb endings connect actions to their subjects. Stem-changing verbs and irregular forms add common actions such as preferring, sleeping, going, doing and hearing."
+      },
+      {
+        "title": "Identity, location and description",
+        "description": "Ser and estar distinguish kinds of description, including origin and identity, location and changing states. Hay describes what is present, while tener supplies expressions such as age."
+      },
+      {
+        "title": "Family, university and pastimes",
+        "description": "Descriptions combine family relationships, occupations, studies and personal qualities. Gustar expresses likes, while ir a describes destinations and planned activities."
+      }
+    ],
+    "sourceNote": "Saved Fall 2022 syllabus summary and complete oral-final guide; Vistas, sixth edition, chapters 1–4."
+  },
+  {
+    "id": "spanish-1-lab",
+    "summary": "Companion speaking and listening practice using the introductory course's vocabulary, descriptions and conversational questions.",
+    "topics": [
+      {
+        "title": "Pronunciation and word stress",
+        "description": "Distinct vowel sounds, syllable stress and accent marks support clear pronunciation. Spoken practice connects the written form of a word with how it sounds."
+      },
+      {
+        "title": "Short spoken exchanges",
+        "description": "Introductions and follow-up questions combine names, origins, age and studies. Numbers, times and letter names add practical information to those exchanges."
+      },
+      {
+        "title": "Describing people and places",
+        "description": "Spoken descriptions use adjectives for people and hay or estar for a room and its objects. Agreement and location expressions connect grammar with something the listener can picture."
+      },
+      {
+        "title": "Conversation about daily interests",
+        "description": "Classes, family, weekends and pastimes provide connected speaking topics. Likes, destinations and intended activities extend a short answer into a conversation."
+      }
+    ],
+    "sourceNote": "Companion practice outline based on the Spanish I syllabus and oral-final guide; no separate lab syllabus or final was recovered."
+  },
+  {
+    "id": "spanish-2",
+    "summary": "Further Spanish through travel, shopping, daily routines and food, building on introductory grammar with past actions and more compact sentence forms.",
+    "topics": [
+      {
+        "title": "Travel and shopping",
+        "description": "Vacation plans, accommodation, weather, clothing, prices and sizes provide practical settings for conversation. Cultural modules include Old San Juan and open-air markets."
+      },
+      {
+        "title": "Current and completed actions",
+        "description": "Estar with a present participle describes an action happening now, while the preterite presents completed past actions. Ser, estar and the past forms of ser and ir require attention to the sentence's meaning."
+      },
+      {
+        "title": "Object pronouns and verb choices",
+        "description": "Direct- and indirect-object pronouns replace people or things already identified in a conversation. Saber and conocer distinguish kinds of knowing, including knowing information, knowing how to do something and being acquainted with someone or somewhere."
+      },
+      {
+        "title": "Daily routines and negative expressions",
+        "description": "Reflexive verbs describe activities such as getting up, washing and dressing. Negative and indefinite expressions change whether a statement refers to someone, something, nobody or nothing."
+      },
+      {
+        "title": "Food, preferences and comparisons",
+        "description": "Restaurant and food vocabulary combines with gustar and similar verbs to express preferences. Comparatives and superlatives distinguish alternatives by qualities such as price, food or service."
+      }
+    ],
+    "sourceNote": "Saved Fall 2025 modules and vis6e review labels; lessons 5–8 follow a provisional Vistas sixth-edition mapping because the embedded syllabus was unavailable."
+  },
+  {
+    "id": "spanish-2-lab",
+    "summary": "Companion conversation practice for Spanish II's travel, shopping, routines and food topics; the original lab's detailed scope is unconfirmed.",
+    "topics": [
+      {
+        "title": "Travel conversations",
+        "description": "Accommodation requests, weather descriptions and current activities combine practical vocabulary with questions and responses. Accounts of a trip introduce a sequence of completed actions."
+      },
+      {
+        "title": "Shopping and comparisons",
+        "description": "Requests for clothing, prices and sizes support a short exchange in a shop. Demonstratives and comparisons identify which item is wanted and why it is preferred."
+      },
+      {
+        "title": "Spoken routines and past events",
+        "description": "Reflexive verbs organize a description of a daily routine. Past-action forms and time expressions distinguish what someone usually does from what happened on a particular occasion."
+      },
+      {
+        "title": "Restaurant interaction and pronouns",
+        "description": "Ordering food, asking for a recommendation and requesting the bill provide connected speaking tasks. Object pronouns refer back to dishes or people without repeating their names."
+      }
+    ],
+    "sourceNote": "Companion practice from accessible Spanish II modules and the provisional Vistas sixth-edition outline; the unpublished lab's original materials were unavailable."
+  },
+  {
+    "id": "anthropology",
+    "summary": "An introduction to the study of humans through biological anthropology, archaeology, cultural anthropology and language.",
+    "topics": [
+      {
+        "title": "Biological anthropology and evolution",
+        "description": "Genetics, evolutionary processes, living primates and human evolution connect inherited variation with environmental and historical change. The module also considers race and racism rather than treating familiar social categories as simple biological divisions."
+      },
+      {
+        "title": "Archaeology and social complexity",
+        "description": "Material evidence supports explanations of domestication, the Neolithic transition, cities and states. Seeds, tools, buildings and settlement patterns help distinguish possible accounts of how people lived."
+      },
+      {
+        "title": "Culture, relationships and power",
+        "description": "Culture is examined through identity, gender, subsistence, exchange, marriage, family and kinship. Political authority, violence, spirituality and religion extend the comparison to institutions and shared obligations."
+      },
+      {
+        "title": "Language and communication",
+        "description": "Language connects sound and meaning with social interaction. Linguistic anthropology examines how communication relates to culture, social setting and identity."
+      }
+    ],
+    "sourceNote": "Saved Spring 2023 syllabus summary and four-module map; The Essence of Anthropology, fourth edition, chapters 1–9 and 11–15."
+  },
+  {
+    "id": "philosophical-reasoning",
+    "summary": "The preserved course map examines arguments about religious belief, political authority, morality and social criticism.",
+    "topics": [
+      {
+        "title": "Premises, conclusions and objections",
+        "description": "Arguments are reconstructed as premises leading to a conclusion. Their evaluation separates valid reasoning from the truth of the premises and identifies what a serious objection would need to challenge."
+      },
+      {
+        "title": "Evidence and religious belief",
+        "description": "Design arguments, Clifford and James on belief, and debates over religious diversity raise different questions about evidence and commitment. The discussion distinguishes a reason to accept a claim from the practical consequences of believing it."
+      },
+      {
+        "title": "Suffering and responses to evil",
+        "description": "The problem of evil asks how suffering bears on belief in an all-powerful and perfectly good God. Responses such as Hick's soul-making account are examined alongside objections to the roles they assign to suffering."
+      },
+      {
+        "title": "Authority, rights and consent",
+        "description": "Socrates, Hobbes and Locke offer different arguments about law, political authority and obligations to a government. Natural rights, consent, security and resistance help locate where those arguments disagree."
+      },
+      {
+        "title": "Morality, class and social criticism",
+        "description": "Nietzsche questions how familiar moral values arose, while Marx and Engels examine class and political power. These approaches distinguish explaining the origin of a belief or institution from evaluating whether it is justified."
+      }
+    ],
+    "sourceNote": "Saved map of the visible Spring 2023 religion and political-philosophy modules; earlier units and the linked syllabus were unavailable."
+  },
+  {
+    "id": "eastern-philosophy",
+    "summary": "Questions about self, knowledge, ethical action and practice across Indian philosophy, Buddhist traditions and Chinese philosophy.",
+    "topics": [
+      {
+        "title": "Self and ultimate reality",
+        "description": "Upanishadic accounts of Atman and Brahman and Advaita Vedanta introduce questions about self and nonduality. Comparisons attend to what each tradition means by its terms rather than assuming that a shared metaphor establishes the same doctrine."
+      },
+      {
+        "title": "Knowledge, nonviolence and action",
+        "description": "Charvaka thought raises questions about accepted sources of knowledge, while Jainism emphasizes nonviolence. The Bhagavad Gita connects action and duty with the problem of attachment to desired outcomes."
+      },
+      {
+        "title": "Buddhist foundations and emptiness",
+        "description": "The Four Noble Truths connect suffering with an account of its cessation. Not-self, dependent origination and emptiness develop related questions about how things exist and depend on one another."
+      },
+      {
+        "title": "Zen teaching and practice",
+        "description": "Meditation, kōans and teacher–student interaction connect philosophical questions with practice. Language and conceptual distinctions become part of the inquiry rather than only tools for reporting its answers."
+      },
+      {
+        "title": "Confucian, Daoist and Legalist approaches",
+        "description": "Ritual, cultivated character and social order provide points of comparison between Confucian and Legalist approaches. Daoist non-forcing introduces another account of action and its relation to imposed control."
+      }
+    ],
+    "sourceNote": "Saved Summer 2023 module map covering Indian philosophy, Buddhist traditions and non-Buddhist Far Eastern philosophy; the linked syllabus was unavailable."
+  },
+  {
+    "id": "speech",
+    "summary": "Planning, researching, delivering and evaluating speeches for different audiences and occasions.",
+    "topics": [
+      {
+        "title": "Purpose, occasion and audience",
+        "description": "Self-introductions, special-occasion speeches, elevator pitches, informative speeches and persuasive speeches have different aims. Audience adaptation connects a specific purpose and central idea with the people listening."
+      },
+      {
+        "title": "Evidence and reasoning",
+        "description": "Research supports the speech's claims through relevant evidence and identifiable sources. Personal stories can illustrate an idea, while broader claims require support suited to the population or situation being discussed."
+      },
+      {
+        "title": "Introductions, main points and conclusions",
+        "description": "An introduction establishes attention, relevance, credibility and direction; the body develops the main points; the conclusion returns to the central idea. Problem/solution and the Monroe Motivated Sequence provide named structures for persuasive material."
+      },
+      {
+        "title": "Vocal delivery, movement and visual aids",
+        "description": "Pace, pauses, vocal variety, eye contact and purposeful movement affect how a speech reaches its audience. Visual aids support the spoken explanation without simply duplicating a paragraph of text."
+      },
+      {
+        "title": "Listening, critique and rehearsal",
+        "description": "Speech analysis considers organization, evidence, audience adaptation and delivery together. Rehearsal and concrete feedback help identify changes in presentation rather than relying only on a general impression."
+      }
+    ],
+    "sourceNote": "Saved Fall 2023 syllabus summary, module list and persuasive-speech rubric; Speech Craft, second edition."
+  }
+]

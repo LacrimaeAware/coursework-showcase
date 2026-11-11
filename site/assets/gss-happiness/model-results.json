@@ -1,0 +1,82 @@
+{
+  "source": "Rendered final group course report, May 7, 2026",
+  "input_respondents": 3986,
+  "valid_happiness_respondents": 3954,
+  "happiness_counts": {
+    "not_too_happy": 854,
+    "pretty_happy": 2303,
+    "very_happy": 797
+  },
+  "final_model": {
+    "complete_cases": 723,
+    "omitted_valid_response_rows": 3231,
+    "weighting": "unweighted",
+    "linear_adjusted_r_squared": 0.1434,
+    "terms": [
+      {
+        "predictor": "financial satisfaction",
+        "linear_slope": 0.1528015251,
+        "linear_ci95": [
+          0.0914,
+          0.2142
+        ],
+        "logistic_odds_ratio": 1.848,
+        "logistic_or_ci95": [
+          1.36,
+          2.538
+        ]
+      },
+      {
+        "predictor": "job satisfaction",
+        "linear_slope": 0.1193810728,
+        "linear_ci95": [
+          0.0682,
+          0.1706
+        ],
+        "logistic_odds_ratio": 1.716,
+        "logistic_or_ci95": [
+          1.374,
+          2.149
+        ]
+      },
+      {
+        "predictor": "self-rated health",
+        "linear_slope": 0.1007637471,
+        "linear_ci95": [
+          0.0403,
+          0.1612
+        ],
+        "logistic_odds_ratio": 1.148,
+        "logistic_or_ci95": [
+          0.862,
+          1.528
+        ]
+      }
+    ],
+    "logistic_fitting_sample": {
+      "auc": 0.741,
+      "threshold": 0.5,
+      "accuracy": 0.8146611341632088,
+      "majority_baseline": 0.8091286307053942,
+      "confusion_matrix": {
+        "true_negative": 18,
+        "false_negative": 14,
+        "false_positive": 120,
+        "true_positive": 571
+      }
+    }
+  },
+  "marital_descriptive_sample": {
+    "n": 3940,
+    "chi_squared": 142.29,
+    "df": 4,
+    "cramers_v": 0.19,
+    "high_happiness_proportions": {
+      "married": 0.873,
+      "widowed": 0.759,
+      "divorced": 0.736,
+      "separated": 0.63,
+      "never_married": 0.714
+    }
+  }
+}

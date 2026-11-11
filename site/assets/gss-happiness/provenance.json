@@ -1,0 +1,36 @@
+{
+  "files": [
+    {
+      "file": "happiness-distribution.png",
+      "source": "College-Classes/NCF/Semester 1/DWD2/final-project/final/DWD2_FINAL_PROJECT.html",
+      "kind": "derived extract",
+      "sha256": "35cd2b044a33366bfe38689839b99ab56e8a8f363573107a0a19912e56dea326",
+      "source_sha256": "2d4b4942066e3ce51d41e89175492d7a979ebcac61346ef03ee826e473d0f007",
+      "extraction": "Unchanged embedded PNG bytes from img element 1 in document order."
+    },
+    {
+      "file": "happiness-by-marital-status.png",
+      "source": "College-Classes/NCF/Semester 1/DWD2/final-project/final/DWD2_FINAL_PROJECT.html",
+      "kind": "derived extract",
+      "sha256": "43a752a918333614ffa092f1a466df37f1e22c5e1dd6c2ca048bf650326e4b63",
+      "source_sha256": "2d4b4942066e3ce51d41e89175492d7a979ebcac61346ef03ee826e473d0f007",
+      "extraction": "Unchanged embedded PNG bytes from img element 5 in document order."
+    },
+    {
+      "file": "happiness-models.R",
+      "source": "College-Classes/NCF/Semester 1/DWD2/final-project/final/DWD2_FINAL_PROJECT.Rmd",
+      "kind": "derived extract",
+      "sha256": "ca33468a1932d7a7fb34d1b05810b996a6b0c0e6e0bea16fc8038ce9d8a3f9ec",
+      "source_sha256": "76d2d49b5a30a1fe5a46b1ecc8146cb207eaf13490d6a30b95b441709d8a1e5c",
+      "extraction": "Model definitions from lm-final and logit-fit chunks; summary calls omitted, input-precondition comments added."
+    },
+    {
+      "file": "model-results.json",
+      "source": "College-Classes/NCF/Semester 1/DWD2/final-project/final/DWD2_FINAL_PROJECT.html",
+      "kind": "derived extract",
+      "sha256": "deb605d7e7659257668650970cb6291113ca7d4021adab3ee96361e3b6ae3ab3",
+      "source_sha256": "2d4b4942066e3ce51d41e89175492d7a979ebcac61346ef03ee826e473d0f007",
+      "extraction": "Selected printed coefficients, intervals, diagnostics and confusion counts; input/response counts checked from local CSV aggregates; majority baseline and accuracy recomputed from printed confusion counts. No model refit."
+    }
+  ]
+}

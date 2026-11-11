@@ -1,0 +1,52 @@
+{
+  "id": "deep-learning",
+  "title": "Deep Learning",
+  "shortTitle": "Deep Learning",
+  "term": "Spring 2026",
+  "intro": "Begin with linear decision boundaries and gradient updates, then use neural networks for image classification, regression, segmentation and detection. The final assignment compares sequence forecasts with simple baselines.",
+  "chapters": [
+    {
+      "slug": "01-linear-classifiers",
+      "title": "Linear classifiers and gradient descent",
+      "shortTitle": "Linear classifiers",
+      "summary": "Find a decision boundary by grid search, then learn its parameters through gradients.",
+      "record": "Assignments 1–2 · historical coursework"
+    },
+    {
+      "slug": "02-backpropagation",
+      "title": "Backpropagation and dense networks",
+      "shortTitle": "Backpropagation",
+      "summary": "Trace derivatives through a neuron and inspect training on handwritten digits.",
+      "record": "Assignments 3–4 · historical coursework"
+    },
+    {
+      "slug": "03-convolution",
+      "title": "Convolutions and shape classification",
+      "shortTitle": "Convolutions",
+      "summary": "Count convolutional parameters and compare filters learned from upright and rotated shapes.",
+      "record": "Assignment 5 · historical coursework"
+    },
+    {
+      "slug": "04-image-regression",
+      "title": "Reading clocks and counting triangles",
+      "shortTitle": "Image regression",
+      "summary": "Choose prediction targets and errors that match two image-regression tasks.",
+      "record": "Assignment 6 · historical coursework"
+    },
+    {
+      "slug": "05-segmentation-detection",
+      "title": "Segmentation and object detection",
+      "shortTitle": "Segmentation and detection",
+      "summary": "Compare prompted pixel masks with labeled bounding boxes on selected images.",
+      "record": "Assignments 7–8 · historical coursework"
+    },
+    {
+      "slug": "06-sequence-forecasting",
+      "title": "Sequence forecasting and baselines",
+      "shortTitle": "Sequence forecasting",
+      "summary": "Evaluate airline and Bitcoin forecasts in chronological test periods.",
+      "record": "Assignment 9 · historical coursework"
+    }
+  ],
+  "coverage": "Selected work from Assignments 1–9"
+}

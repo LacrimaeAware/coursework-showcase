@@ -1,0 +1,66 @@
+<p class="study-context">Selected worked exercises: Homework 8, Exercise 1; Homework 10, Section 9.1 Problem 6. Orders appear in Homework 9.</p>
+
+<section class="problem" id="totient-divisor-sum" data-study-problem>
+<h2>Counting with Euler’s totient function</h2>
+<p class="chapter-record">Homework 8 · Exercise 1 · preserved PDF page 2</p>
+<p>Euler’s totient \(\phi(d)\) counts the integers from \(1\) through \(d\) that are relatively prime to \(d\), including \(\phi(1)=1\). Prove that, for every integer \(n\ge1\),</p>
+\[
+n=\sum_{d\mid n}\phi(d).
+\]
+<p>The sum runs over all positive divisors \(d\) of \(n\).</p>
+<h3>Partition by greatest common divisor</h3>
+<p>For each divisor \(d\) of \(n\), let \(A_d\) contain the integers \(m\) with \(1\le m\le n\) and \(\gcd(m,n)=n/d\).</p>
+<p>Every \(m\) belongs to exactly one of these sets: its greatest common divisor with \(n\) determines \(d\). Consequently, the sets are disjoint and together contain all \(n\) integers.</p>
+<p>To count \(A_d\), write \(m=(n/d)r\). The bounds on \(m\) become \(1\le r\le d\), and</p>
+\[
+\begin{aligned}
+\gcd(m,n)
+&amp;=\gcd\left(\frac nd r,\frac nd d\right)\\
+&amp;=\frac nd\gcd(r,d).
+\end{aligned}
+\]
+<p>Thus \(\gcd(m,n)=n/d\) exactly when \(\gcd(r,d)=1\). The correspondence between \(m\) and \(r\) is one-to-one, so \(|A_d|=\phi(d)\). Summing the sizes of the disjoint sets gives</p>
+\[
+n=\sum_{d\mid n}|A_d|
+=\sum_{d\mid n}\phi(d).
+\]
+</section>
+
+<h2>Multiplicative orders</h2>
+<p>For \(n&gt;1\) and \(\gcd(a,n)=1\), the multiplicative order \(\operatorname{ord}_n(a)\) is the least positive exponent \(k\) such that \(a^k\equiv1\pmod n\). For example, the powers of \(2\) modulo \(7\) return to \(1\) for the first time at exponent \(3\):</p>
+\[
+2^1\equiv2,\qquad
+2^2\equiv4,\qquad
+2^3\equiv1\pmod7.
+\]
+<p>Therefore \(\operatorname{ord}_7(2)=3\). The least return exponent records the repeating structure of multiplication modulo \(n\).</p>
+
+<section class="problem" id="quadratic-discriminant" data-study-problem>
+<h2>The discriminant of a quadratic congruence</h2>
+<p class="chapter-record">Homework 10 · Exercise 1, Section 9.1 Problem 6 · preserved PDF page 2</p>
+<p>Let \(a,b,c\in\mathbb Z\), let \(p\) be an odd prime, and suppose \(\gcd(a,p)=1\). Prove that</p>
+\[
+ax^2+bx+c\equiv0\pmod p
+\]
+<p>has a solution if and only if the remainder of the discriminant \(D=b^2-4ac\) modulo \(p\) is zero or a quadratic residue. A quadratic residue is a nonzero remainder obtained by squaring an integer modulo \(p\).</p>
+<h3>Completing the square</h3>
+<p>Multiply the original congruence by \(4a\) and rearrange:</p>
+\[
+\begin{aligned}
+4a^2x^2+4abx+4ac&amp;\equiv0\pmod p,\\
+(2ax+b)^2&amp;\equiv b^2-4ac\pmod p.
+\end{aligned}
+\]
+<p>If the original congruence has a solution, then \(D\) is congruent to a square. Its remainder modulo \(p\) is therefore zero or a quadratic residue.</p>
+<h3>Recovering a solution</h3>
+<p>Conversely, if \(D\equiv0\pmod p\) or its remainder is a quadratic residue, there is an integer \(y\) with \(y^2\equiv D\pmod p\).</p>
+<p>Because \(p\) is odd and \(p\nmid a\), the number \(2a\) has an inverse modulo \(p\). Hence the linear congruence</p>
+\[
+2ax+b\equiv y\pmod p
+\]
+<p>has a solution \(x\). Squaring it gives \((2ax+b)^2\equiv D\pmod p\). The number \(4a\) is also invertible modulo \(p\), so the completing-square steps can be reversed to obtain</p>
+\[
+ax^2+bx+c\equiv0\pmod p.
+\]
+<p>This establishes both directions of the equivalence.</p>
+</section>

@@ -1,0 +1,14 @@
+predictor.set_image(image_rgb)
+
+point_masks, point_scores, _ = predictor.predict(
+    point_coords=point_coords,
+    point_labels=point_labels,
+    multimask_output=True,
+)
+best_point_mask = point_masks[np.argmax(point_scores)]
+
+box_masks, box_scores, _ = predictor.predict(
+    box=box,
+    multimask_output=True,
+)
+best_box_mask = box_masks[np.argmax(box_scores)]

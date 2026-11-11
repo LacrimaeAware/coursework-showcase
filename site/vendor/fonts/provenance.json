@@ -1,0 +1,25 @@
+{
+  "license": "OFL-1.1",
+  "files": [
+    {
+      "file": "Lora.ttf",
+      "source": "portfolio-releases/gojomons-review-v2/showcase/fonts/Lora.ttf",
+      "sha256": "822a6621ccbe8d97d20ac88c1c41f5615c9c2c202eaa75f272cd452aac6475a7"
+    },
+    {
+      "file": "Lora-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/lora/OFL.txt",
+      "sha256": "1d9a970809ac804b582a6ce7f0ebc4e7fefcbfd7ff6299cad35ee656a21be716"
+    },
+    {
+      "file": "IBMPlexSans.ttf",
+      "source": "simulations-in-biology-yildirim/assets/fonts/IBMPlexSans.ttf",
+      "sha256": "3b031aa4216174205bd8471f88a49b91f093169e9e87bd5262242bc5967fe2e3"
+    },
+    {
+      "file": "IBMPlexSans-OFL.txt",
+      "source": "simulations-in-biology-yildirim/assets/fonts/OFL.txt",
+      "sha256": "3ff4395aeb203050b3d4e775861cf0b93b598e0a6d2b16f0eb41df3350b15695"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "copied_on": "2026-11-10",
+  "files": [
+    {
+      "file": "MM_Window.png",
+      "source": "simulations-in-biology-yildirim/Learning Lab/Python/MM_Window.png",
+      "sha256": "210f23c57387e2127d763339baf1188cab2ac0a67fac89ed2c58ef80bb5a5ad1"
+    },
+    {
+      "file": "MM_Window.py",
+      "source": "simulations-in-biology-yildirim/Learning Lab/Python/MM_Window.py",
+      "sha256": "6967bc75bf9625ef9fcb75b50a9ae7e08d495b06dad3f9b3607624f6fa6b31f6"
+    },
+    {
+      "file": "MM_Heatmap.py",
+      "source": "simulations-in-biology-yildirim/Learning Lab/Python/MM_Heatmap.py",
+      "sha256": "b6e796cd247f993204aeec12c9200c617bf3f14ad5da60c90d5a0a88478747ff"
+    },
+    {
+      "file": "MM_Surface.py",
+      "source": "simulations-in-biology-yildirim/Learning Lab/Python/MM_Surface.py",
+      "sha256": "b2f1bfc57097d402e15a11adcd6aff12aa07b2d2a9e3169e3c9cb6f3a9f0671e"
+    },
+    {
+      "file": "MM_Surface.png",
+      "source": "simulations-in-biology-yildirim/Learning Lab/Python/MM_Surface.png",
+      "sha256": "2216ae5c00e0f70257657fdc444b5510752ed79c647c8398b7abc15cf5b29d3e"
+    },
+    {
+      "file": "MM_Window_samples.csv",
+      "source": "simulations-in-biology-yildirim/Learning Lab/Python/MM_Window_samples.csv",
+      "sha256": "0ccd996b13e23172f8bf44dd4d7ec96d5a717b9686ee7d845ee7323859cbc19f"
+    }
+  ]
+}

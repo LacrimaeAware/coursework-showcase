@@ -1,0 +1,26 @@
+<section aria-labelledby="lac-feedback">
+  <h2 id="lac-feedback">LacY transport and positive feedback</h2>
+  <p>Hold the external input fixed and compare two initial cell states. In the lac model, the starting amounts of internal inducer and transport protein can determine whether expression settles at a low or high level.</p>
+  <p>TMG is an inducer, a molecule that reduces repression of the lac genes. External TMG surrounds the cell; internal TMG is the amount taken up. LacY is the membrane protein that transports it. More LacY increases uptake, and more internal inducer increases LacY production. This reinforcing cycle is positive feedback.</p>
+  <figure>
+    <a href="../../assets/systems-biology/lac-feedback-preview.png" target="_blank" rel="noreferrer" aria-label="Open the full-size lac feedback comparison"><img src="../../assets/systems-biology/lac-feedback-preview.png" width="2304" height="1170" alt="A steady-state LacY curve with two stable branches and an unstable middle branch. At external TMG 18 micromolar, separate low and high initial states approach different LacY levels."></a>
+    <figcaption>Steady states and two initial histories at external TMG \(18\,\mathrm{\mu M}\). <a href="../../assets/systems-biology/lac-feedback-preview.png" target="_blank" rel="noreferrer">Open full-size comparison</a></figcaption>
+  </figure>
+</section>
+<section aria-labelledby="lac-production">
+  <h2 id="lac-production">Uptake, production and loss</h2>
+  <p>The two state variables are normalized internal TMG \(x\) and LacY expression \(y\), measured on a fluorescence scale. External TMG \(T\) remains fixed during each trajectory. The model balances uptake against internal loss and LacY production against protein loss:</p>
+  \[
+  \frac{dx}{dt}=\frac{\beta y-x}{\tau_x}
+  \]
+  \[
+  \frac{dy}{dt}=
+  \frac{\alpha(1+x^2)/(\rho+x^2)-y}{\tau_y}.
+  \]
+  <p>Here \(\beta=0.123T^{0.6}\) controls uptake, \(\alpha\) sets the production scale, and \(\rho\) sets repression strength. The parameters are \(\alpha=100.5\), \(\rho=167.1\) and \(\tau_x=\tau_y=1\); time is illustrative.</p>
+  <p>A stable state attracts nearby trajectories. The solid branches in the figure show stable expression levels; the dashed branch is unstable, so small deviations grow away from it. At the selected input, the low and high starting states remain separated as they approach their respective stable levels. Comparing these histories connects the feedback mechanism to the model's two possible long-term outcomes.</p>
+</section>
+<section aria-labelledby="lac-feedback-code">
+  <h2 id="lac-feedback-code">Python simulation</h2>
+  <p><a href="../../assets/systems-biology/lac_switch.py" download>Download the two-variable simulation</a>. It uses NumPy, SciPy and Matplotlib. Run <code>python lac_switch.py</code> to compare initial histories and vary external TMG with the slider.</p>
+</section>

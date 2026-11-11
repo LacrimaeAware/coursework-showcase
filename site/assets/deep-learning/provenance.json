@@ -1,0 +1,218 @@
+{
+  "files": [
+    {
+      "file": "linear-boundary.png",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn1/AI_DEEPL_ASGN1.ipynb",
+      "sha256": "7ed458da41a687097d28565369bae7ee7d0b69defde69c4dd7681a49363d176a",
+      "source_sha256": "248dc8b8c7d108a964ee0af6b3116cc93fd754b0faf75d920dfdc5189b5a0ec6",
+      "kind": "derived figure",
+      "cell_index": 11,
+      "output_index": 0,
+      "extraction": "decoded image/png notebook output"
+    },
+    {
+      "file": "gradient-boundaries.png",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn2/Assignment_2_True_Final.ipynb",
+      "sha256": "703449661902782586b87bd5edc472af4788a1c043c4cab368ea63ec6b157a46",
+      "source_sha256": "4a1c357a96477760949a4e2673533f80b9e10f9b692b1497517d1d33c1c4a9f3",
+      "kind": "derived figure",
+      "cell_index": 23,
+      "output_index": 0,
+      "extraction": "decoded image/png notebook output"
+    },
+    {
+      "file": "mnist-loss.png",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn4/AI_ASGN4_CONCISE.ipynb",
+      "sha256": "661abd0557c2e279b5589e8e5b019773e8c8a0adff059c12c7c095fdde8a3570",
+      "source_sha256": "864a47ce1c3731b399a5fbb714cd46ad604d4dd42a558dd35b14871ade177beb",
+      "kind": "derived figure",
+      "cell_index": 21,
+      "output_index": 0,
+      "extraction": "decoded image/png notebook output"
+    },
+    {
+      "file": "shape-examples.png",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn5/asgn5.ipynb",
+      "sha256": "53d02b5b62859e53c0682a82ba00b798e7561d20bc7e496970e7deed60403063",
+      "source_sha256": "97325bef376de51c4337bfe6c0e6d2cf78e34a0af45e06677b2573f9a400a02e",
+      "kind": "derived figure",
+      "cell_index": 7,
+      "output_index": 0,
+      "extraction": "decoded image/png notebook output"
+    },
+    {
+      "file": "rotated-filters.png",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn5/asgn5.ipynb",
+      "sha256": "08222ed3750e5dce5bac217326f3ec5e822e50e8e94042b88dacb11692bfff86",
+      "source_sha256": "97325bef376de51c4337bfe6c0e6d2cf78e34a0af45e06677b2573f9a400a02e",
+      "kind": "derived figure",
+      "cell_index": 18,
+      "output_index": 0,
+      "extraction": "decoded image/png notebook output"
+    },
+    {
+      "file": "clock-errors.png",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn6/FINAL_ASGN6.ipynb",
+      "sha256": "f3ae3591386bff529b70b1b56bdd8c75809c87f0daeecfc74ef120bb9b9a175b",
+      "source_sha256": "cc90d5be7c1c81196008433904212c18e78467da657fcacafbbe5876fdd273cd",
+      "kind": "derived figure",
+      "cell_index": 13,
+      "output_index": 0,
+      "extraction": "decoded image/png notebook output"
+    },
+    {
+      "file": "clock-predictions.png",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn6/FINAL_ASGN6.ipynb",
+      "sha256": "10051a0d72e05c7dde5c30d951a02e45400232e314ef69296c1495a0d409a800",
+      "source_sha256": "cc90d5be7c1c81196008433904212c18e78467da657fcacafbbe5876fdd273cd",
+      "kind": "derived figure",
+      "cell_index": 14,
+      "output_index": 0,
+      "extraction": "decoded image/png notebook output"
+    },
+    {
+      "file": "triangle-predictions.png",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn6/FINAL_ASGN6.ipynb",
+      "sha256": "fdf3e56f97dcfbd328f35f553540e676ce74a4fa26358d049f7931d0f6fb120e",
+      "source_sha256": "cc90d5be7c1c81196008433904212c18e78467da657fcacafbbe5876fdd273cd",
+      "kind": "derived figure",
+      "cell_index": 23,
+      "output_index": 1,
+      "extraction": "decoded image/png notebook output"
+    },
+    {
+      "file": "airline-test-forecast.png",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/assignments/assignment9_short_report_revised.pdf",
+      "sha256": "fb521293a0381933953a1a913a813f8f56779467af86f923bc04ed734d86bba4",
+      "source_sha256": "b72f791f775b246bc227d1416fe9165b74f46d00ec7c00aa9919f818e3ade1e0",
+      "kind": "derived figure",
+      "page_index": 1,
+      "pdf_image_xref": 10,
+      "extraction": "original embedded image"
+    },
+    {
+      "file": "linear-classifier.py",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn1/AI_DEEPL_ASGN1.ipynb",
+      "sha256": "a817eeddd206ff5bbddccb2c9e2904556f1681e266c9f1cec24e11e99075a94e",
+      "source_sha256": "248dc8b8c7d108a964ee0af6b3116cc93fd754b0faf75d920dfdc5189b5a0ec6",
+      "kind": "source excerpt",
+      "cell_indices": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11,
+        13
+      ],
+      "extraction": "selected Python cells, AST-rendered to remove notebook comments"
+    },
+    {
+      "file": "backprop-updates.py",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn3/Backpropagation_Final_Submission.ipynb",
+      "sha256": "a2f190c98118c05eceeaa582b8ab0950aaefa4ef766e929181e5c7c520878074",
+      "source_sha256": "dd6f04f371732315165aadd3863f013449fed980d0bdd7e5f18690102602a806",
+      "kind": "source excerpt",
+      "cell_indices": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12
+      ],
+      "extraction": "selected Python cells, AST-rendered to remove notebook comments"
+    },
+    {
+      "file": "shape-cnn.py",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn5/asgn5.ipynb",
+      "sha256": "0cfd6ddc86885693fd988de8b8a1b9eaf192930b4a03625af09567e3429e1b9e",
+      "source_sha256": "97325bef376de51c4337bfe6c0e6d2cf78e34a0af45e06677b2573f9a400a02e",
+      "kind": "source excerpt",
+      "cell_indices": [
+        10
+      ],
+      "extraction": "selected Python cells, AST-rendered to remove notebook comments"
+    },
+    {
+      "file": "clock-model-and-metric.py",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn6/FINAL_ASGN6.ipynb",
+      "sha256": "28064b812cdbb0eaadf2a6b058bd91f64bc67823a5ed148d456e0ccba1497f7d",
+      "source_sha256": "cc90d5be7c1c81196008433904212c18e78467da657fcacafbbe5876fdd273cd",
+      "kind": "source excerpt",
+      "cell_indices": [
+        8,
+        12
+      ],
+      "extraction": "selected Python cells, AST-rendered to remove notebook comments"
+    },
+    {
+      "file": "btc-model-comparison.csv",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn9_crypto/original-final/problem2_final_outputs/BTC_USD_h7_20260502_143029/final_comparison.csv",
+      "sha256": "2198a5fbb6f56b0f1585ec8e052aee4a5a5d2d2f6b9ed665979f8897bbb40263",
+      "source_sha256": "2198a5fbb6f56b0f1585ec8e052aee4a5a5d2d2f6b9ed665979f8897bbb40263",
+      "kind": "unchanged copy"
+    },
+    {
+      "file": "mask-and-box.svg",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn7/asgn_7.py",
+      "sha256": "da0c8c7dad917c4654309faecf92e8c5ae300ae2d8f50555125c0f0dba4abcba",
+      "source_sha256": "b1881ea4ea1e690e3aa9f5c069723c488c7e6e899b72189b4ec3030bc7596ca3",
+      "kind": "derived figure",
+      "extraction": "Native SVG task schematic showing output formats, not a model prediction.",
+      "additional_sources": [
+        "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn8/asgn8.py"
+      ]
+    },
+    {
+      "file": "sam-prediction-calls.txt",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn7/asgn_7.py",
+      "sha256": "e9a16f35a142300ee0e5d2b07d22fefa524dd44d86a0b5131c18c73495508fb1",
+      "source_sha256": "b1881ea4ea1e690e3aa9f5c069723c488c7e6e899b72189b4ec3030bc7596ca3",
+      "kind": "source excerpt",
+      "line_start": 186,
+      "line_end": 199,
+      "extraction": "Selected prediction and filtering statements; original indentation dedented. Threshold declaration included for RetinaNet."
+    },
+    {
+      "file": "retinanet-filtering.txt",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn8/asgn8.py",
+      "sha256": "c2e76425445bc64d526d60a74f254e9e40930d95c3381540cb2a0e3e91a19b41",
+      "source_sha256": "81e159aff5128bcb2d05ca180a7de89a4629d8ce2a214c146e10b45e7dc27028",
+      "kind": "source excerpt",
+      "line_start": 50,
+      "line_end": 60,
+      "extraction": "Selected prediction and filtering statements; original indentation dedented. Threshold declaration included for RetinaNet."
+    },
+    {
+      "file": "airline-lstm.py",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn9_airline/roblem1_airline_lstm.py",
+      "sha256": "7d6455345985a08c3f96af457fc5364f075a38d62b8da6b9acc74b0f51f622f7",
+      "source_sha256": "7d6455345985a08c3f96af457fc5364f075a38d62b8da6b9acc74b0f51f622f7",
+      "kind": "unchanged copy",
+      "extraction": "Complete saved airline forecasting script."
+    },
+    {
+      "file": "recorded-results.json",
+      "source": "College-Classes/NCF/Semester 1/AI-DEEPL/assignments/assignment9_short_report_revised.pdf",
+      "sha256": "45f4362c2177f211d763f3d1325bee85a8f510b3dd1b2c52609b318c3116d6e3",
+      "source_sha256": "b72f791f775b246bc227d1416fe9165b74f46d00ec7c00aa9919f818e3ade1e0",
+      "kind": "source excerpt",
+      "extraction": "Structured transcription of saved result values and qualitative report observations. Each result identifies its original source and cell/page when applicable.",
+      "additional_sources": [
+        "College-Classes/NCF/Semester 1/AI-DEEPL/assignments/assignment9_short_report_revised.pdf",
+        "College-Classes/NCF/Semester 1/AI-DEEPL/assignments/retinanet_assignment_report.pdf",
+        "College-Classes/NCF/Semester 1/AI-DEEPL/assignments/sam_assignment_report.pdf",
+        "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn1/AI_DEEPL_ASGN1.ipynb",
+        "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn2/Assignment_2_True_Final.ipynb",
+        "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn3/Backpropagation_Final_Submission.ipynb",
+        "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn4/AI_ASGN4_CONCISE.ipynb",
+        "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn5/asgn5.ipynb",
+        "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn6/FINAL_ASGN6.ipynb",
+        "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn8/asgn8.py",
+        "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn9_airline/roblem1_airline_lstm.py",
+        "College-Classes/NCF/Semester 1/AI-DEEPL/code/asgn9_crypto/original-final/problem2_final_outputs/BTC_USD_h7_20260502_143029/final_comparison.csv"
+      ]
+    }
+  ]
+}

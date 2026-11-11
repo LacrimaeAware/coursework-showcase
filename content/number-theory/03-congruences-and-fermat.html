@@ -1,0 +1,64 @@
+<p class="study-context">Selected worked exercises: Homework 6, Section 4.4 Problem 4(c); Homework 7, Section 5.2 Problem 11(a).</p>
+
+<section class="problem" id="three-congruences" data-study-problem>
+<h2>Three simultaneous congruences</h2>
+<p class="chapter-record">Homework 6 · Exercise 2, Section 4.4 Problem 4(c) · preserved PDF page 3</p>
+<p>Solve the system</p>
+\[
+\begin{aligned}
+x&amp;\equiv5\pmod6,\\
+x&amp;\equiv4\pmod{11},\\
+x&amp;\equiv3\pmod7.
+\end{aligned}
+\]
+<p>A congruence \(u\equiv v\pmod m\), with \(m&gt;0\), means that \(m\) divides \(u-v\). It specifies a remainder while allowing any integer multiple of \(m\).</p>
+<h3>Combining the first two remainders</h3>
+<p>The first congruence gives \(x=5+6k\) for an integer \(k\). Substituting into the second gives</p>
+\[
+\begin{aligned}
+5+6k&amp;\equiv4\pmod{11},\\
+6k&amp;\equiv10\pmod{11}.
+\end{aligned}
+\]
+<p>Since \(2\cdot6\equiv1\pmod{11}\), the number \(2\) is the multiplicative inverse of \(6\) modulo \(11\). Multiplying by that inverse gives \(k\equiv20\equiv9\pmod{11}\). Thus \(k=9+11t\), and</p>
+\[
+x=5+6(9+11t)=59+66t.
+\]
+<h3>Combining the third remainder</h3>
+<p>Substitute into the final congruence. Because \(59\equiv3\pmod7\) and \(66\equiv3\pmod7\),</p>
+\[
+\begin{aligned}
+3+3t&amp;\equiv3\pmod7,\\
+3t&amp;\equiv0\pmod7.
+\end{aligned}
+\]
+<p>The numbers \(3\) and \(7\) are relatively prime, meaning their greatest common divisor is \(1\). Therefore \(3\) has an inverse modulo \(7\), and \(t\equiv0\pmod7\). Write \(t=7s\), with \(s\in\mathbb Z\). The solution is</p>
+\[
+\begin{aligned}
+x&amp;=59+462s,\\
+x&amp;\equiv59\pmod{462}.
+\end{aligned}
+\]
+<p>The Chinese remainder theorem states that congruences with pairwise relatively prime positive moduli have one solution class modulo their product. Here the moduli \(6,11,7\) satisfy that condition, and their product is \(462\).</p>
+</section>
+
+<section class="problem" id="fermat-power-sum" data-study-problem>
+<h2>A power sum modulo a prime</h2>
+<p class="chapter-record">Homework 7 · Exercise 1(a), Section 5.2 Problem 11 · preserved PDF page 2</p>
+<p>Prove that, if \(p\) is an odd prime, then</p>
+\[
+\sum_{k=1}^{p-1}k^{p-1}\equiv-1\pmod p.
+\]
+<p>Fermat’s little theorem states that \(k^{p-1}\equiv1\pmod p\) when \(p\) is prime and \(p\nmid k\).</p>
+<h3>Adding the Fermat congruences</h3>
+<p>Every integer \(k\) from \(1\) through \(p-1\) is not divisible by \(p\), so every term in the sum is congruent to \(1\). There are \(p-1\) terms. Adding their congruences therefore gives</p>
+\[
+\begin{aligned}
+\sum_{k=1}^{p-1}k^{p-1}
+&amp;\equiv\sum_{k=1}^{p-1}1\pmod p\\
+&amp;\equiv p-1\pmod p\\
+&amp;\equiv-1\pmod p.
+\end{aligned}
+\]
+<p>The last congruence holds because \((p-1)-(-1)=p\), a multiple of the modulus.</p>
+</section>

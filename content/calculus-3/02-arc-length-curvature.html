@@ -1,0 +1,76 @@
+<p class="study-context">Selected saved notes: Section 13.3, Exercises 5 and 17.</p>
+
+<section class="problem" id="polynomial-curve-length" data-study-problem>
+<h2>Arc length of a polynomial curve</h2>
+<p class="chapter-record">Section 13.3 · Exercise 5</p>
+<p>Find the length of the curve</p>
+\[
+\mathbf r(t)=\langle1,t^2,t^3\rangle,
+\qquad 0\le t\le1.
+\]
+<p>The derivative \(\mathbf r'(t)\) is the velocity along the parametrized curve. Its magnitude is the speed, and integrating that speed accumulates the curve's length.</p>
+<h3>Speed and substitution</h3>
+\[
+\begin{aligned}
+\mathbf r'(t)&=\langle0,2t,3t^2\rangle,\\
+\|\mathbf r'(t)\|
+&=\sqrt{4t^2+9t^4}\\
+&=t\sqrt{4+9t^2}.
+\end{aligned}
+\]
+<p>The last equality uses \(t\ge0\) on the specified interval, so \(\sqrt{t^2}=t\). Consequently,</p>
+\[
+L=\int_0^1t\sqrt{4+9t^2}\,dt.
+\]
+<p>Set \(u=4+9t^2\). Then \(du=18t\,dt\), and the bounds change from \(t=0,1\) to \(u=4,13\):</p>
+\[
+\begin{aligned}
+L&=\frac1{18}\int_4^{13}u^{1/2}\,du\\
+&=\frac1{27}\left[u^{3/2}\right]_4^{13}\\
+&=\frac{13\sqrt{13}-8}{27}.
+\end{aligned}
+\]
+</section>
+
+<section class="problem" id="helix-tangent-normal-curvature" data-study-problem>
+<h2>Tangent, normal and curvature of a helix</h2>
+<p class="chapter-record">Section 13.3 · Exercise 17</p>
+<p>For the curve</p>
+\[
+\mathbf r(t)=\langle t,3\cos t,3\sin t\rangle,
+\]
+<p>find the unit tangent \(\mathbf T(t)\), unit normal \(\mathbf N(t)\) and curvature \(\kappa(t)\). The unit tangent gives the direction of motion with length one. The unit normal gives the direction in which that tangent changes. Curvature measures the tangent's change per unit distance along the curve.</p>
+<h3>A constant speed and a changing direction</h3>
+\[
+\begin{aligned}
+\mathbf r'(t)&=\langle1,-3\sin t,3\cos t\rangle,\\
+\|\mathbf r'(t)\|
+&=\sqrt{1+9\sin^2t+9\cos^2t}\\
+&=\sqrt{10}.
+\end{aligned}
+\]
+<p>Dividing the velocity by its nonzero magnitude gives</p>
+\[
+\mathbf T(t)=\frac1{\sqrt{10}}
+\begin{pmatrix}1\\-3\sin t\\3\cos t\end{pmatrix}.
+\]
+<p>Differentiate the tangent, then normalize that derivative:</p>
+\[
+\mathbf T'(t)=\frac1{\sqrt{10}}
+\begin{pmatrix}0\\-3\cos t\\-3\sin t\end{pmatrix}.
+\]
+\[
+\begin{aligned}
+\|\mathbf T'(t)\|&=\frac3{\sqrt{10}},\\
+\mathbf N(t)&=\langle0,-\cos t,-\sin t\rangle.
+\end{aligned}
+\]
+<p>Both vectors being normalized are nonzero for every real \(t\). The curvature is therefore</p>
+\[
+\kappa(t)
+=\frac{\|\mathbf T'(t)\|}{\|\mathbf r'(t)\|}
+=\frac{3/\sqrt{10}}{\sqrt{10}}
+=\frac3{10}.
+\]
+<p>The speed and curvature are constant, although the tangent and normal directions continue to rotate.</p>
+</section>

@@ -1,0 +1,48 @@
+{
+  "courses": [
+    "deep-learning",
+    "dealing-with-data",
+    "systems-biology",
+    "number-theory",
+    "calculus-3",
+    "programming-concepts",
+    "java"
+  ],
+  "items": [
+    {
+      "section": "projects",
+      "slug": "gss-happiness",
+      "courseId": "dealing-with-data",
+      "title": "Happiness in the 2024 General Social Survey",
+      "context": "Dealing with Data II · Group final project · Spring 2026",
+      "summary": "Use linear and logistic regression to examine how reported happiness relates to health, satisfaction and social circumstances."
+    },
+    {
+      "section": "projects",
+      "slug": "koch-snowflake",
+      "courseId": "math-seminar",
+      "title": "Koch snowflake: finite area and infinite perimeter",
+      "context": "Math Seminar · Spring 2026",
+      "summary": "A seminar presentation connecting repeated geometric construction with series, perimeter, area and fractal dimension."
+    },
+    {
+      "section": "essays",
+      "slug": "eastern-philosophy",
+      "courseId": "eastern-philosophy",
+      "title": "Limited Terms for Limitless Concepts: Eastern Insight Into Duality",
+      "context": "Eastern Philosophy · Course essay · Summer 2023",
+      "summary": "An argument about the limits of language, explored through duality, yin-yang, Zen kōans and emptiness.",
+      "readLabel": "Read essay"
+    },
+    {
+      "section": "essays",
+      "slug": "holism-speech",
+      "courseId": "speech",
+      "kind": "speech",
+      "title": "A Fool’s Guide to Tightrope Walking",
+      "context": "Fundamentals of Speech and Communication · Persuasive speech · Fall 2023",
+      "summary": "A speech about holism and balance, organized around a physical tightrope metaphor and an invitation to consider life’s interdependent parts.",
+      "readLabel": "Read speech"
+    }
+  ]
+}

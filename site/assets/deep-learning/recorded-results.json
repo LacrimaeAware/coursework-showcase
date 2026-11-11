@@ -1,0 +1,216 @@
+{
+  "description": "Historical assignment results transcribed from saved notebook outputs, the revised Assignment 9 report, and its original final comparison CSV.",
+  "indexing": "Notebook cell and output indices are zero-based; PDF page numbers are one-based.",
+  "results": [
+    {
+      "assignment": 1,
+      "task": "Grid-search linear classifier",
+      "source": "code/asgn1/AI_DEEPL_ASGN1.ipynb",
+      "saved_output_cell": 9,
+      "metrics": {
+        "training_error_rate": 0.01,
+        "training_samples": 200,
+        "misclassified_samples": 2,
+        "theta_radians": 0.7655982096983529,
+        "offset": -0.3797468354430382
+      },
+      "method": {
+        "angles": 120,
+        "offsets": 80
+      }
+    },
+    {
+      "assignment": 2,
+      "task": "Logistic regression by gradient descent",
+      "source": "code/asgn2/Assignment_2_True_Final.ipynb",
+      "saved_output_cells": [
+        19,
+        25
+      ],
+      "metrics": {
+        "training_accuracy": 0.97,
+        "final_binary_cross_entropy": 0.05449374698879882
+      },
+      "method": {
+        "updates": 200,
+        "learning_rate": 0.5
+      }
+    },
+    {
+      "assignment": 3,
+      "task": "Single-neuron and two-layer backpropagation",
+      "source": "code/asgn3/Backpropagation_Final_Submission.ipynb",
+      "code_cells": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12
+      ],
+      "metrics": null,
+      "note": "Numerical update examples are preserved. A separate letter-classification report result is omitted because its stated epoch count differs from the saved notebook code."
+    },
+    {
+      "assignment": 4,
+      "task": "Dense MNIST classifier",
+      "source": "code/asgn4/AI_ASGN4_CONCISE.ipynb",
+      "saved_output_cell": 19,
+      "metrics": {
+        "final_epoch": 15,
+        "training_accuracy": 0.9976,
+        "validation_accuracy": 0.9708,
+        "training_loss": 0.0092,
+        "validation_loss": 0.1201
+      },
+      "method": {
+        "dense_hidden_units": [
+          128,
+          64
+        ],
+        "input_pixels": 784,
+        "output_classes": 10
+      },
+      "note": "These are the final saved epoch values, not the best validation epoch."
+    },
+    {
+      "assignment": 5,
+      "task": "CNN parameter counting and synthetic shape classification",
+      "source": "code/asgn5/asgn5.ipynb",
+      "saved_output_cells": [
+        11,
+        16,
+        19
+      ],
+      "metrics": {
+        "supplied_architecture_parameters": [
+          640,
+          73856,
+          295168,
+          2570
+        ],
+        "supplied_architecture_total": 372234,
+        "upright_validation_accuracy": 1.0,
+        "rotated_validation_accuracy": 1.0
+      },
+      "note": "The parameter-count exercise and the smaller trained shape classifier use distinct architectures. Validation results apply to clean generated circles and triangles."
+    },
+    {
+      "assignment": 6,
+      "task": "Circular clock regression",
+      "source": "code/asgn6/FINAL_ASGN6.ipynb",
+      "saved_output_cells": [
+        7,
+        12
+      ],
+      "metrics": {
+        "test_samples": 108,
+        "mean_absolute_circular_error_minutes": 4.5,
+        "median_absolute_circular_error_minutes": 3.7
+      },
+      "method": {
+        "train_samples": 503,
+        "validation_samples": 109,
+        "total_samples": 720,
+        "image_size": [
+          96,
+          96
+        ],
+        "target": "sin and cos of 2*pi*minute/720"
+      }
+    },
+    {
+      "assignment": 6,
+      "task": "Triangle-count regression",
+      "source": "code/asgn6/FINAL_ASGN6.ipynb",
+      "saved_output_cells": [
+        19,
+        22
+      ],
+      "metrics": {
+        "test_samples": 126,
+        "mean_absolute_error_triangles": 0.93,
+        "median_absolute_error_triangles": 0.84
+      },
+      "method": {
+        "train_samples": 588,
+        "validation_samples": 126,
+        "total_samples": 840,
+        "count_range": [
+          0,
+          20
+        ]
+      }
+    },
+    {
+      "assignment": 7,
+      "task": "Point- and box-prompted SAM segmentation",
+      "source": "assignments/sam_assignment_report.pdf",
+      "metrics": null,
+      "observations": [
+        "A strongly bounded isolated figure separates cleanly.",
+        "A point can select a shirt instead of the intended complete subject; a box can include more of the subject.",
+        "A box aimed at a facial region selects surrounding hair in another example."
+      ],
+      "note": "Qualitative report observations; no quantitative segmentation benchmark is recorded. The schematic is not an original prediction."
+    },
+    {
+      "assignment": 8,
+      "task": "Pretrained RetinaNet object detection",
+      "source": "assignments/retinanet_assignment_report.pdf",
+      "code_source": "code/asgn8/asgn8.py",
+      "metrics": null,
+      "method": {
+        "model": "torchvision retinanet_resnet50_fpn_v2",
+        "weights": "DEFAULT",
+        "confidence_threshold": 0.5
+      },
+      "observations": [
+        "The clearest human figure receives one clean person box.",
+        "Crowded scenes add boxes around background people.",
+        "A pile of snakes receives a bench class label."
+      ],
+      "note": "Qualitative examples; no labeled detection benchmark or aggregate accuracy is recorded."
+    },
+    {
+      "assignment": 9,
+      "task": "Airline passenger forecasting",
+      "source": "assignments/assignment9_short_report_revised.pdf",
+      "pages": [
+        1,
+        2
+      ],
+      "code_source": "code/asgn9_airline/roblem1_airline_lstm.py",
+      "metrics": {
+        "one_step_test_mae_thousand_passengers": 21.19,
+        "seasonal_naive_test_mae_thousand_passengers": 35.92,
+        "recursive_test_mae_thousand_passengers": 29.83
+      },
+      "method": {
+        "selected_lstm_units": 32,
+        "lookback_months": 12,
+        "train_end": "1956-02",
+        "validation_end": "1957-12",
+        "test_start": "1958-01",
+        "test_end": "1960-12"
+      }
+    },
+    {
+      "assignment": 9,
+      "task": "Seven-day BTC-USD log-return forecasting",
+      "source": "code/asgn9_crypto/original-final/problem2_final_outputs/BTC_USD_h7_20260502_143029/final_comparison.csv",
+      "report_source": "assignments/assignment9_short_report_revised.pdf",
+      "metrics": {
+        "test_samples": 459,
+        "horizon_days": 7,
+        "return_mae": {
+          "zero_return_persistence": 0.041449820112685894,
+          "tcn_64_lb120": 0.04256235306607062,
+          "extra_trees_400": 0.044470778403088,
+          "lstm_64_lb60": 0.0479080067266907
+        }
+      },
+      "note": "The zero-return baseline has lower return MAE than every learned model. Later extension runs are outside this selected coursework record."
+    }
+  ]
+}

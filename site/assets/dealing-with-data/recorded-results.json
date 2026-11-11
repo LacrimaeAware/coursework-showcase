@@ -1,0 +1,129 @@
+{
+  "recorded_outputs": {
+    "hw2": {
+      "cystfibr_rows": 25,
+      "numeric_columns": 10,
+      "age_mean": 14.48,
+      "age_sd": 5.0589854,
+      "height_mean_cm": 152.8,
+      "height_sd_cm": 21.5,
+      "weight_mean_kg": 38.404,
+      "weight_sd_kg": 17.8981256,
+      "group_means": [
+        5.4,
+        2.8,
+        10.4
+      ],
+      "between_average": 9.946667,
+      "within_average": 11.6,
+      "exploratory_ratio": 0.8574713,
+      "constructed_between": 0,
+      "constructed_within": 0.5
+    },
+    "hw3": {
+      "holding_F": 6.431,
+      "holding_df": [
+        2,
+        12
+      ],
+      "holding_p": 0.0126,
+      "holding_between_ss": 149.2,
+      "holding_within_ss": 139.2,
+      "home_rows": 120,
+      "home_group_sizes": [
+        30,
+        30,
+        30,
+        30
+      ],
+      "home_F": 7.355,
+      "home_df": [
+        3,
+        116
+      ],
+      "home_p": 0.000148
+    },
+    "hw4_final": {
+      "constructed_holding_F": 0,
+      "constructed_holding_p": 1,
+      "home_tukey": {
+        "NJ-CA": [
+          -206.83333,
+          -363.6729,
+          -49.99379,
+          0.0044754
+        ],
+        "NY-CA": [
+          -170.03333,
+          -326.8729,
+          -13.19379,
+          0.0280402
+        ],
+        "PA-CA": [
+          -269.8,
+          -426.6395,
+          -112.96045,
+          0.0001011
+        ],
+        "NY-NJ": [
+          36.8,
+          -120.0395,
+          193.63955,
+          0.9282064
+        ],
+        "PA-NJ": [
+          -62.96667,
+          -219.8062,
+          93.87288,
+          0.722483
+        ],
+        "PA-NY": [
+          -99.76667,
+          -256.6062,
+          57.07288,
+          0.3505951
+        ]
+      },
+      "tukey_columns": [
+        "difference",
+        "lower_95_familywise",
+        "upper_95_familywise",
+        "adjusted_p"
+      ],
+      "radio_prediction_at_50": 19.43643
+    },
+    "hw5": {
+      "rows": 200,
+      "radio_intercept": 9.3116381,
+      "radio_slope": 0.2024958,
+      "radio_slope_se": 0.02041,
+      "radio_slope_t": 9.921,
+      "residual_df": 198,
+      "r_squared": 0.332,
+      "radio_slope_ci95": [
+        0.1622443,
+        0.2427472
+      ],
+      "radio_slope_ci99": [
+        0.1494083,
+        0.2555833
+      ],
+      "max_radio": 49.6
+    },
+    "hw6_checked": {
+      "newspaper_only_slope": 0.05469,
+      "newspaper_only_p": 0.001148,
+      "newspaper_only_r_squared": 0.05212,
+      "adjusted_newspaper_slope": 0.006644175,
+      "adjusted_newspaper_p": 0.6563393,
+      "adjusted_radio_slope": 0.199044594,
+      "adjusted_r_squared": 0.3327
+    }
+  },
+  "hw7_scope": "Preserved code adds TV and reconstructs fitted values, residuals, sums of squares, R squared and F tests. No unrecorded HW7 fit statistics are presented as historical output.",
+  "audit": {
+    "runtime": "Rscript 4.5.2",
+    "date": "2026-11-10",
+    "checks": "Exported R syntax and featured summaries, ANOVA, Tukey, regression intervals, prediction, coefficients and sums-of-squares identity recomputed from the same inputs."
+  }
+}

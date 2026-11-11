@@ -1,0 +1,28 @@
+{
+  "generated_from": "same three-channel enzyme network in gillespie_demo.py",
+  "command": "python Learning Lab/Python/compare_enzyme_ode.py",
+  "seed": 1030,
+  "runs": 500,
+  "settings": "Illustrative, not specified by the supplied paper",
+  "interpretation": "Pointwise run-to-run percentile band; ODE is a deterministic approximation, not an exact stochastic mean",
+  "scales": [
+    {
+      "scale": 1,
+      "final_ode_product": 17.98585054332012,
+      "final_ensemble_mean": 18.128,
+      "final_ensemble_sd": 3.1754973731896343,
+      "final_mean_standard_error": 0.1420125597764808,
+      "conservation": "pass",
+      "nonnegative_counts": "pass"
+    },
+    {
+      "scale": 10,
+      "final_ode_product": 17.985850543320105,
+      "final_ensemble_mean": 17.96659999999999,
+      "final_ensemble_sd": 1.0328203501826942,
+      "final_mean_standard_error": 0.04618913023107283,
+      "conservation": "pass",
+      "nonnegative_counts": "pass"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+<h2>Reaction rates and molecule balances</h2>
+<p>The starting model follows an enzyme \(E\), substrate \(S\), bound complex \(\mathrm{ES}\), and product \(P\). Binding joins enzyme and substrate. The complex can separate again or release product, leaving the enzyme available for another reaction.</p>
+<div class="reaction-equation">\[E+S\;\underset{k_2}{\overset{k_1}{\rightleftharpoons}}\;\mathrm{ES}\;\xrightarrow{k_3}\;E+P\]</div>
+<p>The reaction rates are \(v_1=k_1 E\,S\) for binding, \(v_2=k_2\mathrm{ES}\) for separation, and \(v_3=k_3\mathrm{ES}\) for product formation. In the first expression, \(E\,S\) multiplies the free enzyme and substrate concentrations. The name \(\mathrm{ES}\) denotes the bound complex.</p>
+<p>The MATLAB baseline starts with \(E_0=1\), \(S_0=100\), and \(\mathrm{ES}(0)=P(0)=0\), with \(k_1=k_2=k_3=1\). It integrates the four changing concentrations over \(0\leq t\leq140\). Adding their gains and losses gives two conserved totals: \(E+\mathrm{ES}=1\) and \(S+\mathrm{ES}+P=100\). These balances describe where the original enzyme and substrate material go as product accumulates.</p>
+<p>The function <code>ode15s</code> calculates the concentration trajectories from their derivatives. At each solver evaluation, the model computes the reaction rates from the current concentrations, then adds each species' gains and losses.</p>
+
+<div class="map-layout">
+  <figure>
+    <a href="../../assets/systems-biology/michaelis-menten.svg" target="_blank" rel="noreferrer" aria-label="Open the full-size Michaelis-Menten saturation curve"><img src="../../assets/systems-biology/michaelis-menten.svg" width="440" height="350" alt="Michaelis-Menten rate curve with half-maximum rate at substrate concentration 2. The rate rises quickly at low substrate, then approaches the maximum rate of 1."></a>
+    <figcaption>Formula illustration: \(v=S/(2+S)\), with the total enzyme held fixed.</figcaption>
+  </figure>
+  <div>
+    <h3>Michaelis–Menten saturation</h3>
+    <p>After the complex's initial adjustment, its formation and loss can nearly balance. This quasi-steady-state assumption sets \(d\mathrm{ES}/dt\approx0\) while substrate and product continue changing. Combining that balance with the fixed total enzyme gives the reduced reaction rate</p>
+    <div class="cv-equation">\[v=\frac{V_{\max}S}{K_m+S}.\]</div>
+    <p>Here \(v=dP/dt\), \(K_m=(k_2+k_3)/k_1\), and \(V_{\max}=k_3E_0\). The Michaelis constant \(K_m\) is the substrate concentration at half the maximum rate \(V_{\max}\). The baseline gives \(K_m=2\) and \(V_{\max}=1\). At \(S=2\), the rate is \(1/2\). As substrate increases, the rate approaches \(1\) because most enzyme is already occupied.</p>
+  </div>
+</div>
+
+<details class="technical">
+  <summary>Four concentration equations</summary>
+  <div class="technical-content equations">
+    \[\begin{aligned}
+    \frac{dE}{dt}&=-v_1+v_2+v_3,\\
+    \frac{dS}{dt}&=-v_1+v_2,\\
+    \frac{d\mathrm{ES}}{dt}&=v_1-v_2-v_3,\\
+    \frac{dP}{dt}&=v_3.
+    \end{aligned}\]
+    <p>The rate constants stay fixed during the calculation. Reaction rates change as the free and bound concentrations change.</p>
+  </div>
+</details>
+<p class="source-links"><a href="../../assets/systems-biology/michaelis_menten_baseline.m" download>MATLAB baseline</a></p>

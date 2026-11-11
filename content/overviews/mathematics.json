@@ -1,0 +1,175 @@
+[
+  {
+    "id": "statistics",
+    "summary": "An introduction to describing data and using samples to make claims about a population, from graphs and averages to confidence intervals and regression.",
+    "topics": [
+      {"title": "Samples and data displays", "description": "Sampling methods, sources of bias, and frequency distributions connect the way data are collected with what a graph can reasonably show."},
+      {"title": "Center and variation", "description": "Means, medians, percentiles, and measures of spread describe both a typical observation and how widely observations vary."},
+      {"title": "Probability and distributions", "description": "Basic probability leads to discrete distributions, binomial counts, and the normal distribution. Standard scores locate an observation relative to a distribution's center and spread."},
+      {"title": "Sampling distributions and intervals", "description": "Sampling distributions explain why estimates vary between samples. Confidence intervals and margin of error turn that variation into estimates of population means and proportions."},
+      {"title": "Hypothesis tests", "description": "Tests of means, proportions, and differences between groups compare observed data with a stated population claim. The course connects test statistics and probability values with conclusions in context."},
+      {"title": "Correlation and regression", "description": "Scatterplots, correlation, and fitted lines describe relationships between two variables. The coefficient of determination summarizes the variation accounted for by a linear fit."}
+    ],
+    "sourceNote": "Historical Statistics syllabus, including its topic schedule and stated learning outcomes; original assignment work is sparsely preserved."
+  },
+  {
+    "id": "trigonometry",
+    "summary": "Angles, triangles, and periodic functions, followed by alternative ways to describe position and motion using polar coordinates, complex numbers, and vectors.",
+    "topics": [
+      {"title": "Angles and the unit circle", "description": "Degree and radian measures connect triangle ratios with coordinates on the unit circle. This extends trigonometric functions beyond acute angles."},
+      {"title": "Function graphs and inverses", "description": "Sine, cosine, and the other trigonometric graphs describe periodic behavior. Transformations change their size, period, and position; inverse functions recover angles within a chosen range."},
+      {"title": "Identities and equations", "description": "Trigonometric identities express the same quantity in different forms. They support simplification and solving equations while keeping track of all permitted angles."},
+      {"title": "Triangle applications", "description": "Right-triangle methods and the laws of sines and cosines recover unknown sides and angles, including triangles that do not contain a right angle."},
+      {"title": "Parametric and polar curves", "description": "Parametric equations describe coordinates through a shared parameter. Polar coordinates use distance and angle, producing a different view of familiar and unfamiliar curves."},
+      {"title": "Complex numbers and vectors", "description": "Polar form makes complex multiplication and roots geometric. Vectors describe quantities with both magnitude and direction."}
+    ],
+    "sourceNote": "Saved historical Canvas syllabus and its learning outcomes for McKeague and Turner, Trigonometry, eighth edition."
+  },
+  {
+    "id": "calculus-1",
+    "summary": "Single-variable change and accumulation: limits lead to derivatives, derivatives support local analysis and optimization, and integrals connect accumulated quantities with rates.",
+    "topics": [
+      {"title": "Chapter 2: Limits and continuity", "description": "Limits describe a function's behavior near an input, even when direct substitution fails. Continuity connects that nearby behavior with the actual function value."},
+      {"title": "Chapter 3: Derivatives", "description": "The derivative begins as a limit of slopes and becomes a collection of differentiation rules. Implicit and logarithmic differentiation extend those rules to less direct relationships."},
+      {"title": "Rates and local approximation", "description": "Related-rates problems connect quantities changing together. Linear approximation uses a tangent line to estimate nearby values."},
+      {"title": "Chapter 4: Function behavior and optimization", "description": "Critical points, the mean value theorem, and derivative signs explain extrema and graph shape. Applications include optimization, indeterminate limits, and Newton's method for approximate roots."},
+      {"title": "Chapter 5: Integrals and accumulation", "description": "Antiderivatives and definite integrals connect area and accumulated change. The fundamental theorem of calculus links integration with differentiation, followed by substitution."}
+    ],
+    "sourceNote": "Saved Fall 2023 Canvas module scope: Stewart, Calculus: Early Transcendentals, eighth edition, Chapters 2–5."
+  },
+  {
+    "id": "calculus-2",
+    "summary": "The preserved material centers on choosing integration techniques, interpreting improper integrals and arc length, and studying the behavior of sequences and series.",
+    "topics": [
+      {"title": "Integration by parts and trigonometric integrals", "description": "Integration by parts reverses the product rule. Trigonometric identities turn products and powers of sine and cosine into forms that can be integrated."},
+      {"title": "Trigonometric substitution and partial fractions", "description": "Trigonometric substitutions simplify particular square-root expressions. Partial fractions split rational functions into simpler terms with recognizable antiderivatives."},
+      {"title": "Improper integrals and arc length", "description": "Limits determine whether an integral with an infinite interval or unbounded integrand converges. Arc-length calculations accumulate the small distances along a curve."},
+      {"title": "Chapter 11: Sequences and series", "description": "Sequence limits distinguish the behavior of individual terms from the behavior of their accumulated sum. The retained review includes geometric, telescoping, and alternating series and convergence questions."},
+      {"title": "Power series and Taylor approximation", "description": "Power-series work asks where an infinite polynomial converges, including its endpoints. Taylor polynomials approximate functions near a chosen center, with error estimates controlling the approximation."}
+    ],
+    "sourceNote": "Retained integration, arc-length, Chapter 11 and exam-review notes, with their retrospective topic map; a complete original syllabus or final scope is not preserved."
+  },
+  {
+    "id": "calculus-3",
+    "summary": "The saved multivariable calculus material moves from coordinates and vectors to curves in space, motion, and derivatives of functions with several inputs.",
+    "topics": [
+      {"title": "Chapter 12: Coordinates and vectors", "description": "Three-dimensional coordinates describe points, distances, and coordinate planes. Vectors add direction and displacement to that geometric picture."},
+      {"title": "Section 13.3: Length and curvature", "description": "Arc length measures distance along a space curve. Tangent and normal vectors describe its local direction, while curvature measures how rapidly that direction turns."},
+      {"title": "Section 13.4: Motion in space", "description": "Differentiating a position vector gives velocity and acceleration. Integrating acceleration reverses this process, with initial data fixing the particular motion."},
+      {"title": "Chapter 14: Partial derivatives", "description": "Partial derivatives measure change in one input while the other inputs stay fixed. The retained exercises include first and mixed partial derivatives of multivariable functions."}
+    ],
+    "sourceNote": "Saved Chapters 12–14 notes and exercises, especially Sections 12.1, 13.3, 13.4 and 14.3; this map follows the preserved material."
+  },
+  {
+    "id": "discrete-math",
+    "summary": "A foundation in mathematical reasoning and finite structures, combining logic and induction with counting and probability.",
+    "topics": [
+      {"title": "Logic and formal statements", "description": "Propositions, logical connectives, and quantified statements turn informal claims into expressions with precise truth conditions."},
+      {"title": "Proof and induction", "description": "Proof methods justify a conclusion from stated assumptions. Mathematical induction proves a sequence of claims by establishing a starting case and a step from one case to the next."},
+      {"title": "Counting", "description": "Counting rules distinguish ordered arrangements from unordered selections. They organize finite possibilities before a probability or combinatorial argument is attempted."},
+      {"title": "Finite probability", "description": "Sample spaces and events connect counting with chance. Finite probability models make the choice of outcomes and assumptions explicit."},
+      {"title": "Numbers and representations", "description": "Discrete descriptions of numbers connect notation with arithmetic structure, including how a number's representation encodes its value."}
+    ],
+    "sourceNote": "Saved historical Canvas syllabus: Rosen, Discrete Mathematics and Its Applications, 2025 release, with Chapters 1, 5, 6 and 7 listed as the main coverage."
+  },
+  {
+    "id": "intro-linear-algebra",
+    "summary": "The introductory course develops the connection between solving linear systems, working with matrices, and understanding vector spaces and transformations.",
+    "topics": [
+      {"title": "Systems and matrices", "description": "Systems of linear equations become matrix problems. Matrix operations and determinants provide tools for describing solutions and invertibility."},
+      {"title": "Vector spaces and bases", "description": "Span and linear independence describe what a collection of vectors can generate. Bases and dimension identify a minimal coordinate system for a space."},
+      {"title": "Linear transformations", "description": "Linear transformations preserve addition and scalar multiplication. Their matrix representations connect geometric actions with calculations."},
+      {"title": "Eigenvalues and eigenvectors", "description": "Eigenvectors identify directions preserved by a transformation, with eigenvalues giving the scaling along those directions."},
+      {"title": "Orthogonality and least squares", "description": "Perpendicular vectors and projections support approximation. Least squares finds a best fit when a system does not have an exact solution."}
+    ],
+    "sourceNote": "Saved Spring 2026 introductory-course syllabus, using Lay, Linear Algebra and Its Applications, sixth edition; distinct from the later Bretscher theory course."
+  },
+  {
+    "id": "number-theory",
+    "summary": "Proof-based work on integers, from divisibility and the Euclidean algorithm to modular arithmetic, quadratic residues, and elementary cryptography.",
+    "topics": [
+      {"title": "Proof, divisibility and greatest common divisors", "description": "Direct arguments and induction establish facts about integers. The Euclidean algorithm computes a greatest common divisor and connects it with integer linear combinations."},
+      {"title": "Primes and Diophantine equations", "description": "Prime factorization describes the multiplicative structure of integers. Linear Diophantine equations ask when an equation has integer solutions and how to describe all of them."},
+      {"title": "Congruences and the Chinese remainder theorem", "description": "Congruences compare integers by their remainders. The Chinese remainder theorem combines several modular conditions into a single solution description."},
+      {"title": "Fermat, Euler and arithmetic functions", "description": "Fermat's, Euler's, and Wilson's theorems connect powers and factorials with modular arithmetic. Arithmetic functions track properties such as the number of residues relatively prime to a modulus."},
+      {"title": "Orders and primitive roots", "description": "The order of a residue records when its repeated powers return to one. Primitive roots generate the invertible residues for moduli where such generators exist."},
+      {"title": "Quadratic residues and reciprocity", "description": "Quadratic residues identify which congruences have square roots. Euler's criterion, Legendre symbols, and quadratic reciprocity turn those existence questions into structured calculations and proofs."}
+    ],
+    "sourceNote": "Saved historical weekly schedule and final-scope summary, supported by Homework 1–10; the schedule also includes a final cryptography reading."
+  },
+  {
+    "id": "math-seminar",
+    "summary": "The preserved seminar work is a mathematical presentation about the Koch snowflake: a repeated construction with finite area, unbounded perimeter, and a non-integer similarity dimension.",
+    "topics": [
+      {"title": "The Koch construction", "description": "Each stage replaces every line segment with four shorter segments. Repeating the same geometric rule produces increasing detail while preserving a recognizable overall shape."},
+      {"title": "Perimeter and area", "description": "The segment count and segment length form geometric sequences. Their combined effect makes the perimeter grow without bound even as the total added area approaches a finite limit."},
+      {"title": "Self-similarity and dimension", "description": "Smaller copies reproduce the construction at a reduced scale. Similarity dimension relates the number of copies to their scale factor, extending the usual integer dimensions of lines and surfaces."},
+      {"title": "Presenting a mathematical argument", "description": "Talk drafts and slides organize the construction, formulas, and limiting argument for an audience. Preparation also addresses indexing choices and questions about the apparent perimeter–area paradox."}
+    ],
+    "sourceNote": "Saved Koch-snowflake talk drafts, slides and preparation notes; this reflects the preserved presentation rather than a full seminar syllabus."
+  },
+  {
+    "id": "ode",
+    "summary": "Differential equations connect a rule for change with the functions that obey it. The saved course work progresses from first-order models to second- and higher-order linear equations.",
+    "topics": [
+      {"title": "Equations, solutions and direction fields", "description": "Order and linearity classify differential equations. Substitution checks a proposed solution, while direction fields and initial values describe how a particular solution behaves."},
+      {"title": "First-order solution methods", "description": "Separation of variables, integrating factors, exact equations, and substitutions apply to different equation structures. Each method transforms the equation into a form that can be integrated."},
+      {"title": "Models and equilibrium behavior", "description": "Population, mixing, and motion models express changing quantities through differential equations. Equilibria and phase-line signs explain long-term behavior without requiring an explicit formula."},
+      {"title": "Existence, uniqueness and solution intervals", "description": "Conditions on an equation determine where an initial-value problem has a solution and whether that solution is unique. Singular coefficients and domain restrictions limit the interval being considered."},
+      {"title": "Second-order linear equations", "description": "Superposition and independent solutions describe the homogeneous solution family. Characteristic roots produce real, repeated, or oscillatory solution forms for constant-coefficient equations."},
+      {"title": "Forcing terms and higher-order equations", "description": "Undetermined coefficients and variation of parameters construct particular solutions of nonhomogeneous equations. Later saved assignments extend linear-equation methods to higher orders and order reduction."}
+    ],
+    "sourceNote": "Boyce, DiPrima and Meade, eleventh edition; saved Homework 1–10 prompts and course source index, spanning Chapters 1–3 and Sections 4.1–4.2."
+  },
+  {
+    "id": "probability-1",
+    "summary": "Finite probability begins with counting outcomes, then adds conditional information, independence, and numerical summaries of discrete random variables.",
+    "topics": [
+      {"title": "Chapter 1: Counting outcomes", "description": "Product rules, permutations, and combinations distinguish ordered arrangements from selections. Restrictions and repeated categories change which outcomes should be counted."},
+      {"title": "Chapter 2: Events and probability", "description": "Sample spaces, complements, unions, and intersections give events a precise structure. Inclusion–exclusion accounts for overlaps when probabilities or outcome counts are combined."},
+      {"title": "Chapter 3: Conditioning and Bayes", "description": "Conditional probability updates the relevant sample space after information is supplied. Multiplication, total probability, and Bayes's formula connect an observation with its possible sources."},
+      {"title": "Independence", "description": "Independence asks whether learning one event changes another's probability. The course distinguishes pairwise independence from mutual independence among three events."},
+      {"title": "Chapter 4: Discrete random variables", "description": "Probability mass and cumulative distribution functions describe the values of a random variable. Expectation and variance summarize its center and spread, including after scaling or shifting."},
+      {"title": "Bernoulli and binomial models", "description": "Bernoulli variables encode a single success or failure; binomial variables count successes in independent repeated trials. Recognizing those assumptions is part of choosing the model."}
+    ],
+    "sourceNote": "Saved Ross, A First Course in Probability, tenth-edition assignments and confirmed cumulative scope through Section 4.6; a separate later reading introduces Poisson variables."
+  },
+  {
+    "id": "probability-2",
+    "summary": "The saved Probability II material extends probability to continuous variables, with integration, normal approximation, and exponential waiting-time models.",
+    "topics": [
+      {"title": "Continuous densities and cumulative distributions", "description": "A density assigns probability through area over an interval. Cumulative distribution functions accumulate that area and help determine unknown normalizing constants or cutoffs."},
+      {"title": "Expectation, variance and transformations", "description": "Integrals compute averages and spread for continuous variables. Transformations connect a new variable's distribution or expected value with the original model."},
+      {"title": "Uniform and normal distributions", "description": "Uniform models spread density evenly across an interval. Normal models use a center and standard deviation, with standardization and table lookup converting values into probabilities and percentiles."},
+      {"title": "Binomial limits and normal approximation", "description": "The law of large numbers concerns the stability of sample proportions, while the central limit theorem describes their approximate distribution. Continuity corrections connect discrete binomial counts with normal areas."},
+      {"title": "Exponential waiting times", "description": "Exponential models describe nonnegative waiting times through a rate. Survival probabilities, hazard, and memorylessness explain how waiting already completed affects the remaining wait."}
+    ],
+    "sourceNote": "Saved Canvas assignment rows, exact Ross tenth-edition Chapter 5 prompts and recovered midterm questions; preserved assigned scope is Sections 5.1–5.5."
+  },
+  {
+    "id": "linear-algebra",
+    "summary": "The later theory course revisits matrices through linear maps and abstract spaces, emphasizing bases, coordinates, kernels, images, and the structure behind computations.",
+    "topics": [
+      {"title": "Chapter 1: Linear systems and elimination", "description": "Gauss–Jordan elimination exposes the possible solutions of a linear system. Matrix algebra packages these calculations and connects them with invertibility."},
+      {"title": "Chapter 2: Transformations and geometry", "description": "Reflections, rotations, and projections make linear maps concrete. Matrix multiplication represents composition, and inverse matrices reverse invertible transformations."},
+      {"title": "Chapter 3: Subspaces, bases and coordinates", "description": "Kernels and images identify the inputs sent to zero and the outputs a map can reach. Independence, bases, dimension, and coordinates describe these spaces without tying them to one particular spanning list."},
+      {"title": "Chapter 4: General linear spaces", "description": "Linear-space ideas extend to polynomials, matrices, and other objects. Isomorphisms, transformation matrices, and changes of basis compare different coordinate descriptions of the same underlying map."},
+      {"title": "Chapter 5: Orthogonality", "description": "The later syllabus outline includes orthogonal projections, orthonormal bases, Gram–Schmidt, and QR factorization. These connect perpendicularity with coordinate construction and matrix decomposition."},
+      {"title": "Chapters 6–7: Determinants and eigenvectors", "description": "The later syllabus outline connects determinants with geometry, then introduces eigenvalues, eigenvectors, and diagonalization as ways to simplify a transformation's representation."}
+    ],
+    "sourceNote": "Fall 2026 Bretscher fifth-edition syllabus and saved assignments through Section 4.2; Chapters 5–7 are later syllabus coverage, distinct from the preserved assigned work."
+  },
+  {
+    "id": "linear-models",
+    "summary": "Regression work connects fitted equations with geometry, uncertainty, and interpretation. R-based assignments develop simple and multiple regression, model comparisons, categorical predictors, and interactions.",
+    "topics": [
+      {"title": "Least squares and regression geometry", "description": "Least squares chooses coefficients by minimizing squared residuals. Fitted values, residuals, residual standard error, and explained variation describe what the resulting line or plane captures."},
+      {"title": "Multiple regression and coefficient meaning", "description": "Multiple regression estimates a predictor's association with the response while holding other included predictors fixed. Partial versus marginal slopes and standardized coefficients change how a reported effect should be interpreted."},
+      {"title": "Assumptions and interval estimates", "description": "The error model supplies assumptions for inference from a sample to a population. Confidence intervals describe uncertainty about mean relationships, while prediction intervals also include individual-response variation."},
+      {"title": "Hypothesis tests and model comparisons", "description": "Coefficient tests assess individual terms; overall and incremental F-tests assess groups of terms or compare nested models. Reading R output connects estimates and standard errors with the research question being tested."},
+      {"title": "Collinearity", "description": "Closely related predictors can make separate coefficient estimates unstable. Pairwise correlations and variance-inflation factors help identify that problem and assess changes to the model."},
+      {"title": "Categorical predictors and interactions", "description": "Indicator variables encode categories as model terms. Interactions allow one predictor's slope to depend on another predictor or group, requiring separate equations and conditional interpretations."}
+    ],
+    "sourceNote": "Saved instructor study guides, slide and Homework 1–7 records, and R labs; Fox, Applied Regression Analysis and Generalized Linear Models, third edition. The later project also requires logistic regression."
+  }
+]

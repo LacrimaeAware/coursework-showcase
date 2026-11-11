@@ -1,0 +1,273 @@
+{
+  "source": {
+    "catalog_checked_at": "2026-09-12",
+    "sha256": "5ccd21ae485b43d15ae64180979f3d379d4c01c9fb48ae156b9c28a4fc33afa3"
+  },
+  "courses": [
+    {
+      "id": "anatomy",
+      "year": 2022,
+      "term": "Fall",
+      "school": "SCF",
+      "code": "BSC2085C",
+      "title": "Anatomy and Physiology I"
+    },
+    {
+      "id": "anatomy-lab",
+      "year": 2022,
+      "term": "Fall",
+      "school": "SCF",
+      "code": "BSC2085L",
+      "title": "Anatomy and Physiology I Lab"
+    },
+    {
+      "id": "spanish-1",
+      "year": 2022,
+      "term": "Fall",
+      "school": "SCF",
+      "code": "SPN1120",
+      "title": "Elementary Spanish I"
+    },
+    {
+      "id": "spanish-1-lab",
+      "year": 2022,
+      "term": "Fall",
+      "school": "SCF",
+      "code": "SPN1120L",
+      "title": "Elementary Spanish I Lab"
+    },
+    {
+      "id": "statistics",
+      "year": 2022,
+      "term": "Fall",
+      "school": "SCF",
+      "code": "STA2023",
+      "title": "Elementary Statistics"
+    },
+    {
+      "id": "human-development",
+      "year": 2022,
+      "term": "Fall",
+      "school": "SCF",
+      "code": "DEP2004",
+      "title": "Human Development: Life Span"
+    },
+    {
+      "id": "anthropology",
+      "year": 2023,
+      "term": "Spring",
+      "school": "SCF",
+      "code": "ANT2000",
+      "title": "Introduction to Anthropology"
+    },
+    {
+      "id": "philosophical-reasoning",
+      "year": 2023,
+      "term": "Spring",
+      "school": "SCF",
+      "code": "PHI2010",
+      "title": "Introduction to Philosophical Reasoning"
+    },
+    {
+      "id": "trigonometry",
+      "year": 2023,
+      "term": "Spring",
+      "school": "SCF",
+      "code": "MAC1114",
+      "title": "Trigonometry"
+    },
+    {
+      "id": "eastern-philosophy",
+      "year": 2023,
+      "term": "Summer",
+      "school": "SCF",
+      "code": "PHI2070",
+      "title": "Introduction to Eastern Philosophy"
+    },
+    {
+      "id": "calculus-1",
+      "year": 2023,
+      "term": "Fall",
+      "school": "SCF",
+      "code": "MAC2311",
+      "title": "Calculus with Analytic Geometry I"
+    },
+    {
+      "id": "speech",
+      "year": 2023,
+      "term": "Fall",
+      "school": "SCF",
+      "code": "SPC1608",
+      "title": "Fundamentals of Speech Communication"
+    },
+    {
+      "id": "chemistry",
+      "year": 2023,
+      "term": "Fall",
+      "school": "SCF",
+      "code": "CHM1025C",
+      "title": "Introductory Chemistry"
+    },
+    {
+      "id": "chemistry-lab",
+      "year": 2023,
+      "term": "Fall",
+      "school": "SCF",
+      "code": "CHM1025L",
+      "title": "Introductory Chemistry Lab"
+    },
+    {
+      "id": "calculus-2",
+      "year": 2024,
+      "term": "Fall",
+      "school": "SCF",
+      "code": "MAC2312",
+      "title": "Calculus with Analytic Geometry II"
+    },
+    {
+      "id": "programming-concepts",
+      "year": 2025,
+      "term": "Summer",
+      "school": "SCF",
+      "code": "COP2510",
+      "title": "Programming Concepts"
+    },
+    {
+      "id": "calculus-3",
+      "year": 2025,
+      "term": "Fall",
+      "school": "SCF",
+      "code": "MAC2313",
+      "title": "Calculus with Analytic Geometry III"
+    },
+    {
+      "id": "spanish-2",
+      "year": 2025,
+      "term": "Fall",
+      "school": "SCF",
+      "code": "SPN1121",
+      "title": "Elementary Spanish II"
+    },
+    {
+      "id": "spanish-2-lab",
+      "year": 2025,
+      "term": "Fall",
+      "school": "SCF",
+      "code": "SPN1121L",
+      "title": "Elementary Spanish II Lab"
+    },
+    {
+      "id": "java",
+      "year": 2025,
+      "term": "Fall",
+      "school": "SCF",
+      "code": "COP2250",
+      "title": "Java Programming I"
+    },
+    {
+      "id": "deep-learning",
+      "year": 2026,
+      "term": "Spring",
+      "school": "NCF",
+      "code": "CAI3863",
+      "title": "AI - Deep Learning"
+    },
+    {
+      "id": "dealing-with-data",
+      "year": 2026,
+      "term": "Spring",
+      "school": "NCF",
+      "code": "STA3024",
+      "title": "Dealing with Data II"
+    },
+    {
+      "id": "discrete-math",
+      "year": 2026,
+      "term": "Spring",
+      "school": "NCF",
+      "code": "MAD2104",
+      "title": "Discrete Mathematics"
+    },
+    {
+      "id": "intro-linear-algebra",
+      "year": 2026,
+      "term": "Spring",
+      "school": "NCF",
+      "code": "MAS3103",
+      "title": "Introduction to Linear Algebra"
+    },
+    {
+      "id": "number-theory",
+      "year": 2026,
+      "term": "Spring",
+      "school": "NCF",
+      "code": "MAS3214",
+      "title": "Introduction to Number Theory"
+    },
+    {
+      "id": "math-seminar",
+      "year": 2026,
+      "term": "Spring",
+      "school": "NCF",
+      "code": "MAT4930",
+      "title": "Mathematics Seminar"
+    },
+    {
+      "id": "data-structures",
+      "year": 2026,
+      "term": "Fall",
+      "school": "NCF",
+      "code": "COP3535",
+      "title": "Data Structures"
+    },
+    {
+      "id": "linear-algebra",
+      "year": 2026,
+      "term": "Fall",
+      "school": "NCF",
+      "code": "MAS3105",
+      "title": "Linear Algebra with Theory"
+    },
+    {
+      "id": "linear-models",
+      "year": 2026,
+      "term": "Fall",
+      "school": "NCF",
+      "code": "STA3207",
+      "title": "Linear Models"
+    },
+    {
+      "id": "ode",
+      "year": 2026,
+      "term": "Fall",
+      "school": "NCF",
+      "code": "MAP3302",
+      "title": "Ordinary Differential Equations"
+    },
+    {
+      "id": "probability-1",
+      "year": 2026,
+      "term": "Fall",
+      "school": "NCF",
+      "code": "STA2442",
+      "title": "Probability I"
+    },
+    {
+      "id": "probability-2",
+      "year": 2026,
+      "term": "Fall",
+      "school": "NCF",
+      "code": "STA2443",
+      "title": "Probability II"
+    },
+    {
+      "id": "systems-biology",
+      "year": 2026,
+      "term": "Fall",
+      "school": "NCF",
+      "code": "TUTR2095",
+      "title": "Stochastic and Deterministic Simulations in Systems Biology"
+    }
+  ],
+  "archive_base": "https://fall-2026-semester-hub.shishiomakoto.chatgpt.site/archive"
+}

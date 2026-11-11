@@ -1,0 +1,41 @@
+<h2>Refining the boundary</h2>
+<p>Start with an equilateral triangle of side length \(s\). Divide each boundary segment into thirds and replace its middle third with the other two sides of an outward equilateral triangle. Repeating that rule produces the Koch snowflake.</p>
+<p>The seminar presentation connects the visible construction to three calculations: the growing perimeter, the converging enclosed area, and the dimension of the limiting boundary. Every refinement replaces one segment with \(4\) segments, each \(1/3\) as long. Those two changes determine the formulas below.</p>
+<figure>
+  <a href="../../assets/koch-snowflake/koch-stages.svg" target="_blank" rel="noreferrer" aria-label="Open the full-size Koch construction diagram"><img src="../../assets/koch-snowflake/koch-stages.svg" width="840" height="650" alt="The initial equilateral triangle and the first three outward Koch refinements, with finer triangular bumps added at every stage."></a>
+  <figcaption>Stages \(0\) through \(3\) of the construction. <a href="../../assets/koch-snowflake/koch-stages.svg" target="_blank" rel="noreferrer">Open full-size diagram</a></figcaption>
+</figure>
+
+<h2>Perimeter at each stage</h2>
+<p>After \(n\) refinements, the boundary has \(3\cdot4^n\) segments of length \(s/3^n\). Multiplying the number of segments by their length gives</p>
+\[
+P_n=3s\left(\frac43\right)^n.
+\]
+<p>Since \(4/3&gt;1\), these perimeters grow without bound. The limiting boundary has infinite length even though the entire construction stays within a bounded region.</p>
+
+<h2>Area added by the triangles</h2>
+<p>The initial triangle has area \(A_0=\sqrt3\,s^2/4\). At refinement \(n+1\), each of the \(3\cdot4^n\) existing segments adds a triangle of side length \(s/3^{n+1}\). Their combined area is</p>
+\[
+\Delta A_{n+1}=\frac{A_0}{3}\left(\frac49\right)^n.
+\]
+<p>The added areas form a geometric series with ratio \(4/9\). Its sum yields a finite limiting area:</p>
+\[
+\begin{aligned}
+A_\infty&=A_0+\frac{A_0}{3}\sum_{n=0}^{\infty}\left(\frac49\right)^n\\
+&=\frac85A_0=\frac{2\sqrt3}{5}s^2.
+\end{aligned}
+\]
+<p>The boundary-length sequence diverges, while the enclosed-area sequence approaches this finite value. Tracking the two sequences separately explains how both properties arise from the same refinement.</p>
+
+<h2>Dimension of the boundary</h2>
+<p>Each Koch edge consists of \(4\) scaled copies of itself, with scale factor \(1/3\). The similarity dimension \(d\), a scaling exponent for the boundary, satisfies</p>
+\[
+4\left(\frac13\right)^d=1,
+\]
+\[
+d=\frac{\log4}{\log3}\approx1.262.
+\]
+<p>For the Koch boundary this is also its Hausdorff dimension. The exponent lies between the dimensions of a smooth curve and a planar region. The finite-area calculation concerns the enclosed region; the dimension calculation concerns its boundary.</p>
+
+<h2>Derivation and construction code</h2>
+<p><a href="../../assets/koch-snowflake/derivation.txt" download>Download the derivation</a> or <a href="../../assets/koch-snowflake/koch_geometry.py" download>download the geometry script</a>. The script constructs the stages and checks their segment counts, perimeters and enclosed areas against the formulas.</p>

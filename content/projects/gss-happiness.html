@@ -1,0 +1,44 @@
+<h2>Structural, behavioral and perception-based predictors</h2>
+<p>The group project asks whether reported happiness is more closely associated with structural factors, behavior, or perceptions of life. It uses the 2024 General Social Survey (GSS) and compares descriptive patterns, multiple linear regression, a marital-status contingency table, and logistic regression.</p>
+<p>Structural variables include age, education, income and marital status. Behavioral variables include attendance, television hours and other activities. Perception variables include self-rated health, job satisfaction and financial satisfaction.</p>
+
+<h2>Happiness responses and complete cases</h2>
+<p>The supplied data contain \(3{,}986\) respondents, of whom \(3{,}954\) have a valid happiness response. The response is reversed to a scale from \(1\), “not too happy,” to \(3\), “very happy.” The binary response groups “pretty happy” and “very happy” together.</p>
+<figure>
+  <a href="../../assets/gss-happiness/happiness-distribution.png" target="_blank" rel="noreferrer" aria-label="Open the full-size happiness distribution"><img src="../../assets/gss-happiness/happiness-distribution.png" width="1536" height="672" alt="Happiness responses: 854 not too happy, 2303 pretty happy, and 797 very happy. Pretty happy is the largest group."></a>
+  <figcaption>Valid happiness responses in the supplied 2024 GSS file. <a href="../../assets/gss-happiness/happiness-distribution.png" target="_blank" rel="noreferrer">Open full-size distribution</a></figcaption>
+</figure>
+<p>Missing values reduce the final modeling sample to \(723\) respondents with all selected variables observed. Both final regressions are unweighted. Their estimates describe this complete-case subset of one survey wave.</p>
+
+<h2>Linear and logistic associations</h2>
+<p>The linear model uses the three-level happiness score. Its adjusted \(R^2\) is \(0.1434\). A slope gives the fitted difference in that score for a one-step increase in a predictor, holding the other model variables fixed.</p>
+<p>The logistic model uses the binary response. An odds ratio multiplies the modeled odds of reporting “pretty happy” or “very happy” for the same one-step increase. Health and satisfaction are recoded so that higher values mean better ratings.</p>
+<table>
+  <caption>Selected terms in the final fitted models</caption>
+  <thead><tr><th scope="col">Predictor</th><th scope="col">Linear slope</th><th scope="col">Logistic odds ratio</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Financial satisfaction</th><td>\(0.1528\)</td><td>\(1.848\)</td></tr>
+    <tr><th scope="row">Job satisfaction</th><td>\(0.1194\)</td><td>\(1.716\)</td></tr>
+    <tr><th scope="row">Self-rated health</th><td>\(0.1008\)</td><td>\(1.148\)</td></tr>
+  </tbody>
+</table>
+<p>Financial and job satisfaction have positive associations with happiness in both models. Self-rated health is positive in the linear model; its logistic interval includes an odds ratio of \(1\).</p>
+
+<h2>Marital status and the binary response</h2>
+<p>A separate descriptive comparison uses the \(3{,}940\) respondents with valid happiness and marital-status responses. The “pretty happy” or “very happy” share is \(87.3\%\) among married respondents and \(63.0\%\) among separated respondents. Cramér's \(V=0.19\) summarizes the strength of this categorical association.</p>
+<figure>
+  <a href="../../assets/gss-happiness/happiness-by-marital-status.png" target="_blank" rel="noreferrer" aria-label="Open the full-size marital-status comparison"><img src="../../assets/gss-happiness/happiness-by-marital-status.png" width="1536" height="864" alt="Shares reporting pretty or very happy: married 87.3 percent, widowed 75.9, divorced 73.6, separated 63.0, and never married 71.4."></a>
+  <figcaption>Descriptive proportions for respondents with both responses observed. <a href="../../assets/gss-happiness/happiness-by-marital-status.png" target="_blank" rel="noreferrer">Open full-size comparison</a></figcaption>
+</figure>
+
+<h2>Ranking probabilities and choosing a threshold</h2>
+<p>The saved logistic ROC curve has area \(0.741\), measuring how fitted probabilities rank the two response groups. At a probability threshold of \(0.5\), accuracy is \(81.47\%\); assigning every respondent to the majority group gives \(80.91\%\). These quantities are calculated on the same \(723\) respondents used to fit the model. The threshold comparison separates probability ranking from the number of labels changed at one cutoff.</p>
+
+<details class="technical">
+  <summary>Confidence intervals and sample handling</summary>
+  <div class="technical-content">
+    <p>The linear \(95\%\) intervals are \([0.0914,0.2142]\) for financial satisfaction, \([0.0682,0.1706]\) for job satisfaction, and \([0.0403,0.1612]\) for health. Logistic odds-ratio intervals are \([1.360,2.538]\), \([1.374,2.149]\), and \([0.862,1.528]\), respectively.</p>
+    <p>The final model retains age, education, income, marital status, attendance, television hours, sexual frequency, health, job satisfaction and financial satisfaction. Complete-case filtering omits \(3{,}231\) respondents from the valid-response sample. Trust, helpfulness and fairness items have approximately \(76\%\) missingness and are excluded from the regressions.</p>
+  </div>
+</details>
+<p class="source-links"><a href="../../assets/gss-happiness/happiness-models.R" download>R model-definition excerpt</a><a href="../../assets/gss-happiness/model-results.json">Recorded numerical results</a></p>

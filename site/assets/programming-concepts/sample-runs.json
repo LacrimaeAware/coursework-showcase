@@ -1,0 +1,355 @@
+{
+  "python": "3.13.1",
+  "runs": [
+    {
+      "id": "distance-three-hours",
+      "program": "distance-table.py",
+      "command": "python -X utf8 distance-table.py",
+      "working_directory": "programs/",
+      "stdin": "60\n3\n",
+      "stdout": "What is the speed of the vehicle? How many hours has the vehicle travelled? Hour      Distance Travelled\n1         60\n2         120\n3         180\n",
+      "exit_code": 0
+    },
+    {
+      "id": "distance-zero-hours",
+      "program": "distance-table.py",
+      "command": "python -X utf8 distance-table.py",
+      "working_directory": "programs/",
+      "stdin": "60\n0\n",
+      "stdout": "What is the speed of the vehicle? How many hours has the vehicle travelled? Hour      Distance Travelled\n",
+      "exit_code": 0
+    },
+    {
+      "id": "monthly-expenses",
+      "program": "automobile-expenses.py",
+      "command": "python -X utf8 automobile-expenses.py",
+      "working_directory": "programs/",
+      "stdin": "100\n50\n80\n10\n15\n25\n",
+      "stdout": "Please enter your individual MONTHLY expenses.\nLoan payment: Insurance payment: Gas cost: Oil cost: Tire cost: Maintenance cost: \nTotal monthly expense: $ 280.0\nTotal annual expense: $ 3360.0\n",
+      "exit_code": 0
+    },
+    {
+      "id": "zero-expenses",
+      "program": "automobile-expenses.py",
+      "command": "python -X utf8 automobile-expenses.py",
+      "working_directory": "programs/",
+      "stdin": "0\n0\n0\n0\n0\n0\n",
+      "stdout": "Please enter your individual MONTHLY expenses.\nLoan payment: Insurance payment: Gas cost: Oil cost: Tire cost: Maintenance cost: \nTotal monthly expense: $ 0.0\nTotal annual expense: $ 0.0\n",
+      "exit_code": 0
+    },
+    {
+      "id": "golf-invalid-score-and-two-records",
+      "program": "golf-records.py",
+      "command": "python -X utf8 golf-records.py",
+      "working_directory": "programs/",
+      "stdin": "Player A\nbad\nPlayer A\n71\nPlayer B\n68\nexit\n",
+      "stdout": "Please, input each player's name and their respective score.\nWhen done type exit.\n\nPlayer name: Player score: Please enter integer values only. Try again.\nPlayer name: Player score: Player name: Player score: Player name: ...\nThank you for playing at Springfork Amateur Golf Club!\n\nPlayer Scores:\n\nPlayer A, 71\nPlayer B, 68\n",
+      "exit_code": 0
+    },
+    {
+      "id": "course-lookup-normalizes-case",
+      "program": "course-lookup.py",
+      "command": "python -X utf8 course-lookup.py",
+      "working_directory": "programs/",
+      "stdin": "cs101\n",
+      "stdout": "Enter course number: room: 3004\nteacher: Haynes\ntime: 8:00 am\n",
+      "exit_code": 0
+    },
+    {
+      "id": "course-lookup-unknown",
+      "program": "course-lookup.py",
+      "command": "python -X utf8 course-lookup.py",
+      "working_directory": "programs/",
+      "stdin": "CS999\n",
+      "stdout": "Enter course number: Incorrect course number.\n",
+      "exit_code": 0
+    },
+    {
+      "id": "production-worker",
+      "program": "production-worker.py",
+      "command": "python -X utf8 production-worker.py",
+      "working_directory": "programs/",
+      "stdin": "Example Worker\nW-17\n2\n22.5\n",
+      "stdout": "employee name: employee number: shift (1 or 2): hourly pay: \n--- EMPLOYEE INFO ---\nNAME: Example Worker\nNUMBER: W-17\nSHIFT: 2\nPAY RATE: $22.5\n",
+      "exit_code": 0
+    },
+    {
+      "id": "city-menu-all-queries",
+      "program": "city-queries.py",
+      "command": "python -X utf8 city-queries.py",
+      "working_directory": "programs/",
+      "stdin": "1\n2\n3\n4\n5\n6\n7\n8\n",
+      "stdout": "1 - Display a list of cities sorted by population, in ascending order.\n2 - Display a list of cities sorted by population, in descending order.\n3 - Display a list of cities sorted by name.\n4 - Display the total population of all the cities.\n5 - Display the average population of all the cities.\n6 - Display the city with the highest population.\n7 - Display the city with the lowest population.\n8 - EXIT\nEnter your choice: Display a list of cities sorted by population, in ascending order.\nCity                Population\nGuangzhou           12,458,130\nRio de Janeiro      12,902,306\nManila              12,946,263\nLagos               13,122,829\nChongqing           13,331,579\nIstanbul            14,163,989\nKolkata             14,864,919\nBuenos Aires        15,180,176\nKarachi             16,617,644\nDhaka               17,598,228\nNew York            18,593,220\nCairo               18,771,769\nOsaka               20,237,645\nBeijing             20,383,994\nMexico City         20,998,543\nMumbai              21,042,538\nSao Paulo           21,066,245\nShanghai            23,740,778\nDelhi               25,703,168\nTokyo               38,001,000\n1 - Display a list of cities sorted by population, in ascending order.\n2 - Display a list of cities sorted by population, in descending order.\n3 - Display a list of cities sorted by name.\n4 - Display the total population of all the cities.\n5 - Display the average population of all the cities.\n6 - Display the city with the highest population.\n7 - Display the city with the lowest population.\n8 - EXIT\nEnter your choice: Display a list of cities sorted by population, in descending order.\nCity                Population\nTokyo               38,001,000\nDelhi               25,703,168\nShanghai            23,740,778\nSao Paulo           21,066,245\nMumbai              21,042,538\nMexico City         20,998,543\nBeijing             20,383,994\nOsaka               20,237,645\nCairo               18,771,769\nNew York            18,593,220\nDhaka               17,598,228\nKarachi             16,617,644\nBuenos Aires        15,180,176\nKolkata             14,864,919\nIstanbul            14,163,989\nChongqing           13,331,579\nLagos               13,122,829\nManila              12,946,263\nRio de Janeiro      12,902,306\nGuangzhou           12,458,130\n1 - Display a list of cities sorted by population, in ascending order.\n2 - Display a list of cities sorted by population, in descending order.\n3 - Display a list of cities sorted by name.\n4 - Display the total population of all the cities.\n5 - Display the average population of all the cities.\n6 - Display the city with the highest population.\n7 - Display the city with the lowest population.\n8 - EXIT\nEnter your choice: Display a list of cities sorted by name.\nCity                Population\nBeijing             20,383,994\nBuenos Aires        15,180,176\nCairo               18,771,769\nChongqing           13,331,579\nDelhi               25,703,168\nDhaka               17,598,228\nGuangzhou           12,458,130\nIstanbul            14,163,989\nKarachi             16,617,644\nKolkata             14,864,919\nLagos               13,122,829\nManila              12,946,263\nMexico City         20,998,543\nMumbai              21,042,538\nNew York            18,593,220\nOsaka               20,237,645\nRio de Janeiro      12,902,306\nSao Paulo           21,066,245\nShanghai            23,740,778\nTokyo               38,001,000\n1 - Display a list of cities sorted by population, in ascending order.\n2 - Display a list of cities sorted by population, in descending order.\n3 - Display a list of cities sorted by name.\n4 - Display the total population of all the cities.\n5 - Display the average population of all the cities.\n6 - Display the city with the highest population.\n7 - Display the city with the lowest population.\n8 - EXIT\nEnter your choice: Display the total population of all the cities: 371,724,963\n1 - Display a list of cities sorted by population, in ascending order.\n2 - Display a list of cities sorted by population, in descending order.\n3 - Display a list of cities sorted by name.\n4 - Display the total population of all the cities.\n5 - Display the average population of all the cities.\n6 - Display the city with the highest population.\n7 - Display the city with the lowest population.\n8 - EXIT\nEnter your choice: Display the average population of all the cities: 18,586,248\n1 - Display a list of cities sorted by population, in ascending order.\n2 - Display a list of cities sorted by population, in descending order.\n3 - Display a list of cities sorted by name.\n4 - Display the total population of all the cities.\n5 - Display the average population of all the cities.\n6 - Display the city with the highest population.\n7 - Display the city with the lowest population.\n8 - EXIT\nEnter your choice: Display the city with the highest population: Tokyo (38,001,000)\n1 - Display a list of cities sorted by population, in ascending order.\n2 - Display a list of cities sorted by population, in descending order.\n3 - Display a list of cities sorted by name.\n4 - Display the total population of all the cities.\n5 - Display the average population of all the cities.\n6 - Display the city with the highest population.\n7 - Display the city with the lowest population.\n8 - EXIT\nEnter your choice: Display the city with the lowest population: Guangzhou (12,458,130)\n1 - Display a list of cities sorted by population, in ascending order.\n2 - Display a list of cities sorted by population, in descending order.\n3 - Display a list of cities sorted by name.\n4 - Display the total population of all the cities.\n5 - Display the average population of all the cities.\n6 - Display the city with the highest population.\n7 - Display the city with the lowest population.\n8 - EXIT\nEnter your choice: ",
+      "exit_code": 0
+    },
+    {
+      "id": "city-menu-invalid-text-and-range",
+      "program": "city-queries.py",
+      "command": "python -X utf8 city-queries.py",
+      "working_directory": "programs/",
+      "stdin": "abc\n0\n9\n4\n8\n",
+      "stdout": "1 - Display a list of cities sorted by population, in ascending order.\n2 - Display a list of cities sorted by population, in descending order.\n3 - Display a list of cities sorted by name.\n4 - Display the total population of all the cities.\n5 - Display the average population of all the cities.\n6 - Display the city with the highest population.\n7 - Display the city with the lowest population.\n8 - EXIT\nEnter your choice: That wasn't a number.\n1 - Display a list of cities sorted by population, in ascending order.\n2 - Display a list of cities sorted by population, in descending order.\n3 - Display a list of cities sorted by name.\n4 - Display the total population of all the cities.\n5 - Display the average population of all the cities.\n6 - Display the city with the highest population.\n7 - Display the city with the lowest population.\n8 - EXIT\nEnter your choice: Enter a valid choice (1–8): Enter a valid choice (1–8): Display the total population of all the cities: 371,724,963\n1 - Display a list of cities sorted by population, in ascending order.\n2 - Display a list of cities sorted by population, in descending order.\n3 - Display a list of cities sorted by name.\n4 - Display the total population of all the cities.\n5 - Display the average population of all the cities.\n6 - Display the city with the highest population.\n7 - Display the city with the lowest population.\n8 - EXIT\nEnter your choice: ",
+      "exit_code": 0
+    }
+  ],
+  "database_checks": {
+    "count": 20,
+    "total": 371724963.0,
+    "average": 18586248.15,
+    "highest": [
+      "Tokyo",
+      38001000.0
+    ],
+    "lowest": [
+      "Guangzhou",
+      12458130.0
+    ],
+    "ascending": [
+      [
+        "Guangzhou",
+        12458130.0
+      ],
+      [
+        "Rio de Janeiro",
+        12902306.0
+      ],
+      [
+        "Manila",
+        12946263.0
+      ],
+      [
+        "Lagos",
+        13122829.0
+      ],
+      [
+        "Chongqing",
+        13331579.0
+      ],
+      [
+        "Istanbul",
+        14163989.0
+      ],
+      [
+        "Kolkata",
+        14864919.0
+      ],
+      [
+        "Buenos Aires",
+        15180176.0
+      ],
+      [
+        "Karachi",
+        16617644.0
+      ],
+      [
+        "Dhaka",
+        17598228.0
+      ],
+      [
+        "New York",
+        18593220.0
+      ],
+      [
+        "Cairo",
+        18771769.0
+      ],
+      [
+        "Osaka",
+        20237645.0
+      ],
+      [
+        "Beijing",
+        20383994.0
+      ],
+      [
+        "Mexico City",
+        20998543.0
+      ],
+      [
+        "Mumbai",
+        21042538.0
+      ],
+      [
+        "Sao Paulo",
+        21066245.0
+      ],
+      [
+        "Shanghai",
+        23740778.0
+      ],
+      [
+        "Delhi",
+        25703168.0
+      ],
+      [
+        "Tokyo",
+        38001000.0
+      ]
+    ],
+    "descending": [
+      [
+        "Tokyo",
+        38001000.0
+      ],
+      [
+        "Delhi",
+        25703168.0
+      ],
+      [
+        "Shanghai",
+        23740778.0
+      ],
+      [
+        "Sao Paulo",
+        21066245.0
+      ],
+      [
+        "Mumbai",
+        21042538.0
+      ],
+      [
+        "Mexico City",
+        20998543.0
+      ],
+      [
+        "Beijing",
+        20383994.0
+      ],
+      [
+        "Osaka",
+        20237645.0
+      ],
+      [
+        "Cairo",
+        18771769.0
+      ],
+      [
+        "New York",
+        18593220.0
+      ],
+      [
+        "Dhaka",
+        17598228.0
+      ],
+      [
+        "Karachi",
+        16617644.0
+      ],
+      [
+        "Buenos Aires",
+        15180176.0
+      ],
+      [
+        "Kolkata",
+        14864919.0
+      ],
+      [
+        "Istanbul",
+        14163989.0
+      ],
+      [
+        "Chongqing",
+        13331579.0
+      ],
+      [
+        "Lagos",
+        13122829.0
+      ],
+      [
+        "Manila",
+        12946263.0
+      ],
+      [
+        "Rio de Janeiro",
+        12902306.0
+      ],
+      [
+        "Guangzhou",
+        12458130.0
+      ]
+    ],
+    "by_name": [
+      [
+        "Beijing",
+        20383994.0
+      ],
+      [
+        "Buenos Aires",
+        15180176.0
+      ],
+      [
+        "Cairo",
+        18771769.0
+      ],
+      [
+        "Chongqing",
+        13331579.0
+      ],
+      [
+        "Delhi",
+        25703168.0
+      ],
+      [
+        "Dhaka",
+        17598228.0
+      ],
+      [
+        "Guangzhou",
+        12458130.0
+      ],
+      [
+        "Istanbul",
+        14163989.0
+      ],
+      [
+        "Karachi",
+        16617644.0
+      ],
+      [
+        "Kolkata",
+        14864919.0
+      ],
+      [
+        "Lagos",
+        13122829.0
+      ],
+      [
+        "Manila",
+        12946263.0
+      ],
+      [
+        "Mexico City",
+        20998543.0
+      ],
+      [
+        "Mumbai",
+        21042538.0
+      ],
+      [
+        "New York",
+        18593220.0
+      ],
+      [
+        "Osaka",
+        20237645.0
+      ],
+      [
+        "Rio de Janeiro",
+        12902306.0
+      ],
+      [
+        "Sao Paulo",
+        21066245.0
+      ],
+      [
+        "Shanghai",
+        23740778.0
+      ],
+      [
+        "Tokyo",
+        38001000.0
+      ]
+    ]
+  },
+  "source_data_unchanged": true
+}

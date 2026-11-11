@@ -1,0 +1,125 @@
+{
+  "sources": [
+    {
+      "id": "holism-speech-2023",
+      "sha256": "3c9937a5f59c6bf52edc65ca874a0cfd4eb1dd0511d42d748429f4a6d8342479",
+      "source_heading": "Holism Speech",
+      "display_title": "A Fool’s Guide to Tightrope Walking",
+      "display_title_status": "Student-reported November 10, 2026",
+      "paragraph_numbering": "Zero-based nonempty DOCX body paragraphs, including title",
+      "speech_paragraphs": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "works_cited_heading_paragraph": 7,
+      "reference_paragraphs": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "editorial_changes": [
+        {
+          "paragraph": 1,
+          "change": "Speaker self-identification clause omitted; surrounding sentence retained."
+        }
+      ],
+      "paragraph_checksums": [
+        {
+          "paragraph": 1,
+          "source_sha256": "df9f94c8a212ee73f450218cb7f03a83391adcc9203fe2169c3aa295ef3f03ab",
+          "export_sha256": "fcc8753c225a729e6e52a02a3821d807058acce338f757cf2bebfb6b6321a77e"
+        },
+        {
+          "paragraph": 2,
+          "source_sha256": "d5f302bb8e289e118355d96f51e93011e566137f5036d89477ece5d1e681b95b",
+          "export_sha256": "d5f302bb8e289e118355d96f51e93011e566137f5036d89477ece5d1e681b95b"
+        },
+        {
+          "paragraph": 3,
+          "source_sha256": "2e2df1116a81caee2a555794f5235f0c2d7a0ba9f5be2798c6d4a20db9094e70",
+          "export_sha256": "2e2df1116a81caee2a555794f5235f0c2d7a0ba9f5be2798c6d4a20db9094e70"
+        },
+        {
+          "paragraph": 4,
+          "source_sha256": "0e577b8e6c79b14a7313819cfeccf9e53229dcbc2f307ec6088b664f2d8c1c09",
+          "export_sha256": "0e577b8e6c79b14a7313819cfeccf9e53229dcbc2f307ec6088b664f2d8c1c09"
+        },
+        {
+          "paragraph": 5,
+          "source_sha256": "6d51278fdc85689e4e52fd77c2cb013534a0fcf58f62fdf7b4df14a54691d33b",
+          "export_sha256": "6d51278fdc85689e4e52fd77c2cb013534a0fcf58f62fdf7b4df14a54691d33b"
+        },
+        {
+          "paragraph": 6,
+          "source_sha256": "bba857ef01268c4e2a406755a200d7ccef4b50c9a82aca54cd7fc0e20894ea8a",
+          "export_sha256": "bba857ef01268c4e2a406755a200d7ccef4b50c9a82aca54cd7fc0e20894ea8a"
+        },
+        {
+          "paragraph": 7,
+          "source_sha256": "8a94026cee4e03b2870d74bd847bf028c3608b43223c6a129e19665d8cc952ff",
+          "export_sha256": "8a94026cee4e03b2870d74bd847bf028c3608b43223c6a129e19665d8cc952ff"
+        },
+        {
+          "paragraph": 8,
+          "source_sha256": "d19061efb5ec567183b702e7a268dafb0bc9c4645e4e0b4ba59d0ee710ae4f97",
+          "export_sha256": "d19061efb5ec567183b702e7a268dafb0bc9c4645e4e0b4ba59d0ee710ae4f97"
+        },
+        {
+          "paragraph": 9,
+          "source_sha256": "7eb96ad1f9608aa88be265cef97e3b7dc71e33e1d043a145cbf773904a395292",
+          "export_sha256": "7eb96ad1f9608aa88be265cef97e3b7dc71e33e1d043a145cbf773904a395292"
+        },
+        {
+          "paragraph": 10,
+          "source_sha256": "52de4033f05ad068fd7558c185b2ac070f62e8931670b50992956b38297157fb",
+          "export_sha256": "52de4033f05ad068fd7558c185b2ac070f62e8931670b50992956b38297157fb"
+        },
+        {
+          "paragraph": 11,
+          "source_sha256": "d38dc21841fa9187f691c8d2176624b36b21437138a36e97ce625356789d4c82",
+          "export_sha256": "d38dc21841fa9187f691c8d2176624b36b21437138a36e97ce625356789d4c82"
+        },
+        {
+          "paragraph": 12,
+          "source_sha256": "48ba22f30e828006217c97097965e512097f6d0c3e70a54f230f23af7c4bb01e",
+          "export_sha256": "48ba22f30e828006217c97097965e512097f6d0c3e70a54f230f23af7c4bb01e"
+        }
+      ],
+      "presentation_outline_paragraphs": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "id": "speech-instructor-feedback-2023",
+      "sha256": "91efc0d08f09f0a63a81339561d4481c4d4b386ec07e68378a58a98fc05174a4",
+      "kind": "Saved historical instructor feedback",
+      "covered_details": [
+        "Tightrope opening",
+        "Purposeful movement",
+        "Visual aids and prop",
+        "Expressive voice",
+        "Pauses",
+        "Eye contact",
+        "Humor",
+        "Duration 8:16"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "file": "speech-script.txt",
+      "sha256": "85d30d6b69b755da1517285adf26a1dc3bcafd610b9a99021fe9016be2e9d375",
+      "kind": "Full speech script and references"
+    }
+  ]
+}

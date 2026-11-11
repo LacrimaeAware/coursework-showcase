@@ -1,0 +1,89 @@
+<h2>Golf scores in a text file</h2>
+<p>Chapter 6, Assignment 10 collects a player name and integer score, stores each pair on its own line, then reads the file back. The <code>while True</code> loop keeps asking for records until a name begins with <code>exit</code>. An invalid score triggers <code>ValueError</code>, the conversion error caught by the program, and the prompts begin again.</p>
+<p><code>with open</code> closes the file when its block finishes. Mode <code>"w"</code> replaces the file with this session’s records; mode <code>"r"</code> reads those records. The relative path <code>../golf.txt</code> places the file one folder above the script’s working directory.</p>
+<p>A run containing an invalid score followed by two valid records ends with:</p>
+<pre aria-label="Golf records read back from the generated file"><code>Player Scores:
+
+Player A, 71
+Player B, 68
+</code></pre>
+<details class="technical"><summary>Read the complete Python program: golf-records.py</summary><div class="technical-content"><pre><code class="language-python"># Record and display user name records.
+
+def record_scores():
+    # Ask player names and golf scores
+    print(
+        "Please, input each player's name and their respective score."
+        "\nWhen done type exit.\n"
+    )
+
+    player_records = ""
+    while True:
+        try:
+            player_name = input("Player name: ").strip()
+            if player_name.lower().startswith("exit"):
+                print("...\nThank you for playing at Springfork Amateur Golf Club!\n")
+                break
+            player_score = int(input("Player score: "))
+            player_records += player_name + ", " + str(player_score) + "\n"
+        except ValueError:
+            print("Please enter integer values only. Try again.")
+            continue
+
+    with open("../golf.txt", "w") as scores_file:
+        scores_file.write(player_records)
+
+def display_scores():
+    # Display contents of golf.txt
+    print("Player Scores:\n")
+    with open("../golf.txt", "r") as scores_file:
+        player_records = scores_file.read()
+
+    for player in player_records.strip().split("\n"):
+        print(player)
+
+record_scores()
+display_scores()
+</code></pre></div></details>
+<p class="source-links"><a href="../../assets/programming-concepts/golf-records.py" download>Download golf-records.py</a></p>
+<h2>Course information in dictionaries</h2>
+<p>Chapter 9, Assignment 1 uses a course number as the key in three dictionaries: room, teacher and meeting time. A dictionary stores key–value pairs so the same course key can retrieve each kind of information. <code>upper()</code> normalizes the typed course number, and <code>course in rooms</code> checks for an existing key before looking it up.</p>
+<p>Entering <code>cs101</code> returns the exercise’s sample record:</p>
+<pre aria-label="Course lookup output"><code>room: 3004
+teacher: Haynes
+time: 8:00 am
+</code></pre>
+<p>An unknown course such as <code>CS999</code> prints <code>Incorrect course number.</code></p>
+<details class="technical"><summary>Read the complete Python program: course-lookup.py</summary><div class="technical-content"><pre><code class="language-python"># 06/22/2025
+# COP2510 - Programming Concepts
+# Chapter 9 Assignment 1
+# Course Info Lookup
+
+# get course from user
+def get_course():
+    return input("Enter course number: ").upper()
+
+# print info for course
+def course_info(course):
+    rooms = {'CS101': 3004, 'CS102': 4501, 'CS103': 6755, 'NT110': 1244, 'CM241': 1411}
+    profs = {'CS101': 'Haynes', 'CS102': 'Alvarado', 'CS103': 'Rich', 'NT110': 'Burke', 'CM241': 'Lee'}
+    times = {'CS101': '8:00 am', 'CS102': '9:00 am', 'CS103': '10:00 am', 'NT110': '11:00 am', 'CM241': '1:00 pm'}
+
+    if course in rooms:
+        print(f"room: {rooms[course]}")
+        print(f"teacher: {profs[course]}")
+        print(f"time: {times[course]}")
+    else:
+        print("Incorrect course number.")
+
+# main thing
+def main():
+    course = get_course()
+    course_info(course)
+
+if __name__ == "__main__":
+    main()
+</code></pre></div></details>
+<p class="source-links"><a href="../../assets/programming-concepts/course-lookup.py" download>Download course-lookup.py</a></p>
+<h2>Python files</h2>
+<p>The program bundle keeps the scripts in a <code>programs/</code> folder with <code>cities.db</code> beside that folder. Run a script from <code>programs/</code> with Python 3. The golf program creates <code>golf.txt</code> in the parent folder.</p>
+<p class="source-links"><a href="../../assets/programming-concepts/programming-concepts.zip" download>Complete program bundle</a><a href="../../assets/programming-concepts/sample-runs.json">Inputs and run transcripts</a></p>

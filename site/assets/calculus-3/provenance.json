@@ -1,0 +1,51 @@
+{
+  "sources": [
+    {
+      "id": "chapter12-coordinates",
+      "source": "Chapter 12/Chapter 12.1/Exercises And Anki Cards.md",
+      "sha256": "892c6e39c419f50b472232d413c8cc46a274a5b3fdf15d8c5135239821450896",
+      "selected_examples": [
+        "Problem 3",
+        "Problem 12"
+      ],
+      "kind": "Saved worked study notes; unaided authorship and submission not claimed"
+    },
+    {
+      "id": "section13-3-curves",
+      "source": "Chapter 13/13.3.md",
+      "sha256": "37de2dfc0681b987037fe3179958510398d5208b7c1751b2a8fa1dc2dd052f12",
+      "selected_examples": [
+        "Exercise 5",
+        "Exercise 17"
+      ],
+      "kind": "Saved worked study notes; unaided authorship and submission not claimed"
+    },
+    {
+      "id": "section13-4-motion",
+      "source": "Chapter 13/13.4.md",
+      "sha256": "4355d3d60b1c87ee4c73ea13bbaeadb4da39d6722397941a1a1c3bd60137ebfc",
+      "selected_examples": [
+        "Exercise 3",
+        "Exercise 15"
+      ],
+      "kind": "Saved worked study notes; unaided authorship and submission not claimed"
+    },
+    {
+      "id": "section14-3-partials",
+      "source": "Chapter 14/14.3.md",
+      "sha256": "4a554e97e07ccd3b66bc7dbece08ddeb022b03148b316adb4a7d0de2fddf379a",
+      "selected_examples": [
+        "Example 1",
+        "Example 7"
+      ],
+      "kind": "Saved worked study notes; unaided authorship and submission not claimed"
+    }
+  ],
+  "files": [
+    {
+      "file": "selected-worked-notes.json",
+      "sha256": "784af456370ef1aaa5ffaff11ff41b6854e01c79038d994aa3c8eae304c23db6",
+      "kind": "Selected example and verification ledger"
+    }
+  ]
+}

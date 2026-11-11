@@ -1,0 +1,13 @@
+SCORE_THRESHOLD = 0.50
+
+with torch.no_grad():
+    prediction = model([input_tensor])[0]
+
+boxes = prediction["boxes"].detach().cpu()
+labels = prediction["labels"].detach().cpu()
+scores = prediction["scores"].detach().cpu()
+
+keep = scores >= SCORE_THRESHOLD
+boxes = boxes[keep]
+labels = labels[keep]
+scores = scores[keep]

@@ -1,0 +1,157 @@
+[
+  {
+    "id": "anatomy",
+    "summary": "Body organization and the structures and processes behind support, movement, nervous signaling and the senses.",
+    "topics": [
+      {
+        "title": "Anatomical language and homeostasis",
+        "description": "Directional terms, body planes and levels of organization provide a common way to describe the body. Homeostasis concerns how feedback helps regulate internal conditions."
+      },
+      {
+        "title": "Chemistry, cells and membranes",
+        "description": "Chemical bonds, water and cell structures connect basic chemistry with living tissue. Membrane transport includes the movement of water and dissolved substances into and out of cells."
+      },
+      {
+        "title": "Tissues, skin and bone",
+        "description": "The four major tissue types connect microscopic structure with function. Skin layers and bone formation, breakdown and maintenance introduce the body's protective and supporting structures."
+      },
+      {
+        "title": "Muscle structure and contraction",
+        "description": "Skeletal muscle links a nerve signal with calcium release and interactions between actin and myosin. The topic connects muscle organization with contraction and the role of ATP."
+      },
+      {
+        "title": "Neurons and reflexes",
+        "description": "Neuron structure, electrical signals and action potentials explain how information travels. Reflex pathways connect sensory input, spinal processing and a motor response."
+      },
+      {
+        "title": "Brain, autonomic control and special senses",
+        "description": "Brain regions and the autonomic nervous system connect nervous structures with automatic body control. Special senses include the structures and receptors involved in vision and hearing."
+      }
+    ],
+    "sourceNote": "Saved Fall 2022 lecture syllabus preview and its stated topic list; accompanying readiness questions follow those lecture outcomes."
+  },
+  {
+    "id": "anatomy-lab",
+    "summary": "Practical identification of anatomical structures, from cells and tissues to the skeleton, muscles and nervous system.",
+    "topics": [
+      {
+        "title": "Orientation, microscopy and cells",
+        "description": "Body cavities, directional language and anatomical planes establish orientation. Microscope use and cell identification connect visible structures with their names and functions."
+      },
+      {
+        "title": "Tissues and membranes",
+        "description": "Recognizing epithelial, connective, muscle and nervous tissue through their structural features. Tissue organization is related to the role of the tissue in a body location."
+      },
+      {
+        "title": "Skin and the skeleton",
+        "description": "Identification of skin layers and associated structures, followed by the axial and appendicular skeleton. Bone names and distinguishing features provide the basis for locating structures on models."
+      },
+      {
+        "title": "Joints and movements",
+        "description": "Joint types are connected with movements such as flexion, extension, abduction and adduction. The material relates the structure of a joint to the movements it permits."
+      },
+      {
+        "title": "Gross muscles",
+        "description": "Locating major muscles and connecting them with the movements they produce. Opposing muscle actions help organize the identification work."
+      },
+      {
+        "title": "Nervous-system structures",
+        "description": "Nervous tissue, spinal cord, nerves, reflexes, brain regions and cranial nerves form the final practical group. The syllabus also includes autonomic nervous-system structures."
+      }
+    ],
+    "sourceNote": "Saved Fall 2022 lab syllabus: practicals I–IV, covering lab-manual chapters 1–14. Original specimen stations were not recovered."
+  },
+  {
+    "id": "chemistry",
+    "summary": "Chemical measurement and atomic structure lead into reactions, quantitative calculations, bonding, gases and solutions.",
+    "topics": [
+      {
+        "title": "Measurement and chemical amounts",
+        "description": "Units, significant figures and density support quantitative chemical work. Formula masses and the mole connect measured masses with amounts of substances."
+      },
+      {
+        "title": "Atoms, ions and electron configurations",
+        "description": "Atomic particles, isotopes and ions establish the structure and charge of an atom. Electron configurations describe the arrangement of its electrons."
+      },
+      {
+        "title": "Formulas, names and reactions",
+        "description": "Chemical nomenclature connects compound names with formulas. The syllabus also includes empirical formulas, balanced reactions and oxidation–reduction reactions."
+      },
+      {
+        "title": "Stoichiometry and energy",
+        "description": "Stoichiometry uses a balanced reaction to calculate how much reactant is needed or product can form. Energy calculations relate chemical change to heat and temperature change."
+      },
+      {
+        "title": "Bonding, molecular shapes and attractions",
+        "description": "Lewis structures and molecular geometry connect the arrangement of atoms with molecular polarity. Intermolecular attractions distinguish interactions between molecules from bonds within a molecule."
+      },
+      {
+        "title": "Gases and solutions",
+        "description": "Gas relationships connect pressure, volume, temperature and amount. Solution calculations cover concentration and the amount of dissolved substance in a given volume."
+      }
+    ],
+    "sourceNote": "Saved Fall 2023 syllabus and Canvas module scope, chapters 1–11; the later modules emphasize gases, intermolecular forces and solutions."
+  },
+  {
+    "id": "chemistry-lab",
+    "summary": "Laboratory measurements, chemical identification and reaction calculations, followed by heat measurements and molecular structures.",
+    "topics": [
+      {
+        "title": "Measurements, instruments and density",
+        "description": "Unit conversions, significant figures and instrument readings support reliable measurements. Mass and displaced volume are combined to calculate density."
+      },
+      {
+        "title": "Spectra, elements and electrons",
+        "description": "Line spectra are compared with reference information to identify elements. Electron configurations and compound naming connect these observations with atomic and ionic descriptions."
+      },
+      {
+        "title": "Reactions and ionic equations",
+        "description": "Observable reaction changes lead into double-displacement reactions and solubility. Molecular, complete ionic and net ionic equations describe the same reaction at different levels."
+      },
+      {
+        "title": "Composition and reaction yields",
+        "description": "Mass, mole and particle conversions support empirical-formula and composition calculations. Stoichiometry then connects reaction amounts with theoretical and percentage yields."
+      },
+      {
+        "title": "Calorimetry and specific heat",
+        "description": "Calorimetry uses measured temperature changes to determine heat exchanged. Specific-heat calculations connect that heat with the sample's mass and temperature change."
+      },
+      {
+        "title": "Lewis structures and molecular geometry",
+        "description": "Bonding regions and lone pairs are counted around a central atom. Their arrangement is used to distinguish electron-group geometry from molecular shape."
+      }
+    ],
+    "sourceNote": "Saved Fall 2023 two-page practical review, labs 1–12. The gas-law lab is explicitly outside that practical's scope."
+  },
+  {
+    "id": "human-development",
+    "summary": "Physical, cognitive and social development across the lifespan, from prenatal development through later life.",
+    "topics": [
+      {
+        "title": "Developmental theories and research",
+        "description": "Theories provide different accounts of how people change over time. Research designs distinguish age-related change from differences between generations or groups."
+      },
+      {
+        "title": "Prenatal development and infancy",
+        "description": "Prenatal periods, birth and early physical development introduce the beginning of the lifespan. Infant cognition and attachment connect early abilities with caregiving relationships."
+      },
+      {
+        "title": "Childhood cognition and relationships",
+        "description": "Language, thinking and learning develop within family, school and cultural settings. Parenting, temperament and social support help organize the course's treatment of childhood."
+      },
+      {
+        "title": "Adolescence and identity",
+        "description": "Puberty, changing reasoning and peer relationships are considered together. Identity development includes exploring possibilities and making commitments."
+      },
+      {
+        "title": "Adult roles and midlife",
+        "description": "Adult development includes work, partnerships, parenting and changing social roles. Midlife topics connect personal development with contributions to other people and future generations."
+      },
+      {
+        "title": "Aging, death and bereavement",
+        "description": "Later-life material covers physical aging, cognition and social development. Death, grief and mourning are considered within their personal and cultural contexts."
+      }
+    ],
+    "sourceNote": "Saved Fall 2022 syllabus and visible module topics, covering lifespan-textbook chapters 1–15. Readiness questions are retrospective study material, not original exam questions."
+  }
+]

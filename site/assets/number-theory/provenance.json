@@ -1,0 +1,111 @@
+{
+  "sources": [
+    {
+      "id": "number-theory-homework-1",
+      "path": "NCF/Semester 1/Number Theory/Assignments/NT_HW1.pdf",
+      "sha256": "52cf59b2de0e03152723f605357f16e3210f401211493e0feb60dc857fb1cd1c",
+      "kind": "Preserved worked homework PDF",
+      "selected_pages": [
+        1,
+        2
+      ],
+      "selected_exercises": [
+        "Chapter 4, Problem 24"
+      ]
+    },
+    {
+      "id": "number-theory-homework-3",
+      "path": "NCF/Semester 1/Number Theory/Assignments/NT_HW3.pdf",
+      "sha256": "493563dda1982cbe85ccba6061ce9470e8bef7d6127e053d0e269d155a6594f7",
+      "kind": "Preserved worked homework PDF",
+      "selected_pages": [
+        2
+      ],
+      "selected_exercises": [
+        "Section 1.1, Problem 1(e)"
+      ]
+    },
+    {
+      "id": "number-theory-homework-4",
+      "path": "NCF/Semester 1/Number Theory/Assignments/NT_HW4.pdf",
+      "sha256": "6ab0d5da444ce1d20bfa9b0ec9479a8143b80e0a06989abc65d0c45dfa9d656e",
+      "kind": "Preserved worked homework PDF",
+      "selected_pages": [
+        2,
+        5
+      ],
+      "selected_exercises": [
+        "Exercise 1, Section 2.2 Problem 7",
+        "Exercise 4, Section 2.3 Problem 12"
+      ]
+    },
+    {
+      "id": "number-theory-homework-6",
+      "path": "NCF/Semester 1/Number Theory/Assignments/NT_HW6.pdf",
+      "sha256": "5f50a6ae9d4a463f489f3d20e7b62ab3cf10d602c60c8b4e90e32b89682b8dd2",
+      "kind": "Preserved worked homework PDF",
+      "selected_pages": [
+        3
+      ],
+      "selected_exercises": [
+        "Exercise 2, Section 4.4 Problem 4(c)"
+      ]
+    },
+    {
+      "id": "number-theory-homework-7",
+      "path": "NCF/Semester 1/Number Theory/Assignments/NT_HW7.pdf",
+      "sha256": "bd29af2385dc7c8d159030e8ed17b31a857b114acf687b3ef8116eb0bd65434c",
+      "kind": "Preserved worked homework PDF",
+      "selected_pages": [
+        2
+      ],
+      "selected_exercises": [
+        "Exercise 1(a), Section 5.2 Problem 11"
+      ]
+    },
+    {
+      "id": "number-theory-homework-8",
+      "path": "NCF/Semester 1/Number Theory/Assignments/NT_HW8.pdf",
+      "sha256": "c5b8e619c04115b68ffda2a8ce7e5f8decd9f8e0d800afcc7206923313df7dc7",
+      "kind": "Preserved worked homework PDF",
+      "selected_pages": [
+        2
+      ],
+      "selected_exercises": [
+        "Exercise 1"
+      ]
+    },
+    {
+      "id": "number-theory-homework-9",
+      "path": "NCF/Semester 1/Number Theory/Assignments/NT_HW9.pdf",
+      "sha256": "195f4f58af79bee8c5bf72bb7f1c8dd660dbce2d9e63ffd889fe3dd9bd7baf78",
+      "kind": "Preserved worked homework PDF",
+      "selected_pages": [
+        2
+      ],
+      "selected_exercises": [
+        "Multiplicative order definition accompanying Exercise 1, Section 8.1 Problem 4"
+      ]
+    },
+    {
+      "id": "number-theory-homework-10",
+      "path": "NCF/Semester 1/Number Theory/Assignments/NT_HW10.pdf",
+      "sha256": "668d99d0b1300c9344db41b3be960785cd2ad6aec1f8acc484cac64d9dce0026",
+      "kind": "Preserved worked homework PDF",
+      "selected_pages": [
+        2
+      ],
+      "selected_exercises": [
+        "Exercise 1, Section 9.1 Problem 6"
+      ]
+    }
+  ],
+  "presentation": "Selected exercise statements and saved proof arguments, transcribed with rendered notation and local explanations. Numerical illustrations are separately recorded in the ledger.",
+  "files": [
+    {
+      "file": "selected-proofs.json",
+      "sha256": "45f5025d89168c81abaafd480f3ec12522415cd928b010021c7be9e21d103d3a",
+      "kind": "Selected problem, result and verification ledger"
+    }
+  ]
+}

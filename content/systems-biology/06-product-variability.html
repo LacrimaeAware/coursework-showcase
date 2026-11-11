@@ -1,0 +1,43 @@
+<h2 id="variability-title" tabindex="-1">Variation across starting counts</h2>
+<p class="section-intro">The variability grid holds volume fixed and varies the starting enzyme and substrate counts. Each grid cell summarizes product values from repeated simulations at the same observation time.</p>
+<div class="map-layout">
+<figure>
+<a aria-label="Open the full-size product variability heatmap" href="../../assets/enzyme/MM_Heatmap.png" rel="noreferrer" target="_blank"><img alt="Product coefficient of variation at time 100. Columns increase initial enzyme from 5 to 50 molecules; rows increase initial substrate from 100 to 800. Low-enzyme cells have the greatest relative variation." height="1088" src="../../assets/enzyme/MM_Heatmap.png" width="1568"/></a>
+<figcaption>\(200\) independent runs per cell, observed at \(t=100\). Color shows product CV. <a class="figure-zoom" href="../../assets/enzyme/MM_Heatmap.png" rel="noreferrer" target="_blank">Open full-size heatmap</a></figcaption>
+</figure>
+<div class="map-copy">
+<h3>Coefficient of variation</h3>
+<p>Across the repeated runs, \(\overline P\) is the mean product count and \(s_P\) is its sample standard deviation. The coefficient of variation (CV) expresses the spread as a fraction of the mean.</p>
+<div class="cv-equation">\[\mathrm{CV}=\frac{s_P}{\overline P}\]</div>
+<p>The low-enzyme cells have the greatest relative variation in this grid. Each run contributes its latest recorded product count at \(t=100\); the count stays constant between reaction events.</p>
+<details class="definition"><summary>Fixed-time observation</summary><p>Runs have different reaction times. Reading the state held at the same clock time gives one comparable product count from each run.</p></details>
+</div>
+</div>
+<details class="technical">
+<summary>Count grid and reaction constants</summary>
+<div class="technical-content">
+<p>This exercise uses a second set of reaction constants.</p>
+<table>
+<caption>Fixed-time product variability</caption>
+<tbody>
+<tr><th scope="row">Initial enzyme</th><td>\(E_0=5,10,\ldots,50\) molecules</td></tr>
+<tr><th scope="row">Initial substrate</th><td>\(S_0=100,200,\ldots,800\) molecules</td></tr>
+<tr><th scope="row">Initial complex and product</th><td>\(\mathrm{ES}(0)=P(0)=0\)</td></tr>
+<tr><th scope="row">Binding constant</th><td>\(c_1=0.001\;(\mathrm{molecule}\cdot\mathrm{time})^{-1}\)</td></tr>
+<tr><th scope="row">Separation constant</th><td>\(c_2=0.01\;\mathrm{time}^{-1}\)</td></tr>
+<tr><th scope="row">Product-formation constant</th><td>\(c_3=0.03\;\mathrm{time}^{-1}\)</td></tr>
+<tr><th scope="row">Random seed</th><td>\(1108\)</td></tr>
+</tbody>
+</table>
+<p>The sample variance uses denominator \(n-1\). CV is defined for a positive sample mean; a zero mean gives an undefined value.</p>
+</div>
+</details>
+
+<h2>Fixed-time counts and event windows</h2>
+<p>The next classroom example selects recorded product values inside a narrow time window. In the figure, orange points are event records with \(98&lt;t&lt;102\). Black diamonds mark each displayed run's product count held at \(t=100\).</p>
+<figure><a href="../../assets/systems-biology/MM_Window.png" target="_blank" rel="noreferrer"><img src="../../assets/systems-biology/MM_Window.png" width="1568" height="1088" alt="Five product-count trajectories with orange selected event values in a time window, black snapshot diamonds at time 100, and a histogram containing one fixed-time product count from every run."></a><figcaption>Five displayed paths and the fixed-time product histogram from \(200\) runs. <a href="../../assets/systems-biology/MM_Window.png" target="_blank" rel="noreferrer">Open full-size figure</a></figcaption></figure>
+<p>The histogram uses one fixed-time count from every run. The selected event records retain their run identities. The classroom notes establish the selection operation; the rule for combining those selected values into CV remains unconfirmed.</p>
+<details class="technical"><summary>Time-window example settings</summary><div class="technical-content"><p>Initial enzyme \(E_0=10\), substrate \(S_0=300\), target time \(100\), half-width \(f=2\), and seed \(1109\). The example selects times strictly between \(100-f\) and \(100+f\). Reaction constants match the heatmap's second rate set.</p></div></details>
+<h2>Python sources</h2>
+<p>Keep the three scripts in the same folder. The heatmap uses the surface helper; the window example uses the heatmap's reaction simulator.</p>
+<div class="source-links"><a href="../../assets/systems-biology/MM_Heatmap.py" download>Heatmap script</a><a href="../../assets/systems-biology/MM_Surface.py" download>Time-layer helper</a><a href="../../assets/systems-biology/MM_Window.py" download>Window example</a><a href="../../assets/systems-biology/MM_Window_samples.csv" download>Run-by-run samples</a></div>

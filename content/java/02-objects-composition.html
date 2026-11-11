@@ -1,0 +1,142 @@
+<h2>A carpet contains a rectangle</h2>
+<p>The <code>carpet</code> package divides a small pricing program among three classes. A <code>Rectangle</code> stores dimensions and calculates area. A <code>Carpet</code> stores a rectangle together with a price per square yard. The report program creates carpet objects from keyboard input and prints their prices.</p>
+<table><caption>Responsibilities in the saved program</caption><thead><tr><th>Class</th><th>Stored information and behavior</th></tr></thead><tbody><tr><td><code>Rectangle</code></td><td>Length, width and <code>getArea()</code>.</td></tr><tr><td><code>Carpet</code></td><td>A rectangle, a unit price and <code>getTotalPrice()</code>.</td></tr><tr><td><code class="nowrap">CarpetReport</code></td><td>Input loop, array of carpet objects and printed report.</td></tr></tbody></table>
+<p>This is composition: one object holds another object as a field. <code>Carpet</code> uses the rectangle's behavior instead of duplicating its area calculation.</p>
+<pre><code>public double getTotalPrice() {
+    return rectangle.getArea() * pricePerSqYd;
+}</code></pre>
+<h2>Dimensions, unit price and object state</h2>
+<p>Using dimensions of \(3\) yards by \(4\) yards and a unit price of \(5\) dollars per square yard gives</p>
+\[\begin{aligned}
+ A &amp;= 3\times4 = 12\ \text{square yards},\\
+ C &amp;= 12\times5 = 60\ \text{dollars}.
+\end{aligned}\]
+<p>The example execution prints <code>Total Price: 60.0</code>. The setters update the stored dimensions and price before the getter computes this value. The report keeps up to five carpet objects in an array, preserving each object's own dimensions and price.</p>
+<p>The three source files share the <code>carpet</code> package. Compile them together with <code>javac -encoding UTF-8 -d classes Rectangle.java Carpet.java CarpetReport.java</code>, then run <code>java -cp classes carpet.CarpetReport</code>.</p>
+<details class="technical"><summary>Complete Java source</summary><div class="technical-content"><h3>Rectangle.java</h3><pre><code>package carpet;
+
+class Rectangle
+{
+    private double length;
+    private double width;
+    Rectangle(){
+        length = 0;
+        width = 0;
+    }
+    Rectangle (double len, double wid){
+        length = len;
+        width = wid;
+    }
+    public void setLength(double len)
+    { length = len; }
+    public void setWidth(double wid)
+    { width = wid; }
+    public double getLength()
+    { return length; }
+    public double getWidth()
+    { return width; }
+    public double getArea()
+    { return length * width; }
+}
+</code></pre><h3>Carpet.java</h3><pre><code>package carpet;
+
+public class Carpet {
+
+    // Vars
+    private Rectangle rectangle;
+    private double pricePerSqYd;
+
+    // Default Constructor
+    public Carpet() {
+        rectangle = new Rectangle();
+        pricePerSqYd = 0.0;
+    }
+
+    // Set
+    public void setDimensions(double length, double width) {
+        rectangle.setLength(length);
+        rectangle.setWidth(width);
+    }
+    public void setPricePerYd(double pricePerSqYd) {
+        this.pricePerSqYd = pricePerSqYd;
+    }
+
+    // Get
+    public Rectangle get_Rectangle() {
+        return rectangle;
+    }
+    public double get_PricePerSqYd() {
+        return pricePerSqYd;
+    }
+
+    // Method
+    public double getTotalPrice() {
+        return rectangle.getArea() * pricePerSqYd;
+    }
+}
+</code></pre><h3>CarpetReport.java</h3><pre><code>package carpet;
+
+/*
+ * Programming Discussion 5
+ * Carpet Data
+ */
+
+import java.util.Scanner;
+
+public class CarpetReport {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Vars
+        Carpet[] carpets = new Carpet[5];
+        int count = 0;
+        boolean term = false;
+        String flirt = &quot;✦&quot;;
+
+        // Intro
+        System.out.println(flirt.repeat(15));
+
+        // Loop
+        while (!term) {
+            Carpet carpet = new Carpet();
+
+            System.out.print(&quot;Enter length: &quot;);
+            double length = Double.parseDouble(scanner.nextLine());
+            System.out.print(&quot;Enter width: &quot;);
+            double width = Double.parseDouble(scanner.nextLine());
+            carpet.setDimensions(length, width);
+
+            System.out.print(&quot;Enter price per square yard: &quot;);
+            double price = Double.parseDouble(scanner.nextLine());
+            carpet.setPricePerYd(price);
+
+            carpets[count] = carpet;
+            count = count + 1;
+
+            System.out.print(&#x27;\n&#x27;);
+            System.out.print(&quot;Do you wish to continue? [Y/N]: &quot;);
+            String response = scanner.nextLine();
+            System.out.print(&#x27;\n&#x27;);
+
+            term = (count == 5 || response.toLowerCase().startsWith(&quot;n&quot;));
+        }
+
+        // Display
+        for (int i = 0; i &lt; count; i++) {
+            System.out.print(&#x27;\n&#x27;);
+            System.out.print(&quot;Length: &quot; + carpets[i].get_Rectangle().getLength());
+            System.out.print(&#x27;\n&#x27;);
+            System.out.print(&quot;Width: &quot; + carpets[i].get_Rectangle().getWidth());
+            System.out.print(&#x27;\n&#x27;);
+            System.out.print(&quot;Price per square yard: &quot; + carpets[i].get_PricePerSqYd());
+            System.out.print(&#x27;\n&#x27;);
+            System.out.print(&quot;Total Price: &quot; + carpets[i].getTotalPrice());
+            System.out.print(&#x27;\n&#x27;);
+        }
+
+        // Outro
+        System.out.print(&quot;\nTerminating...\n&quot;);
+        System.out.println(flirt.repeat(15));
+    }
+}
+</code></pre></div></details><p class="source-links"><a href="../../assets/java/Rectangle.java" download>Rectangle.java</a> <a href="../../assets/java/Carpet.java" download>Carpet.java</a> <a href="../../assets/java/CarpetReport.java" download>CarpetReport.java</a></p>

@@ -1,0 +1,33 @@
+{
+  "title": "Java Programming I",
+  "shortTitle": "Java",
+  "term": "Fall 2025",
+  "intro": "Selected programs move from methods and arrays to objects, composition and a registration program that writes records to a file. Complete source is available with each example.",
+  "chapters": [
+    {
+      "slug": "01-methods-arrays",
+      "title": "Methods, loops and arrays",
+      "shortTitle": "Methods and arrays",
+      "summary": "Extract calculations into methods and summarize six paired records.",
+      "record": "Chapters 6–7 · saved Assignments 5–6",
+      "format": "code"
+    },
+    {
+      "slug": "02-objects-composition",
+      "title": "Objects and composition",
+      "shortTitle": "Objects and composition",
+      "summary": "Separate dimensions, pricing and input through cooperating classes.",
+      "record": "Object exercises · saved carpet package",
+      "format": "code"
+    },
+    {
+      "slug": "03-registration-files",
+      "title": "Registration, validation and files",
+      "shortTitle": "Registration and files",
+      "summary": "Combine repeated input, menu validation, tuition calculation and file output.",
+      "record": "Project 1 · historical school-registration program",
+      "format": "code"
+    }
+  ],
+  "coverage": "Six source files selected from the Java assignments and Project 1"
+}

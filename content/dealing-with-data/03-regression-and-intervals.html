@@ -1,0 +1,32 @@
+<h2>Radio advertising and sales</h2>
+<p>Homework 4 moves from comparisons between group means to a relationship between two quantitative variables. The Advertising data contain \(200\) observations. Radio spending is measured in thousands of dollars, while sales are measured in thousands of units. The response is sales; radio spending is the predictor used to estimate its mean.</p>
+<pre><code class="language-r">advertising &lt;- read.csv("Advertising.csv")
+model_radio &lt;- lm(sales ~ radio, data = advertising)
+coef(model_radio)
+confint(model_radio, level = 0.95)</code></pre>
+<p><code>lm()</code> fits the line by minimizing the sum of squared residuals, the differences between observed and fitted sales. The formula <code>sales ~ radio</code> identifies the response and predictor. Homework 5 records the fitted equation:</p>
+\[
+\widehat{\mathrm{sales}}
+=9.31164+0.20250\,\mathrm{radio}.
+\]
+<figure style="max-width:700px">
+  <a href="../../assets/dealing-with-data/radio-sales.png" target="_blank" rel="noreferrer"><img src="../../assets/dealing-with-data/radio-sales.png" width="1344" height="960" alt="Sales against radio advertising spending for 200 observations, with an upward blue fitted regression line and substantial scatter."></a>
+  <figcaption>The saved Homework 5 scatterplot and fitted line. <a href="../../assets/dealing-with-data/radio-sales.png" target="_blank" rel="noreferrer">Open full-size plot</a></figcaption>
+</figure>
+<p>The slope associates an additional \(\$1{,}000\) of radio spending with approximately \(0.20250\) thousand additional units of predicted sales. The intercept gives predicted sales at zero radio spending. There is substantial scatter around the line: the model's \(R^2=0.3320\) means it accounts for about \(33.2\%\) of the observed variation in sales around the sample mean.</p>
+<h2>Uncertainty in the slope</h2>
+<p>The slope's standard error is \(0.02041\), an estimate of how much the slope estimator varies across repeated samples under the model. The confidence interval combines this uncertainty with a critical value from a \(t\) distribution:</p>
+\[
+\hat\beta_1\pm t_{0.975,198}\operatorname{SE}(\hat\beta_1).
+\]
+<table>
+  <caption>Recorded intervals for the radio slope, in thousands of sales units per thousand dollars</caption>
+  <thead><tr><th scope="col">Confidence level</th><th scope="col">Slope interval</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">\(95\%\)</th><td>\((0.16224,0.24275)\)</td></tr>
+    <tr><th scope="row">\(99\%\)</th><td>\((0.14941,0.25558)\)</td></tr>
+  </tbody>
+</table>
+<p>The higher-confidence method produces a wider interval. Both intervals are positive. The saved slope test gives \(t=9.921\) on \(198\) residual degrees of freedom and \(p&lt;2\times10^{-16}\), supporting a positive linear association. These calculations describe a fitted relationship in observational data; they do not by themselves identify a causal sales increase.</p>
+<p>The assignment also asks for a prediction at radio spending of \(\$50{,}000\). Using the unrounded fit gives approximately \(19.436\) thousand sales units. That requested spending is just beyond the sample maximum of \(\$49{,}600\), so it slightly extends the line beyond the observed predictor range. A confidence interval for the slope is not an interval for a new observation's sales.</p>
+<p class="source-links"><a href="../../assets/dealing-with-data/radio-regression.R" download>R regression calculations</a><a href="../../assets/dealing-with-data/Advertising.csv" download>Advertising data</a></p>

@@ -1,0 +1,57 @@
+<p class="study-context">Selected saved notes: Chapter 12.1, Problems 3 and 12.</p>
+
+<section class="problem" id="nearest-coordinate-planes" data-study-problem>
+<h2>Distance to a coordinate plane</h2>
+<p class="chapter-record">Chapter 12.1 · Problem 3</p>
+<p>Which of the points</p>
+\[
+\begin{aligned}
+A&=(-4,0,-1),\\
+B&=(3,1,-5),\\
+C&=(2,4,6)
+\end{aligned}
+\]
+<p>is closest to the \(yz\)-plane? Which point lies in the \(xz\)-plane?</p>
+<h3>The coordinate perpendicular to the plane</h3>
+<p>The \(yz\)-plane consists of points whose \(x\)-coordinate is zero. Moving perpendicularly to it changes only \(x\), so the distance from \((x,y,z)\) to this plane is \(|x|\). The three distances are</p>
+\[
+\begin{aligned}
+d(A,yz)&=|-4|=4,\\
+d(B,yz)&=|3|=3,\\
+d(C,yz)&=|2|=2.
+\end{aligned}
+\]
+<p>The smallest distance is \(2\), so \(C\) is closest to the \(yz\)-plane.</p>
+<p>The \(xz\)-plane consists of points with \(y=0\). Only \(A=(-4,0,-1)\) has this coordinate, so \(A\) lies in the \(xz\)-plane.</p>
+</section>
+
+<section class="problem" id="triangle-displacement-lengths" data-study-problem>
+<h2>Side lengths of a triangle</h2>
+<p class="chapter-record">Chapter 12.1 · Problem 12</p>
+<p>Find the side lengths of the triangle with vertices</p>
+\[
+\begin{aligned}
+P&=(2,-1,0),\\
+Q&=(4,1,1),\\
+R&=(4,-5,4).
+\end{aligned}
+\]
+<p>Determine whether the triangle is right or isosceles. A right triangle has a right angle; an isosceles triangle has two equal side lengths.</p>
+<h3>Displacements and squared lengths</h3>
+<p>A displacement vector subtracts the starting point's coordinates from the ending point's coordinates. Its length is the square root of the sum of its squared components:</p>
+\[
+\begin{aligned}
+\overrightarrow{PQ}&=(2,2,1),\\
+|\overrightarrow{PQ}|^2&=2^2+2^2+1^2=9,\\
+\overrightarrow{PR}&=(2,-4,4),\\
+|\overrightarrow{PR}|^2&=2^2+(-4)^2+4^2=36,\\
+\overrightarrow{QR}&=(0,-6,3),\\
+|\overrightarrow{QR}|^2&=0^2+(-6)^2+3^2=45.
+\end{aligned}
+\]
+<p>The side lengths are \(3\), \(6\) and \(3\sqrt5\). The largest squared length equals the sum of the other two:</p>
+\[
+45=9+36.
+\]
+<p>Thus the triangle is right, with its right angle at \(P\). The two vectors from \(P\) also have dot product \(2\cdot2+2(-4)+1\cdot4=0\), confirming that they are perpendicular. All three side lengths differ, so the triangle is not isosceles.</p>
+</section>

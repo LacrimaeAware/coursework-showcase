@@ -1,0 +1,99 @@
+{
+  "parameters": {
+    "alpha": 100.0,
+    "rho": 167.1,
+    "external_input_T": 10.0,
+    "beta": 0.4896718197808016,
+    "numerator_constant": 1
+  },
+  "equilibria": [
+    [
+      0.3235073876947701,
+      0.6606616403606523
+    ],
+    [
+      3.341171016248256,
+      6.8232862935504635
+    ],
+    [
+      45.30250357413712,
+      92.51605206608886
+    ]
+  ],
+  "eigenvalues": [
+    [
+      -0.5661435065875033,
+      -1.4338564934124967
+    ],
+    [
+      0.3077944171012763,
+      -2.3077944171012756
+    ],
+    [
+      -0.6132105708585416,
+      -1.3867894291414584
+    ]
+  ],
+  "fold_X": [
+    1.0122647298926268,
+    12.770094757542537
+  ],
+  "fold_A": [
+    84.05609452983894,
+    25.697771739798302
+  ],
+  "bistable_input_interval": [
+    3.414422499588103,
+    24.60972875709601
+  ],
+  "grid": {
+    "shape": [
+      51,
+      51
+    ],
+    "x_range": [
+      0,
+      10
+    ],
+    "y_range": [
+      0,
+      10
+    ],
+    "spacing": 0.2,
+    "lower": 1040,
+    "upper": 1561,
+    "unresolved": 0,
+    "maximum_final_time": 100.0,
+    "time_extended": 7
+  },
+  "refinement": {
+    "points": 411,
+    "lower": 210,
+    "upper": 201,
+    "unresolved": 0,
+    "DOP853_Radau_agreement": 411,
+    "spacing": 0.1,
+    "additional_points": 273,
+    "repeated_coarse_points": 138
+  },
+  "criteria": {
+    "normalized_endpoint_tolerance": 1e-05,
+    "normalized_residual_tolerance": 1e-08,
+    "time_limits": [
+      50.0,
+      100.0,
+      200.0
+    ],
+    "scale": [
+      44.97899618644235,
+      91.8553904257282
+    ]
+  },
+  "runtime": {
+    "scipy": "1.17.1",
+    "primary_solver": "DOP853",
+    "boundary_crosscheck": "Radau",
+    "matlab": "Not verified: neither MATLAB nor Octave executable found in PATH; standard MATLAB installation directory absent."
+  },
+  "saddle_label": 3
+}

@@ -1,0 +1,68 @@
+<h2>Reaction clocks</h2>
+<p>The enzyme mechanism from Chapter 1 can be simulated as a sequence of random events. The current molecule counts set the binding, complex-separation and product-formation event rates.</p>
+<table><caption>Two stochastic sampling methods</caption><thead><tr><th scope="col">Method</th><th scope="col">Clock and outcome</th></tr></thead><tbody><tr><th scope="row">Fixed time step</th><td>Advance by a small interval, then select binding, separation, product formation or no reaction.</td></tr><tr><th scope="row">Exact Gillespie SSA</th><td>Sample the waiting time and next reaction from the current event rates.</td></tr></tbody></table>
+<p>The comparison below uses the exact stochastic simulation algorithm (SSA). Repeated runs show how random product counts relate to the deterministic ordinary differential equation (ODE).</p>
+<h2 id="trajectories-title" tabindex="-1">Continuous rates and reaction events</h2>
+<div class="mechanism-intro">
+<p>An enzyme binds substrate to form a complex. The complex can separate again or form product, freeing the enzyme for another reaction.</p>
+<div class="reaction">
+<div class="reaction-equation">\[E+S\;\rightleftharpoons\;\mathrm{ES}\;\longrightarrow\;E+P\]</div>
+<p>\(E\): free enzyme · \(S\): substrate · \(\mathrm{ES}\): complex · \(P\): product</p>
+</div>
+</div>
+<figure class="trajectory-figure">
+<a aria-label="Open the full-size product trajectory comparison" href="../../assets/enzyme/enzyme_deterministic_stochastic.png" rel="noreferrer" target="_blank">
+<span class="trajectory-first"><img alt="Product trajectories at two system sizes. The original size has a wide simulation band and visibly irregular individual path. At ten times the molecule counts and volume, normalized product trajectories fluctuate less." height="756" src="../../assets/enzyme/enzyme_deterministic_stochastic.png" width="1944"/></span>
+<span aria-hidden="true" class="trajectory-second"><img alt="" height="756" src="../../assets/enzyme/enzyme_deterministic_stochastic.png" width="1944"/></span>
+</a>
+<figcaption>\(500\) independent stochastic runs at each size. Product counts are divided by the system-size multiplier. <a class="figure-zoom" href="../../assets/enzyme/enzyme_deterministic_stochastic.png" rel="noreferrer" target="_blank">Open full-size comparison</a></figcaption>
+</figure>
+<div class="interpretation">
+<div>
+<h3>Product across repeated runs</h3>
+<p>The orange path shows product counts in one stochastic run. The teal curve averages the simulated runs, and the shading spans the middle \(95\%\) of product counts at each time. The dashed curve is the deterministic mass-action approximation, computed with ordinary differential equations (ODEs).</p>
+<details class="definition"><summary>Pointwise simulation band</summary><p>The percentile limits are calculated separately at each observation time. They describe the spread of product counts across the repeated runs.</p></details>
+</div>
+<div>
+<h3>Increasing the system size</h3>
+<p>The larger system has \(10\) times the molecule counts and volume, keeping initial concentrations fixed. On the shared vertical scale, the final standard deviation falls from \(3.18\) to \(1.03\). The normalized ODE stays the same while the random reaction paths cluster more closely around it.</p>
+<details class="definition"><summary>Standard deviation</summary><p>The spread of product values around their mean across repeated runs, expressed in the graph's normalized count units.</p></details>
+</div>
+</div>
+<details class="technical">
+<summary>System sizes and simulation settings</summary>
+<div class="technical-content">
+<p>Illustrative enzyme simulation. Time uses arbitrary units.</p>
+<table>
+<caption>ODE and stochastic comparison</caption>
+<tbody>
+<tr><th scope="row">Initial counts</th><td>\((E,S,\mathrm{ES},P)=(10,40,0,0)\)</td></tr>
+<tr><th scope="row">Binding constant</th><td>\(c_1=0.02\;(\mathrm{molecule}\cdot\mathrm{time})^{-1}\)</td></tr>
+<tr><th scope="row">Separation constant</th><td>\(c_2=0.4\;\mathrm{time}^{-1}\)</td></tr>
+<tr><th scope="row">Product-formation constant</th><td>\(c_3=0.2\;\mathrm{time}^{-1}\)</td></tr>
+<tr><th scope="row">End time</th><td>\(t=20\)</td></tr>
+<tr><th scope="row">Runs per size</th><td>\(500\)</td></tr>
+<tr><th scope="row">Random seed</th><td>\(1030\)</td></tr>
+</tbody>
+</table>
+<p>For the larger system, the initial counts and volume are multiplied by \(10\). Dividing the count-based binding constant \(c_1\) by \(10\) preserves the concentration-scale reaction rate.</p>
+<a href="../../assets/enzyme/enzyme_comparison.json">Numerical comparison (JSON)</a>
+</div>
+</details>
+<h2 id="model">Differential equations and source code</h2>
+<details class="technical">
+<summary>Mass-action differential equations</summary>
+<div class="technical-content equations">
+          \[\begin{aligned}
+          \frac{dE}{dt}&amp;=-c_1 E\,S+(c_2+c_3)\mathrm{ES}\\
+          \frac{dS}{dt}&amp;=-c_1 E\,S+c_2\mathrm{ES}\\
+          \frac{d\,\mathrm{ES}}{dt}&amp;=c_1 E\,S-(c_2+c_3)\mathrm{ES}\\
+          \frac{dP}{dt}&amp;=c_3\mathrm{ES}
+          \end{aligned}\]
+          <p>Free enzyme plus complex stays constant. Substrate plus complex plus product also stays constant, expressing the two molecule balances.</p>
+</div>
+</details>
+<div class="source-list">
+<div><div><h4>Continuous and stochastic comparison</h4><p>Download the comparison and engine into the same folder.</p></div><div class="source-links"><a download="" href="../../assets/enzyme/compare_enzyme_ode.py">Comparison</a><a download="" href="../../assets/enzyme/gillespie_demo.py">Reaction engine</a><a href="../../assets/enzyme/enzyme_comparison.json">Results</a></div></div>
+
+</div>

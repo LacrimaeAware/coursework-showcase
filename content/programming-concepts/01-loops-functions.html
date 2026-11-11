@@ -1,0 +1,54 @@
+<h2>Distance at each hour</h2>
+<p>Chapter 4, Assignment 4 takes a constant vehicle speed and a number of whole hours, then prints the distance reached at each hour. The <code>for</code> loop repeats the multiplication for each value from <code>range(1, vehicle_time + 1)</code>. Adding one to the upper bound includes the final hour because Python stops before that bound.</p>
+<p>With speed <code>60</code> and time <code>3</code>, the program prints:</p>
+<pre aria-label="Distance table for speed 60 and three hours"><code>Hour      Distance Travelled
+1         60
+2         120
+3         180
+</code></pre>
+<details class="technical"><summary>Read the complete Python program: distance-table.py</summary><div class="technical-content"><pre><code class="language-python"># Calculate distance traveled by vehicle
+
+# Get vehicle variables
+vehicle_speed = int(input("What is the speed of the vehicle? "))
+vehicle_time = int(input("How many hours has the vehicle travelled? "))
+
+# Display distance travelled by hour
+print("Hour", " "*4, "Distance Travelled")
+for i in range(1, vehicle_time+1):
+    print(i, " "*(8-len(str(i))), vehicle_speed*i)
+</code></pre></div></details>
+<p class="source-links"><a href="../../assets/programming-concepts/distance-table.py" download>Download distance-table.py</a></p>
+<h2>Monthly and annual automobile costs</h2>
+<p>Chapter 5, Assignment 4 separates a calculation from the prompts. <code>calcExpenses</code> receives six monthly costs and returns their sum. <code>main</code> reads the inputs, calls that function, then multiplies the monthly total by twelve for the annual total. <code>float</code> converts each typed value to a number that can include a decimal part.</p>
+<p>Monthly inputs <code>100, 50, 80, 10, 15, 25</code> produce:</p>
+<pre aria-label="Automobile expense output"><code>Total monthly expense: $ 280.0
+Total annual expense: $ 3360.0
+</code></pre>
+<details class="technical"><summary>Read the complete Python program: automobile-expenses.py</summary><div class="technical-content"><pre><code class="language-python"># Calculate monthly and annual automobile expenses
+
+def calcExpenses(loan, insurance, gas, oil, tires, maintenance):
+    # Returns total monthly expenses
+    return loan + insurance + gas + oil + tires + maintenance
+
+def main():
+    print("Please enter your individual MONTHLY expenses.")
+
+    loan = float(input("Loan payment: "))
+    insurance = float(input("Insurance payment: "))
+    gas = float(input("Gas cost: "))
+    oil = float(input("Oil cost: "))
+    tires = float(input("Tire cost: "))
+    maintenance = float(input("Maintenance cost: "))
+
+    total_monthly = calcExpenses(loan, insurance, gas, oil, tires, maintenance)
+    total_annual = total_monthly * 12
+
+    print("\nTotal monthly expense: $", round(total_monthly, 2))
+    print("Total annual expense: $", round(total_annual, 2))
+
+main()
+</code></pre></div></details>
+<p class="source-links"><a href="../../assets/programming-concepts/automobile-expenses.py" download>Download automobile-expenses.py</a></p>
+<h2>Python files</h2>
+<p>The program bundle keeps the scripts in a <code>programs/</code> folder with <code>cities.db</code> beside that folder. Run a script from <code>programs/</code> with Python 3. The golf program creates <code>golf.txt</code> in the parent folder.</p>
+<p class="source-links"><a href="../../assets/programming-concepts/programming-concepts.zip" download>Complete program bundle</a><a href="../../assets/programming-concepts/sample-runs.json">Inputs and run transcripts</a></p>

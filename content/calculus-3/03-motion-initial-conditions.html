@@ -1,0 +1,72 @@
+<p class="study-context">Selected saved notes: Section 13.4, Exercises 3 and 15.</p>
+
+<section class="problem" id="position-to-motion" data-study-problem>
+<h2>Velocity and acceleration from position</h2>
+<p class="chapter-record">Section 13.4 · Exercise 3</p>
+<p>A moving point has position</p>
+\[
+\mathbf r(t)=\left\langle-\frac12t^2,t\right\rangle.
+\]
+<p>Find its velocity, acceleration and speed at \(t=2\). Velocity is the time derivative of position; acceleration is the time derivative of velocity. Speed is the magnitude of velocity.</p>
+<h3>Differentiating each component</h3>
+\[
+\begin{aligned}
+\mathbf v(t)&=\mathbf r'(t)=\langle-t,1\rangle,\\
+\mathbf a(t)&=\mathbf v'(t)=\langle-1,0\rangle,\\
+\|\mathbf v(t)\|&=\sqrt{t^2+1}.
+\end{aligned}
+\]
+<p>Substituting \(t=2\) gives</p>
+\[
+\begin{aligned}
+\mathbf r(2)&=\langle-2,2\rangle,\\
+\mathbf v(2)&=\langle-2,1\rangle,\\
+\mathbf a(2)&=\langle-1,0\rangle,\\
+\|\mathbf v(2)\|&=\sqrt5.
+\end{aligned}
+\]
+<p>Because \(y=t\), eliminating the parameter gives \(x=-y^2/2\), a left-opening parabola. The velocity and acceleration describe motion at the point \((-2,2)\) on that path.</p>
+</section>
+
+<section class="problem" id="motion-from-acceleration" data-study-problem>
+<h2>Position from acceleration and initial data</h2>
+<p class="chapter-record">Section 13.4 · Exercise 15</p>
+<p>Find velocity and position when</p>
+\[
+\begin{aligned}
+\mathbf a(t)&=\langle2,0,2t\rangle,\\
+\mathbf v(0)&=\langle3,-1,0\rangle,\\
+\mathbf r(0)&=\langle0,1,1\rangle.
+\end{aligned}
+\]
+<h3>Velocity constants</h3>
+<p>Integrating acceleration introduces one constant for each component:</p>
+\[
+\mathbf v(t)
+=\langle2t+C_x,C_y,t^2+C_z\rangle.
+\]
+<p>The prescribed velocity at \(t=0\) sets \(C_x=3\), \(C_y=-1\) and \(C_z=0\). Therefore,</p>
+\[
+\mathbf v(t)=\langle2t+3,-1,t^2\rangle.
+\]
+<h3>Position constants</h3>
+<p>Integrate this velocity, again retaining a constant in each component:</p>
+\[
+\mathbf r(t)
+=\begin{pmatrix}
+t^2+3t+D_x\\
+-t+D_y\\
+t^3/3+D_z
+\end{pmatrix}.
+\]
+<p>The prescribed position at \(t=0\) gives \(D_x=0\), \(D_y=1\) and \(D_z=1\). The position is</p>
+\[
+\mathbf r(t)
+=\begin{pmatrix}
+t^2+3t\\
+1-t\\
+1+t^3/3
+\end{pmatrix}.
+\]
+<p>Differentiating this position returns \(\langle2t+3,-1,t^2\rangle\); differentiating once more returns \(\langle2,0,2t\rangle\). At \(t=0\), the two formulas also reproduce both given initial vectors.</p>
+</section>

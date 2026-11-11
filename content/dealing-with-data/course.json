@@ -1,0 +1,46 @@
+{
+  "id": "dealing-with-data",
+  "title": "Dealing with Data II",
+  "shortTitle": "Dealing with Data II",
+  "term": "Spring 2026",
+  "intro": "R calculations lead from data selection and group summaries to ANOVA, regression and comparisons between models. The group final project applies these methods to happiness in the General Social Survey.",
+  "finalProject": {
+    "title": "Happiness in the 2024 General Social Survey",
+    "href": "../../projects/gss-happiness/index.html"
+  },
+  "chapters": [
+    {
+      "slug": "01-data-and-summaries",
+      "title": "Data selection and group summaries",
+      "shortTitle": "R and group summaries",
+      "summary": "Select observations, calculate means and sample spread, and compare variation within and between groups.",
+      "record": "Homework 1–2 · saved R Markdown and rendered results",
+      "format": "code"
+    },
+    {
+      "slug": "02-anova-and-comparisons",
+      "title": "ANOVA and pairwise comparisons",
+      "shortTitle": "ANOVA and comparisons",
+      "summary": "Compare group means, inspect residuals and identify differences with simultaneous intervals.",
+      "record": "Homework 3–4 · original HW3 and final HW4 review output",
+      "format": "analysis"
+    },
+    {
+      "slug": "03-regression-and-intervals",
+      "title": "Regression slopes and confidence intervals",
+      "shortTitle": "Regression and intervals",
+      "summary": "Fit a radio-advertising model, interpret its slope and quantify uncertainty.",
+      "record": "Homework 4–5 · saved fitted line, coefficients and intervals",
+      "format": "analysis"
+    },
+    {
+      "slug": "04-multiple-regression",
+      "title": "Multiple regression and predictor adjustment",
+      "shortTitle": "Multiple regression",
+      "summary": "Compare a predictor alone with its contribution after another predictor is included.",
+      "record": "Homework 6–7 · checked HW6 version and HW7 calculations",
+      "format": "analysis"
+    }
+  ],
+  "coverage": "Selected work from Homework 1–7 and the group final"
+}

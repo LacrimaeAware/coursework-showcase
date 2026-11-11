@@ -1,0 +1,51 @@
+{
+  "runtime": "OpenJDK 24.0.2",
+  "source_version": "Historical Fall 2025 programs, with declared identity/class-name edits",
+  "stock_gain": {
+    "input": [
+      100,
+      10,
+      12,
+      20
+    ],
+    "profit": 200,
+    "new_shares": 60
+  },
+  "stock_loss": {
+    "input": [
+      10,
+      12,
+      8,
+      20
+    ],
+    "loss": 40,
+    "new_shares": 4
+  },
+  "soda_sales": {
+    "counts": [
+      10,
+      4,
+      7,
+      2,
+      8,
+      1
+    ],
+    "total": 32,
+    "top_flavor": "Cola"
+  },
+  "soda_zero": {
+    "total": 0,
+    "top_flavor": ""
+  },
+  "carpet": {
+    "length": 3,
+    "width": 4,
+    "price_per_square_yard": 5,
+    "total": 60
+  },
+  "registration": {
+    "invalid_input_paths_checked": true,
+    "output_row": "123456,Demo,Student,Seaside,COP 2250, , , ,Y,650,Spring"
+  },
+  "exit_without_file": true
+}

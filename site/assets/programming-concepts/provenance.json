@@ -1,0 +1,134 @@
+{
+  "course": "COP2510 Programming Concepts",
+  "term": "Summer 2025",
+  "sources": [
+    {
+      "id": "chapter4-assignment4",
+      "source_sha256": "7100b9cc6cdf354cd64140cc9166aa9e60afd82cb45996c76a1692d070c745c4",
+      "export_file": "distance-table.py",
+      "export_sha256": "7100b9cc6cdf354cd64140cc9166aa9e60afd82cb45996c76a1692d070c745c4",
+      "alterations": [
+        "Normalized CRLF line endings to LF."
+      ]
+    },
+    {
+      "id": "chapter5-assignment4",
+      "source_sha256": "8bc582d5e6926f88c206ef17af0a65d586d3706fed0941451156aaf8cbd879e1",
+      "export_file": "automobile-expenses.py",
+      "export_sha256": "8bc582d5e6926f88c206ef17af0a65d586d3706fed0941451156aaf8cbd879e1",
+      "alterations": [
+        "Normalized CRLF line endings to LF."
+      ]
+    },
+    {
+      "id": "chapter6-assignment10",
+      "source_sha256": "cc7ea589de48aae313bf2e6a179f4b616433879c359d7f3e3a093f041d7a6dcf",
+      "export_file": "golf-records.py",
+      "export_sha256": "cc7ea589de48aae313bf2e6a179f4b616433879c359d7f3e3a093f041d7a6dcf",
+      "alterations": [
+        "Normalized CRLF line endings to LF."
+      ]
+    },
+    {
+      "id": "chapter9-assignment1",
+      "source_sha256": "9ab03f987a201a7be6d05751c0dddf4dac0bfa69ade0d6cdb378e625c8e58675",
+      "export_file": "course-lookup.py",
+      "export_sha256": "6e09d79d8cff328c7e325029b86c37cc4fb09655d4ae2bf9ab9bba611e42c42c",
+      "alterations": [
+        "Removed owner-identifying first-line comment.",
+        "Normalized CRLF line endings to LF."
+      ]
+    },
+    {
+      "id": "chapter11-assignment1",
+      "source_sha256": "d18347f7e36bb1ce03d4911c85e2bae5133b426a30e88fdfaa12c5fa71fe3da1",
+      "export_file": "production-worker.py",
+      "export_sha256": "a49a3e70afdfc77074425fde2908976b04d6f51e5ec7c940b08f1f46b400c4a9",
+      "alterations": [
+        "Removed owner-identifying first-line comment.",
+        "Normalized CRLF line endings to LF."
+      ]
+    },
+    {
+      "id": "chapter14-assignment1",
+      "source_sha256": "6beaa5f5797d328f79a90a79405b0da583c8ce4b2d1178731be1fcefb20f58ab",
+      "export_file": "city-queries.py",
+      "export_sha256": "96f38cf8f0deeeb6c1c8037a6b16b9cf67a14dab021d7ec90df7dfeecd68d063",
+      "alterations": [
+        "Removed owner-identifying first-line comment.",
+        "Normalized CRLF line endings to LF."
+      ]
+    },
+    {
+      "id": "supplied-cities-database",
+      "source_sha256": "0ff9bac3f4e55e5518822d17cf052f263a6c96a7c34df12f31c20550569eee1c",
+      "export_file": "cities.db",
+      "alterations": []
+    }
+  ],
+  "execution": {
+    "python": "3.13.1",
+    "runs": 10,
+    "working_directory": "programs/",
+    "data_location": "Parent directory of programs/",
+    "source_data_unchanged": true,
+    "checks": [
+      "Six Python ASTs match original source after comment and line-ending changes.",
+      "Seven SQLite menu tasks match independent Python sorting and aggregates.",
+      "Invalid golf-score, unknown-course and invalid-menu inputs exercised.",
+      "Zero-hour and zero-expense cases exercised."
+    ]
+  },
+  "files": [
+    {
+      "file": "distance-table.py",
+      "sha256": "7100b9cc6cdf354cd64140cc9166aa9e60afd82cb45996c76a1692d070c745c4",
+      "kind": "Complete original course program"
+    },
+    {
+      "file": "automobile-expenses.py",
+      "sha256": "8bc582d5e6926f88c206ef17af0a65d586d3706fed0941451156aaf8cbd879e1",
+      "kind": "Complete original course program"
+    },
+    {
+      "file": "golf-records.py",
+      "sha256": "cc7ea589de48aae313bf2e6a179f4b616433879c359d7f3e3a093f041d7a6dcf",
+      "kind": "Complete original course program"
+    },
+    {
+      "file": "course-lookup.py",
+      "sha256": "6e09d79d8cff328c7e325029b86c37cc4fb09655d4ae2bf9ab9bba611e42c42c",
+      "kind": "Complete original course program"
+    },
+    {
+      "file": "production-worker.py",
+      "sha256": "a49a3e70afdfc77074425fde2908976b04d6f51e5ec7c940b08f1f46b400c4a9",
+      "kind": "Complete original course program"
+    },
+    {
+      "file": "city-queries.py",
+      "sha256": "96f38cf8f0deeeb6c1c8037a6b16b9cf67a14dab021d7ec90df7dfeecd68d063",
+      "kind": "Complete original course program"
+    },
+    {
+      "file": "cities.db",
+      "sha256": "0ff9bac3f4e55e5518822d17cf052f263a6c96a7c34df12f31c20550569eee1c",
+      "kind": "Supplied practice database"
+    },
+    {
+      "file": "golf-sample.txt",
+      "sha256": "ac9003c4c3794d25a370ec018c9b139f9d716cff99bbadd21e6015596a4eb4df",
+      "kind": "Synthetic records written by the golf sample run"
+    },
+    {
+      "file": "sample-runs.json",
+      "sha256": "82c45b3ae87b677418a0a4a0547015591cb5d5a398af780b9b584f799dc0ae8b",
+      "kind": "Actual controlled inputs and outputs"
+    },
+    {
+      "file": "programming-concepts.zip",
+      "sha256": "2dbfd46420e9968964cf570b26205379f1ae3e1ff7b3e7d40e4e84311e58e2f1",
+      "kind": "Complete programs with original relative data layout"
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+<h2>Employee and production-worker classes</h2>
+<p>Chapter 11, Assignment 1 represents one employee as an object containing a name and employee number. <code>ProductionWorker</code> inherits those fields and methods from <code>Employee</code>, then adds shift and hourly pay. <code>super().__init__</code> calls the parent class’s constructor so the shared fields are initialized in one place.</p>
+<p>The prompts convert shift to an integer and pay to a decimal number before constructing the worker. Inputs <code>Example Worker, W-17, 2, 22.5</code> produce:</p>
+<pre aria-label="Production worker record output"><code>--- EMPLOYEE INFO ---
+NAME: Example Worker
+NUMBER: W-17
+SHIFT: 2
+PAY RATE: $22.5
+</code></pre>
+<details class="technical"><summary>Read the complete Python program: production-worker.py</summary><div class="technical-content"><pre><code class="language-python"># 07/06/2025
+# COP2510 - Programming Concepts
+# Chapter 11 Assignment 1
+# Employee Data
+
+class Employee:
+    def __init__(self, name="", number=""):
+        self.name = name
+        self.number = number
+
+    def set_name(self, name):
+        self.name = name
+
+    def set_number(self, number):
+        self.number = number
+
+    def get_name(self):
+        return self.name
+
+    def get_number(self):
+        return self.number
+
+class ProductionWorker(Employee):
+    def __init__(self, name="", number="", shift=1, pay_rate=0.0):
+        super().__init__(name, number)
+        self.shift = shift
+        self.pay_rate = pay_rate
+
+    def set_shift(self, shift):
+        self.shift = shift
+
+    def set_pay_rate(self, pay_rate):
+        self.pay_rate = pay_rate
+
+    def get_shift(self):
+        return self.shift
+
+    def get_pay_rate(self):
+        return self.pay_rate
+
+def main():
+    name = input("employee name: ")
+    num = input("employee number: ")
+    shift = int(input("shift (1 or 2): "))
+    rate = float(input("hourly pay: "))
+
+    w = ProductionWorker(name, num, shift, rate)
+
+    print("")
+    print("--- EMPLOYEE INFO ---")
+    print("NAME:", w.get_name())
+    print("NUMBER:", w.get_number())
+    print("SHIFT:", w.shift)
+    print("PAY RATE: $" + str(w.get_pay_rate()))
+
+if __name__ == '__main__':
+    main()
+</code></pre></div></details>
+<p class="source-links"><a href="../../assets/programming-concepts/production-worker.py" download>Download production-worker.py</a></p>
+<h2>Sorting and summarizing cities with SQLite</h2>
+<p>Chapter 14, Assignment 1 opens the supplied <code>cities.db</code> practice database and presents a menu of queries. SQLite stores the database in a local file. A cursor sends SQL commands and retrieves their results. <code>fetchall()</code> retrieves a list of result rows, while <code>fetchone()</code> retrieves a single row.</p>
+<p><code>ORDER BY</code> sorts the city records. <code>SUM</code>, <code>AVG</code>, <code>MAX</code> and <code>MIN</code> summarize the population column. The highest- and lowest-population queries then use <code>?</code> to bind the chosen value to a second query and retrieve the city name.</p>
+<p>The supplied practice file contains twenty city records. Its menu returns these summaries:</p>
+<table><caption>SQLite population summaries from the supplied practice data</caption><thead><tr><th>Query</th><th>Result</th></tr></thead><tbody><tr><th scope="row">Total population</th><td>371,724,963</td></tr><tr><th scope="row">Rounded average</th><td>18,586,248</td></tr><tr><th scope="row">Highest population</th><td>Tokyo<br>38,001,000</td></tr><tr><th scope="row">Lowest population</th><td>Guangzhou<br>12,458,130</td></tr></tbody></table>
+<p>The displayed average is rounded to a whole number by the format <code>:,.0f</code>. The original query result is <code>18586248.15</code>. The sample run transcript also contains all three sort orders and invalid-menu input handling.</p>
+<details class="technical"><summary>Read the complete Python program: city-queries.py</summary><div class="technical-content"><pre><code class="language-python"># 07/20/2025
+# COP2510 - Programming Concepts
+# Chapter 14 Assignment 1
+# Database Manipulation
+
+import sqlite3
+
+def main():
+    choice = 0
+    conn = sqlite3.connect('../cities.db')
+    cur = conn.cursor()
+
+    while choice != 8:
+        choice = get_choice()
+        run_task(choice, cur)
+
+    conn.close()
+
+def show_menu():
+    print("1 - Display a list of cities sorted by population, in ascending order.")
+    print("2 - Display a list of cities sorted by population, in descending order.")
+    print("3 - Display a list of cities sorted by name.")
+    print("4 - Display the total population of all the cities.")
+    print("5 - Display the average population of all the cities.")
+    print("6 - Display the city with the highest population.")
+    print("7 - Display the city with the lowest population.")
+    print("8 - EXIT")
+
+def get_choice():
+    show_menu()
+    try:
+        choice = int(input("Enter your choice: "))
+        while choice &lt; 1 or choice &gt; 8:
+            choice = int(input("Enter a valid choice (1–8): "))
+        return choice
+    except ValueError:
+        print("That wasn't a number.")
+        return 0
+
+def run_task(choice, cur):
+    if choice == 1:
+        show_by_population_asc(cur)
+    elif choice == 2:
+        show_by_population_desc(cur)
+    elif choice == 3:
+        show_by_name(cur)
+    elif choice == 4:
+        show_total(cur)
+    elif choice == 5:
+        show_average(cur)
+    elif choice == 6:
+        show_highest(cur)
+    elif choice == 7:
+        show_lowest(cur)
+
+def show_by_population_asc(cur):
+    cur.execute("SELECT CityName, Population FROM Cities ORDER BY Population")
+    cities = cur.fetchall()
+    print("Display a list of cities sorted by population, in ascending order.")
+    display_table(cities)
+
+def show_by_population_desc(cur):
+    cur.execute("SELECT CityName, Population FROM Cities ORDER BY Population DESC")
+    cities = cur.fetchall()
+    print("Display a list of cities sorted by population, in descending order.")
+    display_table(cities)
+
+def show_by_name(cur):
+    cur.execute("SELECT CityName, Population FROM Cities ORDER BY CityName")
+    cities = cur.fetchall()
+    print("Display a list of cities sorted by name.")
+    display_table(cities)
+
+def show_total(cur):
+    cur.execute("SELECT SUM(Population) FROM Cities")
+    total = cur.fetchone()[0]
+    print(f"Display the total population of all the cities: {total:,.0f}")
+
+def show_average(cur):
+    cur.execute("SELECT AVG(Population) FROM Cities")
+    avg = cur.fetchone()[0]
+    print(f"Display the average population of all the cities: {avg:,.0f}")
+
+def show_highest(cur):
+    cur.execute("SELECT MAX(Population) FROM Cities")
+    max_val = cur.fetchone()[0]
+    cur.execute("SELECT CityName, Population FROM Cities WHERE Population = ?", (max_val,))
+    city = cur.fetchone()
+    print(f"Display the city with the highest population: {city[0]} ({city[1]:,.0f})")
+
+def show_lowest(cur):
+    cur.execute("SELECT MIN(Population) FROM Cities")
+    min_val = cur.fetchone()[0]
+    cur.execute("SELECT CityName, Population FROM Cities WHERE Population = ?", (min_val,))
+    city = cur.fetchone()
+    print(f"Display the city with the lowest population: {city[0]} ({city[1]:,.0f})")
+
+def display_table(cities):
+    print(f"{'City':20}Population")
+    for name, pop in cities:
+        print(f"{name:20}{pop:,.0f}")
+
+if __name__ == '__main__':
+    main()</code></pre></div></details>
+<p class="source-links"><a href="../../assets/programming-concepts/city-queries.py" download>Download city-queries.py</a></p>
+<h2>Python files</h2>
+<p>The program bundle keeps the scripts in a <code>programs/</code> folder with <code>cities.db</code> beside that folder. Run a script from <code>programs/</code> with Python 3. The golf program creates <code>golf.txt</code> in the parent folder.</p>
+<p class="source-links"><a href="../../assets/programming-concepts/programming-concepts.zip" download>Complete program bundle</a><a href="../../assets/programming-concepts/sample-runs.json">Inputs and run transcripts</a></p>

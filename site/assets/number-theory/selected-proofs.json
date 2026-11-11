@@ -1,0 +1,213 @@
+{
+  "description": "Source labels, statements and results for the selected worked homework. Complete problem statements and proofs are readable in the course chapters.",
+  "exercises": [
+    {
+      "id": "factorial-composites",
+      "chapter": "01-proofs-and-induction",
+      "homework": 1,
+      "problem": "Chapter 4, Problem 24",
+      "pdf_pages": [
+        1,
+        2
+      ],
+      "statement_latex": "For n >= 2, n!+2, n!+3, ..., n!+n are composite.",
+      "conclusion_latex": "n!+k=k(c+1), where n!=kc and 2<=k<=n."
+    },
+    {
+      "id": "sum-of-cubes",
+      "chapter": "01-proofs-and-induction",
+      "homework": 3,
+      "problem": "Section 1.1, Problem 1(e)",
+      "pdf_pages": [
+        2
+      ],
+      "statement_latex": "For every n>=1, 1^3+2^3+...+n^3=(n(n+1)/2)^2.",
+      "method": "Induction using the factorization k^2+4k+4=(k+2)^2."
+    },
+    {
+      "id": "balanced-remainders",
+      "chapter": "02-division-and-gcd",
+      "homework": 4,
+      "problem": "Exercise 1, Section 2.2 Problem 7",
+      "pdf_pages": [
+        2
+      ],
+      "statement_latex": "For a,b in Z and b!=0, unique q,r in Z satisfy a=qb+r and -|b|/2<r<=|b|/2.",
+      "method": "Shift the ordinary nonnegative remainder by |b| when it exceeds |b|/2, then prove uniqueness."
+    },
+    {
+      "id": "gcd-and-differences",
+      "chapter": "02-division-and-gcd",
+      "homework": 4,
+      "problem": "Exercise 4, Section 2.3 Problem 12",
+      "pdf_pages": [
+        5
+      ],
+      "statement_latex": "gcd(a,a+n) divides n for a in Z, n>0; gcd(a,a+1)=1.",
+      "method": "A common divisor divides the difference of the two inputs."
+    },
+    {
+      "id": "three-congruences",
+      "chapter": "03-congruences-and-fermat",
+      "homework": 6,
+      "problem": "Exercise 2, Section 4.4 Problem 4(c)",
+      "pdf_pages": [
+        3
+      ],
+      "statement_latex": "x=5 mod6, x=4 mod11, x=3 mod7.",
+      "conclusion_latex": "x=59 mod462."
+    },
+    {
+      "id": "fermat-power-sum",
+      "chapter": "03-congruences-and-fermat",
+      "homework": 7,
+      "problem": "Exercise 1(a), Section 5.2 Problem 11",
+      "pdf_pages": [
+        2
+      ],
+      "statement_latex": "For odd prime p, sum(k^(p-1),k=1..p-1)=-1 modp.",
+      "method": "Apply Fermat to every nonzero residue and add the p-1 congruences."
+    },
+    {
+      "id": "totient-divisor-sum",
+      "chapter": "04-arithmetic-functions-and-residues",
+      "homework": 8,
+      "problem": "Exercise 1",
+      "pdf_pages": [
+        2
+      ],
+      "statement_latex": "n=sum(phi(d),d|n) for n>=1.",
+      "method": "Partition 1..n by gcd(m,n)=n/d; each group is in bijection with the phi(d) integers relatively prime to d."
+    },
+    {
+      "id": "quadratic-discriminant",
+      "chapter": "04-arithmetic-functions-and-residues",
+      "homework": 10,
+      "problem": "Exercise 1, Section 9.1 Problem 6",
+      "pdf_pages": [
+        2
+      ],
+      "statement_latex": "For odd prime p and gcd(a,p)=1, ax^2+bx+c=0 modp has a solution iff b^2-4ac is congruent to zero or to a nonzero square modp.",
+      "method": "Complete the square, then use invertibility of 2a and 4a for the reverse implication."
+    }
+  ],
+  "illustrations": {
+    "balanced_remainders": [
+      [
+        17,
+        5,
+        3,
+        2
+      ],
+      [
+        18,
+        5,
+        4,
+        -2
+      ],
+      [
+        18,
+        -5,
+        -4,
+        -2
+      ],
+      [
+        -18,
+        5,
+        -4,
+        2
+      ]
+    ],
+    "multiplicative_order": {
+      "source_homework": 9,
+      "source_pdf_page": 2,
+      "base": 2,
+      "modulus": 7,
+      "residues": [
+        2,
+        4,
+        1
+      ],
+      "order": 3
+    }
+  },
+  "verification": {
+    "runtime": "3.13.1",
+    "toolchain": "Python standard library",
+    "checks": {
+      "factorial_composites": {
+        "cases": 780,
+        "n_range": [
+          2,
+          40
+        ]
+      },
+      "sum_of_cubes": {
+        "cases": 500,
+        "n_range": [
+          1,
+          500
+        ]
+      },
+      "balanced_remainders": {
+        "cases": 30060,
+        "a_range": [
+          -250,
+          250
+        ],
+        "b_range": [
+          -30,
+          30
+        ],
+        "excluded_b": 0
+      },
+      "gcd_difference": {
+        "cases": 25050,
+        "a_range": [
+          -250,
+          250
+        ],
+        "n_range": [
+          1,
+          50
+        ]
+      },
+      "crt": {
+        "exhaustive_modulus": 462,
+        "solution_residue": 59,
+        "signed_progression_cases": 41
+      },
+      "fermat_power_sum": {
+        "odd_primes": 25,
+        "prime_range": [
+          3,
+          101
+        ]
+      },
+      "totient_divisor_sum": {
+        "n_cases": 500,
+        "partition_bijection_n_cases": 120
+      },
+      "order_example": {
+        "base": 2,
+        "modulus": 7,
+        "least_positive_exponent": 3
+      },
+      "quadratic_discriminant": {
+        "coefficient_triples": 78788,
+        "odd_primes": [
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "sources": [
+    {
+      "id": "seminar-talk",
+      "sha256": "b23e24dc553537a7714a317286e283b0957ca45129dc96f6dce50f0ace5cab4c"
+    },
+    {
+      "id": "corrected-area-proof",
+      "sha256": "6581cc8af79d1339bca2f53b5ae84c5ae0df42aa3e5d8428dbcf0fb78086b0be"
+    }
+  ],
+  "files": [
+    {
+      "file": "koch_geometry.py",
+      "sha256": "800694eb4d64d27320f2410a57d5577d423c48617074c7ea344b01a0e580e2a6",
+      "kind": "Mathematical construction and derivation"
+    },
+    {
+      "file": "koch-stages.svg",
+      "sha256": "0df3c3779b4493cf7df93e5d3dc1ddcb64becb34d39ae59b0a29e0a7667f434d",
+      "kind": "Mathematical construction and derivation"
+    },
+    {
+      "file": "derivation.txt",
+      "sha256": "5f93dc448845ff78fb5035bd084c98c303cde68b05e1bbe3837ee2bf69fbfc3b",
+      "kind": "Mathematical construction and derivation"
+    }
+  ]
+}

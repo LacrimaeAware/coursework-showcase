@@ -1,0 +1,18 @@
+<h2>Following the chain rule</h2>
+<p>Assignment 3 calculates how a prediction error changes the weights of a sigmoid neuron, then extends the calculation to a network with two hidden neurons. Backpropagation applies the chain rule from the output back through the intermediate computations.</p>
+<p>For a neuron with prediction \(\hat y=\sigma(z)\), score \(z=\mathbf{w}^{\mathsf T}\mathbf{x}+b\), and squared-error loss \(L=\tfrac12(\hat y-y)^2\), the weight derivative is</p>
+\[
+\frac{\partial L}{\partial w_i}
+=(\hat y-y)\,\hat y(1-\hat y)\,x_i.
+\]
+<p>The factors describe the output error, the sigmoid's slope, and the input connected to that weight. A small sigmoid slope makes the update small even when the prediction is wrong. In the hidden layer, each error term also includes the downstream weight connecting that neuron to the output.</p>
+<p>The update \(\mathbf{w}\leftarrow\mathbf{w}-\eta\nabla_{\mathbf{w}}L\) uses learning rate \(\eta\) to set the step size. The source excerpt retains the assignment's numerical single-neuron and two-layer examples.</p>
+<h2>Training a digit classifier</h2>
+<p>Assignment 4 uses Keras to classify handwritten digits from MNIST, with Adam optimization and cross-entropy loss. Each image becomes a vector of \(784\) pixel values. Two dense layers contain \(128\) and \(64\) units. Their ReLU activation keeps positive values and replaces negative values with zero. A softmax output distributes the prediction across the ten digit classes.</p>
+<figure>
+  <a href="../../assets/deep-learning/mnist-loss.png" target="_blank" rel="noreferrer"><img src="../../assets/deep-learning/mnist-loss.png" width="576" height="432" alt="MNIST training loss continues falling while validation loss reaches a minimum and then rises."></a>
+  <figcaption>Training and validation loss across the digit-classification run. <a href="../../assets/deep-learning/mnist-loss.png" target="_blank" rel="noreferrer">Open full-size curve</a></figcaption>
+</figure>
+<p>The final recorded epoch has training accuracy \(0.9976\) and validation accuracy \(0.9708\). Training loss falls to \(0.0092\), while validation loss ends at \(0.1201\), above its earlier minimum. The two curves distinguish fitting the training examples from predicting examples kept outside the weight updates.</p>
+<p>A separate part of Assignment 4 optimizes vertex positions on a sphere by penalizing departures from unit radius and short pairwise distances. The common operation is choosing a loss whose derivatives move parameters toward the desired behavior.</p>
+<p class="source-links"><a href="../../assets/deep-learning/backprop-updates.py" download>Backpropagation examples</a><a href="../../assets/deep-learning/recorded-results.json">Recorded results</a></p>

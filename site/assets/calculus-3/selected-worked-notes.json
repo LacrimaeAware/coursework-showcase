@@ -1,0 +1,62 @@
+{
+  "scope": "Eight complete selected worked examples from saved Fall 2025 notes",
+  "examples": [
+    {
+      "topic": "Coordinates and vectors",
+      "source": "chapter12-coordinates",
+      "problems": [
+        "3",
+        "12"
+      ],
+      "results": [
+        "C is closest to yz-plane; A lies in xz-plane",
+        "Side lengths 3, 6, 3sqrt(5); right angle at P; not isosceles"
+      ]
+    },
+    {
+      "topic": "Arc length and curvature",
+      "source": "section13-3-curves",
+      "problems": [
+        "5",
+        "17"
+      ],
+      "results": [
+        "L=(13sqrt(13)-8)/27",
+        "Helix speed sqrt(10); T=v/sqrt(10), N=(0,-cos(t),-sin(t)); curvature 3/10"
+      ]
+    },
+    {
+      "topic": "Motion and initial conditions",
+      "source": "section13-4-motion",
+      "problems": [
+        "3",
+        "15"
+      ],
+      "results": [
+        "At t=2: v=(-2,1), a=(-1,0), speed=sqrt(5)",
+        "v=(2t+3,-1,t^2); r=(t^2+3t,1-t,1+t^3/3)"
+      ]
+    },
+    {
+      "topic": "Partial derivatives",
+      "source": "section14-3-partials",
+      "problems": [
+        "Example 1",
+        "Example 7"
+      ],
+      "results": [
+        "fx(2,1)=16, fy(2,1)=8",
+        "fxx=6x+2y^3, fxy=fyx=6xy^2, fyy=6x^2y-4"
+      ]
+    }
+  ],
+  "verification": {
+    "runtime": "SymPy 1.14.0",
+    "methods": [
+      "Exact displacements and orthogonality",
+      "Symbolic integration and cross-product curvature",
+      "Differentiation and initial-value substitution",
+      "Symbolic first and second partial derivatives"
+    ]
+  }
+}

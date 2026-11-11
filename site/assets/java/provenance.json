@@ -1,0 +1,82 @@
+{
+  "sources": [
+    {
+      "id": "chapter6-assignment5",
+      "sha256": "558e07dfcd9fe98d3a22a6a5bf3e45524b793d7577b8764c81e558ff44b749f4",
+      "edits": [
+        "Removed author-identifying header line",
+        "Renamed entry class and filename for the collection"
+      ]
+    },
+    {
+      "id": "chapter7-assignment6",
+      "sha256": "4e0804eaf67edc2af41a20e83c9989dc9a2b8dfd98707e0250ee08b894037248",
+      "edits": [
+        "Removed author-identifying header line",
+        "Renamed entry class and filename for the collection"
+      ]
+    },
+    {
+      "id": "composition-rectangle",
+      "sha256": "eade84788b936558ad36ac70db7dcbfef804b30229e5ac6470acfd7c1858e1c1",
+      "edits": []
+    },
+    {
+      "id": "composition-carpet",
+      "sha256": "7c85fc355881637688a7a3bb780a8f26af061cb9ebf456a81b17f39a32894059",
+      "edits": []
+    },
+    {
+      "id": "composition-report",
+      "sha256": "6526267eb7f6576e8e37cfcc1bc4a56e0800e7e082f14a9a250db3de00f649cd",
+      "edits": [
+        "Removed author-identifying header line",
+        "Renamed entry class and filename for the collection"
+      ]
+    },
+    {
+      "id": "registration-project",
+      "sha256": "da97b3cebcf776f6354349519a6163012f01cbf66a1d438b26e33e42058e6dd5",
+      "edits": [
+        "Removed author-identifying header line"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "file": "StockCalculation.java",
+      "sha256": "ee65e9c4e570a30ee39081dae17895dc51cf4f4b89de9bec3e064fd24fd746f2",
+      "kind": "Complete Java source"
+    },
+    {
+      "file": "SodaSales.java",
+      "sha256": "09f2ee14859d8b0e07f1e067439e2c6ed7db5fb8ab229712c5c97da96d0d5d99",
+      "kind": "Complete Java source"
+    },
+    {
+      "file": "Rectangle.java",
+      "sha256": "4832634385bd72e896fa657d86bac014b9543b0cf65bcce8f4c4a1b935d79c49",
+      "kind": "Complete Java source"
+    },
+    {
+      "file": "Carpet.java",
+      "sha256": "34808162f59af96488e434e7c667cda2ff0911e4fb083b66e32026c45308762f",
+      "kind": "Complete Java source"
+    },
+    {
+      "file": "CarpetReport.java",
+      "sha256": "5c72860a5cf37515691284fc36a687dd58d90ab6e7e9150ed9c037a35dc9e37c",
+      "kind": "Complete Java source"
+    },
+    {
+      "file": "Project1.java",
+      "sha256": "775e6a49bc514ad1674e216a770c3c8d75968aa0791e3e685e1ee560f0a8b145",
+      "kind": "Complete Java source"
+    },
+    {
+      "file": "example-results.json",
+      "sha256": "82ef339614c449d4e079d27c92ca3524ecd313b56d8b27ae3d8c664237f78eb2",
+      "kind": "Recorded example execution results"
+    }
+  ]
+}
